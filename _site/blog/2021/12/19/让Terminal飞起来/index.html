@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>让 Terminal 飞起来 | Rain Chen&#39;s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="让 Terminal 飞起来" />
+<meta name="author" content="Rain Chen" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Contents" />
+<meta property="og:description" content="Contents" />
+<link rel="canonical" href="http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/" />
+<meta property="og:url" content="http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/" />
+<meta property="og:site_name" content="Rain Chen&#39;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-19T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="让 Terminal 飞起来" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/","description":"Contents","headline":"让 Terminal 飞起来","dateModified":"2021-12-19T00:00:00+08:00","datePublished":"2021-12-19T00:00:00+08:00","author":{"@type":"Person","name":"Rain Chen"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords" content="Mac,开发与应用" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.3.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+
+    
+</head>
+
+<body>
+    
+
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="http://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/categories/">Categories</a></li>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/blog/friends/">Friends</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field" placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Rain Chen's Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Categories" href="/blog/categories/">Categories</a></li>
+                    <li class="nav-link"><a title="Tags" href="/blog/tags/">Tags</a></li>
+                    <li class="nav-link"><a title="Friends" href="/blog/friends/">Friends</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search" href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- 数学公式 -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+
+
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">让 Terminal 飞起来</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2021-12-19T00:00:00+08:00" datetime="2021-12-19T00:00:00+08:00">December 19, 2021 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Rain Chen</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+    
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+    
+        
+        <li>
+            <a href="/blog/tags/#Mac" title="Mac">Mac <span>7</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#开发与应用" title="开发与应用">开发与应用 <span>10</span></a>
+        </li>
+    
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <p>Contents</p>
+<ul id="markdown-toc">
+  <li><a href="#heading-让-terminal-飞起来" id="markdown-toc-heading-让-terminal-飞起来">让 Terminal 飞起来</a>    <ul>
+      <li><a href="#heading-使用-iterm" id="markdown-toc-heading-使用-iterm">使用 iTerm</a>        <ul>
+          <li><a href="#heading-安装" id="markdown-toc-heading-安装">安装</a></li>
+          <li><a href="#heading-配置" id="markdown-toc-heading-配置">配置</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-使用-oh-my-zsh" id="markdown-toc-heading-使用-oh-my-zsh">使用 oh-my-zsh</a>        <ul>
+          <li><a href="#heading-安装-1" id="markdown-toc-heading-安装-1">安装</a></li>
+          <li><a href="#heading-配置-1" id="markdown-toc-heading-配置-1">配置</a></li>
+          <li><a href="#heading-添加插件" id="markdown-toc-heading-添加插件">添加插件</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-写在后面" id="markdown-toc-heading-写在后面">写在后面</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="heading-让-terminal-飞起来">让 Terminal 飞起来</h1>
+
+<h2 id="heading-使用-iterm">使用 iTerm</h2>
+
+<h3 id="heading-安装">安装</h3>
+
+<p>从这里下载安装：<a href="https://iterm2.com">iTerm2</a></p>
+
+<p>把 iTerm.app 拖入 Applications 文件夹之后，就可以打开使用了。根据自己的需要对 iTerm 进行设置，例如终端上的显示信息等。</p>
+
+<h3 id="heading-配置">配置</h3>
+
+<p>我的 iTerm 配置文件，如下所示：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Ansi 6 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Tags"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"Ansi 12 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Ansi 7 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Ansi 8 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Bold Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Ansi 9 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Ansi 3 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Right Option Key Sends"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Rows"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Default Bookmark"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Blend"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.49971580615942024</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cursor Guide Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.70214027166366577</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.92681378126144409</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Non-ASCII Anti Aliased"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Use Bright Bold"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 10 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Ambiguous Double Width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Jobs to Ignore"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"rlogin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ssh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slogin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"telnet"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"Show Status Bar"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 15 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Foreground Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Working Directory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">Users</span><span class="se">\/</span><span class="s2">rainchen"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Blinking Cursor"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Disable Window Resizing"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Sync Title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Prompt Before Closing 2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"BM Growl"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Command"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Mouse Reporting"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Screen"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Selection Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.8353000283241272</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.70980000495910645</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Initial Use Transparency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Only The Default BG Color Uses Transparency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Columns"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Idle Code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 13 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Custom Command"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ASCII Anti Aliased"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Non Ascii Font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco 12"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Vertical Spacing"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Use Bold Font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Option Key Sends"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Selected Text Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Background Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Character Encoding"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 11 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Use Italic Font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Unlimited Scrollback"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Keyboard Map"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"0xf700-0x260000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;6A"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x37-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x32-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf709-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[17;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf70c-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[20;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf729-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2H"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf72b-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;5F"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf705-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2Q"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf703-0x260000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;6C"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf700-0x220000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2A"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf701-0x280000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1b 0x1b 0x5b 0x42"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x38-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x7f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x33-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1b"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf703-0x220000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2C"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf701-0x240000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;5B"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf70d-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[21;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf702-0x260000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;6D"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf729-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;5H"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf706-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2R"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x34-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf700-0x280000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1b 0x1b 0x5b 0x41"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x2d-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf70e-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[23;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf702-0x220000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2D"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf703-0x280000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1b 0x1b 0x5b 0x43"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf700-0x240000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;5A"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf707-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2S"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf70a-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[18;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x35-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1d"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf70f-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[24;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf703-0x240000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;5C"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf701-0x260000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;6B"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf702-0x280000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1b 0x1b 0x5b 0x44"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf72b-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2F"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0x36-0x40000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1e"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf708-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[15;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf701-0x220000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2B"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf70b-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[19;2~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf702-0x240000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;5D"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"0xf704-0x20000"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Text"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[1;2P"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Action"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Window Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Blur Radius"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Background Image Location"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Blur"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Badge Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.14910027384757996</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Scrollback Lines"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Send Code When Idle"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Close Sessions On End"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Terminal Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"xterm-256color"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Visual Bell"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Flashing Bell"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status Bar Layout"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarClockComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"format"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"M</span><span class="se">\/</span><span class="s2">dd h:mm"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarWorkingDirectoryComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"path"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"path"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"maxwidth"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.7976931348623157e+308</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.84060000000000001</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"minwidth"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarJobComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.74880000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"minwidth"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"maxwidth"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.7976931348623157e+308</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarGitComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.7218</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"iTermStatusBarGitComponentPollingIntervalKey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"minwidth"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"maxwidth"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">1.7976931348623157e+308</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarBatteryComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.86760000000000004</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarCPUUtilizationComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.65700000000000003</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarMemoryUtilizationComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.81359999999999999</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"class"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"iTermStatusBarNetworkUtilizationComponent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"knobs"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"base: priority"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"shared text color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.90000000000000002</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.77580000000000005</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.63</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"base: compression resistance"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"layout advanced configuration dictionary value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"advanced configuration"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"remove empty components"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">".AppleSystemUIFont 12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"algorithm"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"auto-rainbow style"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Show Timestamps"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Silence Bell"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 14 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.3333333432674408</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"rainchen"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cursor Text Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Shortcut"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cursor Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Transparency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.49817320478723409</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 0 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Horizontal Spacing"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Custom Directory"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Guid"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"720BA903-717A-4AE9-A428-9E97E288F31C"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 5 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Use Non-ASCII Font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 1 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Normal Font"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"SFMono-Regular 18"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Ansi 2 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Ansi 4 Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73333334922790527</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Link Color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Red Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Color Space"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"sRGB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Blue Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.73422712087631226</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Alpha Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Green Component"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.35915297269821167</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>以上的文件可以实现窗口的半透明模糊背景效果，字体使用的是 San Francisco Mono，字号为 18。</p>
+
+<h2 id="heading-使用-oh-my-zsh">使用 oh-my-zsh</h2>
+
+<h3 id="heading-安装-1">安装</h3>
+
+<p>官方的网址：<a href="https://ohmyz.sh">oh-my-zsh</a></p>
+
+<p>安装方式非常简单，只需要输入以下命令：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>但是鉴于「众所周知的原因」，官方给出的安装方法经常会遇到各种奇奇怪怪的问题。所以，我又找到了另一种有点「简单粗暴」的安装方式。当然，你还是要能够访问 GitHub 才行。从 oh-my-zsh 的仓库中 clone 整个仓库到本地，放在一个你认为合适的位置，找到其中的 <code class="language-plaintext highlighter-rouge">install.sh</code> 文件（目录在 <code class="language-plaintext highlighter-rouge">ohmyzsh/master/tools/install.sh</code>），在终端运行即可。保持网络连接。</p>
+
+<p>如何在终端运行这个 <code class="language-plaintext highlighter-rouge">install.sh</code> 脚本？看下面：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /ohmyzsh/master/tools
+sh install.sh
+</code></pre></div></div>
+
+<p>如果看到 oh-my-zsh 的 Code Banner 就算安装完成了。</p>
+
+<h3 id="heading-配置-1">配置</h3>
+
+<p>首次启动终端的时候，会在用户目录下生成一个 <code class="language-plaintext highlighter-rouge">.zshrc</code> 的文件。对，就是这个名字，不要以为它没有文件名只有扩展名。使用文本编辑器打开它，比如使用 Visual Studio Code，Sublime Text，Emacs，Vim 等等，都行。总而言之你需要打开它，然后发现以下内容。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># If you come from bash you might have to change your $PATH.</span>
+<span class="c"># export PATH=$HOME/bin:/usr/local/bin:$PATH</span>
+
+<span class="c"># Path to your oh-my-zsh installation.</span>
+<span class="nb">export </span><span class="nv">ZSH</span><span class="o">=</span><span class="s2">"/Users/rainchen/.oh-my-zsh"</span>
+
+<span class="c"># Set name of the theme to load --- if set to "random", it will</span>
+<span class="c"># load a random theme each time oh-my-zsh is loaded, in which case,</span>
+<span class="c"># to know which specific one was loaded, run: echo $RANDOM_THEME</span>
+<span class="c"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span>
+<span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">"rainsmac"</span>
+
+<span class="c"># Set list of themes to pick from when loading at random</span>
+<span class="c"># Setting this variable when ZSH_THEME=random will cause zsh to load</span>
+<span class="c"># a theme from this variable instead of looking in $ZSH/themes/</span>
+<span class="c"># If set to an empty array, this variable will have no effect.</span>
+<span class="c"># ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )</span>
+
+<span class="c"># Uncomment the following line to use case-sensitive completion.</span>
+<span class="c"># CASE_SENSITIVE="true"</span>
+
+<span class="c"># Uncomment the following line to use hyphen-insensitive completion.</span>
+<span class="c"># Case-sensitive completion must be off. _ and - will be interchangeable.</span>
+<span class="c"># HYPHEN_INSENSITIVE="true"</span>
+
+<span class="c"># Uncomment one of the following lines to change the auto-update behavior</span>
+<span class="c"># zstyle ':omz:update' mode disabled  # disable automatic updates</span>
+<span class="c"># zstyle ':omz:update' mode auto      # update automatically without asking</span>
+<span class="c"># zstyle ':omz:update' mode reminder  # just remind me to update when it's time</span>
+
+<span class="c"># Uncomment the following line to change how often to auto-update (in days).</span>
+<span class="c"># zstyle ':omz:update' frequency 13</span>
+
+<span class="c"># Uncomment the following line if pasting URLs and other text is messed up.</span>
+<span class="c"># DISABLE_MAGIC_FUNCTIONS="true"</span>
+
+<span class="c"># Uncomment the following line to disable colors in ls.</span>
+<span class="c"># DISABLE_LS_COLORS="true"</span>
+
+<span class="c"># Uncomment the following line to disable auto-setting terminal title.</span>
+<span class="c"># DISABLE_AUTO_TITLE="true"</span>
+
+<span class="c"># Uncomment the following line to enable command auto-correction.</span>
+<span class="c"># ENABLE_CORRECTION="true"</span>
+
+<span class="c"># Uncomment the following line to display red dots whilst waiting for completion.</span>
+<span class="c"># You can also set it to another string to have that shown instead of the default red dots.</span>
+<span class="c"># e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"</span>
+<span class="c"># Caution: this setting can cause issues with multiline prompts in zsh &lt; 5.7.1 (see #5765)</span>
+<span class="c"># COMPLETION_WAITING_DOTS="true"</span>
+
+<span class="c"># Uncomment the following line if you want to disable marking untracked files</span>
+<span class="c"># under VCS as dirty. This makes repository status check for large repositories</span>
+<span class="c"># much, much faster.</span>
+<span class="c"># DISABLE_UNTRACKED_FILES_DIRTY="true"</span>
+
+<span class="c"># Uncomment the following line if you want to change the command execution time</span>
+<span class="c"># stamp shown in the history command output.</span>
+<span class="c"># You can set one of the optional three formats:</span>
+<span class="c"># "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"</span>
+<span class="c"># or set a custom format using the strftime function format specifications,</span>
+<span class="c"># see 'man strftime' for details.</span>
+<span class="c"># HIST_STAMPS="mm/dd/yyyy"</span>
+
+<span class="c"># Would you like to use another custom folder than $ZSH/custom?</span>
+<span class="c"># ZSH_CUSTOM=/path/to/new-custom-folder</span>
+
+<span class="c"># Which plugins would you like to load?</span>
+<span class="c"># Standard plugins can be found in $ZSH/plugins/</span>
+<span class="c"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span>
+<span class="c"># Example format: plugins=(rails git textmate ruby lighthouse)</span>
+<span class="c"># Add wisely, as too many plugins slow down shell startup.</span>
+<span class="nv">plugins</span><span class="o">=(</span>git<span class="o">)</span>
+
+<span class="nb">source</span> <span class="nv">$ZSH</span>/oh-my-zsh.sh
+
+<span class="c"># User configuration</span>
+
+<span class="c"># export MANPATH="/usr/local/man:$MANPATH"</span>
+
+<span class="c"># You may need to manually set your language environment</span>
+<span class="c"># export LANG=en_US.UTF-8</span>
+
+<span class="c"># Preferred editor for local and remote sessions</span>
+<span class="c"># if [[ -n $SSH_CONNECTION ]]; then</span>
+<span class="c">#   export EDITOR='vim'</span>
+<span class="c"># else</span>
+<span class="c">#   export EDITOR='mvim'</span>
+<span class="c"># fi</span>
+
+<span class="c"># Compilation flags</span>
+<span class="c"># export ARCHFLAGS="-arch x86_64"</span>
+
+<span class="c"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span>
+<span class="c"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span>
+<span class="c"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span>
+<span class="c"># For a full list of active aliases, run `alias`.</span>
+<span class="c">#</span>
+<span class="c"># Example aliases</span>
+<span class="c"># alias zshconfig="mate ~/.zshrc"</span>
+<span class="c"># alias ohmyzsh="mate ~/.oh-my-zsh"</span>
+
+<span class="nb">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+<span class="nb">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+</code></pre></div></div>
+
+<p>接下来你需要去编辑这个配置文件。设定自己喜欢的主题，这个主题可以是 oh-my-zsh 预设的主题，也可以自己做的主题。只要主题文件放在 oh-my-zsh 的安装位置的主题文件夹 <code class="language-plaintext highlighter-rouge">/Users/rainchen/.oh-my-zsh/themes</code> 下就行。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">"这里写你的主题名字"</span>
+</code></pre></div></div>
+
+<p>下面分享我的主题配置文件：（注意， Apple 的标记在某些系统上可能无法显示）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>toon <span class="o">{</span>
+  <span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">""</span>
+<span class="o">}</span>
+
+get_git_dirty<span class="o">()</span> <span class="o">{</span>
+  git diff <span class="nt">--quiet</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'*'</span>
+<span class="o">}</span>
+
+autoload <span class="nt">-Uz</span> vcs_info
+zstyle <span class="s1">':vcs_info:*'</span> check-for-changes <span class="nb">true
+</span>zstyle <span class="s1">':vcs_info:*'</span> unstagedstr <span class="s1">'%F{red}*'</span>   <span class="c"># display this when there are unstaged changes</span>
+zstyle <span class="s1">':vcs_info:*'</span> stagedstr <span class="s1">'%F{yellow}+'</span>  <span class="c"># display this when there are staged changes</span>
+zstyle <span class="s1">':vcs_info:*'</span> actionformats <span class="se">\</span>
+    <span class="s1">'%F{5}%F{5}[%F{2}%b%F{3}|%F{1}%a%c%u%F{5}]%f '</span>
+zstyle <span class="s1">':vcs_info:*'</span> formats       <span class="se">\</span>
+    <span class="s1">'%F{5}%F{5}[%F{2}%b%c%u%F{5}]%f '</span>
+zstyle <span class="s1">':vcs_info:(sv[nk]|bzr):*'</span> branchformat <span class="s1">'%b%F{1}:%F{3}%r'</span>
+zstyle <span class="s1">':vcs_info:*'</span> <span class="nb">enable </span>git cvs svn
+
+theme_precmd <span class="o">()</span> <span class="o">{</span>
+    vcs_info
+<span class="o">}</span>
+
+setopt prompt_subst
+<span class="nv">PROMPT</span><span class="o">=</span><span class="s1">'%{$fg[magenta]%}$(toon)%{$reset_color%} %~/ %# %{$reset_color%}${vcs_info_msg_0_}%{$reset_color%}'</span>
+
+autoload <span class="nt">-U</span> add-zsh-hook
+add-zsh-hook precmd theme_precmd
+
+</code></pre></div></div>
+
+<h3 id="heading-添加插件">添加插件</h3>
+
+<p>下面介绍我使用的两个比较好用而且经典的插件</p>
+
+<h4 id="heading-zsh-syntax-highlighting">zsh-syntax-highlighting</h4>
+
+<p>顾名思义，语法高亮。使用 Homebrew 安装。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>zsh-syntax-highlighting
+</code></pre></div></div>
+
+<p>安装完之后，查看软件包的路径。然后把路径添加到 <code class="language-plaintext highlighter-rouge">.zshrc</code> 配置文件的最后。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</code></pre></div></div>
+
+<p>保存即可。随后在终端 Shell 中输入下面的指令来使配置生效。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.zshrc
+</code></pre></div></div>
+
+<h4 id="heading-zsh-autosuggestions">zsh-autosuggestions</h4>
+
+<p>这个包，顾名思义，自动建议和补全。可以自动补全指令，减少了大量的输入，降低了出错的风险。</p>
+
+<p>同样，我们使用 Homebrew 安装这个软件包。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>zsh-autosuggestions
+</code></pre></div></div>
+
+<p>安装完成之后，查看软件包的路径。然后把路径添加到 <code class="language-plaintext highlighter-rouge">.zshrc</code> 配置文件的最后。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+</code></pre></div></div>
+
+<p>保存即可。随后在终端 Shell 中输入下面的指令来使配置生效。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.zshrc
+</code></pre></div></div>
+
+<h2 id="heading-写在后面">写在后面</h2>
+
+<p>至此，我们的终端配置就基本完成了，之后可以根据自己的需要对终端进行配置。</p>
+
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2021/12/17/macOS%E4%B8%8A%E7%9A%84VSCode%E9%85%8D%E7%BD%AE/" title=" 'macOS 上的 Visual Studio Code 配置'"> ← macOS 上的 Visual Studio Code 配置</a>
+                        
+                        
+                            <a class="internal" rel="next" href="/blog/2022/01/01/%E4%BD%A0%E5%A5%BD2022/" title="Next Post '你好 2022'">你好 2022 → </a>
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                        <p>🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️</p>
+                    
+                    
+                </div>
+                <div class="social-links">
+                    
+                    <a class="ico-rss" href="/feed.xml" rel="me" target="_blank" title="feed"></a>
+                    
+                        
+                    
+                        
+                            <a class="ico-github" href="https://github.com/chen-rain" rel="me" target="_blank" title="github"></a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+</footer>
+
+    </div>
+
+    <script>
+$(document).ready(function () {
+    var offset = 50,
+        duration = 500,
+        width = 960;
+    $(window).scroll(function () {
+        if ($(window).width() > width) {
+            if ($(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            } else {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+        }
+    });
+    $(window).resize(function () {
+        if ($(window).width() < width) {
+            $('footer').css('top', 'auto');
+            $('footer .back-to-top').fadeOut(duration);
+        }
+        if ($(window).width() >= width && $(this).scrollTop() > offset) {
+            $('footer').css('top', '20px');
+            $('footer .back-to-top').fadeIn(duration);
+        }
+    });
+
+    $('footer .back-to-top, .gotop').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, duration);
+        return false;
+    });
+
+    $('.show-hidden').on('click', function () {
+        $(this).parent().next().toggleClass("hidden");
+        $(this).toggleClass("hidden");
+    });
+});
+</script>
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+$(document).ready(function () {
+    $('.search-field').simpleJekyllSearch({
+      jsonFile: '/search.json',
+      template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+      searchResults: '.search-wrapper .results',
+      searchResultsTitle: '<h4>Search results</h4>',
+      noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+    });
+});
+
+(function ($, window, undefined) {
+    var closeOverlay = function () {
+        $('.nav-wrapper, .search-wrapper').removeAttr('style');
+        $(".nav-form, .search-form").removeClass('active');
+        $("body").removeClass('nav-overlay search-overlay');
+    };
+
+    $('.nav-global .btn-search').on('click', function () {
+        $('.search-wrapper').css({display: "block"});
+        $(".search-form").addClass('active');
+        $(".search-form").find('input').focus();
+        $("body").addClass('search-overlay');
+    });
+
+    $('.nav-global .btn-menu').on('click', function () {
+        $('.nav-wrapper').css({display: "block"});
+        $(".nav-form").addClass('active');
+        $(".nav-form .search-field").prop('disabled', true);
+        $("body").addClass('nav-overlay');
+    });
+
+    $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+        closeOverlay();
+    });
+
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            closeOverlay();
+        }
+    });
+})(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+
+</body>
+
+</html>

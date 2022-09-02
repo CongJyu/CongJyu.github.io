@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Fortran Programming | Rain Chen&#39;s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Fortran Programming" />
+<meta name="author" content="Rain Chen" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Contents" />
+<meta property="og:description" content="Contents" />
+<link rel="canonical" href="http://localhost:4000/blog/2022/01/26/FortranProgramming/" />
+<meta property="og:url" content="http://localhost:4000/blog/2022/01/26/FortranProgramming/" />
+<meta property="og:site_name" content="Rain Chen&#39;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-26T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fortran Programming" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/blog/2022/01/26/FortranProgramming/","description":"Contents","headline":"Fortran Programming","dateModified":"2022-01-26T00:00:00+08:00","datePublished":"2022-01-26T00:00:00+08:00","author":{"@type":"Person","name":"Rain Chen"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2022/01/26/FortranProgramming/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords" content="开发与应用" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.3.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+
+    
+</head>
+
+<body>
+    
+
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="http://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/categories/">Categories</a></li>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/blog/friends/">Friends</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field" placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Rain Chen's Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Categories" href="/blog/categories/">Categories</a></li>
+                    <li class="nav-link"><a title="Tags" href="/blog/tags/">Tags</a></li>
+                    <li class="nav-link"><a title="Friends" href="/blog/friends/">Friends</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search" href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- 数学公式 -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+
+
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">Fortran Programming</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2022-01-26T00:00:00+08:00" datetime="2022-01-26T00:00:00+08:00">January 26, 2022 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Rain Chen</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+    
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+    
+        
+        <li>
+            <a href="/blog/tags/#开发与应用" title="开发与应用">开发与应用 <span>10</span></a>
+        </li>
+    
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <p>Contents</p>
+<ul id="markdown-toc">
+  <li><a href="#heading-fortran-programming-review" id="markdown-toc-heading-fortran-programming-review">Fortran Programming Review</a>    <ul>
+      <li><a href="#heading-0-fortran-简介" id="markdown-toc-heading-0-fortran-简介">0. Fortran 简介</a></li>
+      <li><a href="#heading-1-fortran-95-程序设计初步" id="markdown-toc-heading-1-fortran-95-程序设计初步">1. Fortran 95 程序设计初步</a>        <ul>
+          <li><a href="#heading-11-程序的结构说明" id="markdown-toc-heading-11-程序的结构说明">1.1 程序的结构说明</a></li>
+          <li><a href="#heading-12-字符集" id="markdown-toc-heading-12-字符集">1.2 字符集</a></li>
+          <li><a href="#heading-13-标识符" id="markdown-toc-heading-13-标识符">1.3 标识符</a></li>
+          <li><a href="#heading-14-关键字" id="markdown-toc-heading-14-关键字">1.4 关键字</a></li>
+          <li><a href="#heading-15-书写格式" id="markdown-toc-heading-15-书写格式">1.5 书写格式</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-2-数据类型" id="markdown-toc-heading-2-数据类型">2. 数据类型</a>        <ul>
+          <li><a href="#heading-21-基本数据类型" id="markdown-toc-heading-21-基本数据类型">2.1 基本数据类型</a></li>
+          <li><a href="#heading-22-数组类型" id="markdown-toc-heading-22-数组类型">2.2 数组类型</a></li>
+          <li><a href="#heading-23-指针类型" id="markdown-toc-heading-23-指针类型">2.3 指针类型</a></li>
+          <li><a href="#heading-24-派生类型与结构体" id="markdown-toc-heading-24-派生类型与结构体">2.4 派生类型与结构体</a></li>
+          <li><a href="#heading-25-公用区类型" id="markdown-toc-heading-25-公用区类型">2.5 公用区类型</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-3-变量与常量" id="markdown-toc-heading-3-变量与常量">3. 变量与常量</a>        <ul>
+          <li><a href="#heading-31-变量" id="markdown-toc-heading-31-变量">3.1 变量</a></li>
+          <li><a href="#heading-32-常量" id="markdown-toc-heading-32-常量">3.2 常量</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-4-表达式" id="markdown-toc-heading-4-表达式">4. 表达式</a>        <ul>
+          <li><a href="#heading-41-算术表达式" id="markdown-toc-heading-41-算术表达式">4.1 算术表达式</a></li>
+          <li><a href="#heading-42-字符表达式" id="markdown-toc-heading-42-字符表达式">4.2 字符表达式</a></li>
+          <li><a href="#heading-43-关系表达式" id="markdown-toc-heading-43-关系表达式">4.3 关系表达式</a></li>
+          <li><a href="#heading-44-逻辑表达式" id="markdown-toc-heading-44-逻辑表达式">4.4 逻辑表达式</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-5-程序的结构" id="markdown-toc-heading-5-程序的结构">5. 程序的结构</a>        <ul>
+          <li><a href="#heading-51-顺序结构" id="markdown-toc-heading-51-顺序结构">5.1 顺序结构</a></li>
+          <li><a href="#heading-52-选择结构" id="markdown-toc-heading-52-选择结构">5.2 选择结构</a></li>
+          <li><a href="#heading-53-循环结构" id="markdown-toc-heading-53-循环结构">5.3 循环结构</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-6-函数与子程序" id="markdown-toc-heading-6-函数与子程序">6. 函数与子程序</a>        <ul>
+          <li><a href="#heading-61-语句函数" id="markdown-toc-heading-61-语句函数">6.1 语句函数</a></li>
+          <li><a href="#heading-62-函数子程序" id="markdown-toc-heading-62-函数子程序">6.2 函数子程序</a></li>
+          <li><a href="#heading-63-子例行子程序" id="markdown-toc-heading-63-子例行子程序">6.3 子例行子程序</a></li>
+          <li><a href="#heading-64-递归子程序" id="markdown-toc-heading-64-递归子程序">6.4 递归子程序</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-7-文件" id="markdown-toc-heading-7-文件">7. 文件</a>        <ul>
+          <li><a href="#heading-71-文件的基本概念" id="markdown-toc-heading-71-文件的基本概念">7.1 文件的基本概念</a></li>
+          <li><a href="#heading-72-什么是记录" id="markdown-toc-heading-72-什么是记录">7.2 什么是记录</a></li>
+          <li><a href="#heading-73-文件的特性" id="markdown-toc-heading-73-文件的特性">7.3 文件的特性</a></li>
+          <li><a href="#heading-74-文件的操作语句" id="markdown-toc-heading-74-文件的操作语句">7.4 文件的操作语句</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-8-fortran-并行计算基础" id="markdown-toc-heading-8-fortran-并行计算基础">8. Fortran 并行计算基础</a>        <ul>
+          <li><a href="#heading-81-mpi-使用概述" id="markdown-toc-heading-81-mpi-使用概述">8.1 MPI 使用概述</a></li>
+          <li><a href="#heading-82-编译含有-mpi-的并行计算程序" id="markdown-toc-heading-82-编译含有-mpi-的并行计算程序">8.2 编译含有 MPI 的并行计算程序</a></li>
+          <li><a href="#heading-83-实际操作" id="markdown-toc-heading-83-实际操作">8.3 实际操作</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="heading-fortran-programming-review">Fortran Programming Review</h1>
+
+<p>Made by Rain Chen</p>
+
+<p>Dec. 2021</p>
+
+<h2 id="heading-0-fortran-简介">0. Fortran 简介</h2>
+
+<p>Fortran 是 Formula Translation 的缩写，是世界上最早推广使用的高级程序设计语言，主要适用于科学和工程问题的数值计算。</p>
+
+<p>Fortran 90 增加了一些新特性。比如，自由格式源代码的输入，小写的 Fortran 关键字等等，还有改善的函数传参机制等。</p>
+
+<h2 id="heading-1-fortran-95-程序设计初步">1. Fortran 95 程序设计初步</h2>
+
+<h3 id="heading-11-程序的结构说明">1.1 程序的结构说明</h3>
+
+<p>类型说明语句，输入语句，赋值语句，输出语句……</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">program</span><span class="w"> </span><span class="n">example</span><span class="w">
+    </span><span class="kt">real</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="w">
+    </span><span class="k">read</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w">
+    </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+        </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">
+        </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">))</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">
+        </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">"x1 ="</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="w">
+        </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">"x2 ="</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="w">
+    </span><span class="k">else</span><span class="w">
+        </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">"方程无实根."</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">program</span><span class="w">
+</span></code></pre></div></div>
+
+<p>在 Fortran 中使用 <code class="language-plaintext highlighter-rouge">!</code> 来表示注释。注释非常重要，没有注释的程序不能算合格的程序。</p>
+
+<p>一个 Fortran 程序由一个或者若干个程序单元组成，包括主程序单元，外部子程序单元，模块单元，数据块单元。一个程序中必须有且只有一个主程序单元。每一个程序单元以 <code class="language-plaintext highlighter-rouge">end</code> 结束。</p>
+
+<h3 id="heading-12-字符集">1.2 字符集</h3>
+
+<p>Fortran 95 的字符集，是在编写 Fortran 95 程序的时候能够使用的全部字符及符号的集合。包括：</p>
+
+<ul>
+  <li>英文字母 a ~ z, A ~ Z</li>
+  <li>阿拉伯数字 0 1 2 3 4 5 6 7 8 9</li>
+  <li>22 个特殊字符</li>
+</ul>
+
+<p>除了字符型常量之外， Fortran 95 源程序不区分大小写。Fortran 95 字符集之外的可打印字符只能出现在注释、字符常量、字符串编辑符和输入输出记录中。</p>
+
+<h3 id="heading-13-标识符">1.3 标识符</h3>
+
+<p>标识符是名称。用来在程序中标识有关实体，比如变量、符号常量、函数、程序单元、公用块、数组、模块和形参等。规定标识符只能由字母、数字、下划线和美元符号组成。</p>
+
+<h3 id="heading-14-关键字">1.4 关键字</h3>
+
+<p>Fortran 95 中的一种特定的字符串。正确的关键字在代码编辑器中会显示代码高亮。关键字有特定的含义，不能随便改变以防出现语法错误。需要注意的是，Fortran 95 对关键字不予以保留，关键字可以作为其他实体的名称，但是不建议这样做。使用关键字作为实体的名称会导致程序难以理解和阅读。</p>
+
+<p>常用的 Fortran 95 关键字</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>关键字</th>
+      <th>关键字</th>
+      <th>关键字</th>
+      <th>关键字</th>
+      <th>关键字</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">program</code></td>
+      <td><code class="language-plaintext highlighter-rouge">implicit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">read</code></td>
+      <td><code class="language-plaintext highlighter-rouge">write</code></td>
+      <td><code class="language-plaintext highlighter-rouge">print</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">format</code></td>
+      <td><code class="language-plaintext highlighter-rouge">call</code></td>
+      <td><code class="language-plaintext highlighter-rouge">real</code></td>
+      <td><code class="language-plaintext highlighter-rouge">integer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">character</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">do</code></td>
+      <td><code class="language-plaintext highlighter-rouge">end</code></td>
+      <td><code class="language-plaintext highlighter-rouge">if</code></td>
+      <td><code class="language-plaintext highlighter-rouge">parameter</code></td>
+      <td><code class="language-plaintext highlighter-rouge">complex</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">logical</code></td>
+      <td><code class="language-plaintext highlighter-rouge">double precision</code></td>
+      <td><code class="language-plaintext highlighter-rouge">then</code></td>
+      <td><code class="language-plaintext highlighter-rouge">open</code></td>
+      <td><code class="language-plaintext highlighter-rouge">subroutine</code></td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="heading-15-书写格式">1.5 书写格式</h3>
+
+<h4 id="heading-151-固定格式-fixed-format">1.5.1 固定格式 Fixed Format</h4>
+
+<p>每行 80 个字符。分成 4 个区。</p>
+
+<h5 id="heading-1511-标号区">1.5.1.1 标号区</h5>
+
+<ul>
+  <li>1 到 5 列为标号区，标号最多为 5 位数字。</li>
+  <li>数字中的空格不起作用</li>
+  <li>标号区的第一个字符为 <code class="language-plaintext highlighter-rouge">!</code> 说明该行为注释行。</li>
+</ul>
+
+<h5 id="heading-1512-续行区">1.5.1.2 续行区</h5>
+
+<ul>
+  <li>第 6 列是续行区。续行标志为除去空格和零意外的任何 Fortran 字符。</li>
+  <li>注释行没有续行的概念。</li>
+</ul>
+
+<h5 id="heading-1513-语句区">1.5.1.3 语句区</h5>
+
+<ul>
+  <li>第 7 到 72 列为语句区</li>
+  <li>语句只能书写到语句区</li>
+  <li>一行只能写一个语句，写不下可以分多个语句写，或者续行</li>
+</ul>
+
+<h5 id="heading-1514-注释区">1.5.1.4 注释区</h5>
+
+<ul>
+  <li>注释区中的注释不需要给出注释行的标志符。</li>
+</ul>
+
+<h4 id="heading-152-自由格式-free-format">1.5.2 自由格式 Free Format</h4>
+
+<p>语句可以从任意位置开始书写。不受分区和位置限制。每一行可以编写 132 个字符。一行可以写多个语句，语句之间用语句分隔标志符 <code class="language-plaintext highlighter-rouge">;</code> 做间隔。续行标志符 <code class="language-plaintext highlighter-rouge">&amp;</code> 出现在前一行的末尾。使用 <code class="language-plaintext highlighter-rouge">!</code> 作为注释符号。</p>
+
+<p>续行时要注意的问题：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="nb">atan</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">&amp;</span><span class="w">
+</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>在没有把具有特定意义的字符分成两行的时候，只需在前面一行的末尾加上一个换行符 <code class="language-plaintext highlighter-rouge">&amp;</code>，但是在把有特定意义的字符分成两行的时候，行尾要加一个换行符，下一行的开头也要加一个换行符。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="nb">atan</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">co</span><span class="p">&amp;</span><span class="w">
+</span><span class="p">&amp;</span><span class="n">s</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">&amp;</span><span class="w">
+</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="heading-2-数据类型">2. 数据类型</h2>
+
+<h3 id="heading-21-基本数据类型">2.1 基本数据类型</h3>
+
+<h4 id="heading-211-数值型">2.1.1 数值型</h4>
+
+<h5 id="heading-2111-整数类型-integer">2.1.1.1 整数类型 Integer</h5>
+
+<ul>
+  <li>长整型</li>
+  <li>短整型</li>
+</ul>
+
+<p>整数数据类型包括正数、负数和 0。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>整数类型名</th>
+      <th>字节数</th>
+      <th>取值范围</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INTEGER(1)</td>
+      <td>1</td>
+      <td>$ - 2 ^ 7 $ ~ $ 2 ^ 7 - 1 $</td>
+    </tr>
+    <tr>
+      <td>短整型 INTEGER(2)</td>
+      <td>2</td>
+      <td>$ - 2 ^ {15} $ ~ $ 2 ^ {15} - 1 $</td>
+    </tr>
+    <tr>
+      <td>长整型 INTEGER</td>
+      <td>4</td>
+      <td>$ -2 ^ {31} $ ~ $2 ^ {31} - 1 $</td>
+    </tr>
+    <tr>
+      <td>INTEGER(8)</td>
+      <td>8</td>
+      <td>$ - 2 ^ {63} $ ~ $ 2 ^ {63} - 1 $ （Alpha 系统）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="heading-2112-实数类型-real">2.1.1.2 实数类型 Real</h5>
+
+<p>又称为浮点数。数值是近似值，有误差累计。通常有两种表示形式，十进制的小数形式和指数形式。</p>
+
+<blockquote>
+  <p>注意：指数形式表示时，指数部分必须是整数。</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>实数类型名</th>
+      <th>字节数</th>
+      <th>精度（有效数字）</th>
+      <th>取值范围</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>单精度</td>
+      <td>4</td>
+      <td>6 ~ 7</td>
+      <td>$ \pm 3.40282347E38 $ ~ $ \pm 1.17549435E-38 $</td>
+    </tr>
+    <tr>
+      <td>双精度</td>
+      <td>8</td>
+      <td>16 ~ 17</td>
+      <td>$ \pm 2.2250738585072013D308 $ ~ $ \pm 1.7976931348623158D-08 $</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="heading-2113-复数类型-complex">2.1.1.3 复数类型 Complex</h5>
+
+<p>单精度复数和双精度复数。表示形式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>例如：<code class="language-plaintext highlighter-rouge">(1.2, 3.5)</code> 表示 $ 1.2 + 3.5i $ 。</p>
+
+<blockquote>
+  <p>Fortran 是目前唯一提供复数类型的计算机语言。</p>
+</blockquote>
+
+<h4 id="heading-212-非数值型">2.1.2 非数值型</h4>
+
+<h5 id="heading-2121-字符类型-character">2.1.2.1 字符类型 Character</h5>
+
+<p>只有一个字母或符号称为字符，有多个字符时称为字符串。使用一对单引号或者一堆双引号括起来，例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'Fortran charater'</span><span class="w">    </span><span class="c1">! 用单引号</span><span class="w">
+</span><span class="s2">"hello world!"</span><span class="w">    </span><span class="c1">! 用双引号</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-2122-逻辑类型-logical">2.1.2.2 逻辑类型 Logical</h5>
+
+<p>表示判断的结果，只有两种值：是和否，即对错，真假。</p>
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">.true.</span><span class="w">    </span><span class="c1">! 真</span><span class="w">
+</span><span class="kc">.false.</span><span class="w">    </span><span class="c1">! 假</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="heading-22-数组类型">2.2 数组类型</h3>
+
+<p>数组是类型相同的一批数据的有序集合。每个数组有一个数组名。</p>
+
+<h4 id="heading-221-定义数组">2.2.1 定义数组</h4>
+
+<h5 id="heading-2211-用-dimension-语句定义数组">2.2.1.1 用 dimension 语句定义数组</h5>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">dimension</span><span class="w"> </span><span class="err">数组名</span><span class="p">(</span><span class="err">下标下界</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">下标上界</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">),</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>数组说明符定义了数组名、数组的维数和大小。数组的维数由维数说明符的个数确定。维数说明符最少有 1 个，最多有 7 个。数组的大小就是数组元素的个数。</p>
+
+<p>例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">dimension</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">
+</span><span class="k">dimension</span><span class="w"> </span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">    </span><span class="c1">! 含义相同</span><span class="w">
+</span></code></pre></div></div>
+
+<p>在 dimension 语句之后可以使用类型说明语句说明数组的类型，不需要重复写维数说明符。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">dimension</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">),</span><span class="w"> </span><span class="n">m</span><span class="p">(</span><span class="mi">-1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w">
+</span><span class="kt">real</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w">
+</span><span class="kt">integer</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w">
+</span><span class="kt">character</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">name</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-2212-用类型说明语句定义数组">2.2.1.2 用类型说明语句定义数组</h5>
+
+<p>一般格式为：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">类型说明符</span><span class="w"> </span><span class="err">数组名</span><span class="p">(</span><span class="err">下标下界</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">下标上界</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">),</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>定义数组时必须明确数组的大小。</p>
+
+<h5 id="heading-2213-同时使用类型说明语句和-dimension-语句定义数组">2.2.1.3 同时使用类型说明语句和 dimension 语句定义数组</h5>
+
+<p>一般格式为：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">类型说明符</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="err">下标下界</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">下标上界</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="err">数组名</span><span class="p">[,</span><span class="w"> </span><span class="err">...</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-222-给数组赋初值">2.2.2 给数组赋初值</h4>
+
+<h5 id="heading-2221-使用数组赋值符赋值">2.2.2.1 使用数组赋值符赋值</h5>
+
+<p>一般格式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">数组名</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(/</span><span class="err">取值列表</span><span class="p">/)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>取值列表可以是类型相同的常量、变量、函数、表达式或者隐含 do 循环，它们之间用逗号隔开。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">program</span><span class="w"> </span><span class="n">array</span><span class="w">
+    </span><span class="kt">integer</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">
+    </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">/)</span><span class="w">
+    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(/</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">/)</span><span class="w">
+    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w">
+    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">program</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-2222-使用-data-语句给数组赋初值">2.2.2.2 使用 data 语句给数组赋初值</h5>
+
+<p>data 语句时专门用来给变量、数组、数组元素赋初值的语句。一般格式如下：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">data</span><span class="w"> </span><span class="err">数组名</span><span class="p">/</span><span class="err">常量表</span><span class="p">/,</span><span class="w"> </span><span class="err">数组名</span><span class="p">/</span><span class="err">常量表</span><span class="p">/,</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>数组元素个数必须和常量一一对应。</p>
+
+<h4 id="heading-223-对数组的操作">2.2.3 对数组的操作</h4>
+
+<h5 id="heading-2231-对元素的操作">2.2.3.1 对元素的操作</h5>
+
+<p>对数组进行操作要先定义再使用。对数组元素的操作即是对数组元素的引用。</p>
+
+<p>一般格式为：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">数组名</span><span class="p">(</span><span class="err">下标</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="err">下标</span><span class="p">],</span><span class="w"> </span><span class="err">...</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">    </span><span class="c1">! 对数组 a 中的第一个元素赋值为 10</span><span class="w">
+</span><span class="k">do</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-2232-对整体的操作">2.2.3.2 对整体的操作</h5>
+
+<p>用数组名代表整个数组。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span></code></pre></div></div>
+
+<p>当数组 a 和数组 b 和数组 c 维数大小相同时，可以直接操作：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w">    </span><span class="c1">! 把数组 b 中的同一位置的元素的值对应赋值给 a 数组中的对应元素</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="n">c</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-2233-局部引用">2.2.3.3 局部引用</h5>
+
+<p>例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="c1">! 把 a(3), a(4), a(5) 赋值为 0</span><span class="w">
+</span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">    </span><span class="c1">! 把 a(1), a(3), a(5) 赋值为 3</span><span class="w">
+</span></code></pre></div></div>
+
+<p>数组元素的三元表达式可以写成：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">初值</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">终值</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">步长</span><span class="w">
+</span></code></pre></div></div>
+
+<p>可以通过三元表达式引用数组的一部分。例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="heading-23-指针类型">2.3 指针类型</h3>
+
+<p>省略此部分内容。</p>
+
+<h3 id="heading-24-派生类型与结构体">2.4 派生类型与结构体</h3>
+
+<p>自己定义的数据类型。</p>
+
+<blockquote>
+  <p>Fortran 90 之前的版本不支持结构体</p>
+</blockquote>
+
+<h4 id="heading-241-派生类型定义">2.4.1 派生类型定义</h4>
+
+<p>使用 type 块来定义一个派生类型，应该写在程序说明部分，通常是写在说明的前部。派生类型是一种抽象。</p>
+
+<p>定义格式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="err">派生类型名</span><span class="w">
+    </span><span class="n">member1</span><span class="w"> </span><span class="err">类型说明</span><span class="w">
+    </span><span class="n">member2</span><span class="w"> </span><span class="err">类型说明</span><span class="w">
+    </span><span class="n">member3</span><span class="w"> </span><span class="err">类型说明</span><span class="w">
+    </span><span class="n">member4</span><span class="w"> </span><span class="err">类型说明</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="n">membern</span><span class="w"> </span><span class="err">类型说明</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="p">[</span><span class="err">派生类型名</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-242-结构体的定义与引用">2.4.2 结构体的定义与引用</h4>
+
+<p>结构体是对派生类型的一种具体化。只有定义了派生类型结构体或结构体数组，才能对结构体或结构体数组成员进行处理。</p>
+
+<p>结构体定义的一般格式如下：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="p">(</span><span class="err">派生类型名</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="err">结构体列表</span><span class="w">
+</span></code></pre></div></div>
+
+<p>引用结构体成员需要这样写：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">结构体名</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="err">成员名</span><span class="w">
+</span><span class="err">结构体名.成员名</span><span class="w">    </span><span class="c1">! 这样也行，不过最好两种不要混用</span><span class="w">
+</span></code></pre></div></div>
+
+<p>在嵌套定义的结构体中，成员引用应该嵌套使用引用符 <code class="language-plaintext highlighter-rouge">%</code> 或者 <code class="language-plaintext highlighter-rouge">.</code>。例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stu</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">year</span><span class="w">
+</span></code></pre></div></div>
+
+<p>使用 <code class="language-plaintext highlighter-rouge">.</code> 作为引用符，成员名不能使用逻辑运算符和关系运算符。</p>
+
+<h3 id="heading-25-公用区类型">2.5 公用区类型</h3>
+
+<p>省略此部分内容。</p>
+
+<h2 id="heading-3-变量与常量">3. 变量与常量</h2>
+
+<h3 id="heading-31-变量">3.1 变量</h3>
+
+<h4 id="heading-311-变量的概念">3.1.1 变量的概念</h4>
+
+<p>程序运行期间其值可以改变的量。变量是程序处理的主要对象。系统为程序中的每一个变量开辟一个存储单元，用来存放变量的值。</p>
+
+<blockquote>
+  <p>在每一个瞬间，变量只能有一个确定的值。</p>
+</blockquote>
+
+<p>在程序中用到的变量，应该给它赋予确定的值，否则计算机系统就会给它一个不确定的随机值，也有些系统会把程序未赋值的变量的值设置为 0。</p>
+
+<h4 id="heading-312-变量名">3.1.2 变量名</h4>
+
+<p>一个变量需要用一个变量名来识别，变量名就是变量的名字。在同一个程序单元中，不能用同一个变量名来代表两个不同的变量。Fortran 的变量名只能由字母、数字、下划线和美元符号组成。</p>
+
+<ul>
+  <li>在变量名中大小写字母是等价的。<code class="language-plaintext highlighter-rouge">SUM</code>、<code class="language-plaintext highlighter-rouge">Sum</code>、<code class="language-plaintext highlighter-rouge">sum</code>、<code class="language-plaintext highlighter-rouge">suM</code> 都代表同一个变量。</li>
+  <li>变量名中的字符可以插入空格</li>
+  <li>变量命名要可以做到顾名思义：使用一些有意义的单词对变量命名。</li>
+  <li>虽然 Fortran 没有规定保留字，但是为了避免混淆，建议不要使用 Fortran 中的关键字作为变量名。</li>
+</ul>
+
+<h4 id="heading-313-类型">3.1.3 类型</h4>
+
+<p>变量应该先说明后使用。声明变量的数据类型，以便分配相应大小的存储空间来存放值。</p>
+
+<h5 id="heading-3131-隐含约定i-n-规则">3.1.3.1 隐含约定：I-N 规则</h5>
+
+<p>Fortran 规定凡是以 <code class="language-plaintext highlighter-rouge">i, j, k, l, m, n</code> 开头的（不区分大小写）变量名，都认为该变量是整型变量。以其他字母开头的变量为实型变量。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">,</span><span class="w"> </span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="w">    </span><span class="c1">! 整型变量</span><span class="w">
+</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="nb">sum</span><span class="p">,</span><span class="w"> </span><span class="n">aver</span><span class="p">,</span><span class="w"> </span><span class="nb">count</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="w">    </span><span class="c1">! 实型变量</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-3132-使用类型说明语句">3.1.3.2 使用类型说明语句</h5>
+
+<p>类型说明语句可以强制置顶某些变量的类型。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="o">&lt;</span><span class="err">变量</span><span class="o">&gt;</span><span class="w">    </span><span class="c1">! 整型说明语句</span><span class="w">
+</span><span class="kt">real</span><span class="w"> </span><span class="o">&lt;</span><span class="err">变量</span><span class="o">&gt;</span><span class="w">    </span><span class="c1">! 实型说明语句</span><span class="w">
+</span><span class="kt">double precision</span><span class="w"> </span><span class="o">&lt;</span><span class="err">变量</span><span class="o">&gt;</span><span class="w">    </span><span class="c1">! 双精度型说明语句</span><span class="w">
+</span><span class="kt">complex</span><span class="w"> </span><span class="o">&lt;</span><span class="err">变量</span><span class="o">&gt;</span><span class="w">    </span><span class="c1">! 复数说明语句</span><span class="w">
+</span><span class="kt">character</span><span class="w"> </span><span class="o">&lt;</span><span class="err">变量</span><span class="o">&gt;</span><span class="w">    </span><span class="c1">! 字符型说明语句</span><span class="w">
+</span><span class="kt">logical</span><span class="w"> </span><span class="o">&lt;</span><span class="err">变量</span><span class="o">&gt;</span><span class="w">    </span><span class="c1">! 逻辑型说明语句</span><span class="w">
+</span></code></pre></div></div>
+
+<p>在类型声明后使用 <code class="language-plaintext highlighter-rouge">::</code> 可以对变量进行初始化。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w">    </span><span class="c1">! 定义 x, y, z 是整型变量</span><span class="w">
+</span><span class="kt">character</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">name</span><span class="w">    </span><span class="c1">! 定义 name 是字符型变量，长度为 30</span><span class="w">
+</span><span class="kt">complex</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="mf">8.9</span><span class="p">)</span><span class="w">    </span><span class="c1">! 定义 s 是单精度复数型变量，对它赋初值</span><span class="w">
+</span><span class="kt">integer</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.8</span><span class="w">    </span><span class="c1">! 定义 a, b 是短整型变量，对变量 a 赋初值</span><span class="w">
+</span><span class="kt">real</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">l</span><span class="w">    </span><span class="c1">! 定义 l 是双精度型变量</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-3133-使用-implicit-语句">3.1.3.3 使用 implicit 语句</h5>
+
+<p>隐含说明语句。可以将某个字母开头的变量名指定为某个变量类型。</p>
+
+<p>取消隐含声明：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">implicit</span><span class="w"> </span><span class="k">none</span><span class="w">
+</span></code></pre></div></div>
+
+<p>更改一个隐含声明：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">implicit</span><span class="w"> </span><span class="kt">integer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w">    </span><span class="c1">! 把 a, f, c, t 到 v 开头的变量指定为整数类型</span><span class="w">
+</span></code></pre></div></div>
+
+<p>可以使用一个 <code class="language-plaintext highlighter-rouge">implicit</code> 语句声明多种类型。例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">implicit</span><span class="w"> </span><span class="kt">integer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">z</span><span class="p">),</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="kt">character</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>类型声明的优先级：类型说明语句最高，<code class="language-plaintext highlighter-rouge">implicit</code> 语句次之，I-N 规则最低。</p>
+</blockquote>
+
+<h4 id="heading-314-给变量赋初值">3.1.4 给变量赋初值</h4>
+
+<h5 id="heading-3141-直接赋值">3.1.4.1 直接赋值</h5>
+
+<p>先定义一个变量，然后给它赋值。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w">
+</span></code></pre></div></div>
+
+<p>或者直接初始化。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">integer</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-3142-用-data-语句给变量赋初值">3.1.4.2 用 data 语句给变量赋初值</h5>
+
+<p>一般格式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">data</span><span class="w"> </span><span class="n">var1</span><span class="p">,</span><span class="w"> </span><span class="n">var2</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">varn</span><span class="w"> </span><span class="p">/</span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="n">cn</span><span class="p">/</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>可以同时给多个变量赋初值，中间用逗号隔开。</li>
+  <li>被赋值的常量放在一对 <code class="language-plaintext highlighter-rouge">//</code> 中间。</li>
+  <li>被赋值的常量的数据类型与对应的变量的数据类型要一致。</li>
+  <li>可以使用 <code class="language-plaintext highlighter-rouge">*</code> 来表示数据的重复。</li>
+</ul>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">data</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">/</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="p">/</span><span class="w">
+</span></code></pre></div></div>
+
+<p>执行上名语句之后，变量 <code class="language-plaintext highlighter-rouge">m</code>、<code class="language-plaintext highlighter-rouge">n</code>、<code class="language-plaintext highlighter-rouge">k</code> 的值都为 5。</p>
+
+<h3 id="heading-32-常量">3.2 常量</h3>
+
+<p>常量在程序中直接给出，在程序运行时保持不变。分为直接常量和符号常量。</p>
+
+<h4 id="heading-321-直接常量">3.2.1 直接常量</h4>
+
+<p>包括：整型常量、实型常量、双精度型常量、复型常量、字符型常量和逻辑型常量。</p>
+
+<h5 id="heading-3211-整型常量">3.2.1.1 整型常量</h5>
+
+<p>可以表示成十进制以及二至三十六进位制。</p>
+
+<p>对于十进制的整数，通过整型 kind 值（类别类型参数）来确定整数的存储空间大小和取值范围。整型的 kind 值有四种：1，2，4（默认是 4 ），8（仅对 Alpha 系统有效）。</p>
+
+<p>表示方法：<code class="language-plaintext highlighter-rouge">number_kind</code>。例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">-16_2</span><span class="p">,</span><span class="w"> </span><span class="mi">18_4</span><span class="p">,</span><span class="w"> </span><span class="mi">5_1</span><span class="w">
+</span></code></pre></div></div>
+
+<p>对于二至三十六进位制，表示形式是：<code class="language-plaintext highlighter-rouge">r#number</code> 或 <code class="language-plaintext highlighter-rouge">-r#number</code>，通常来说，十六进制常省略基数 16。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="err">#</span><span class="mi">1111001111001111001111</span><span class="w">
+</span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="err">#</span><span class="mi">45644664</span><span class="w">
+</span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">+8</span><span class="err">#</span><span class="mi">17171717</span><span class="w">
+</span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">3994575</span><span class="w">
+</span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="mi">3</span><span class="n">cfecf</span><span class="w">
+</span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">36</span><span class="err">#</span><span class="mi">2</span><span class="n">dm8f</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-3212-实型常量和双精度型">3.2.1.2 实型常量和双精度型</h5>
+
+<p>通常表示成十进制小数和指数两种形式。必须包含小数点。</p>
+
+<p>小数形式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="err">.</span><span class="n">m</span><span class="w">
+</span><span class="n">n</span><span class="err">.</span><span class="w">
+</span><span class="err">.</span><span class="n">m</span><span class="w">
+</span></code></pre></div></div>
+
+<p>指数形式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="err">.</span><span class="n">mEs</span><span class="w">
+</span><span class="n">n</span><span class="err">.</span><span class="n">Es</span><span class="w">
+</span><span class="n">nEs</span><span class="w">
+</span><span class="err">.</span><span class="n">mEs</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-3213-复型常量">3.2.1.3 复型常量</h5>
+
+<p>采用坐标的形式表示一个复数。可以时确定的数，也可以是一个有确定结果的表达式。</p>
+
+<h5 id="heading-3214-字符型常量">3.2.1.4 字符型常量</h5>
+
+<p>就是字符串，使用单引号或者双引号括起来的若干字符序列。</p>
+
+<p>非打印字符表示形式</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>表示形式</th>
+      <th>非打印字符</th>
+      <th>表示形式</th>
+      <th>非打印字符</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\a</code> 或 <code class="language-plaintext highlighter-rouge">\A</code></td>
+      <td>BELL</td>
+      <td><code class="language-plaintext highlighter-rouge">\v</code> 或 <code class="language-plaintext highlighter-rouge">\V</code></td>
+      <td>垂直 Tab</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\b</code> 或 <code class="language-plaintext highlighter-rouge">\B</code></td>
+      <td>退格</td>
+      <td><code class="language-plaintext highlighter-rouge">\t</code> 或 <code class="language-plaintext highlighter-rouge">\T</code></td>
+      <td>水平 Tab</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\f</code> 或 <code class="language-plaintext highlighter-rouge">\F</code></td>
+      <td>进格</td>
+      <td><code class="language-plaintext highlighter-rouge">\\</code></td>
+      <td>输出 <code class="language-plaintext highlighter-rouge">\</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\n</code> 或 <code class="language-plaintext highlighter-rouge">\N</code></td>
+      <td>换行</td>
+      <td><code class="language-plaintext highlighter-rouge">\xhh</code></td>
+      <td>输出十六进制编码为 hh 的任意 ASCII 字符</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\r</code> 或 <code class="language-plaintext highlighter-rouge">\R</code></td>
+      <td>回车</td>
+      <td><code class="language-plaintext highlighter-rouge">\ddd</code></td>
+      <td>输出八进制编码为 ddd 的任意 ASCII 字符</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="heading-3215-逻辑型常量">3.2.1.5 逻辑型常量</h5>
+
+<p>只有两个：<code class="language-plaintext highlighter-rouge">.true.</code> 和 <code class="language-plaintext highlighter-rouge">.false.</code>。注意，逻辑值两边的小数点必须有，不区分大小写。逻辑型 kind 值有 4 中，分别是 1，2，4，8（仅对 Alpha 系统有效）。对于逻辑值 <code class="language-plaintext highlighter-rouge">.true.</code>，在其存储单元内每个二进制位上都是 1，可以视为整数 -1；对于逻辑值 <code class="language-plaintext highlighter-rouge">.false.</code>，其存储单元内每个二进制位上都是 0，可以视为整数 0。</p>
+
+<blockquote>
+  <p>逻辑值可以参与数值型数据的运算。</p>
+</blockquote>
+
+<h4 id="heading-322-符号常量">3.2.2 符号常量</h4>
+
+<p>是一种特殊的常量，程序单元内代表常量的标识符。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">parameter</span><span class="p">(</span><span class="err">标识符</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">常量</span><span class="p">,</span><span class="w"> </span><span class="err">标识符</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">常量</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="heading-4-表达式">4. 表达式</h2>
+
+<p>Fortran 中一共四种表达式：</p>
+
+<ul>
+  <li>算术表达式</li>
+  <li>字符表达式</li>
+  <li>关系表达式</li>
+  <li>逻辑表达式</li>
+</ul>
+
+<h3 id="heading-41-算术表达式">4.1 算术表达式</h3>
+
+<p>顾名思义，加减乘除。</p>
+
+<h3 id="heading-42-字符表达式">4.2 字符表达式</h3>
+
+<p>字符连接符 <code class="language-plaintext highlighter-rouge">//</code> 把两个字符型数据连接起来，组成一个新的字符型数据。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">character</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">ch1</span><span class="p">,</span><span class="w"> </span><span class="n">ch2</span><span class="p">,</span><span class="w"> </span><span class="n">ch3</span><span class="p">,</span><span class="w"> </span><span class="n">ch4</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ch5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span><span class="n">ch1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"LOVE"</span><span class="w">
+</span><span class="n">ch2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"CHINA"</span><span class="w">
+</span><span class="n">ch3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"STUDENT"</span><span class="w">
+</span><span class="n">ch4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"I"</span><span class="w">
+</span><span class="n">ch5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ch4</span><span class="w"> </span><span class="p">//</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="p">//</span><span class="w"> </span><span class="n">ch1</span><span class="w"> </span><span class="p">//</span><span class="w"> </span><span class="s2">"YOU!"</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="heading-43-关系表达式">4.3 关系表达式</h3>
+
+<p>Fortran 提供了 6 个关系运算符。两种格式可以单独使用，也可以混合使用。使用字母格式时两边的点不能省略。各关系运算符优先级别相同，从前向后一次运算即可。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>字母格式</th>
+      <th>符号格式</th>
+      <th>英语含义</th>
+      <th>数学含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.lt.</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;</code></td>
+      <td>less than</td>
+      <td>小于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.le.</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code></td>
+      <td>less than or equal to</td>
+      <td>小于等于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.eq.</code></td>
+      <td><code class="language-plaintext highlighter-rouge">==</code></td>
+      <td>equal to</td>
+      <td>等于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.ne.</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/=</code></td>
+      <td>not equal to</td>
+      <td>不等于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.gt.</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code></td>
+      <td>greater than</td>
+      <td>大于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.ge.</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&gt;=</code></td>
+      <td>greater than or equal to</td>
+      <td>大于等于</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>一般表达式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="err">算术量</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="err">关系运算符</span><span class="w"> </span><span class="o">&lt;</span><span class="err">算术量</span><span class="mi">2</span><span class="o">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>谨慎使用等于或不等于关系判断实型。实型数据是使用近似值存储的，可能存在误差。</p>
+</blockquote>
+
+<h3 id="heading-44-逻辑表达式">4.4 逻辑表达式</h3>
+
+<p>Fortran 提供了 6 种逻辑运算符。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>逻辑运算符</th>
+      <th>名称</th>
+      <th>运算举例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.and.</code></td>
+      <td>逻辑与</td>
+      <td><code class="language-plaintext highlighter-rouge">a .and. b</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.or.</code></td>
+      <td>逻辑或</td>
+      <td><code class="language-plaintext highlighter-rouge">a .or. b</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.not.</code></td>
+      <td>逻辑非</td>
+      <td><code class="language-plaintext highlighter-rouge">not. a</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.eqv.</code></td>
+      <td>逻辑等</td>
+      <td><code class="language-plaintext highlighter-rouge">a .eqv. b</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.neqv.</code></td>
+      <td>逻辑不等</td>
+      <td><code class="language-plaintext highlighter-rouge">a .neqv. b</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.xor.</code></td>
+      <td>逻辑运算</td>
+      <td><code class="language-plaintext highlighter-rouge">a .xor. b</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>一般表达式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="err">逻辑量</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="err">逻辑运算符</span><span class="w"> </span><span class="o">&lt;</span><span class="err">逻辑量</span><span class="mi">2</span><span class="o">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="heading-5-程序的结构">5. 程序的结构</h2>
+
+<h3 id="heading-51-顺序结构">5.1 顺序结构</h3>
+
+<p>顺序结构只能从上到下依次执行一条语句。很常见。</p>
+
+<h4 id="heading-511-赋值语句">5.1.1 赋值语句</h4>
+
+<p>赋值语句用于赋值。一般格式就是：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="w">    </span><span class="c1">! Variable = expression</span><span class="w">
+</span></code></pre></div></div>
+
+<p>仔细理解，没有别的了。</p>
+
+<h4 id="heading-512-输出语句">5.1.2 输出语句</h4>
+
+<ul>
+  <li>按系统隐含的标准格式输出：自由格式输出，又叫表控输出。</li>
+  <li>按用户指定格式输出：有格式输出。例如：<code class="language-plaintext highlighter-rouge">100 format(...)</code></li>
+  <li>无格式输出：以二进制形式输出数据，只适用于向磁盘等输出，对文件进行操作。</li>
+</ul>
+
+<h5 id="heading-5121-表控输出语句">5.1.2.1 表控输出语句</h5>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="err">输出列表项</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">*</code> 表示在系统隐含指定输出设备（一般是显示器）上按系统隐含的标准格式输出数据。如果 <code class="language-plaintext highlighter-rouge">*</code> 后没有任何输出项，相当于一个换行。</p>
+
+<p>或者可以写成：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="err">输出列表项</span><span class="w">
+</span></code></pre></div></div>
+
+<p>第一个 <code class="language-plaintext highlighter-rouge">*</code> 表示系统隐含指定的输出设备，第二个 <code class="language-plaintext highlighter-rouge">*</code> 表示用表控格式输出。</p>
+
+<h5 id="heading-5122-其他输出">5.1.2.2 其他输出</h5>
+
+<p>省略此部分内容。</p>
+
+<h4 id="heading-513-输入语句">5.1.3 输入语句</h4>
+
+<h5 id="heading-5131-表控输入语句">5.1.3.1 表控输入语句</h5>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">read</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="err">输入项列表</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">*</code> 表示从系统隐含指定的输入设备（一般是键盘）按表控格式输入数据。例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">read</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w">
+</span></code></pre></div></div>
+
+<p>也可以写成这样：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">read</span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="err">输入表</span><span class="w">
+</span></code></pre></div></div>
+
+<p>其中第一个 <code class="language-plaintext highlighter-rouge">*</code> 表示系统隐含的指定输入设备（键盘），第二个 <code class="language-plaintext highlighter-rouge">*</code> 表示表控输入。</p>
+
+<h5 id="heading-5132-其他输入">5.1.3.2 其他输入</h5>
+
+<p>省略此部分内容。</p>
+
+<h4 id="heading-514-endstoppause-语句">5.1.4 end、stop、pause 语句</h4>
+
+<h5 id="heading-5141-end-语句">5.1.4.1 end 语句</h5>
+
+<p>结束语句。</p>
+
+<ul>
+  <li>结束本程序单元的运行</li>
+  <li>作为一个程序单元的结束标志，写在所在程序单元的最后一行</li>
+</ul>
+
+<p>end 语句在主程序中兼有 <code class="language-plaintext highlighter-rouge">stop</code> 语句的作用，使程序停止运行，在子程序中兼有 <code class="language-plaintext highlighter-rouge">return</code> 语句的功能，控制返回到调用程序。</p>
+
+<h5 id="heading-5142-stop-语句">5.1.4.2 stop 语句</h5>
+
+<p>一般格式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">stop</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>其中 <code class="language-plaintext highlighter-rouge">n</code> 是一个不超过五位数的数字或者一个字符串。执行 <code class="language-plaintext highlighter-rouge">stop</code> 语句的时候输出整数或者字符串，供程序员辨别程序流程。</p>
+
+<blockquote>
+  <p>除非必要，不要把 <code class="language-plaintext highlighter-rouge">stop</code> 命令放在主程序结束之外的其他地方，因为如果一个程序有太多的结束终点，容易出错。<code class="language-plaintext highlighter-rouge">stop</code> 命令不是必要的，因为程序执行完毕之后会自动停止。</p>
+</blockquote>
+
+<h5 id="heading-5143-pause-语句弃用">5.1.4.3 pause 语句（弃用）</h5>
+
+<p>让系统把程序暂时挂起，等待程序员完成其他工作。可以理解为一个断点（breakpoint），便于调试程序。</p>
+
+<p>一般格式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pause</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>由于现在的编译环境中可以直接设置断点，所以 <code class="language-plaintext highlighter-rouge">pause</code> 语句一般不再使用。如果使用，可能会出现警告。</p>
+</blockquote>
+
+<h3 id="heading-52-选择结构">5.2 选择结构</h3>
+
+<h4 id="heading-521-逻辑-if-语句">5.2.1 逻辑 if 语句</h4>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">表达式</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="err">可执行语句</span><span class="n">s</span><span class="w">
+</span></code></pre></div></div>
+
+<p>表达式可以是逻辑表达式或者关系表达式。</p>
+
+<h4 id="heading-522-块-if-语句">5.2.2 块 if 语句</h4>
+
+<h5 id="heading-5221-单分支">5.2.2.1 单分支</h5>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">表达式</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+    </span><span class="o">&lt;</span><span class="k">then</span><span class="w"> </span><span class="err">块</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-5222-双分支">5.2.2.2 双分支</h5>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">表达式</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+    </span><span class="o">&lt;</span><span class="k">then</span><span class="w"> </span><span class="err">块</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">else</span><span class="w">
+    </span><span class="o">&lt;</span><span class="k">then</span><span class="w"> </span><span class="err">块</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-5223-多分支">5.2.2.3 多分支</h5>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">表达式</span><span class="n">e1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+    </span><span class="o">&lt;</span><span class="k">then</span><span class="w"> </span><span class="err">块</span><span class="mi">1</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">表达式</span><span class="n">e2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+    </span><span class="o">&lt;</span><span class="k">then</span><span class="w"> </span><span class="err">块</span><span class="mi">2</span><span class="o">&gt;</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="err">表达式</span><span class="n">en</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+    </span><span class="o">&lt;</span><span class="k">then</span><span class="w"> </span><span class="err">块</span><span class="n">n</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-523-块-case-结构">5.2.3 块 case 结构</h4>
+
+<p>多重判断除了使用 if 结构完成之外，还可以使用 case 结构。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span><span class="w"> </span><span class="k">case</span><span class="p">(</span><span class="err">表达式</span><span class="n">e</span><span class="p">)</span><span class="w">
+</span><span class="k">case</span><span class="p">(</span><span class="err">数值</span><span class="mi">1</span><span class="p">)</span><span class="w">
+    </span><span class="o">&lt;</span><span class="err">块</span><span class="mi">1</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">case</span><span class="p">(</span><span class="err">数值</span><span class="mi">2</span><span class="p">)</span><span class="w">
+    </span><span class="o">&lt;</span><span class="err">块</span><span class="mi">2</span><span class="o">&gt;</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="k">case</span><span class="p">(</span><span class="err">数值</span><span class="n">n</span><span class="p">)</span><span class="w">
+    </span><span class="o">&lt;</span><span class="err">块</span><span class="n">n</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">case</span><span class="w"> </span><span class="n">default</span><span class="w">
+    </span><span class="o">&lt;</span><span class="err">块</span><span class="n">n</span><span class="mi">+1</span><span class="o">&gt;</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">select</span><span class="w">
+</span></code></pre></div></div>
+
+<p>块 case 结构有限制。表达式 e 只能时整型、字符型或者逻辑型。每个 <code class="language-plaintext highlighter-rouge">case</code> 语句中所使用的数值必须是固定的常量，不能使用变量，类型要与表达式 e 的类型一致。</p>
+
+<h4 id="heading-524-多重-if-结构嵌套">5.2.4 多重 if 结构嵌套</h4>
+
+<p>注意内层和外层不能交叉，包含关系必须清楚。</p>
+
+<blockquote>
+  <p>为了使程序清晰，应该使用缩进，同一层级对齐。</p>
+</blockquote>
+
+<h3 id="heading-53-循环结构">5.3 循环结构</h3>
+
+<h4 id="heading-531-do-循环">5.3.1 do 循环</h4>
+
+<h5 id="heading-5311-一般-do-循环">5.3.1.1 一般 do 循环</h5>
+
+<p>程序执行的重复次数已知时可用。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">program</span><span class="w"> </span><span class="n">doloop</span><span class="w">
+    </span><span class="k">do</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w">
+        </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s2">"Hello"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s2">"次"</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">program</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">do</code> 循环语句的一般格式写成：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e1</span><span class="p">,</span><span class="w"> </span><span class="n">e2</span><span class="p">[,</span><span class="w"> </span><span class="n">e3</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>中括号表示可以没有。<code class="language-plaintext highlighter-rouge">e1</code> 表示循环变量的初值，<code class="language-plaintext highlighter-rouge">e2</code> 表示循环变量的终值，<code class="language-plaintext highlighter-rouge">e3</code> 表示循环变量的步长（增量）。<code class="language-plaintext highlighter-rouge">V</code> 表示循环控制变量（计数器），即循环变量。</p>
+
+<p>循环变量在循环体中只能被引用，不能被赋值。</p>
+
+<p>举个「水仙花数」的例子：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">program</span><span class="w"> </span><span class="n">flower</span><span class="w">
+    </span><span class="kt">integer</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n1</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">,</span><span class="w"> </span><span class="n">n3</span><span class="w">
+    </span><span class="k">do</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">999</span><span class="w">
+        </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">
+        </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">
+        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+            </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="s2">"是水仙花数"</span><span class="w">
+        </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">program</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="heading-5312-隐含-do-循环">5.3.1.2 隐含 do 循环</h5>
+
+<p>这样写：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e1</span><span class="p">,</span><span class="w"> </span><span class="n">e2</span><span class="p">[,</span><span class="w"> </span><span class="n">e3</span><span class="p">])</span><span class="w">    </span><span class="c1">! 输出</span><span class="w">
+</span><span class="k">read</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e1</span><span class="p">,</span><span class="w"> </span><span class="n">e2</span><span class="p">[,</span><span class="w"> </span><span class="n">e3</span><span class="p">])</span><span class="w">    </span><span class="c1">! 输入</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">W</code> 是输入或者输出项的列表。</p>
+
+<blockquote>
+  <p>隐含 do 循环在一行中输出，而一般的 do 循环将换行输出。</p>
+</blockquote>
+
+<h4 id="heading-532-do-while-循环">5.3.2 do while 循环</h4>
+
+<p>一般格式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="err">逻辑表达式</span><span class="p">)</span><span class="w">
+    </span><span class="err">循环体</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+</span></code></pre></div></div>
+
+<p>该循环由三部分组成，分别是 <code class="language-plaintext highlighter-rouge">do while</code> 语句、循环体和 <code class="language-plaintext highlighter-rouge">end do</code> 语句。</p>
+
+<blockquote>
+  <p>在使用 do while 循环的时候，一定要避免死循环。保证循环中至少有一条控制循环条件的语句。</p>
+</blockquote>
+
+<h4 id="heading-533-exit-语句">5.3.3 exit 语句</h4>
+
+<p>顾名思义，跳出循环。do 循环和 do while 循环都可以使用 <code class="language-plaintext highlighter-rouge">exit</code> 语句。</p>
+
+<h4 id="heading-534-cycle-语句">5.3.4 cycle 语句</h4>
+
+<p>略过循环体 <code class="language-plaintext highlighter-rouge">cycle</code> 语句之后的所有语句，直接跳回开头执行下一次循环。do 循环和 do while 循环都可以使用 <code class="language-plaintext highlighter-rouge">cycle</code> 语句。</p>
+
+<h2 id="heading-6-函数与子程序">6. 函数与子程序</h2>
+
+<p>循环不能消除不同程序单元之间的重复行为，为了解决这类问题，Fortran 设计语言产生了一种新技术：子程序。子程序是能结局某个特定问题的相对独立的程序单元。</p>
+
+<blockquote>
+  <p>子程序不能单独运行，只能被调用。</p>
+</blockquote>
+
+<h3 id="heading-61-语句函数">6.1 语句函数</h3>
+
+<p>定义形式：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">函数名</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"> </span><span class="n">xn</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">表达式</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-611-语句函数名">6.1.1 语句函数名</h4>
+
+<p>命名方法与变量命名方法相同。注意，语句函数名不能与本程序单元中的任何其他变量同名。例如：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">root1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">4.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="p">/</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">
+</span><span class="n">da</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">
+</span><span class="kt">integer</span><span class="w"> </span><span class="n">db</span><span class="w">
+</span><span class="n">db</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-612-形式参数">6.1.2 形式参数</h4>
+
+<p>如果语句函数没有形式参数时，括号也不能省略。当形式参数多于一个时，它们之间用逗号隔开。形式参数不代表任何实在的值，因此，它可以与程序中的变量同名。</p>
+
+<h4 id="heading-613-语句函数的调用">6.1.3 语句函数的调用</h4>
+
+<p>一旦声明了语句函数，就可以在同一程序单元中调用它。一般写成：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">函数名</span><span class="p">(</span><span class="err">实参表</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="heading-62-函数子程序">6.2 函数子程序</h3>
+
+<p>语句函数只能解决一些较为简单的问题，当函数关系较为复杂，用一个语句无法定义的时候就需要函数子程序。</p>
+
+<h4 id="heading-621-函数子程序的定义">6.2.1 函数子程序的定义</h4>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="err">类型说明符</span><span class="p">]</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="err">函数名</span><span class="p">(</span><span class="err">形式参数表</span><span class="p">)</span><span class="w">
+    </span><span class="err">函数体</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="p">[</span><span class="k">function</span><span class="w"> </span><span class="p">[</span><span class="err">函数名</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>函数名的类型说明既可以放在函数名之前，也可以放在函数体的开头。</p>
+
+<h4 id="heading-622-函数子程序的调用">6.2.2 函数子程序的调用</h4>
+
+<p>方法与调用标准函数、语句函数相同。这样写：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">函数名</span><span class="p">(</span><span class="err">实参列表</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="heading-63-子例行子程序">6.3 子例行子程序</h3>
+
+<p>Subroutine，子例行子程序。子例行子程序的名字不代表一个具体的值，与函数子程序不同，它只是提供调用时的一个识别符号，因此需要类型说明。</p>
+
+<h4 id="heading-631-子例行子程序的定义">6.3.1 子例行子程序的定义</h4>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">subroutine</span><span class="w"> </span><span class="err">子例行子程序名</span><span class="p">(</span><span class="err">形式参数表</span><span class="p">)</span><span class="w">
+    </span><span class="err">程序体</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="p">[</span><span class="k">subroutine</span><span class="w"> </span><span class="p">[</span><span class="err">子例行子程序名</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-632-子例行子程序的调用">6.3.2 子例行子程序的调用</h4>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">call</span><span class="w"> </span><span class="err">子例行子程序名</span><span class="p">(</span><span class="err">实参表</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>注意，当子例行子程序没有形式参数时，调用方式如下：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">call</span><span class="w"> </span><span class="err">子例行子程序名</span><span class="w">
+</span></code></pre></div></div>
+
+<p>此时调用的子例行子程序名后面没有括号。</p>
+
+<h3 id="heading-64-递归子程序">6.4 递归子程序</h3>
+
+<blockquote>
+  <p>Fortran 在 90 版本之前是不支持递归调用的。</p>
+</blockquote>
+
+<p>小心设计！递归调用容易造成死循环。递归函数的一般形式如下：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">recursive</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="err">函数名</span><span class="p">([</span><span class="err">形式参数表</span><span class="p">])</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="err">函数结果名</span><span class="p">)</span><span class="w">
+    </span><span class="err">调用该函数本身</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="p">[</span><span class="k">function</span><span class="w"> </span><span class="p">[</span><span class="err">函数名</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>递归子程序的一般形式则是这样：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">recursive</span><span class="w"> </span><span class="k">subroutine</span><span class="w"> </span><span class="err">子程序名</span><span class="p">([</span><span class="err">形式参数表</span><span class="p">])</span><span class="w">
+    </span><span class="err">调用该子程序本身</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="p">[</span><span class="k">subroutine</span><span class="w"> </span><span class="p">[</span><span class="err">子程序名</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="heading-7-文件">7. 文件</h2>
+
+<h3 id="heading-71-文件的基本概念">7.1 文件的基本概念</h3>
+
+<p>File，就是一组相关信息的集合，给定一个标识符，并将其存放在计算机的某一个存储介质上。在对文件进行操作的时候是以记录为基本单位的。</p>
+
+<h3 id="heading-72-什么是记录">7.2 什么是记录</h3>
+
+<ul>
+  <li>有格式记录
+    <ul>
+      <li>是有序的格式化数据序列，每个记录以回车符作为结束标志</li>
+    </ul>
+  </li>
+  <li>无格式记录
+    <ul>
+      <li>由二进制代码直接传输，在输入输出是无需格式转换</li>
+      <li>传输速度较快，占用磁盘空间较小</li>
+    </ul>
+  </li>
+  <li>文件结束记录
+    <ul>
+      <li>是文件结束的标志，由操作系统来规定</li>
+      <li>不作为数据的内容来处理</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="heading-73-文件的特性">7.3 文件的特性</h3>
+
+<h4 id="heading-731-文件标识">7.3.1 文件标识</h4>
+
+<p>简单来说，就是文件所在的路径。计算机根据文件标识符来寻找文件。</p>
+
+<h4 id="heading-732-文件的存取方式">7.3.2 文件的存取方式</h4>
+
+<p>两种。</p>
+
+<ul>
+  <li>顺序存取</li>
+  <li>直接存取</li>
+</ul>
+
+<p>顺序文件的存取操作总是从第 1 个记录开始，然后依次按文件记录的逻辑顺序逐个往下进行。如果要操作第 n 个记录，那么就要先操作第 n - 1 个记录。</p>
+
+<p>直接文件的存取操作可以按任意的次序进行。可以直接按存取操作指定的记录号进行。</p>
+
+<h4 id="heading-733-文件的结构">7.3.3 文件的结构</h4>
+
+<p>有格式存放、无格式存放和二进制存放。除了第一种有格式存放使用 ASCII 字符存放之外，其余两种都使用二进制存放。</p>
+
+<h4 id="heading-734-文件的定位">7.3.4 文件的定位</h4>
+
+<p>文件指针。控制文件的读写操作。当文件指针位于第一个记录前的位置，称为「文件头」。当文件指针位于某一个记录中时，称该记录为「当前记录」。当文件指针位于最后一个记录后的位置时，称文件定位在「文件尾」。</p>
+
+<h3 id="heading-74-文件的操作语句">7.4 文件的操作语句</h3>
+
+<h4 id="heading-741-文件的打开和关闭">7.4.1 文件的打开和关闭</h4>
+
+<p>文件的打开语句，这样：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"filename"</span><span class="p">,</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="n">recl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">,&amp;</span><span class="w">
+    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">,</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,&amp;</span><span class="w">
+    </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="n">delim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>文件的关闭语句，这样：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">close</span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-742-文件的输入输出">7.4.2 文件的输入输出</h4>
+
+<p>文件打开之后就可以进行读写操作了，也就是输入输出。输入语句格式如下：</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">read</span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">format</span><span class="p">,</span><span class="w"> </span><span class="n">nml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">namelist</span><span class="p">,</span><span class="w"> </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">,&amp;</span><span class="w">
+    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">errlabel</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endlabel</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">advance</span><span class="p">,</span><span class="w"> </span><span class="nb">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">size</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>文件的输出与文件输入的格式完全相同，只不过把 <code class="language-plaintext highlighter-rouge">read</code> 改为 <code class="language-plaintext highlighter-rouge">write</code> 而已。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">write</span><span class="p">(</span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">format</span><span class="p">,</span><span class="w"> </span><span class="n">nml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">namelist</span><span class="p">,</span><span class="w"> </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">,&amp;</span><span class="w">
+    </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">errlabel</span><span class="p">,</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endlabel</span><span class="p">,</span><span class="w"> </span><span class="n">advance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">advance</span><span class="p">,</span><span class="w"> </span><span class="nb">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">size</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="heading-8-fortran-并行计算基础">8. Fortran 并行计算基础</h2>
+
+<h3 id="heading-81-mpi-使用概述">8.1 MPI 使用概述</h3>
+
+<p>MPI 消息传递接口。多台机器同时计算时，一边计算一边传递信息。同一个程序，在每一个节点上运行一个进程。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">include</span><span class="w"> </span><span class="s1">'mpif.h'</span><span class="w">
+</span><span class="kt">integer</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">myid</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">(</span><span class="n">mpi_status_size</span><span class="p">),</span><span class="w"> </span><span class="n">j2</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_init</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_comm_rank</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">myid</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_comm_size</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_bcast</span><span class="p">(</span><span class="n">dmbig</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_logical</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_barrier</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_barrier</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_recv</span><span class="p">(</span><span class="n">delta1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_double_precision</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_send</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_double_precision</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_finalize</span><span class="p">(</span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Fortran90 以上支持并行计算，子程序。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">call</span><span class="w"> </span><span class="n">mpi_init</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>初始化。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">call</span><span class="w"> </span><span class="n">mpi_barrier</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>等所有的节点都执行到这一句之后，接下来才继续执行。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">call</span><span class="w"> </span><span class="n">mpi_recv</span><span class="p">(</span><span class="n">delta1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_double_precision</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span><span class="k">call</span><span class="w"> </span><span class="n">mpi_send</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_double_precision</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ieer</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>向其他节点发送以及从其他节点接受消息，用于同步数据。</p>
+
+<h3 id="heading-82-编译含有-mpi-的并行计算程序">8.2 编译含有 MPI 的并行计算程序</h3>
+
+<p>编译，可以使用 GCC 或者 Intel 的编译器，建议使用 Intel 的 ifort。
+编译前需要使用命令方式配置编译环境。配置方法：在天河计算机上执行下面指令。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /opt/intel/Compiler/11.1/059/bin/intel64/iccvars_intel64.sh
+<span class="nb">source</span> /opt/intel/Compiler/11.1/059/bin/intel64/ifortvars_intel64.sh
+</code></pre></div></div>
+
+<p>或者</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> /vol6/appsoftware/intel/11.1/059/bin/intel64/iccvars_intel64.sh
+<span class="nb">source</span> /vol6/appsoftware/intel/11.1/059/bin/intel64/ifortvars_intel64.sh
+</code></pre></div></div>
+
+<p>把 Fortran90 源文件上传至天河机之后，使用合适的 MPI 编译器编译。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpif90 &lt;源程序.f90&gt; <span class="nt">-o</span> &lt;编译完成后的程序名&gt;
+</code></pre></div></div>
+
+<p>例如：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpif90 expmtt.f90 <span class="nt">-o</span> cyrain
+</code></pre></div></div>
+
+<h3 id="heading-83-实际操作">8.3 实际操作</h3>
+
+<p>「纸上得来终觉浅，绝知此事要躬行。」</p>
+
+<h4 id="heading-831-例子">8.3.1 例子</h4>
+
+<p>对 8 * 8 的矩阵进行转置，使用四台机器。mat01.txt, mat02.txt, mat03.txt, mat04.txt 四块 4 * 4 的矩阵。下面是用于测试的源代码。</p>
+
+<div class="language-fortran highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">program</span><span class="w"> </span><span class="n">main</span><span class="w">
+    </span><span class="k">include</span><span class="w"> </span><span class="s1">'mpif.h'</span><span class="w">
+    </span><span class="kt">character</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">fname</span><span class="w">
+    </span><span class="k">dimension</span><span class="w"> </span><span class="n">mymat</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">mytmat</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">mymatr</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">
+    </span><span class="kt">integer</span><span class="w"> </span><span class="n">mymat</span><span class="p">,</span><span class="w"> </span><span class="n">mytmat</span><span class="p">,</span><span class="w"> </span><span class="n">mymatr</span><span class="w">
+    </span><span class="kt">integer</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">myid</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">(</span><span class="n">mpi_status_size</span><span class="p">)</span><span class="w">
+    </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_init</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span><span class="w">
+    </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_comm_rank</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">myid</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+    </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_comm_size</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+    </span><span class="n">fname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'mat'</span><span class="w">
+    </span><span class="k">open</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fname</span><span class="p">//</span><span class="nb">char</span><span class="p">(</span><span class="mi">48</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myid</span><span class="p">)//</span><span class="s1">'1.txt'</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'old'</span><span class="p">)</span><span class="w">
+    </span><span class="k">open</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fname</span><span class="p">//</span><span class="nb">char</span><span class="p">(</span><span class="mi">48</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myid</span><span class="p">)//</span><span class="s1">'2.txt'</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'new'</span><span class="p">)</span><span class="w">
+
+    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">'The primary process'</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">'myid ='</span><span class="p">,</span><span class="w"> </span><span class="n">myid</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">'number of processors ='</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="w">
+    </span><span class="k">else</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">'An assistance process'</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">'myid ='</span><span class="p">,</span><span class="w"> </span><span class="n">myid</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">'number of processors ='</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+
+    </span><span class="k">do</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="k">read</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">mymat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+    </span><span class="mi">100</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="l">4i5</span><span class="p">)</span><span class="w">
+    </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_barrier</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+    </span><span class="c1">! Wait for end of read data from file 1, part of the total 8*8 matrix</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="ow">.or.</span><span class="w"> </span><span class="p">(</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w">
+        </span><span class="k">do</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="k">do</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                </span><span class="n">mytmat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mymat</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">
+            </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+        </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+    </span><span class="k">else</span><span class="w">
+        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+            </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_send</span><span class="p">(</span><span class="n">mymat</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_integer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+            </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_recv</span><span class="p">(</span><span class="n">mymatr</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_integer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+        </span><span class="k">else</span><span class="w">
+            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">
+                </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_send</span><span class="p">(</span><span class="n">mymat</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_integer</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+                </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_recv</span><span class="p">(</span><span class="n">mymatr</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_integer</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+            </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+        </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+    </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_barrier</span><span class="p">(</span><span class="n">mpi_comm_world</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w">
+    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="ow">.or.</span><span class="w"> </span><span class="p">(</span><span class="n">myid</span><span class="w"> </span><span class="ow">.eq.</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w">
+        </span><span class="k">do</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="k">do</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">
+                </span><span class="n">mytmat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mymatr</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">
+            </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+        </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="w">
+    </span><span class="k">do</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="k">write</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">mytmat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">
+    </span><span class="k">end</span><span class="w"> </span><span class="k">do</span><span class="w">
+    </span><span class="k">close</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">
+    </span><span class="k">close</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">
+    </span><span class="k">call</span><span class="w"> </span><span class="n">mpi_finalize</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">program</span><span class="w"> </span><span class="n">main</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="heading-832-遇到问题">8.3.2 遇到问题</h4>
+
+<p>以下是在登录天河计算机时的界面展示。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>stu05@ln1%tianhe ~]<span class="nv">$ </span><span class="nb">ls
+</span>ChenChangyu   les7         result4.log  results.log   results3.log  results6.log  ?????????  ?????????  ?????????  ??????
+NPB3.3.1      result1.log  result5.log  results1.log  results4.log  results7.log  ?????????  ??????     ?????????
+NPB3.3.1.tgz  result3.log  result6.log  results2.log  results5.log  ?????????     ?????????  ?????????  ??????
+<span class="o">[</span>stu05@ln1%tianhe ~]<span class="nv">$ </span><span class="nb">cd </span>ChenChangyu
+<span class="o">[</span>stu05@ln1%tianhe ChenChangyu]<span class="nv">$ </span><span class="nb">ls
+</span>MPI-Matrix  example
+<span class="o">[</span>stu05@ln1%tianhe ChenChangyu]<span class="nv">$ </span><span class="nb">cd </span>example
+<span class="o">[</span>stu05@ln1%tianhe example]<span class="nv">$ </span><span class="nb">ls
+</span>MAT01.TXT  MAT11.TXT  MAT21.TXT  MAT31.TXT  expmtt.f90
+<span class="o">[</span>stu05@ln1%tianhe example]<span class="nv">$ </span>mpif90 expmtt.f90 <span class="nt">-o</span> /ChenChangyu/example/expmtt
+ifort: internal error: error generating temporary file name, check disk space and permissions  <span class="o">(</span>shared/driver/hostutil.c, line 853<span class="o">)</span>
+<span class="o">[</span>stu05@ln1%tianhe example]<span class="err">$</span>
+</code></pre></div></div>
+
+<p>可以看到，编译失败啦！哈哈哈哈哈哈！一开始以为权限不够，于是尝试着更改权限。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>777 /example
+</code></pre></div></div>
+
+<p>现在我的 <code class="language-plaintext highlighter-rouge">example</code> 文件夹下的所有文件的权限都是 <code class="language-plaintext highlighter-rouge">777</code>，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。</p>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2022/01/01/%E4%BD%A0%E5%A5%BD2022/" title=" '你好 2022'"> ← 你好 2022</a>
+                        
+                        
+                            <a class="internal" rel="next" href="/blog/2022/01/26/macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" title="Next Post 'macOS Basic Usages'">macOS Basic Usages → </a>
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                        <p>🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️</p>
+                    
+                    
+                </div>
+                <div class="social-links">
+                    
+                    <a class="ico-rss" href="/feed.xml" rel="me" target="_blank" title="feed"></a>
+                    
+                        
+                    
+                        
+                            <a class="ico-github" href="https://github.com/chen-rain" rel="me" target="_blank" title="github"></a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+</footer>
+
+    </div>
+
+    <script>
+$(document).ready(function () {
+    var offset = 50,
+        duration = 500,
+        width = 960;
+    $(window).scroll(function () {
+        if ($(window).width() > width) {
+            if ($(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            } else {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+        }
+    });
+    $(window).resize(function () {
+        if ($(window).width() < width) {
+            $('footer').css('top', 'auto');
+            $('footer .back-to-top').fadeOut(duration);
+        }
+        if ($(window).width() >= width && $(this).scrollTop() > offset) {
+            $('footer').css('top', '20px');
+            $('footer .back-to-top').fadeIn(duration);
+        }
+    });
+
+    $('footer .back-to-top, .gotop').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, duration);
+        return false;
+    });
+
+    $('.show-hidden').on('click', function () {
+        $(this).parent().next().toggleClass("hidden");
+        $(this).toggleClass("hidden");
+    });
+});
+</script>
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+$(document).ready(function () {
+    $('.search-field').simpleJekyllSearch({
+      jsonFile: '/search.json',
+      template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+      searchResults: '.search-wrapper .results',
+      searchResultsTitle: '<h4>Search results</h4>',
+      noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+    });
+});
+
+(function ($, window, undefined) {
+    var closeOverlay = function () {
+        $('.nav-wrapper, .search-wrapper').removeAttr('style');
+        $(".nav-form, .search-form").removeClass('active');
+        $("body").removeClass('nav-overlay search-overlay');
+    };
+
+    $('.nav-global .btn-search').on('click', function () {
+        $('.search-wrapper').css({display: "block"});
+        $(".search-form").addClass('active');
+        $(".search-form").find('input').focus();
+        $("body").addClass('search-overlay');
+    });
+
+    $('.nav-global .btn-menu').on('click', function () {
+        $('.nav-wrapper').css({display: "block"});
+        $(".nav-form").addClass('active');
+        $(".nav-form .search-field").prop('disabled', true);
+        $("body").addClass('nav-overlay');
+    });
+
+    $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+        closeOverlay();
+    });
+
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            closeOverlay();
+        }
+    });
+})(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+
+</body>
+
+</html>

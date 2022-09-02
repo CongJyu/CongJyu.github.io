@@ -1,0 +1,36 @@
+<header class="the-header">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="{{ site.data.i18n[site.lang].menu }}"></button>
+                        <a href="{{ site.paths.blog | relative_url }}">{{ site.title }}</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="{{ site.data.i18n[site.lang].search }}"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].categories }}" href="{{ site.paths.categories | relative_url }}">{{ site.data.i18n[site.lang].categories }}</a></li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].tags }}" href="{{ site.paths.tags | relative_url }}">{{ site.data.i18n[site.lang].tags }}</a></li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].friends }}" href="{{ site.paths.friends | relative_url }}">{{ site.data.i18n[site.lang].friends }}</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].search }}" class="btn-search" href="#">{{ site.data.i18n[site.lang].search }}</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- 数学公式 -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+

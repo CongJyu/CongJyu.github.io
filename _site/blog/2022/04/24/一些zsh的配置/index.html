@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>当我卸载了 oh-my-zsh 之后 | Rain Chen&#39;s Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="当我卸载了 oh-my-zsh 之后" />
+<meta name="author" content="Rain Chen" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Contents" />
+<meta property="og:description" content="Contents" />
+<link rel="canonical" href="http://localhost:4000/blog/2022/04/24/%E4%B8%80%E4%BA%9Bzsh%E7%9A%84%E9%85%8D%E7%BD%AE/" />
+<meta property="og:url" content="http://localhost:4000/blog/2022/04/24/%E4%B8%80%E4%BA%9Bzsh%E7%9A%84%E9%85%8D%E7%BD%AE/" />
+<meta property="og:site_name" content="Rain Chen&#39;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-24T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="当我卸载了 oh-my-zsh 之后" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/blog/2022/04/24/%E4%B8%80%E4%BA%9Bzsh%E7%9A%84%E9%85%8D%E7%BD%AE/","description":"Contents","headline":"当我卸载了 oh-my-zsh 之后","dateModified":"2022-04-24T00:00:00+08:00","datePublished":"2022-04-24T00:00:00+08:00","author":{"@type":"Person","name":"Rain Chen"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2022/04/24/%E4%B8%80%E4%BA%9Bzsh%E7%9A%84%E9%85%8D%E7%BD%AE/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords" content="Mac,开发与应用" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.3.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+
+    
+</head>
+
+<body>
+    
+
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="http://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/categories/">Categories</a></li>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/blog/friends/">Friends</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field" placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Rain Chen's Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Categories" href="/blog/categories/">Categories</a></li>
+                    <li class="nav-link"><a title="Tags" href="/blog/tags/">Tags</a></li>
+                    <li class="nav-link"><a title="Friends" href="/blog/friends/">Friends</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search" href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- 数学公式 -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+</script>
+
+
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">当我卸载了 oh-my-zsh 之后</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2022-04-24T00:00:00+08:00" datetime="2022-04-24T00:00:00+08:00">April 24, 2022 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Rain Chen</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+    
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+    
+        
+        <li>
+            <a href="/blog/tags/#Mac" title="Mac">Mac <span>7</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#开发与应用" title="开发与应用">开发与应用 <span>10</span></a>
+        </li>
+    
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <p>Contents</p>
+<ul id="markdown-toc">
+  <li><a href="#heading-当我卸载了-oh-my-zsh-之后" id="markdown-toc-heading-当我卸载了-oh-my-zsh-之后">当我卸载了 oh-my-zsh 之后</a>    <ul>
+      <li><a href="#heading-事件起因" id="markdown-toc-heading-事件起因">事件起因</a></li>
+      <li><a href="#heading-oh-my-zsh-卸载方法" id="markdown-toc-heading-oh-my-zsh-卸载方法">oh-my-zsh 卸载方法</a></li>
+      <li><a href="#heading-自行配置-zsh" id="markdown-toc-heading-自行配置-zsh">自行配置 zsh</a>        <ul>
+          <li><a href="#heading-前期准备" id="markdown-toc-heading-前期准备">前期准备</a></li>
+          <li><a href="#heading-自定义-zsh-的提示符" id="markdown-toc-heading-自定义-zsh-的提示符">自定义 zsh 的提示符</a></li>
+          <li><a href="#heading-文件目录的颜色" id="markdown-toc-heading-文件目录的颜色">文件目录的颜色</a></li>
+          <li><a href="#heading-zsh-的自动补全" id="markdown-toc-heading-zsh-的自动补全">zsh 的自动补全</a></li>
+          <li><a href="#heading-zsh-的代码高亮和自动补全提示以及其他插件" id="markdown-toc-heading-zsh-的代码高亮和自动补全提示以及其他插件">zsh 的代码高亮和自动补全提示以及其他插件</a></li>
+          <li><a href="#heading-环境变量和路径" id="markdown-toc-heading-环境变量和路径">环境变量和路径</a></li>
+        </ul>
+      </li>
+      <li><a href="#heading-我的-zsh-配置分享" id="markdown-toc-heading-我的-zsh-配置分享">我的 zsh 配置分享</a></li>
+      <li><a href="#heading-想法及总结" id="markdown-toc-heading-想法及总结">想法及总结</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="heading-当我卸载了-oh-my-zsh-之后">当我卸载了 oh-my-zsh 之后</h1>
+
+<h2 id="heading-事件起因">事件起因</h2>
+
+<p>事情的起因是这样的，很久很久以前，我开始使用 zsh 的时候，根据「大部分」人推荐的方案，使用 oh-my-zsh 来对我的终端模拟器进行个性化的配置和设置。但是随着时间的推移，久而久之我就发现一个比较大的问题——自从安装使用了 oh-my-zsh 之后，我的 iTerm 启动速度肉眼可见的变慢了，而且有时候还无法正常加载配置。</p>
+
+<p>根据某位同学所言：「卸载了 oh-my-zsh 之后，zsh 的速度快了许多。」</p>
+
+<p>于是，我决定卸载 oh-my-zsh 了。</p>
+
+<p>当我卸载了 oh-my-zsh 之后，zsh 启动变快了不少。</p>
+
+<h2 id="heading-oh-my-zsh-卸载方法">oh-my-zsh 卸载方法</h2>
+
+<p>在终端输入下面的命令，即可卸载 oh-my-zsh。但是需要注意的是，你很可能接下来不得不自己配置 zsh。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uninstall_oh_my_zsh
+</code></pre></div></div>
+
+<h2 id="heading-自行配置-zsh">自行配置 zsh</h2>
+
+<h3 id="heading-前期准备">前期准备</h3>
+
+<p>在 <code class="language-plaintext highlighter-rouge">home</code> 目录里找到一个 <code class="language-plaintext highlighter-rouge">.zshrc</code> 的文件，使用你喜欢的文本编辑器打开它。如果没有，创建一个。</p>
+
+<p>使用下面的命令可以在不重新登录的情况下生效修改的配置。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.zshrc
+</code></pre></div></div>
+
+<p>本文默认您已经安装了 Homebrew 或者 Linuxbrew。如果您不知道这是什么，<a href="https://brew.sh">点击查看</a>。</p>
+
+<h3 id="heading-自定义-zsh-的提示符">自定义 zsh 的提示符</h3>
+
+<p>首先需要保证提示符在启动时加载，在 <code class="language-plaintext highlighter-rouge">.zshrc</code> 文件里写入下面内容。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 加载提示符</span>
+autoload <span class="nt">-U</span> promptinit
+</code></pre></div></div>
+
+<p>随后，可以根据自己的需要和喜好来自定义提示符。比如我是这样定义的，让提示符的前面显示一个小的 Apple™️ 标志。根据 zsh 可以设置右侧提示符，我将它设置为显示系统当前时间。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 提示符颜色</span>
+autoload <span class="nt">-U</span> colors <span class="o">&amp;&amp;</span> colors
+<span class="nv">PROMPT</span><span class="o">=</span><span class="s2">"%{</span><span class="nv">$fg</span><span class="s2">[magenta]%}%n%{</span><span class="nv">$reset_color</span><span class="s2">%}@%{</span><span class="nv">$fg</span><span class="s2">[magenta]%}%m %{</span><span class="nv">$fg</span><span class="s2">[cyan]%}%1~ %{</span><span class="nv">$reset_color</span><span class="s2">%}%# "</span>
+<span class="nv">RPROMPT</span><span class="o">=</span><span class="s2">"[%{</span><span class="nv">$fg</span><span class="s2">[magenta]%}%*%{</span><span class="nv">$reset_color</span><span class="s2">%}]"</span>
+</code></pre></div></div>
+
+<p>下面提供提示符的一些转义变量。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>转义变量</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%T</code></td>
+      <td>系统时间（时:分）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%*</code></td>
+      <td>系统时间（时:分:秒）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%D</code></td>
+      <td>系统日期（年-月-日）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%n</code></td>
+      <td>你的用户名</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%B - %b</code></td>
+      <td>从开始到结束使用粗体打印</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%U - %u</code></td>
+      <td>从开始到结束使用下划线打印</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%d</code></td>
+      <td>你当前的工作目录</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%~</code></td>
+      <td>你当前的工作目录相对于 <code class="language-plaintext highlighter-rouge">~</code> 的路径，<code class="language-plaintext highlighter-rouge">~</code> 前面带数字可以设定最多显示几层目录（有些版本的 zsh 可能会乱码）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%M</code></td>
+      <td>计算机的主机名</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%m</code></td>
+      <td>计算机的主机名，在第一个句点之前截断</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%l</code></td>
+      <td>你当前的 tty</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>然后加点颜色，根据你的习惯搭配，提高辨识度，降低出错率。把配置放在 <code class="language-plaintext highlighter-rouge">%{ [...] %}</code> 里面确保光标不移动。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$fg[color]</code></td>
+      <td>设置文本的颜色</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%F{color} [...] %f</code></td>
+      <td>和前面介绍的 <code class="language-plaintext highlighter-rouge">$fg</code> 是一样的，但是更简洁。还可以在 <code class="language-plaintext highlighter-rouge">F</code> 前面添加数字</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$fg_no_bold[color]</code></td>
+      <td>设置文本为非粗体同时设定文本颜色</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$fg_bold[color]</code></td>
+      <td>设置文本为粗体同时设定文本颜色</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$reset_color</code></td>
+      <td>重置文本颜色（改为默认颜色）,不会重置粗体设定,使用 <code class="language-plaintext highlighter-rouge">%b</code> 来重置粗体设定,可以使用 <code class="language-plaintext highlighter-rouge">%f</code> 来简化配置</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%K{color} [...] %k</code></td>
+      <td>设置背景颜色,和非粗体文本颜色一样,任何单一数字前缀会设置背景为黑色</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>可以选择的颜色值，列在下方表格中。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>颜色</th>
+      <th>英文表示</th>
+      <th>数字表示</th>
+      <th>颜色</th>
+      <th>英文表示</th>
+      <th>数字表示</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>黑色</td>
+      <td><code class="language-plaintext highlighter-rouge">black</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>蓝色</td>
+      <td><code class="language-plaintext highlighter-rouge">blue</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+    </tr>
+    <tr>
+      <td>红色</td>
+      <td><code class="language-plaintext highlighter-rouge">red</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+      <td>紫色</td>
+      <td><code class="language-plaintext highlighter-rouge">magenta</code></td>
+      <td><code class="language-plaintext highlighter-rouge">5</code></td>
+    </tr>
+    <tr>
+      <td>绿色</td>
+      <td><code class="language-plaintext highlighter-rouge">green</code></td>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+      <td>青色</td>
+      <td><code class="language-plaintext highlighter-rouge">cyan</code></td>
+      <td><code class="language-plaintext highlighter-rouge">6</code></td>
+    </tr>
+    <tr>
+      <td>黄色</td>
+      <td><code class="language-plaintext highlighter-rouge">yellow</code></td>
+      <td><code class="language-plaintext highlighter-rouge">3</code></td>
+      <td>白色</td>
+      <td><code class="language-plaintext highlighter-rouge">white</code></td>
+      <td><code class="language-plaintext highlighter-rouge">7</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="heading-文件目录的颜色">文件目录的颜色</h3>
+
+<p>为了让使用 <code class="language-plaintext highlighter-rouge">ls</code> 的命令时显示文件目录的不同类型文件有不同的颜色表示，我开启了 <code class="language-plaintext highlighter-rouge">ls</code> 命令的颜色显示，并根据使用习惯把颜色设定为 Linux 的默认配置。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 文件目录颜色</span>
+<span class="nb">export </span><span class="nv">CLICOLOR</span><span class="o">=</span><span class="s2">"Yes"</span>
+<span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span><span class="s2">"ExGxFxdaCxDaDahbadacec"</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">LSCOLORS</code> 字串中的字母两个为一组，表示对应文件的颜色和显示方式。一共 22 个字母，定义了 11 种文件类型。文件类型的顺序依次列出如下。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>类型说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>目录</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>链接</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>socket 文件</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>管道文件</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>可执行文件</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>块设备文件</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>字块设备文件</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>设定了 suid 的可执行文件</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>设定了 guid 的可执行文件</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>拥有 sticky 位的目录，组外用户拥有写权限</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>没有 sticky 位的目录，组外用户拥有写权限</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>相应地，颜色的配色方案也列表如下，可以自由搭配，两个一组，格式为：<code class="language-plaintext highlighter-rouge">前景色背景色</code>，连续写。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>小写字母</th>
+      <th>颜色解释</th>
+      <th>大写字母</th>
+      <th>颜色解释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">a</code></td>
+      <td>黑色</td>
+      <td><code class="language-plaintext highlighter-rouge">A</code></td>
+      <td>黑色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">b</code></td>
+      <td>红色</td>
+      <td><code class="language-plaintext highlighter-rouge">B</code></td>
+      <td>红色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">c</code></td>
+      <td>绿色</td>
+      <td><code class="language-plaintext highlighter-rouge">C</code></td>
+      <td>绿色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">d</code></td>
+      <td>棕色</td>
+      <td><code class="language-plaintext highlighter-rouge">D</code></td>
+      <td>棕色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">e</code></td>
+      <td>蓝色</td>
+      <td><code class="language-plaintext highlighter-rouge">E</code></td>
+      <td>蓝色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">f</code></td>
+      <td>洋红色</td>
+      <td><code class="language-plaintext highlighter-rouge">F</code></td>
+      <td>洋红色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">g</code></td>
+      <td>青色</td>
+      <td><code class="language-plaintext highlighter-rouge">G</code></td>
+      <td>青色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">h</code></td>
+      <td>浅灰色</td>
+      <td><code class="language-plaintext highlighter-rouge">H</code></td>
+      <td>浅灰色粗体</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">x</code></td>
+      <td>系统默认颜色</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="heading-zsh-的自动补全">zsh 的自动补全</h3>
+
+<p>开启 zsh 自己的命令补全。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 命令补全</span>
+autoload <span class="nt">-U</span> compinit
+</code></pre></div></div>
+
+<h3 id="heading-zsh-的代码高亮和自动补全提示以及其他插件">zsh 的代码高亮和自动补全提示以及其他插件</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 实用插件</span>
+<span class="nv">plugins</span><span class="o">=(</span>git zsh-syntax-highlighting zsh-autosuggestions<span class="o">)</span>
+<span class="nb">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+<span class="nb">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+</code></pre></div></div>
+
+<p>把插件的名称放在 <code class="language-plaintext highlighter-rouge">plugins=(...)</code> 的括号中，注意插件与插件之间使用空格分开。插件可以使用 <code class="language-plaintext highlighter-rouge">source &lt;dir&gt;</code> 命令引入，<code class="language-plaintext highlighter-rouge">source</code> 后面跟着插件安装的位置目录。</p>
+
+<h3 id="heading-环境变量和路径">环境变量和路径</h3>
+
+<p>这个根据自己的开发需要进行修改和配置，例如 Python 的解释器路径、Java 的环境变量、 Go 的 GOPATH 等等，如果不需要进行修改则可以忽略。这里不详细解释。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Python 环境变量和路径</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/opt/homebrew/opt/python@3.10/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+
+<span class="c"># Java 路径</span>
+<span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">"/Library/Java/JavaVirtualMachines/jdk-18.0.1.jdk"</span>
+
+<span class="c"># Go 路径</span>
+<span class="nb">export </span><span class="nv">GOPATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/CodingSpace/go"</span>
+
+<span class="c"># Ruby 路径</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/opt/homebrew/Cellar/ruby/3.1.0/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h2 id="heading-我的-zsh-配置分享">我的 zsh 配置分享</h2>
+
+<p>可以拿去用，自行根据需要修改。可能有些字符不能显示。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 加载提示符</span>
+autoload <span class="nt">-U</span> promptinit
+
+<span class="c"># 提示符颜色</span>
+autoload <span class="nt">-U</span> colors <span class="o">&amp;&amp;</span> colors
+<span class="nv">PROMPT</span><span class="o">=</span><span class="s2">"%{</span><span class="nv">$fg</span><span class="s2">[magenta]%}%n%{</span><span class="nv">$reset_color</span><span class="s2">%}@%{</span><span class="nv">$fg</span><span class="s2">[magenta]%}%m %{</span><span class="nv">$fg</span><span class="s2">[cyan]%}%1~ %{</span><span class="nv">$reset_color</span><span class="s2">%}%# "</span>
+<span class="nv">RPROMPT</span><span class="o">=</span><span class="s2">"[%{</span><span class="nv">$fg</span><span class="s2">[magenta]%}%*%{</span><span class="nv">$reset_color</span><span class="s2">%}]"</span>
+
+<span class="c"># 文件目录颜色</span>
+<span class="nb">export </span><span class="nv">CLICOLOR</span><span class="o">=</span><span class="s2">"Yes"</span>
+<span class="nb">export </span><span class="nv">LSCOLORS</span><span class="o">=</span><span class="s2">"ExGxFxdaCxDaDahbadacec"</span>
+
+<span class="c"># 命令补全</span>
+autoload <span class="nt">-U</span> compinit
+
+<span class="c"># 实用插件</span>
+<span class="nv">plugins</span><span class="o">=(</span>git zsh-syntax-highlighting zsh-autosuggestions<span class="o">)</span>
+<span class="nb">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+<span class="nb">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+<span class="c"># Java 路径</span>
+<span class="nb">export </span><span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">"/Library/Java/JavaVirtualMachines/jdk-18.0.1.jdk"</span>
+
+<span class="c"># Ruby 路径</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/opt/homebrew/opt/ruby/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+
+</code></pre></div></div>
+
+<h2 id="heading-想法及总结">想法及总结</h2>
+
+<blockquote>
+  <p>你不需要花哨的提示符。
+——摘自 <a href="https://zhuanlan.zhihu.com/p/51008087">Zhihu</a></p>
+</blockquote>
+
+<p>zsh 的界面是给我们提供方便的。如果它严重影响到了终端的性能和效率，比如 oh-my-zsh，启动和加载都要几秒甚至更长（在一些性能较差的计算机上），我完全没有理由去使用它，因为它已经背离我做 shell 美化的初衷了。</p>
+
+<p>我为什么要花大力气去自己配置 zsh 之类的设置？完全是为了自己平时用的顺手，如果您平时不使用 Terminal 和 shell，请当我没有说。</p>
+
+<p>除此之外，我发现在「简体中文网络」上搜索 zsh 的配置方案，结果有 99% 都是使用 oh-my-zsh 进行辅助配置。在这一点上，我认为 oh-my-zsh 是非常成功的，但是，根据我的日常使用情况来看，它的效率和性能实在是不敢恭维，显然没有自己写 <code class="language-plaintext highlighter-rouge">.zshrc</code> 配置来的高效。</p>
+
+<p>由此，我自己重新配置了 <code class="language-plaintext highlighter-rouge">.zshrc</code> 文件，并写下这些文字记录，以供参考。</p>
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2022/01/26/macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" title=" 'macOS Basic Usages'"> ← macOS Basic Usages</a>
+                        
+                        
+                            <a class="internal" rel="next" href="/blog/2022/06/22/HNU%E5%A4%8F%E5%AD%A3%E5%AD%A6%E6%9C%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E8%A7%A3%E4%B8%80/" title="Next Post 'HNU 夏季学期「程序设计训练 2022」 课程题解（一）'">HNU 夏季学期「程序设计训练 2022」 课程题解（一） → </a>
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                        <p>🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️</p>
+                    
+                    
+                </div>
+                <div class="social-links">
+                    
+                    <a class="ico-rss" href="/feed.xml" rel="me" target="_blank" title="feed"></a>
+                    
+                        
+                    
+                        
+                            <a class="ico-github" href="https://github.com/chen-rain" rel="me" target="_blank" title="github"></a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+</footer>
+
+    </div>
+
+    <script>
+$(document).ready(function () {
+    var offset = 50,
+        duration = 500,
+        width = 960;
+    $(window).scroll(function () {
+        if ($(window).width() > width) {
+            if ($(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            } else {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+        }
+    });
+    $(window).resize(function () {
+        if ($(window).width() < width) {
+            $('footer').css('top', 'auto');
+            $('footer .back-to-top').fadeOut(duration);
+        }
+        if ($(window).width() >= width && $(this).scrollTop() > offset) {
+            $('footer').css('top', '20px');
+            $('footer .back-to-top').fadeIn(duration);
+        }
+    });
+
+    $('footer .back-to-top, .gotop').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, duration);
+        return false;
+    });
+
+    $('.show-hidden').on('click', function () {
+        $(this).parent().next().toggleClass("hidden");
+        $(this).toggleClass("hidden");
+    });
+});
+</script>
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+$(document).ready(function () {
+    $('.search-field').simpleJekyllSearch({
+      jsonFile: '/search.json',
+      template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+      searchResults: '.search-wrapper .results',
+      searchResultsTitle: '<h4>Search results</h4>',
+      noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+    });
+});
+
+(function ($, window, undefined) {
+    var closeOverlay = function () {
+        $('.nav-wrapper, .search-wrapper').removeAttr('style');
+        $(".nav-form, .search-form").removeClass('active');
+        $("body").removeClass('nav-overlay search-overlay');
+    };
+
+    $('.nav-global .btn-search').on('click', function () {
+        $('.search-wrapper').css({display: "block"});
+        $(".search-form").addClass('active');
+        $(".search-form").find('input').focus();
+        $("body").addClass('search-overlay');
+    });
+
+    $('.nav-global .btn-menu').on('click', function () {
+        $('.nav-wrapper').css({display: "block"});
+        $(".nav-form").addClass('active');
+        $(".nav-form .search-field").prop('disabled', true);
+        $("body").addClass('nav-overlay');
+    });
+
+    $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+        closeOverlay();
+    });
+
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            closeOverlay();
+        }
+    });
+})(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+
+</body>
+
+</html>
