@@ -118,11 +118,11 @@
                 </li>
             
                 <li>
-                    <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
+                    <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
                 </li>
             
                 <li>
-                    <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
+                    <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
                 </li>
             
         </ul>
@@ -154,19 +154,14 @@
     <!-- .entry-header -->
     <div class="entry-content">
         
-            <h1 id="macos-上的-visual-studio-code-配置">macOS 上的 Visual Studio
-Code 配置</h1>
-<h2 id="cc-编译调试配置">C/C++ 编译调试配置</h2>
-<h3 id="settings.json-文件配置">settings.json 文件配置</h3>
-<ul>
+            <h1 id="macOS-上的-Visual-Studio-Code-配置"><a href="#macOS-上的-Visual-Studio-Code-配置" class="headerlink" title="macOS 上的 Visual Studio Code 配置"></a>macOS 上的 Visual Studio Code 配置</h1><h2 id="C-C-编译调试配置"><a href="#C-C-编译调试配置" class="headerlink" title="C/C++ 编译调试配置"></a>C/C++ 编译调试配置</h2><h3 id="settings-json-文件配置"><a href="#settings-json-文件配置" class="headerlink" title="settings.json 文件配置"></a>settings.json 文件配置</h3><ul>
 <li>需要安装<code>Code Runner</code>扩展。</li>
 </ul>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token property">"code-runner.runInTerminal"</span><span class="token operator">:</span> <span class="token boolean">true</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>作用：在 VS Code 的集成终端里运行程序，可以输入与输出。</p>
-<h3 id="launch.json-文件配置">launch.json 文件配置</h3>
-<ul>
+<h3 id="launch-json-文件配置"><a href="#launch-json-文件配置" class="headerlink" title="launch.json 文件配置"></a>launch.json 文件配置</h3><ul>
 <li>需要安装<code>C/C++</code>扩展</li>
 <li>需要安装<code>CodeLLDB</code>扩展</li>
 <li>需要安装<code>C/C++ Clang Command Adapter</code>扩展</li>
@@ -187,9 +182,8 @@ Code 配置</h1>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在原来的配置文件的基础上修改为以上内容。其中<code>"program": "$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;"</code>是说明生成二进制文件的位置。<code>"cwd"</code>一栏填工作文件夹<code>"$&#123;workspaceFolder&#125;"</code>即可。</p>
-<h3 id="tasks.json-文件配置">tasks.json 文件配置</h3>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+<p>在原来的配置文件的基础上修改为以上内容。其中<code>&quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</code>是说明生成二进制文件的位置。<code>&quot;cwd&quot;</code>一栏填工作文件夹<code>&quot;$&#123;workspaceFolder&#125;&quot;</code>即可。</p>
+<h3 id="tasks-json-文件配置"><a href="#tasks-json-文件配置" class="headerlink" title="tasks.json 文件配置"></a>tasks.json 文件配置</h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token punctuation">&#123;</span>
             <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"cppbuild"</span><span class="token punctuation">,</span>
@@ -218,10 +212,8 @@ Code 配置</h1>
     <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>其中的<code>"args": []</code>里的是编译指令，根据你所使用的编译器来写，例如我的<code>"command": "usr/bin/clang++"</code>的编译指令就写在<code>"args": []</code>里面了。</p>
-<h2 id="python-编译调试配置">Python 编译调试配置</h2>
-<h3 id="settings.json-文件配置-1">settings.json 文件配置</h3>
-<ul>
+<p>其中的<code>&quot;args&quot;: []</code>里的是编译指令，根据你所使用的编译器来写，例如我的<code>&quot;command&quot;: &quot;usr/bin/clang++&quot;</code>的编译指令就写在<code>&quot;args&quot;: []</code>里面了。</p>
+<h2 id="Python-编译调试配置"><a href="#Python-编译调试配置" class="headerlink" title="Python 编译调试配置"></a>Python 编译调试配置</h2><h3 id="settings-json-文件配置-1"><a href="#settings-json-文件配置-1" class="headerlink" title="settings.json 文件配置"></a>settings.json 文件配置</h3><ul>
 <li>需要安装<code>Python</code>扩展</li>
 <li>需要安装一个版本的<code>Python</code></li>
 </ul>
@@ -230,8 +222,7 @@ Code 配置</h1>
     <span class="token property">"python.pythonPath"</span><span class="token operator">:</span> <span class="token string">"/usr/local/bin/python3"</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要在<code>settings.json</code>文件中添加<code>Python</code>解释器的路径。</p>
-<h3 id="launch.json-文件配置-1">launch.json 文件配置</h3>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+<h3 id="launch-json-文件配置-1"><a href="#launch-json-文件配置-1" class="headerlink" title="launch.json 文件配置"></a>launch.json 文件配置</h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token comment">// Use IntelliSense to learn about possible attributes.</span>
     <span class="token comment">// Hover to view descriptions of existing attributes.</span>
     <span class="token comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span>
@@ -247,16 +238,13 @@ Code 配置</h1>
     <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>默认设置即可。</p>
-<h3 id="tasks.json-文件配置-1">tasks.json 文件配置</h3>
-<p>可以暂时不用。</p>
-<h2 id="fortran-编译调试配置">Fortran 编译调试配置</h2>
-<ul>
+<h3 id="tasks-json-文件配置-1"><a href="#tasks-json-文件配置-1" class="headerlink" title="tasks.json 文件配置"></a>tasks.json 文件配置</h3><p>可以暂时不用。</p>
+<h2 id="Fortran-编译调试配置"><a href="#Fortran-编译调试配置" class="headerlink" title="Fortran 编译调试配置"></a>Fortran 编译调试配置</h2><ul>
 <li>需要安装<code>gfortran</code>编译器</li>
 <li>需要安装<code>Modern Fortran</code>扩展</li>
 <li>需要安装<code>Fortran Breakpoint Support</code>扩展</li>
 </ul>
-<h3 id="settings.json-文件配置-2">settings.json 文件配置</h3>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+<h3 id="settings-json-文件配置-2"><a href="#settings-json-文件配置-2" class="headerlink" title="settings.json 文件配置"></a>settings.json 文件配置</h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token property">"code-runner.runInTerminal"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token property">"fortran.includePaths"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token string">"/usr/local/include"</span><span class="token punctuation">,</span>
@@ -266,8 +254,7 @@ Code 配置</h1>
     <span class="token property">"fortran.symbols"</span><span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token string">"function"</span><span class="token punctuation">,</span> <span class="token string">"subroutine"</span><span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要在此文件中写上<code>fortran</code>编译器的目录，比如我的目录<code>usr/local/bin</code>。</p>
-<h3 id="launch.json-文件配置-2">launch.json 文件配置</h3>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+<h3 id="launch-json-文件配置-2"><a href="#launch-json-文件配置-2" class="headerlink" title="launch.json 文件配置"></a>launch.json 文件配置</h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token comment">// Use IntelliSense to learn about possible attributes.</span>
     <span class="token comment">// Hover to view descriptions of existing attributes.</span>
     <span class="token comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span>
@@ -284,8 +271,7 @@ Code 配置</h1>
     <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里是有关程序运行的设定。</p>
-<h3 id="tasks.json-文件配置-2">tasks.json 文件配置</h3>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+<h3 id="tasks-json-文件配置-2"><a href="#tasks-json-文件配置-2" class="headerlink" title="tasks.json 文件配置"></a>tasks.json 文件配置</h3><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token punctuation">&#123;</span>
             <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"shell"</span><span class="token punctuation">,</span>
@@ -312,11 +298,10 @@ Code 配置</h1>
     <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这个文件是用来配置编译任务的，注意<code>"type"</code>、<code>"label"</code>以及<code>"command"</code>这几项需要自己写。</p>
-<h2 id="结尾">结尾</h2>
-<p>本文由 Rain Chen 自己摸索而成，仅供参考，不足之处，还请指出。</p>
+<p>这个文件是用来配置编译任务的，注意<code>&quot;type&quot;</code>、<code>&quot;label&quot;</code>以及<code>&quot;command&quot;</code>这几项需要自己写。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>本文由 Rain Chen 自己摸索而成，仅供参考，不足之处，还请指出。</p>
 <blockquote>
-<p>转载请注明来源：https://chen-rain.github.io</p>
+<p>转载请注明来源：<a href="https://chen-rain.github.io">https://chen-rain.github.io</a></p>
 </blockquote>
 
 

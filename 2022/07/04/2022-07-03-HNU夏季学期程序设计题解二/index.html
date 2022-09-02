@@ -118,11 +118,11 @@
                 </li>
             
                 <li>
-                    <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
+                    <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
                 </li>
             
                 <li>
-                    <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
+                    <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
                 </li>
             
         </ul>
@@ -154,25 +154,15 @@
     <!-- .entry-header -->
     <div class="entry-content">
         
-            <h1 id="hnu-夏季学期程序设计训练-2022-课程题解二">HNU
-夏季学期「程序设计训练 2022」 课程题解（二）</h1>
-<h2 id="前言">前言</h2>
-<blockquote>
-<p>「输入两个整数 a 和 b，输出它们的和。」 —— A+B Problem</p>
+            <h1 id="HNU-夏季学期「程序设计训练-2022」-课程题解（二）"><a href="#HNU-夏季学期「程序设计训练-2022」-课程题解（二）" class="headerlink" title="HNU 夏季学期「程序设计训练 2022」 课程题解（二）"></a>HNU 夏季学期「程序设计训练 2022」 课程题解（二）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>「输入两个整数 a 和 b，输出它们的和。」<br>          —— A+B Problem</p>
 </blockquote>
 <p>本题解中的题目描述文字格式全部按照题目原文，描述部分的排版和题解作者无关。</p>
-<h2 id="代码">代码</h2>
-<p>代码项目和文件存放于仓库中：</p>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya">https://github.com/Chen-Rain/Pitaya</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>代码项目和文件存放于仓库中：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya">https://github.com/Chen-Rain/Pitaya</a></p>
 <p>如果无法打开请自行检查网络配置。</p>
-<h2 id="problem-01.-字符串反转2">Problem 01. 字符串反转2</h2>
-<h3 id="题目部分">题目部分</h3>
-<p>【问题描述】</p>
-<p>给定一个句子（只包含字母和空格），
-将句子中的单词位置反转，单词用空格分割,
-单词之间只有一个空格，前后没有空格。 比如： “hello xiao mi”-&gt; “mi
-xiao hello”</p>
+<h2 id="Problem-01-字符串反转2"><a href="#Problem-01-字符串反转2" class="headerlink" title="Problem 01. 字符串反转2"></a>Problem 01. 字符串反转2</h2><h3 id="题目部分"><a href="#题目部分" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
+<p>给定一个句子（只包含字母和空格）， 将句子中的单词位置反转，单词用空格分割, 单词之间只有一个空格，前后没有空格。 比如： “hello xiao mi”-&gt; “mi xiao hello”</p>
 <p>【输入形式】</p>
 <p>输入数据有多组，每组占一行，包含一个句子(句子长度小于1000个字符)</p>
 <p>【输出形式】</p>
@@ -183,15 +173,10 @@ I am a student<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <p>【样例输出】</p>
 <pre class="line-numbers language-none"><code class="language-none">mi xiao hello
 student a am I<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="题解部分">题解部分</h3>
-<p>【思路】</p>
-<p>这道题可以使用常规的字符串反转的思路，也可以用一些奇奇怪怪的方法。一种方法是使用
-<code>vector</code>
-存储字符串中的每一段（词组）；或者像我一样这道题采用直接先把整个字符串反转
-<code>reverse()</code> 后再逐个单词反转回来的方法。</p>
+<h3 id="题解部分"><a href="#题解部分" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<p>这道题可以使用常规的字符串反转的思路，也可以用一些奇奇怪怪的方法。一种方法是使用 <code>vector</code> 存储字符串中的每一段（词组）；或者像我一样这道题采用直接先把整个字符串反转 <code>reverse()</code> 后再逐个单词反转回来的方法。</p>
 <p>【Accepted 代码】</p>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/main/HNU-SummerTerm/T02P01-testing">最大规模数据集随机生成程序：测试用</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/main/HNU-SummerTerm/T02P01-testing">最大规模数据集随机生成程序：测试用</a></p>
 <p>C++ 17</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p01</span>
 
@@ -218,15 +203,10 @@ target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/ma
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【可能遇到的问题】</p>
 <p>注意输出时的空格控制，防止出现格式错误。</p>
-<h2 id="problem-02.-xxx定律">Problem 02. xxx定律</h2>
-<h3 id="题目部分-1">题目部分</h3>
-<p>【问题描述】</p>
-<p>对于一个正整数n，如果是偶数，就把n砍掉一半；如果是奇数，把n变成 3*n+
-1后砍掉一半，直到该数变为1为止。
-请计算需要经过几步才能将n变到1，具体可见样例。</p>
+<h2 id="Problem-02-xxx定律"><a href="#Problem-02-xxx定律" class="headerlink" title="Problem 02. xxx定律"></a>Problem 02. xxx定律</h2><h3 id="题目部分-1"><a href="#题目部分-1" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
+<p>对于一个正整数n，如果是偶数，就把n砍掉一半；如果是奇数，把n变成 3*n+ 1后砍掉一半，直到该数变为1为止。<br>请计算需要经过几步才能将n变到1，具体可见样例。</p>
 <p>【输入形式】</p>
-<p>测试包含多个用例，每个用例包含一个整数n,当n为0
-时表示输入结束。（1&lt;=n&lt;=10000）</p>
+<p>测试包含多个用例，每个用例包含一个整数n,当n为0 时表示输入结束。（1&lt;=n&lt;=10000）</p>
 <p>【输出形式】</p>
 <p>对于每组测试用例请输出一个数，表示需要经过的步数,每组输出占一行。</p>
 <p>【样例输入】</p>
@@ -236,11 +216,8 @@ target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/ma
 <p>【样例输出】</p>
 <pre class="line-numbers language-none"><code class="language-none">5
 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="题解部分-1">题解部分</h3>
-<p>【思路】</p>
-<p>这道题应该是一个数学问题，放进「数学」的 Tag
-里面（不是）。只用按照题目的步骤操作就行。对每一个数进行操作，遇到
-<code>0</code> 退出程序就行。</p>
+<h3 id="题解部分-1"><a href="#题解部分-1" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<p>这道题应该是一个数学问题，放进「数学」的 Tag 里面（不是）。只用按照题目的步骤操作就行。对每一个数进行操作，遇到 <code>0</code> 退出程序就行。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p02</span>
@@ -273,11 +250,8 @@ target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/ma
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【可能遇到的问题】</p>
 <p>注意控制循环开始和结束的条件，不要越界了。</p>
-<h2 id="problem-03.-数的距离差">Problem 03. 数的距离差</h2>
-<h3 id="题目部分-2">题目部分</h3>
-<p>【问题描述】</p>
-<p>给定一组正整数，其中最大值和最小值分别为Max和Min,
-其中一个数x到Max和Min的距离差定义为：</p>
+<h2 id="Problem-03-数的距离差"><a href="#Problem-03-数的距离差" class="headerlink" title="Problem 03. 数的距离差"></a>Problem 03. 数的距离差</h2><h3 id="题目部分-2"><a href="#题目部分-2" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
+<p>给定一组正整数，其中最大值和最小值分别为Max和Min, 其中一个数x到Max和Min的距离差定义为：</p>
 <p>abs(abs(x-Max)-(x-Min))</p>
 <p>其中abs()为求一个数的绝对值</p>
 <p>【输入形式】</p>
@@ -294,12 +268,8 @@ target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/ma
 1 3 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>【样例输出 2】</p>
 <pre class="line-numbers language-none"><code class="language-none">2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="题解部分-2">题解部分</h3>
-<p>【思路】</p>
-<p>好像也是一个纯数学问题。按照题目的步骤操作就行。计算一组数的和、平均值、每一个数与平均值的差等等。可以开两个动态数组
-<code>array</code>
-来存储原来的一组数和每一个数对应与平均值的差。当然使用
-<code>vector</code> 也没有问题，用着顺手就好。</p>
+<h3 id="题解部分-2"><a href="#题解部分-2" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<p>好像也是一个纯数学问题。按照题目的步骤操作就行。计算一组数的和、平均值、每一个数与平均值的差等等。可以开两个动态数组 <code>array</code> 来存储原来的一组数和每一个数对应与平均值的差。当然使用 <code>vector</code> 也没有问题，用着顺手就好。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p03</span>
@@ -342,29 +312,30 @@ target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/ma
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【容易出错的问题】</p>
 <p>C++ 和 Python 的浮点数除法运算输出结果的问题。总结如下表：</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th>运算</th>
+<tr>
+<th>运算\语言</th>
 <th>C++</th>
 <th>Python 2</th>
 <th>Python 3</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>4 / 2</code></td>
 <td><code>2</code></td>
 <td><code>2</code></td>
 <td><code>2</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>5 / 2</code></td>
 <td><code>2</code></td>
 <td><code>2</code></td>
 <td><code>2.5</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>5.0 / 2</code></td>
 <td><code>2.5</code></td>
 <td><code>2.5</code></td>
@@ -372,18 +343,14 @@ target="_blank" rel="noopener" href="https://github.com/Chen-Rain/Pitaya/tree/ma
 </tr>
 </tbody>
 </table>
-<h2 id="problem-04.-亲和数">Problem 04. 亲和数</h2>
-<h3 id="题目部分-3">题目部分</h3>
-<p>【问题描述】</p>
-<p>古希腊数学家毕达哥拉斯在自然数研究中发现，220
-的所有真约数(即不是自身的约数)之和为：</p>
+</div>
+<h2 id="Problem-04-亲和数"><a href="#Problem-04-亲和数" class="headerlink" title="Problem 04. 亲和数"></a>Problem 04. 亲和数</h2><h3 id="题目部分-3"><a href="#题目部分-3" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
+<p>古希腊数学家毕达哥拉斯在自然数研究中发现，220 的所有真约数(即不是自身的约数)之和为：   </p>
 <p>1+2+4+5+10+11+20+22+44+55+110＝284。</p>
-<p>而 284 的所有真约数为 1、2、4、71、 142，加起来恰好为
-220。人们对这样的数感到很惊奇，并称之为亲和数。一般地讲，如果两个数中任何一个数都是另一个数的真约数之和，则这两个数就是亲和数。</p>
+<p>而 284 的所有真约数为 1、2、4、71、 142，加起来恰好为 220。人们对这样的数感到很惊奇，并称之为亲和数。一般地讲，如果两个数中任何一个数都是另一个数的真约数之和，则这两个数就是亲和数。</p>
 <p>你的任务就编写一个程序，判断给定的两个数是否是亲和数。</p>
 <p>【输入形式】</p>
-<p>输入若干行数据（大于0），每行一个实例,包含两个整数A,B； 其中 0 &lt;=
-A,B &lt;= 600000 ;</p>
+<p>输入若干行数据（大于0），每行一个实例,包含两个整数A,B； 其中 0 &lt;= A,B &lt;= 600000 ;</p>
 <p>【输出形式】</p>
 <p>对于每个测试实例，如果 A 和 B 是亲和数的话输出 YES，否则输出 NO</p>
 <p>【样例输入】</p>
@@ -392,12 +359,8 @@ A,B &lt;= 600000 ;</p>
 <p>【样例输出】</p>
 <pre class="line-numbers language-none"><code class="language-none">YES
 NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="题解部分-3">题解部分</h3>
-<p>【思路】</p>
-<p>分别求两个数的「真约数」，判断是否等于对方。使用循环即可解决，这道题的数据规模不会导致双重循环超时
-<code>Time Limit Exceeded</code>
-的问题。这个题有一个情景不同，内核相同的变种，是 2021
-秋季学期的「程序设计」课程的一个作业题：「牛数」（好像是叫这个名？）。</p>
+<h3 id="题解部分-3"><a href="#题解部分-3" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<p>分别求两个数的「真约数」，判断是否等于对方。使用循环即可解决，这道题的数据规模不会导致双重循环超时 <code>Time Limit Exceeded</code> 的问题。这个题有一个情景不同，内核相同的变种，是 2021 秋季学期的「程序设计」课程的一个作业题：「牛数」（好像是叫这个名？）。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p04</span>
@@ -438,9 +401,7 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
 <p>两个数的真约数求和跟两个数的真约数本身不要搞混了。</p>
-<h2 id="problem-05.-金币">Problem 05. 金币</h2>
-<h3 id="题目部分-4">题目部分</h3>
-<p>【问题描述】</p>
+<h2 id="Problem-05-金币"><a href="#Problem-05-金币" class="headerlink" title="Problem 05. 金币"></a>Problem 05. 金币</h2><h3 id="题目部分-4"><a href="#题目部分-4" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
 <p>国王为他的忠诚的骑士支付金币。在他服役的第一天，骑士收到一枚金币。在接下来2天（第二天和第三天的服务），骑士每天收到2金币。在未来三天（第五，第四，和第六天的服务），骑士每天收到三金币。在未来四天（第七，第八，第九，和第十天的服务），骑士每天收到四金币。这一模式的付款方式将继续下去：在接下来的n天骑士每天将收到n枚金币，而在接接下来的n+1天每天将收到n+1枚金币，这里n是正整数。你的程序将确定在任何给定的天数（从第1天开始）支付给骑士的金币总数。</p>
 <p>【输入形式】</p>
 <p>输入包含至少一行，但不超过21行。输入的每一行包含一个测试案例的数据，即一个整数（1~10000），代表天数。</p>
@@ -460,8 +421,7 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 1000 29820
 21 91
 22 98<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="题解部分-4">题解部分</h3>
-<p>【思路】</p>
+<h3 id="题解部分-4"><a href="#题解部分-4" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
 <p>用一个变量对当前天数进行计数，控制发金币的天数。用另外一个变量对发相同数量的金币的天数进行计数，控制相同金币天数形成一个等差数列。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
@@ -494,14 +454,10 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
 <p>需要多个计数变量，分别统计天数，不要弄混了。</p>
-<h2 id="problem-06.-小a的计算器">Problem 06. 小A的计算器</h2>
-<h3 id="题目部分-5">题目部分</h3>
-<p>【题目描述】</p>
-<p>以往的操作系统内部的数据表示都是二进制方式，小A新写了一个操作系统，系统内部的数据表示为26进制，其中0-25分别由a-z表示。
-现在小A要在这个操作系统上实现一个计算器，这个计算器要能实现26进制数的加法运算。你能帮小A实现这个计算器吗？</p>
+<h2 id="Problem-06-小A的计算器"><a href="#Problem-06-小A的计算器" class="headerlink" title="Problem 06. 小A的计算器"></a>Problem 06. 小A的计算器</h2><h3 id="题目部分-5"><a href="#题目部分-5" class="headerlink" title="题目部分"></a>题目部分</h3><p>【题目描述】</p>
+<p>以往的操作系统内部的数据表示都是二进制方式，小A新写了一个操作系统，系统内部的数据表示为26进制，其中0-25分别由a-z表示。<br>现在小A要在这个操作系统上实现一个计算器，这个计算器要能实现26进制数的加法运算。你能帮小A实现这个计算器吗？</p>
 <p>【输入形式】</p>
-<p>输入的第一行包括一个整数N(1&lt;=N&lt;=100)。
-接下来的N行每行包括两个26进制数x和y，它们之间用空格隔开，每个数的位数最多为10位,我们可以保证相加的结果的位数最多也是10位。每个数会用小A所设计的操作系统中的表示方法来表示，如：bsadfasdf。即每个数的各个位均由26个小写字母a-z中的一个来表示。</p>
+<p>输入的第一行包括一个整数N(1&lt;=N&lt;=100)。<br>接下来的N行每行包括两个26进制数x和y，它们之间用空格隔开，每个数的位数最多为10位,我们可以保证相加的结果的位数最多也是10位。每个数会用小A所设计的操作系统中的表示方法来表示，如：bsadfasdf。即每个数的各个位均由26个小写字母a-z中的一个来表示。</p>
 <p>【输出形式】</p>
 <p>输出x和y相加后的结果，结果也要用题目中描述的26进制数来表示。</p>
 <p>【样例输入】</p>
@@ -515,8 +471,7 @@ ba c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 d
 d
 bc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="题解部分-5">题解部分</h3>
-<p>【思路】</p>
+<h3 id="题解部分-5"><a href="#题解部分-5" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
 <blockquote>
 <p>懒得写</p>
 </blockquote>
@@ -566,15 +521,12 @@ bc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
 <p>注意字符串和字符数组的处理。</p>
-<h2 id="problem-07.-小丑排序">Problem 07. 小丑排序</h2>
-<h3 id="题目部分-6">题目部分</h3>
-<p>【问题描述】</p>
+<h2 id="Problem-07-小丑排序"><a href="#Problem-07-小丑排序" class="headerlink" title="Problem 07. 小丑排序"></a>Problem 07. 小丑排序</h2><h3 id="题目部分-6"><a href="#题目部分-6" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
 <p>你在信天翁马戏团（是的，它是由一群小丑组成）从事管理工作，你刚刚写完一个程序的输出是将他们的姓名按长度为非递减的方式排列，名称列表（使每名至少只要它之前的）。然而，你的老板不喜欢这种输出方式，而是希望输出出现更对称，较短的字符串在顶部和底部，而较长的字符串在中间。他的规则是，每一对名称都是在该列表的相对的两端，并且在该组中的第一个名字总是在列表的顶部。比如在下面的第一个例子中，Bo和Pat是第一对，Jean和Kevin是第二对，等等。</p>
 <p>【输入形式】</p>
 <p>输入由1到多个字符串集合组成，最后一行为0表示输入结束，每个集合开始于一个整数n，表示该集合字符串的个数，接下来n行由n个字符串按长度非递减的方式排列，每个集合至少包含一个但不超过15个字符串，每个字符串不超过25个字符。</p>
 <p>【输出形式】</p>
-<p>对于每个集合，第一行输出"set-n",
-n从1开始，接下来的若干行对应输入每个集合重新排列的结果，如样例所示。</p>
+<p>对于每个集合，第一行输出”set-n”, n从1开始，接下来的若干行对应输入每个集合重新排列的结果，如样例所示。</p>
 <p>【样例输入】</p>
 <pre class="line-numbers language-none"><code class="language-none">7
 Bo
@@ -620,8 +572,7 @@ Fran
 Cece
 Stan
 Bill<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="题解部分-6">题解部分</h3>
-<p>【思路】</p>
+<h3 id="题解部分-6"><a href="#题解部分-6" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
 <p>按从上到下的顺序，奇数位置的名字从上往下排，偶数位置的名字从下往上排，最后直接输出整组数据就行。</p>
 <p>【Accepted 代码】</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p07</span>
@@ -667,13 +618,9 @@ Bill<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
-<p>C++ Standard Template Library 中 <code>stack</code>
-的用法。以及不要忘记有多组数据要处理。</p>
-<h2 id="problem-08.-数圈">Problem 08. 数圈</h2>
-<h3 id="题目部分-7">题目部分</h3>
-<p>【问题描述】</p>
-<p>以1为中心，用2,3,4, ..., n, ..., n*n的数字围绕着中心输出数圈，
-如若n=4，则</p>
+<p>C++ Standard Template Library 中 <code>stack</code> 的用法。以及不要忘记有多组数据要处理。</p>
+<h2 id="Problem-08-数圈"><a href="#Problem-08-数圈" class="headerlink" title="Problem 08. 数圈"></a>Problem 08. 数圈</h2><h3 id="题目部分-7"><a href="#题目部分-7" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
+<p>以1为中心，用2,3,4, …, n, …, n*n的数字围绕着中心输出数圈， 如若n=4，则</p>
 <p>7 8 9 10</p>
 <p>6 1 2 11</p>
 <p>5 4 3 12</p>
@@ -690,12 +637,10 @@ Bill<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 19 6 1 2 11
 18 5 4 3 12
 17 16 15 14 13<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="题解部分-7">题解部分</h3>
-<p>【思路】</p>
-<ol type="1">
+<h3 id="题解部分-7"><a href="#题解部分-7" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<ol>
 <li>正常思路，找出每一个位置上的「通项」表达，然后直接输出出来。</li>
-<li>不正常思路，也是以下 AC
-代码的写法，把最大规模的数圈矩阵写进代码，然后按输入数据输出对应规模。这种方法适用于数据规模不大的情况。</li>
+<li>不正常思路，也是以下 AC 代码的写法，把最大规模的数圈矩阵写进代码，然后按输入数据输出对应规模。这种方法适用于数据规模不大的情况。</li>
 </ol>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
@@ -753,11 +698,8 @@ Bill<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
-<p>正常思路的话需要注意动态二维数组的创建和它的指针操作，如果你没有用
-<code>vector</code> 的话。不正常思路就直接把答案写进代码里……</p>
-<h2 id="problem-09.-锤子剪刀布">Problem 09. 锤子剪刀布</h2>
-<h3 id="题目部分-8">题目部分</h3>
-<p>【问题描述】</p>
+<p>正常思路的话需要注意动态二维数组的创建和它的指针操作，如果你没有用 <code>vector</code> 的话。不正常思路就直接把答案写进代码里……</p>
+<h2 id="Problem-09-锤子剪刀布"><a href="#Problem-09-锤子剪刀布" class="headerlink" title="Problem 09. 锤子剪刀布"></a>Problem 09. 锤子剪刀布</h2><h3 id="题目部分-8"><a href="#题目部分-8" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
 <p>大家应该都会玩“锤子剪刀布”的游戏。现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。</p>
 <p>【输入形式】</p>
 <p>输入第1行给出正整数N（&lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代表“锤子”、J代表“剪刀”、B代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。</p>
@@ -779,8 +721,7 @@ J J<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <pre class="line-numbers language-none"><code class="language-none">5 3 2
 2 3 5
 B B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="题解部分-8">题解部分</h3>
-<p>【思路】</p>
+<h3 id="题解部分-8"><a href="#题解部分-8" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
 <p>明明是石头剪刀布好不好，怎么到你这里就变成锤子了！</p>
 <p>把每一种情况分别进行比较，新建三个变量用于存储其中一方的胜、负、平局的次数，另外一方的胜负平局就是这一方的负胜平局次数。</p>
 <p>【Accepted 代码】</p>
@@ -849,21 +790,19 @@ B B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
 <p>情况有点多，分类的时候不要漏了。</p>
-<h2 id="problem-10.-绩点计算">Problem 10. 绩点计算</h2>
-<h3 id="题目部分-9">题目部分</h3>
-<p>【问题描述】</p>
+<h2 id="Problem-10-绩点计算"><a href="#Problem-10-绩点计算" class="headerlink" title="Problem 10. 绩点计算"></a>Problem 10. 绩点计算</h2><h3 id="题目部分-9"><a href="#题目部分-9" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
 <p>学校对本科生的成绩施行绩点制（GPA）。将学生的实际考分根据不同学科的不同学分按一定的公式进行计算。规定如下：</p>
-<p>实际成绩 绩点</p>
-<p>90-100 4.0</p>
-<p>85-89 3.7</p>
-<p>82-84 3.3</p>
-<p>78-81 3.0</p>
-<p>75-77 2.7</p>
-<p>72-74 2.3</p>
-<p>68-71 2.0</p>
-<p>64-67 1.5</p>
-<p>60-63 1.0</p>
-<p>60以下 0</p>
+<p>实际成绩        绩点</p>
+<p>90-100          4.0</p>
+<p>85-89            3.7</p>
+<p>82-84            3.3</p>
+<p>78-81            3.0</p>
+<p>75-77            2.7</p>
+<p>72-74            2.3</p>
+<p>68-71            2.0</p>
+<p>64-67            1.5</p>
+<p>60-63            1.0</p>
+<p>60以下            0</p>
 <p>1.一门课程的学分绩点=该课绩点*该课学分</p>
 <p>2.总评绩点=所有学科绩点之和/所有课程学分之和</p>
 <p>现要求你编程求出某人的总评绩点(GPA)</p>
@@ -880,12 +819,8 @@ B B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 91 88 72 69 56<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>【样例输出】</p>
 <pre class="line-numbers language-none"><code class="language-none">2.52<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="题解部分-9">题解部分</h3>
-<p>【思路】</p>
-<p>按部就班直接计算就可以，用一个数组存储学分，一个数组存储分数。然后根据分数段分情况计算，可以使用
-<code>if...else if...else</code> 结构。保留两位小数，在 C++ 中使用
-<code>#include &lt;iomanip&gt;</code> 然后设定精度，在 Python
-中直接设定精度即可。</p>
+<h3 id="题解部分-9"><a href="#题解部分-9" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<p>按部就班直接计算就可以，用一个数组存储学分，一个数组存储分数。然后根据分数段分情况计算，可以使用 <code>if...else if...else</code> 结构。保留两位小数，在 C++ 中使用 <code>#include &lt;iomanip&gt;</code> 然后设定精度，在 Python 中直接设定精度即可。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p10</span>
@@ -945,15 +880,12 @@ B B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
 <p>浮点数除法结果的问题。</p>
-<h2 id="problem-11.-最小的k个数">Problem 11. 最小的k个数</h2>
-<h3 id="题目部分-10">题目部分</h3>
-<p>【问题描述】</p>
+<h2 id="Problem-11-最小的k个数"><a href="#Problem-11-最小的k个数" class="headerlink" title="Problem 11. 最小的k个数"></a>Problem 11. 最小的k个数</h2><h3 id="题目部分-10"><a href="#题目部分-10" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
 <p>输入n个整数，找出其中最小的k（k&lt;=n）个不同数。例如输入4,5,1,6,1,7,3,8这8个数字，则最小的4个数字是1,3,4,5。</p>
 <p>【输入形式】</p>
 <p>每个测试案例包括2行：</p>
 <p>第一行为2个整数n，k(1&lt;=n，k&lt;=200000)，表示数组的长度。</p>
-<p>第二行包含n个整数，表示这n个数，数组中的数的范围是[0,1000 000
-000]。</p>
+<p>第二行包含n个整数，表示这n个数，数组中的数的范围是[0,1000 000 000]。</p>
 <p>【输出形式】</p>
 <p>对应每个测试案例，输出最小的k个数，并按从小到大顺序打印(如果不存在k个不同的数，则按照实际数量进行输出)。</p>
 <p>【样例输入】</p>
@@ -963,11 +895,9 @@ B B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <pre class="line-numbers language-none"><code class="language-none">1 2 3 4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>【训练提示】</p>
 <p>1、数的范围从0到1000000000，使用数组记录那些数出现过就不是太合适</p>
-<p>2、需要去除重复的数，需要从小到大排序----set就是一个不错的选择</p>
-<h3 id="题解部分-10">题解部分</h3>
-<p>【思路】</p>
-<p>你这训练提示……我就偏要用数组。用一个数组存储数据，然后直接从小到大排序。然后从头开始遍历，先直接输出第一个数，然后从第二个数开始，如果当前数字跟前一个数不一样，那我就输出，同时计数器加一，直到计数器达到
-k 的数量停止程序。</p>
+<p>2、需要去除重复的数，需要从小到大排序——set就是一个不错的选择</p>
+<h3 id="题解部分-10"><a href="#题解部分-10" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
+<p>你这训练提示……我就偏要用数组。用一个数组存储数据，然后直接从小到大排序。然后从头开始遍历，先直接输出第一个数，然后从第二个数开始，如果当前数字跟前一个数不一样，那我就输出，同时计数器加一，直到计数器达到 k 的数量停止程序。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// t02p11</span>
@@ -1000,13 +930,9 @@ k 的数量停止程序。</p>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
-<p>按提示用 <code>map</code> 也行吧，我没用过。用过的可以 pull
-request。</p>
-<h2 id="problem-12.-拼写检查">Problem 12. 拼写检查</h2>
-<h3 id="题目部分-11">题目部分</h3>
-<p>【问题描述】</p>
-<p>作为一个新的拼写检查程序开发团队的成员，您将编写一个模块，用已知的所有形式正确的词典来检查给定单词的正确性。
-如果字典中没有这个词，那么可以用下列操作中的一个来替换正确的单词（从字典中）：</p>
+<p>按提示用 <code>map</code> 也行吧，我没用过。用过的可以 pull request。</p>
+<h2 id="Problem-12-拼写检查"><a href="#Problem-12-拼写检查" class="headerlink" title="Problem 12. 拼写检查"></a>Problem 12. 拼写检查</h2><h3 id="题目部分-11"><a href="#题目部分-11" class="headerlink" title="题目部分"></a>题目部分</h3><p>【问题描述】</p>
+<p>作为一个新的拼写检查程序开发团队的成员，您将编写一个模块，用已知的所有形式正确的词典来检查给定单词的正确性。<br>如果字典中没有这个词，那么可以用下列操作中的一个来替换正确的单词（从字典中）：</p>
 <p>1.从单词中删除一个字母；</p>
 <p>2.用一个任意字母替换单词中的一个字母；</p>
 <p>3.在单词中插入一个任意字母。</p>
@@ -1016,8 +942,7 @@ request。</p>
 <p>接下来的部分包含所有需要进行检查的单词，同样每个单词占用一行。这部分也以一个单一字符“#”作为结束。至多有50个单词需要检查。</p>
 <p>在输入中所有的单词（字典中的和需要检查的）都仅由小写字母组成，每个最多包含15个字符。</p>
 <p>【输出形式】</p>
-<p>对于每个在输入中出现的单词，按照它们在输入的第二部分出现的顺序输出一行。如果该单词是正确的（也就是说它包含在字典中）则输出信息：“is
-correct”；如果该单词不正确，则首先输出该单词，然后输入符号':'（冒号），之后空一格，写出它所有可能的替代，以空格分隔。这些替代的单词按照它们在字典中（输入的第一部分）出现的顺序写出。如果没有可替代的单词，则在冒号后面直接输出换行。</p>
+<p>对于每个在输入中出现的单词，按照它们在输入的第二部分出现的顺序输出一行。如果该单词是正确的（也就是说它包含在字典中）则输出信息：“is correct”；如果该单词不正确，则首先输出该单词，然后输入符号’:’（冒号），之后空一格，写出它所有可能的替代，以空格分隔。这些替代的单词按照它们在字典中（输入的第一部分）出现的顺序写出。如果没有可替代的单词，则在冒号后面直接输出换行。</p>
 <p>【样例输入】</p>
 <pre class="line-numbers language-none"><code class="language-none">i
 is
@@ -1054,8 +979,7 @@ or:
 i is correct
 fi: i
 mre: more me<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="题解部分-11">题解部分</h3>
-<p>【思路】</p>
+<h3 id="题解部分-11"><a href="#题解部分-11" class="headerlink" title="题解部分"></a>题解部分</h3><p>【思路】</p>
 <p>没思路，不用看了，下一题。</p>
 <p>【Accepted 代码】</p>
 <p>C++ 17</p>
@@ -1152,12 +1076,7 @@ mre: more me<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>【需要注意的问题】</p>
 <p>输入输出很繁杂，小心别弄错了。</p>
-<h2 id="本文许可协议">本文许可协议</h2>
-<p><a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This
-work is licensed under a
-<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative
-Commons Attribution-NonCommercial-NoDerivatives 4.0 International
-License</a>.</p>
+<h2 id="本文许可协议"><a href="#本文许可协议" class="headerlink" title="本文许可协议"></a>本文许可协议</h2><p><a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
 
 
             
