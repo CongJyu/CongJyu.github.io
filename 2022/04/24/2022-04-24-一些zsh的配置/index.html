@@ -148,23 +148,20 @@ ga('send', 'pageview');
 <p>当我卸载了 oh-my-zsh 之后，zsh 启动变快了不少。</p>
 <h2 id="oh-my-zsh-卸载方法"><a href="#oh-my-zsh-卸载方法" class="headerlink" title="oh-my-zsh 卸载方法"></a>oh-my-zsh 卸载方法</h2><p>在终端输入下面的命令，即可卸载 oh-my-zsh。但是需要注意的是，你很可能接下来不得不自己配置 zsh。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">uninstall_oh_my_zsh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h2 id="自行配置-zsh"><a href="#自行配置-zsh" class="headerlink" title="自行配置 zsh"></a>自行配置 zsh</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>在 <code>home</code> 目录里找到一个 <code>.zshrc</code> 的文件，使用你喜欢的文本编辑器打开它。如果没有，创建一个。</p>
 <p>使用下面的命令可以在不重新登录的情况下生效修改的配置。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>本文默认您已经安装了 Homebrew 或者 Linuxbrew。如果您不知道这是什么，<a target="_blank" rel="noopener" href="https://brew.sh/">点击查看</a>。</p>
+<p>本文默认您已经安装了 Homebrew 或者 Linuxbrew。如果您不知道这是什么，<a target="_blank" rel="noopener" href="https://brew.sh">点击查看</a>。</p>
 <h3 id="自定义-zsh-的提示符"><a href="#自定义-zsh-的提示符" class="headerlink" title="自定义 zsh 的提示符"></a>自定义 zsh 的提示符</h3><p>首先需要保证提示符在启动时加载，在 <code>.zshrc</code> 文件里写入下面内容。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 加载提示符</span>
 autoload <span class="token parameter variable">-U</span> promptinit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>随后，可以根据自己的需要和喜好来自定义提示符。比如我是这样定义的，让提示符的前面显示一个小的 Apple™️ 标志。根据 zsh 可以设置右侧提示符，我将它设置为显示系统当前时间。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 提示符颜色</span>
 autoload <span class="token parameter variable">-U</span> colors <span class="token operator">&amp;&amp;</span> colors
 <span class="token assign-left variable">PROMPT</span><span class="token operator">=</span><span class="token string">"%&#123;<span class="token variable">$fg</span>[magenta]%&#125;%n%&#123;<span class="token variable">$reset_color</span>%&#125;@%&#123;<span class="token variable">$fg</span>[magenta]%&#125;%m %&#123;<span class="token variable">$fg</span>[cyan]%&#125;%1~ %&#123;<span class="token variable">$reset_color</span>%&#125;%# "</span>
 <span class="token assign-left variable">RPROMPT</span><span class="token operator">=</span><span class="token string">"[%&#123;<span class="token variable">$fg</span>[magenta]%&#125;%*%&#123;<span class="token variable">$reset_color</span>%&#125;]"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>下面提供提示符的一些转义变量。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -172,7 +169,8 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>%T</code></td>
 <td>系统时间（时:分）</td>
 </tr>
@@ -216,8 +214,11 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <td><code>%l</code></td>
 <td>你当前的 tty</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>然后加点颜色，根据你的习惯搭配，提高辨识度，降低出错率。把配置放在 <code>%&#123; [...] %&#125;</code> 里面确保光标不移动。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -225,7 +226,8 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>$fg[color]</code></td>
 <td>设置文本的颜色</td>
 </tr>
@@ -249,8 +251,11 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <td><code>%K&#123;color&#125; [...] %k</code></td>
 <td>设置背景颜色,和非粗体文本颜色一样,任何单一数字前缀会设置背景为黑色</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>可以选择的颜色值，列在下方表格中。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -262,7 +267,8 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <th>数字表示</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>黑色</td>
 <td><code>black</code></td>
 <td><code>0</code></td>
@@ -294,13 +300,15 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <td><code>white</code></td>
 <td><code>7</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="文件目录的颜色"><a href="#文件目录的颜色" class="headerlink" title="文件目录的颜色"></a>文件目录的颜色</h3><p>为了让使用 <code>ls</code> 的命令时显示文件目录的不同类型文件有不同的颜色表示，我开启了 <code>ls</code> 命令的颜色显示，并根据使用习惯把颜色设定为 Linux 的默认配置。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 文件目录颜色</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">CLICOLOR</span><span class="token operator">=</span><span class="token string">"Yes"</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">LSCOLORS</span><span class="token operator">=</span><span class="token string">"ExGxFxdaCxDaDahbadacec"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p><code>LSCOLORS</code> 字串中的字母两个为一组，表示对应文件的颜色和显示方式。一共 22 个字母，定义了 11 种文件类型。文件类型的顺序依次列出如下。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -308,7 +316,8 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <th>类型说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1</td>
 <td>目录</td>
 </tr>
@@ -352,8 +361,11 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <td>11</td>
 <td>没有 sticky 位的目录，组外用户拥有写权限</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>相应地，颜色的配色方案也列表如下，可以自由搭配，两个一组，格式为：<code>前景色背景色</code>，连续写。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -363,7 +375,8 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <th>颜色解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>a</code></td>
 <td>黑色</td>
 <td><code>A</code></td>
@@ -415,18 +428,17 @@ autoload <span class="token parameter variable">-U</span> colors <span class="to
 <td><code>x</code></td>
 <td>系统默认颜色</td>
 <td></td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="zsh-的自动补全"><a href="#zsh-的自动补全" class="headerlink" title="zsh 的自动补全"></a>zsh 的自动补全</h3><p>开启 zsh 自己的命令补全。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令补全</span>
 autoload <span class="token parameter variable">-U</span> compinit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <h3 id="zsh-的代码高亮和自动补全提示以及其他插件"><a href="#zsh-的代码高亮和自动补全提示以及其他插件" class="headerlink" title="zsh 的代码高亮和自动补全提示以及其他插件"></a>zsh 的代码高亮和自动补全提示以及其他插件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 实用插件</span>
 <span class="token assign-left variable">plugins</span><span class="token operator">=</span><span class="token punctuation">(</span>git zsh-syntax-highlighting zsh-autosuggestions<span class="token punctuation">)</span>
 <span class="token builtin class-name">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 <span class="token builtin class-name">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>把插件的名称放在 <code>plugins=(...)</code> 的括号中，注意插件与插件之间使用空格分开。插件可以使用 <code>source &lt;dir&gt;</code> 命令引入，<code>source</code> 后面跟着插件安装的位置目录。</p>
 <h3 id="环境变量和路径"><a href="#环境变量和路径" class="headerlink" title="环境变量和路径"></a>环境变量和路径</h3><p>这个根据自己的开发需要进行修改和配置，例如 Python 的解释器路径、Java 的环境变量、 Go 的 GOPATH 等等，如果不需要进行修改则可以忽略。这里不详细解释。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Python 环境变量和路径</span>
@@ -440,7 +452,6 @@ autoload <span class="token parameter variable">-U</span> compinit<span aria-hid
 
 <span class="token comment"># Ruby 路径</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"/opt/homebrew/Cellar/ruby/3.1.0/bin:<span class="token environment constant">$PATH</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="我的-zsh-配置分享"><a href="#我的-zsh-配置分享" class="headerlink" title="我的 zsh 配置分享"></a>我的 zsh 配置分享</h2><p>可以拿去用，自行根据需要修改。可能有些字符不能显示。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 加载提示符</span>
 autoload <span class="token parameter variable">-U</span> promptinit
@@ -468,7 +479,6 @@ autoload <span class="token parameter variable">-U</span> compinit
 <span class="token comment"># Ruby 路径</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"/opt/homebrew/opt/ruby/bin:<span class="token environment constant">$PATH</span>"</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="想法及总结"><a href="#想法及总结" class="headerlink" title="想法及总结"></a>想法及总结</h2><blockquote>
 <p>你不需要花哨的提示符。<br>——摘自 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51008087">Zhihu</a></p>
 </blockquote>

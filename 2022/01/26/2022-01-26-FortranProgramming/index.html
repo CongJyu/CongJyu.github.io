@@ -160,7 +160,6 @@ ga('send', 'pageview');
         <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token string">"方程无实根."</span>
     <span class="token keyword">end if</span>
 <span class="token keyword">end program</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在 Fortran 中使用 <code>!</code> 来表示注释。注释非常重要，没有注释的程序不能算合格的程序。</p>
 <p>一个 Fortran 程序由一个或者若干个程序单元组成，包括主程序单元，外部子程序单元，模块单元，数据块单元。一个程序中必须有且只有一个主程序单元。每一个程序单元以 <code>end</code> 结束。</p>
 <h3 id="1-2-字符集"><a href="#1-2-字符集" class="headerlink" title="1.2 字符集"></a>1.2 字符集</h3><p>Fortran 95 的字符集，是在编写 Fortran 95 程序的时候能够使用的全部字符及符号的集合。包括：</p>
@@ -173,7 +172,56 @@ ga('send', 'pageview');
 <h3 id="1-3-标识符"><a href="#1-3-标识符" class="headerlink" title="1.3 标识符"></a>1.3 标识符</h3><p>标识符是名称。用来在程序中标识有关实体，比如变量、符号常量、函数、程序单元、公用块、数组、模块和形参等。规定标识符只能由字母、数字、下划线和美元符号组成。</p>
 <h3 id="1-4-关键字"><a href="#1-4-关键字" class="headerlink" title="1.4 关键字"></a>1.4 关键字</h3><p>Fortran 95 中的一种特定的字符串。正确的关键字在代码编辑器中会显示代码高亮。关键字有特定的含义，不能随便改变以防出现语法错误。需要注意的是，Fortran 95 对关键字不予以保留，关键字可以作为其他实体的名称，但是不建议这样做。使用关键字作为实体的名称会导致程序难以理解和阅读。</p>
 <p>常用的 Fortran 95 关键字</p>
-<p>| 关键字 | 关键字 | 关键字 | 关键字 | 关键字 |<br>| —- | —- | —- | —- | —- | —- |<br>| <code>program</code> | <code>implicit</code> | <code>read</code> | <code>write</code> | <code>print</code> |<br>| <code>format</code> | <code>call</code> | <code>real</code> | <code>integer</code> | <code>character</code> |<br>| <code>do</code> | <code>end</code> | <code>if</code> | <code>parameter</code> | <code>complex</code> |<br>| <code>logical</code> | <code>double precision</code> | <code>then</code> | <code>open</code> | <code>subroutine</code> |<br>| … | … | … | … | … |</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>关键字</th>
+<th>关键字</th>
+<th>关键字</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>program</code></td>
+<td><code>implicit</code></td>
+<td><code>read</code></td>
+<td><code>write</code></td>
+<td><code>print</code></td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>call</code></td>
+<td><code>real</code></td>
+<td><code>integer</code></td>
+<td><code>character</code></td>
+</tr>
+<tr>
+<td><code>do</code></td>
+<td><code>end</code></td>
+<td><code>if</code></td>
+<td><code>parameter</code></td>
+<td><code>complex</code></td>
+</tr>
+<tr>
+<td><code>logical</code></td>
+<td><code>double precision</code></td>
+<td><code>then</code></td>
+<td><code>open</code></td>
+<td><code>subroutine</code></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="1-5-书写格式"><a href="#1-5-书写格式" class="headerlink" title="1.5 书写格式"></a>1.5 书写格式</h3><h4 id="1-5-1-固定格式-Fixed-Format"><a href="#1-5-1-固定格式-Fixed-Format" class="headerlink" title="1.5.1 固定格式 Fixed Format"></a>1.5.1 固定格式 Fixed Format</h4><p>每行 80 个字符。分成 4 个区。</p>
 <h5 id="1-5-1-1-标号区"><a href="#1-5-1-1-标号区" class="headerlink" title="1.5.1.1 标号区"></a>1.5.1.1 标号区</h5><ul>
 <li>1 到 5 列为标号区，标号最多为 5 位数字。</li>
@@ -196,17 +244,16 @@ ga('send', 'pageview');
 <p>续行时要注意的问题：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">y <span class="token operator">=</span> cos<span class="token punctuation">(</span>atan<span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span>x <span class="token operator">**</span> <span class="token number">3</span> <span class="token operator">+</span> y <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>x <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> cos<span class="token punctuation">(</span>x <span class="token operator">*</span> y <span class="token operator">/</span> <span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span>x <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> y <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">&amp;</span>
 exp<span class="token punctuation">(</span>a <span class="token operator">*</span> x <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> b <span class="token operator">*</span> x <span class="token operator">+</span> c<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>在没有把具有特定意义的字符分成两行的时候，只需在前面一行的末尾加上一个换行符 <code>&amp;</code>，但是在把有特定意义的字符分成两行的时候，行尾要加一个换行符，下一行的开头也要加一个换行符。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">y <span class="token operator">=</span> cos<span class="token punctuation">(</span>atan<span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span>x <span class="token operator">**</span> <span class="token number">3</span> <span class="token operator">+</span> y <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>x <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> co<span class="token punctuation">&amp;</span>
 <span class="token punctuation">&amp;</span>s<span class="token punctuation">(</span>x <span class="token operator">*</span> y <span class="token operator">/</span> <span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span>x <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> y <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">&amp;</span>
 exp<span class="token punctuation">(</span>a <span class="token operator">*</span> x <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> b <span class="token operator">*</span> x <span class="token operator">+</span> c<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h2><h3 id="2-1-基本数据类型"><a href="#2-1-基本数据类型" class="headerlink" title="2.1 基本数据类型"></a>2.1 基本数据类型</h3><h4 id="2-1-1-数值型"><a href="#2-1-1-数值型" class="headerlink" title="2.1.1 数值型"></a>2.1.1 数值型</h4><h5 id="2-1-1-1-整数类型-Integer"><a href="#2-1-1-1-整数类型-Integer" class="headerlink" title="2.1.1.1 整数类型 Integer"></a>2.1.1.1 整数类型 Integer</h5><ul>
 <li>长整型</li>
 <li>短整型</li>
 </ul>
 <p>整数数据类型包括正数、负数和 0。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -215,7 +262,8 @@ exp<span class="token punctuation">(</span>a <span class="token operator">*</spa
 <th>取值范围</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>INTEGER(1)</td>
 <td>1</td>
 <td>$ - 2 ^ 7 $ ~ $ 2 ^ 7 - 1 $</td>
@@ -235,11 +283,14 @@ exp<span class="token punctuation">(</span>a <span class="token operator">*</spa
 <td>8</td>
 <td>$ - 2 ^ {63} $ ~ $ 2 ^ {63} - 1 $ （Alpha 系统）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="2-1-1-2-实数类型-Real"><a href="#2-1-1-2-实数类型-Real" class="headerlink" title="2.1.1.2 实数类型 Real"></a>2.1.1.2 实数类型 Real</h5><p>又称为浮点数。数值是近似值，有误差累计。通常有两种表示形式，十进制的小数形式和指数形式。</p>
 <blockquote>
 <p>注意：指数形式表示时，指数部分必须是整数。</p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -249,7 +300,8 @@ exp<span class="token punctuation">(</span>a <span class="token operator">*</spa
 <th>取值范围</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>单精度</td>
 <td>4</td>
 <td>6 ~ 7</td>
@@ -261,10 +313,11 @@ exp<span class="token punctuation">(</span>a <span class="token operator">*</spa
 <td>16 ~ 17</td>
 <td>$ \pm 2.2250738585072013D308 $ ~ $ \pm 1.7976931348623158D-08 $</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="2-1-1-3-复数类型-Complex"><a href="#2-1-1-3-复数类型-Complex" class="headerlink" title="2.1.1.3 复数类型 Complex"></a>2.1.1.3 复数类型 Complex</h5><p>单精度复数和双精度复数。表示形式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>例如：<code>(1.2, 3.5)</code> 表示 $ 1.2 + 3.5i $ 。</p>
 <blockquote>
 <p>Fortran 是目前唯一提供复数类型的计算机语言。</p>
@@ -272,38 +325,28 @@ exp<span class="token punctuation">(</span>a <span class="token operator">*</spa
 <h4 id="2-1-2-非数值型"><a href="#2-1-2-非数值型" class="headerlink" title="2.1.2 非数值型"></a>2.1.2 非数值型</h4><h5 id="2-1-2-1-字符类型-Character"><a href="#2-1-2-1-字符类型-Character" class="headerlink" title="2.1.2.1 字符类型 Character"></a>2.1.2.1 字符类型 Character</h5><p>只有一个字母或符号称为字符，有多个字符时称为字符串。使用一对单引号或者一堆双引号括起来，例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token string">'Fortran charater'</span>    <span class="token comment">! 用单引号</span>
 <span class="token string">"hello world!"</span>    <span class="token comment">! 用双引号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h5 id="2-1-2-2-逻辑类型-Logical"><a href="#2-1-2-2-逻辑类型-Logical" class="headerlink" title="2.1.2.2 逻辑类型 Logical"></a>2.1.2.2 逻辑类型 Logical</h5><p>表示判断的结果，只有两种值：是和否，即对错，真假。</p>
-<pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token boolean">.true.</span>    <span class="token comment">! 真</span>
-<span class="token boolean">.false.</span>    <span class="token comment">! 假</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<h5 id="2-1-2-2-逻辑类型-Logical"><a href="#2-1-2-2-逻辑类型-Logical" class="headerlink" title="2.1.2.2 逻辑类型 Logical"></a>2.1.2.2 逻辑类型 Logical</h5><p>表示判断的结果，只有两种值：是和否，即对错，真假。<br><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token boolean">.true.</span>    <span class="token comment">! 真</span>
+<span class="token boolean">.false.</span>    <span class="token comment">! 假</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 <h3 id="2-2-数组类型"><a href="#2-2-数组类型" class="headerlink" title="2.2 数组类型"></a>2.2 数组类型</h3><p>数组是类型相同的一批数据的有序集合。每个数组有一个数组名。</p>
 <h4 id="2-2-1-定义数组"><a href="#2-2-1-定义数组" class="headerlink" title="2.2.1 定义数组"></a>2.2.1 定义数组</h4><h5 id="2-2-1-1-用-dimension-语句定义数组"><a href="#2-2-1-1-用-dimension-语句定义数组" class="headerlink" title="2.2.1.1 用 dimension 语句定义数组"></a>2.2.1.1 用 dimension 语句定义数组</h5><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">dimension</span> 数组名<span class="token punctuation">(</span>下标下界 <span class="token punctuation">:</span> 下标上界<span class="token punctuation">,</span> ...<span class="token punctuation">)</span><span class="token punctuation">,</span> ...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>数组说明符定义了数组名、数组的维数和大小。数组的维数由维数说明符的个数确定。维数说明符最少有 1 个，最多有 7 个。数组的大小就是数组元素的个数。</p>
 <p>例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">dimension</span> g<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> s<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 <span class="token keyword">dimension</span> g<span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> s<span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span>    <span class="token comment">! 含义相同</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>在 dimension 语句之后可以使用类型说明语句说明数组的类型，不需要重复写维数说明符。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">dimension</span> a<span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> n<span class="token punctuation">(</span><span class="token number">10</span> <span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span> m<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span>
 <span class="token keyword">real</span> a<span class="token punctuation">,</span> n
 <span class="token keyword">integer</span> b<span class="token punctuation">,</span> m
 <span class="token keyword">character</span> <span class="token operator">*</span> <span class="token number">8</span> name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="2-2-1-2-用类型说明语句定义数组"><a href="#2-2-1-2-用类型说明语句定义数组" class="headerlink" title="2.2.1.2 用类型说明语句定义数组"></a>2.2.1.2 用类型说明语句定义数组</h5><p>一般格式为：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">类型说明符 数组名<span class="token punctuation">(</span>下标下界 <span class="token punctuation">:</span> 下标上界<span class="token punctuation">,</span> ...<span class="token punctuation">)</span><span class="token punctuation">,</span> ...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>定义数组时必须明确数组的大小。</p>
 <h5 id="2-2-1-3-同时使用类型说明语句和-dimension-语句定义数组"><a href="#2-2-1-3-同时使用类型说明语句和-dimension-语句定义数组" class="headerlink" title="2.2.1.3 同时使用类型说明语句和 dimension 语句定义数组"></a>2.2.1.3 同时使用类型说明语句和 dimension 语句定义数组</h5><p>一般格式为：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">类型说明符<span class="token punctuation">,</span> <span class="token keyword">dimension</span><span class="token punctuation">(</span>下标下界 <span class="token punctuation">:</span> 下标上界<span class="token punctuation">,</span> ...<span class="token punctuation">)</span> <span class="token operator">::</span> 数组名[<span class="token punctuation">,</span> ...]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span><span class="token punctuation">,</span> <span class="token keyword">dimension</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">::</span> a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> w<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h4 id="2-2-2-给数组赋初值"><a href="#2-2-2-给数组赋初值" class="headerlink" title="2.2.2 给数组赋初值"></a>2.2.2 给数组赋初值</h4><h5 id="2-2-2-1-使用数组赋值符赋值"><a href="#2-2-2-1-使用数组赋值符赋值" class="headerlink" title="2.2.2.1 使用数组赋值符赋值"></a>2.2.2.1 使用数组赋值符赋值</h5><p>一般格式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">数组名 <span class="token operator">=</span> <span class="token punctuation">(/</span>取值列表<span class="token punctuation">/)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>取值列表可以是类型相同的常量、变量、函数、表达式或者隐含 do 循环，它们之间用逗号隔开。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">program</span> array
     <span class="token keyword">integer</span> a<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
@@ -313,45 +356,36 @@ exp<span class="token punctuation">(</span>a <span class="token operator">*</spa
     <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> a
     <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> b
 <span class="token keyword">end program</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="2-2-2-2-使用-data-语句给数组赋初值"><a href="#2-2-2-2-使用-data-语句给数组赋初值" class="headerlink" title="2.2.2.2 使用 data 语句给数组赋初值"></a>2.2.2.2 使用 data 语句给数组赋初值</h5><p>data 语句时专门用来给变量、数组、数组元素赋初值的语句。一般格式如下：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">data</span> 数组名<span class="token operator">/</span>常量表<span class="token operator">/</span><span class="token punctuation">,</span> 数组名<span class="token operator">/</span>常量表<span class="token operator">/</span><span class="token punctuation">,</span> ...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>数组元素个数必须和常量一一对应。</p>
 <h4 id="2-2-3-对数组的操作"><a href="#2-2-3-对数组的操作" class="headerlink" title="2.2.3 对数组的操作"></a>2.2.3 对数组的操作</h4><h5 id="2-2-3-1-对元素的操作"><a href="#2-2-3-1-对元素的操作" class="headerlink" title="2.2.3.1 对元素的操作"></a>2.2.3.1 对元素的操作</h5><p>对数组进行操作要先定义再使用。对数组元素的操作即是对数组元素的引用。</p>
 <p>一般格式为：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">数组名<span class="token punctuation">(</span>下标<span class="token punctuation">,</span> [下标]<span class="token punctuation">,</span> ...<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> a<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
 a<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">10</span>    <span class="token comment">! 对数组 a 中的第一个元素赋值为 10</span>
 <span class="token keyword">do</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span>
     b<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">3</span>
 <span class="token keyword">end do</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="2-2-3-2-对整体的操作"><a href="#2-2-3-2-对整体的操作" class="headerlink" title="2.2.3.2 对整体的操作"></a>2.2.3.2 对整体的操作</h5><p>用数组名代表整个数组。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> a<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> b<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
 a <span class="token operator">=</span> <span class="token number">10</span>
 b <span class="token operator">=</span> <span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>当数组 a 和数组 b 和数组 c 维数大小相同时，可以直接操作：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">a <span class="token operator">=</span> b    <span class="token comment">! 把数组 b 中的同一位置的元素的值对应赋值给 a 数组中的对应元素</span>
 a <span class="token operator">=</span> b <span class="token operator">+</span> c
 a <span class="token operator">=</span> b <span class="token operator">-</span> c
 a <span class="token operator">=</span> b <span class="token operator">*</span> c
 a <span class="token operator">=</span> b <span class="token operator">/</span> c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="2-2-3-3-局部引用"><a href="#2-2-3-3-局部引用" class="headerlink" title="2.2.3.3 局部引用"></a>2.2.3.3 局部引用</h5><p>例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> a<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
 a<span class="token punctuation">(</span><span class="token number">3</span> <span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span>    <span class="token comment">! 把 a(3), a(4), a(5) 赋值为 0</span>
 a<span class="token punctuation">(</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">6</span> <span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span>  <span class="token operator">=</span> <span class="token number">3</span>    <span class="token comment">! 把 a(1), a(3), a(5) 赋值为 3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>数组元素的三元表达式可以写成：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">初值 <span class="token punctuation">:</span> 终值 <span class="token punctuation">:</span> 步长<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>可以通过三元表达式引用数组的一部分。例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">b<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">=</span> a<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h3 id="2-3-指针类型"><a href="#2-3-指针类型" class="headerlink" title="2.3 指针类型"></a>2.3 指针类型</h3><p>省略此部分内容。</p>
 <h3 id="2-4-派生类型与结构体"><a href="#2-4-派生类型与结构体" class="headerlink" title="2.4 派生类型与结构体"></a>2.4 派生类型与结构体</h3><p>自己定义的数据类型。</p>
 <blockquote>
@@ -367,18 +401,14 @@ a<span class="token punctuation">(</span><span class="token number">1</span> <sp
     ...
     membern 类型说明
 <span class="token keyword">end type</span> [派生类型名]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="2-4-2-结构体的定义与引用"><a href="#2-4-2-结构体的定义与引用" class="headerlink" title="2.4.2 结构体的定义与引用"></a>2.4.2 结构体的定义与引用</h4><p>结构体是对派生类型的一种具体化。只有定义了派生类型结构体或结构体数组，才能对结构体或结构体数组成员进行处理。</p>
 <p>结构体定义的一般格式如下：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">type</span><span class="token punctuation">(</span>派生类型名<span class="token punctuation">)</span> <span class="token operator">::</span> 结构体列表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>引用结构体成员需要这样写：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">结构体名 <span class="token operator">%</span> 成员名
 结构体名.成员名    <span class="token comment">! 这样也行，不过最好两种不要混用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>在嵌套定义的结构体中，成员引用应该嵌套使用引用符 <code>%</code> 或者 <code>.</code>。例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">stu <span class="token operator">%</span> date <span class="token operator">%</span> year<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>使用 <code>.</code> 作为引用符，成员名不能使用逻辑运算符和关系运算符。</p>
 <h3 id="2-5-公用区类型"><a href="#2-5-公用区类型" class="headerlink" title="2.5 公用区类型"></a>2.5 公用区类型</h3><p>省略此部分内容。</p>
 <h2 id="3-变量与常量"><a href="#3-变量与常量" class="headerlink" title="3. 变量与常量"></a>3. 变量与常量</h2><h3 id="3-1-变量"><a href="#3-1-变量" class="headerlink" title="3.1 变量"></a>3.1 变量</h3><h4 id="3-1-1-变量的概念"><a href="#3-1-1-变量的概念" class="headerlink" title="3.1.1 变量的概念"></a>3.1.1 变量的概念</h4><p>程序运行期间其值可以改变的量。变量是程序处理的主要对象。系统为程序中的每一个变量开辟一个存储单元，用来存放变量的值。</p>
@@ -397,7 +427,6 @@ a<span class="token punctuation">(</span><span class="token number">1</span> <sp
 <h5 id="3-1-3-1-隐含约定：I-N-规则"><a href="#3-1-3-1-隐含约定：I-N-规则" class="headerlink" title="3.1.3.1 隐含约定：I-N 规则"></a>3.1.3.1 隐含约定：I-N 规则</h5><p>Fortran 规定凡是以 <code>i, j, k, l, m, n</code> 开头的（不区分大小写）变量名，都认为该变量是整型变量。以其他字母开头的变量为实型变量。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> max<span class="token punctuation">,</span> n1<span class="token punctuation">,</span> num    <span class="token comment">! 整型变量</span>
 a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> sum<span class="token punctuation">,</span> aver<span class="token punctuation">,</span> count<span class="token punctuation">,</span> total    <span class="token comment">! 实型变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <h5 id="3-1-3-2-使用类型说明语句"><a href="#3-1-3-2-使用类型说明语句" class="headerlink" title="3.1.3.2 使用类型说明语句"></a>3.1.3.2 使用类型说明语句</h5><p>类型说明语句可以强制置顶某些变量的类型。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> <span class="token operator">&lt;</span>变量<span class="token operator">></span>    <span class="token comment">! 整型说明语句</span>
 <span class="token keyword">real</span> <span class="token operator">&lt;</span>变量<span class="token operator">></span>    <span class="token comment">! 实型说明语句</span>
@@ -405,37 +434,29 @@ a<span class="token punctuation">,</span> b<span class="token punctuation">,</sp
 <span class="token keyword">complex</span> <span class="token operator">&lt;</span>变量<span class="token operator">></span>    <span class="token comment">! 复数说明语句</span>
 <span class="token keyword">character</span> <span class="token operator">&lt;</span>变量<span class="token operator">></span>    <span class="token comment">! 字符型说明语句</span>
 <span class="token keyword">logical</span> <span class="token operator">&lt;</span>变量<span class="token operator">></span>    <span class="token comment">! 逻辑型说明语句</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在类型声明后使用 <code>::</code> 可以对变量进行初始化。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z    <span class="token comment">! 定义 x, y, z 是整型变量</span>
 <span class="token keyword">character</span> <span class="token operator">*</span> <span class="token number">30</span> name    <span class="token comment">! 定义 name 是字符型变量，长度为 30</span>
 <span class="token keyword">complex</span> <span class="token operator">::</span> s <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">8.9</span><span class="token punctuation">)</span>    <span class="token comment">! 定义 s 是单精度复数型变量，对它赋初值</span>
 <span class="token keyword">integer</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">::</span> a <span class="token operator">=</span> <span class="token number">1.8</span>    <span class="token comment">! 定义 a, b 是短整型变量，对变量 a 赋初值</span>
 <span class="token keyword">real</span> <span class="token operator">*</span> <span class="token number">8</span> l    <span class="token comment">! 定义 l 是双精度型变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="3-1-3-3-使用-implicit-语句"><a href="#3-1-3-3-使用-implicit-语句" class="headerlink" title="3.1.3.3 使用 implicit 语句"></a>3.1.3.3 使用 implicit 语句</h5><p>隐含说明语句。可以将某个字母开头的变量名指定为某个变量类型。</p>
 <p>取消隐含声明：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">implicit none</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>更改一个隐含声明：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">implicit</span> <span class="token keyword">integer</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> f<span class="token punctuation">,</span> c<span class="token punctuation">,</span> t <span class="token operator">-</span> v<span class="token punctuation">)</span>    <span class="token comment">! 把 a, f, c, t 到 v 开头的变量指定为整数类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>可以使用一个 <code>implicit</code> 语句声明多种类型。例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">implicit</span> <span class="token keyword">integer</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> x <span class="token operator">-</span> z<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">real</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">character</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <blockquote>
 <p>类型声明的优先级：类型说明语句最高，<code>implicit</code> 语句次之，I-N 规则最低。</p>
 </blockquote>
 <h4 id="3-1-4-给变量赋初值"><a href="#3-1-4-给变量赋初值" class="headerlink" title="3.1.4 给变量赋初值"></a>3.1.4 给变量赋初值</h4><h5 id="3-1-4-1-直接赋值"><a href="#3-1-4-1-直接赋值" class="headerlink" title="3.1.4.1 直接赋值"></a>3.1.4.1 直接赋值</h5><p>先定义一个变量，然后给它赋值。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> a
 a <span class="token operator">=</span> <span class="token number">20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>或者直接初始化。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">integer</span> <span class="token operator">::</span> a <span class="token operator">=</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h5 id="3-1-4-2-用-data-语句给变量赋初值"><a href="#3-1-4-2-用-data-语句给变量赋初值" class="headerlink" title="3.1.4.2 用 data 语句给变量赋初值"></a>3.1.4.2 用 data 语句给变量赋初值</h5><p>一般格式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">data</span> var1<span class="token punctuation">,</span> var2<span class="token punctuation">,</span> ... <span class="token punctuation">,</span> varn <span class="token operator">/</span>c1<span class="token punctuation">,</span> c2<span class="token punctuation">,</span> ...<span class="token punctuation">,</span> cn<span class="token operator">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>可以同时给多个变量赋初值，中间用逗号隔开。</li>
 <li>被赋值的常量放在一对 <code>//</code> 中间。</li>
@@ -443,7 +464,6 @@ a <span class="token operator">=</span> <span class="token number">20</span><spa
 <li>可以使用 <code>*</code> 来表示数据的重复。</li>
 </ul>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">data</span> m<span class="token punctuation">,</span> n<span class="token punctuation">,</span> k <span class="token operator">/</span><span class="token number">3</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token operator">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>执行上名语句之后，变量 <code>m</code>、<code>n</code>、<code>k</code> 的值都为 5。</p>
 <h3 id="3-2-常量"><a href="#3-2-常量" class="headerlink" title="3.2 常量"></a>3.2 常量</h3><p>常量在程序中直接给出，在程序运行时保持不变。分为直接常量和符号常量。</p>
 <h4 id="3-2-1-直接常量"><a href="#3-2-1-直接常量" class="headerlink" title="3.2.1 直接常量"></a>3.2.1 直接常量</h4><p>包括：整型常量、实型常量、双精度型常量、复型常量、字符型常量和逻辑型常量。</p>
@@ -451,7 +471,6 @@ a <span class="token operator">=</span> <span class="token number">20</span><spa
 <p>对于十进制的整数，通过整型 kind 值（类别类型参数）来确定整数的存储空间大小和取值范围。整型的 kind 值有四种：1，2，4（默认是 4 ），8（仅对 Alpha 系统有效）。</p>
 <p>表示方法：<code>number_kind</code>。例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token operator">-</span><span class="token number">16_2</span><span class="token punctuation">,</span> <span class="token number">18_4</span><span class="token punctuation">,</span> <span class="token number">5_1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>对于二至三十六进位制，表示形式是：<code>r#number</code> 或 <code>-r#number</code>，通常来说，十六进制常省略基数 16。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token number">2</span>#<span class="token number">1111001111001111001111</span>
 <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token number">7</span>#<span class="token number">45644664</span>
@@ -459,22 +478,20 @@ a <span class="token operator">=</span> <span class="token number">20</span><spa
 <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token number">3994575</span>
 <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> #<span class="token number">3</span>cfecf
 <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token number">36</span>#<span class="token number">2</span>dm8f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="3-2-1-2-实型常量和双精度型"><a href="#3-2-1-2-实型常量和双精度型" class="headerlink" title="3.2.1.2 实型常量和双精度型"></a>3.2.1.2 实型常量和双精度型</h5><p>通常表示成十进制小数和指数两种形式。必须包含小数点。</p>
 <p>小数形式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">n.m
 n.
 .m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>指数形式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">n.mEs
 n.Es
 nEs
 .mEs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="3-2-1-3-复型常量"><a href="#3-2-1-3-复型常量" class="headerlink" title="3.2.1.3 复型常量"></a>3.2.1.3 复型常量</h5><p>采用坐标的形式表示一个复数。可以时确定的数，也可以是一个有确定结果的表达式。</p>
 <h5 id="3-2-1-4-字符型常量"><a href="#3-2-1-4-字符型常量" class="headerlink" title="3.2.1.4 字符型常量"></a>3.2.1.4 字符型常量</h5><p>就是字符串，使用单引号或者双引号括起来的若干字符序列。</p>
 <p>非打印字符表示形式</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -484,7 +501,8 @@ nEs
 <th>非打印字符</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>\a</code> 或 <code>\A</code></td>
 <td>BELL</td>
 <td><code>\v</code> 或 <code>\V</code></td>
@@ -514,14 +532,15 @@ nEs
 <td><code>\ddd</code></td>
 <td>输出八进制编码为 ddd 的任意 ASCII 字符</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="3-2-1-5-逻辑型常量"><a href="#3-2-1-5-逻辑型常量" class="headerlink" title="3.2.1.5 逻辑型常量"></a>3.2.1.5 逻辑型常量</h5><p>只有两个：<code>.true.</code> 和 <code>.false.</code>。注意，逻辑值两边的小数点必须有，不区分大小写。逻辑型 kind 值有 4 中，分别是 1，2，4，8（仅对 Alpha 系统有效）。对于逻辑值 <code>.true.</code>，在其存储单元内每个二进制位上都是 1，可以视为整数 -1；对于逻辑值 <code>.false.</code>，其存储单元内每个二进制位上都是 0，可以视为整数 0。</p>
 <blockquote>
 <p>逻辑值可以参与数值型数据的运算。</p>
 </blockquote>
 <h4 id="3-2-2-符号常量"><a href="#3-2-2-符号常量" class="headerlink" title="3.2.2 符号常量"></a>3.2.2 符号常量</h4><p>是一种特殊的常量，程序单元内代表常量的标识符。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">parameter</span><span class="token punctuation">(</span>标识符 <span class="token operator">=</span> 常量<span class="token punctuation">,</span> 标识符 <span class="token operator">=</span> 常量<span class="token punctuation">,</span> ...<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h2 id="4-表达式"><a href="#4-表达式" class="headerlink" title="4. 表达式"></a>4. 表达式</h2><p>Fortran 中一共四种表达式：</p>
 <ul>
 <li>算术表达式</li>
@@ -537,8 +556,8 @@ ch2 <span class="token operator">=</span> <span class="token string">"CHINA"</sp
 ch3 <span class="token operator">=</span> <span class="token string">"STUDENT"</span>
 ch4 <span class="token operator">=</span> <span class="token string">"I"</span>
 ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</span> <span class="token string">" "</span> <span class="token operator">//</span> ch1 <span class="token operator">//</span> <span class="token string">"YOU!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="4-3-关系表达式"><a href="#4-3-关系表达式" class="headerlink" title="4.3 关系表达式"></a>4.3 关系表达式</h3><p>Fortran 提供了 6 个关系运算符。两种格式可以单独使用，也可以混合使用。使用字母格式时两边的点不能省略。各关系运算符优先级别相同，从前向后一次运算即可。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -548,7 +567,8 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <th>数学含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>.lt.</code></td>
 <td><code>&lt;</code></td>
 <td>less than</td>
@@ -584,14 +604,16 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <td>greater than or equal to</td>
 <td>大于等于</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>一般表达式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token operator">&lt;</span>算术量<span class="token number">1</span><span class="token operator">></span> 关系运算符 <span class="token operator">&lt;</span>算术量<span class="token number">2</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <blockquote>
 <p>谨慎使用等于或不等于关系判断实型。实型数据是使用近似值存储的，可能存在误差。</p>
 </blockquote>
 <h3 id="4-4-逻辑表达式"><a href="#4-4-逻辑表达式" class="headerlink" title="4.4 逻辑表达式"></a>4.4 逻辑表达式</h3><p>Fortran 提供了 6 种逻辑运算符。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -600,7 +622,8 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <th>运算举例</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>.and.</code></td>
 <td>逻辑与</td>
 <td><code>a .and. b</code></td>
@@ -630,14 +653,14 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <td>逻辑运算</td>
 <td><code>a .xor. b</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>一般表达式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token operator">&lt;</span>逻辑量<span class="token number">1</span><span class="token operator">></span> 逻辑运算符 <span class="token operator">&lt;</span>逻辑量<span class="token number">2</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h2 id="5-程序的结构"><a href="#5-程序的结构" class="headerlink" title="5. 程序的结构"></a>5. 程序的结构</h2><h3 id="5-1-顺序结构"><a href="#5-1-顺序结构" class="headerlink" title="5.1 顺序结构"></a>5.1 顺序结构</h3><p>顺序结构只能从上到下依次执行一条语句。很常见。</p>
 <h4 id="5-1-1-赋值语句"><a href="#5-1-1-赋值语句" class="headerlink" title="5.1.1 赋值语句"></a>5.1.1 赋值语句</h4><p>赋值语句用于赋值。一般格式就是：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">V <span class="token operator">=</span> e    <span class="token comment">! Variable = expression</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>仔细理解，没有别的了。</p>
 <h4 id="5-1-2-输出语句"><a href="#5-1-2-输出语句" class="headerlink" title="5.1.2 输出语句"></a>5.1.2 输出语句</h4><ul>
 <li>按系统隐含的标准格式输出：自由格式输出，又叫表控输出。</li>
@@ -645,21 +668,16 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <li>无格式输出：以二进制形式输出数据，只适用于向磁盘等输出，对文件进行操作。</li>
 </ul>
 <h5 id="5-1-2-1-表控输出语句"><a href="#5-1-2-1-表控输出语句" class="headerlink" title="5.1.2.1 表控输出语句"></a>5.1.2.1 表控输出语句</h5><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> 输出列表项<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><code>*</code> 表示在系统隐含指定输出设备（一般是显示器）上按系统隐含的标准格式输出数据。如果 <code>*</code> 后没有任何输出项，相当于一个换行。</p>
 <p>或者可以写成：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">write</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span> 输出列表项<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>第一个 <code>*</code> 表示系统隐含指定的输出设备，第二个 <code>*</code> 表示用表控格式输出。</p>
 <h5 id="5-1-2-2-其他输出"><a href="#5-1-2-2-其他输出" class="headerlink" title="5.1.2.2 其他输出"></a>5.1.2.2 其他输出</h5><p>省略此部分内容。</p>
 <h4 id="5-1-3-输入语句"><a href="#5-1-3-输入语句" class="headerlink" title="5.1.3 输入语句"></a>5.1.3 输入语句</h4><h5 id="5-1-3-1-表控输入语句"><a href="#5-1-3-1-表控输入语句" class="headerlink" title="5.1.3.1 表控输入语句"></a>5.1.3.1 表控输入语句</h5><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">read</span> <span class="token operator">*</span> <span class="token punctuation">,</span> 输入项列表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><code>*</code> 表示从系统隐含指定的输入设备（一般是键盘）按表控格式输入数据。例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">read</span> <span class="token operator">*</span> <span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>也可以写成这样：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">read</span><span class="token punctuation">(</span><span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span> 输入表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>其中第一个 <code>*</code> 表示系统隐含的指定输入设备（键盘），第二个 <code>*</code> 表示表控输入。</p>
 <h5 id="5-1-3-2-其他输入"><a href="#5-1-3-2-其他输入" class="headerlink" title="5.1.3.2 其他输入"></a>5.1.3.2 其他输入</h5><p>省略此部分内容。</p>
 <h4 id="5-1-4-end、stop、pause-语句"><a href="#5-1-4-end、stop、pause-语句" class="headerlink" title="5.1.4 end、stop、pause 语句"></a>5.1.4 end、stop、pause 语句</h4><h5 id="5-1-4-1-end-语句"><a href="#5-1-4-1-end-语句" class="headerlink" title="5.1.4.1 end 语句"></a>5.1.4.1 end 语句</h5><p>结束语句。</p>
@@ -670,7 +688,6 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <p>end 语句在主程序中兼有 <code>stop</code> 语句的作用，使程序停止运行，在子程序中兼有 <code>return</code> 语句的功能，控制返回到调用程序。</p>
 <h5 id="5-1-4-2-stop-语句"><a href="#5-1-4-2-stop-语句" class="headerlink" title="5.1.4.2 stop 语句"></a>5.1.4.2 stop 语句</h5><p>一般格式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">stop</span> [n]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>其中 <code>n</code> 是一个不超过五位数的数字或者一个字符串。执行 <code>stop</code> 语句的时候输出整数或者字符串，供程序员辨别程序流程。</p>
 <blockquote>
 <p>除非必要，不要把 <code>stop</code> 命令放在主程序结束之外的其他地方，因为如果一个程序有太多的结束终点，容易出错。<code>stop</code> 命令不是必要的，因为程序执行完毕之后会自动停止。</p>
@@ -678,23 +695,19 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <h5 id="5-1-4-3-pause-语句（弃用）"><a href="#5-1-4-3-pause-语句（弃用）" class="headerlink" title="5.1.4.3 pause 语句（弃用）"></a>5.1.4.3 pause 语句（弃用）</h5><p>让系统把程序暂时挂起，等待程序员完成其他工作。可以理解为一个断点（breakpoint），便于调试程序。</p>
 <p>一般格式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">pause [n]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <blockquote>
 <p>由于现在的编译环境中可以直接设置断点，所以 <code>pause</code> 语句一般不再使用。如果使用，可能会出现警告。</p>
 </blockquote>
 <h3 id="5-2-选择结构"><a href="#5-2-选择结构" class="headerlink" title="5.2 选择结构"></a>5.2 选择结构</h3><h4 id="5-2-1-逻辑-if-语句"><a href="#5-2-1-逻辑-if-语句" class="headerlink" title="5.2.1 逻辑 if 语句"></a>5.2.1 逻辑 if 语句</h4><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">if</span> <span class="token punctuation">(</span>表达式e<span class="token punctuation">)</span> 可执行语句s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>表达式可以是逻辑表达式或者关系表达式。</p>
 <h4 id="5-2-2-块-if-语句"><a href="#5-2-2-块-if-语句" class="headerlink" title="5.2.2 块 if 语句"></a>5.2.2 块 if 语句</h4><h5 id="5-2-2-1-单分支"><a href="#5-2-2-1-单分支" class="headerlink" title="5.2.2.1 单分支"></a>5.2.2.1 单分支</h5><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">if</span> <span class="token punctuation">(</span>表达式e<span class="token punctuation">)</span> <span class="token keyword">then</span>
     <span class="token operator">&lt;</span><span class="token keyword">then</span> 块<span class="token operator">></span>
 <span class="token keyword">end if</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="5-2-2-2-双分支"><a href="#5-2-2-2-双分支" class="headerlink" title="5.2.2.2 双分支"></a>5.2.2.2 双分支</h5><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">if</span> <span class="token punctuation">(</span>表达式e<span class="token punctuation">)</span> <span class="token keyword">then</span>
     <span class="token operator">&lt;</span><span class="token keyword">then</span> 块<span class="token operator">></span>
 <span class="token keyword">else</span>
     <span class="token operator">&lt;</span><span class="token keyword">then</span> 块<span class="token operator">></span>
 <span class="token keyword">end if</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="5-2-2-3-多分支"><a href="#5-2-2-3-多分支" class="headerlink" title="5.2.2.3 多分支"></a>5.2.2.3 多分支</h5><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">if</span> <span class="token punctuation">(</span>表达式e1<span class="token punctuation">)</span> <span class="token keyword">then</span>
     <span class="token operator">&lt;</span><span class="token keyword">then</span> 块<span class="token number">1</span><span class="token operator">></span>
 <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>表达式e2<span class="token punctuation">)</span> <span class="token keyword">then</span>
@@ -703,7 +716,6 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>表达式en<span class="token punctuation">)</span> <span class="token keyword">then</span>
     <span class="token operator">&lt;</span><span class="token keyword">then</span> 块n<span class="token operator">></span>
 <span class="token keyword">end if</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="5-2-3-块-case-结构"><a href="#5-2-3-块-case-结构" class="headerlink" title="5.2.3 块 case 结构"></a>5.2.3 块 case 结构</h4><p>多重判断除了使用 if 结构完成之外，还可以使用 case 结构。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">select</span> <span class="token keyword">case</span><span class="token punctuation">(</span>表达式e<span class="token punctuation">)</span>
 <span class="token keyword">case</span><span class="token punctuation">(</span>数值<span class="token number">1</span><span class="token punctuation">)</span>
@@ -716,7 +728,6 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <span class="token keyword">case</span> <span class="token keyword">default</span>
     <span class="token operator">&lt;</span>块n<span class="token operator">+</span><span class="token number">1</span><span class="token operator">></span>
 <span class="token keyword">end select</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>块 case 结构有限制。表达式 e 只能时整型、字符型或者逻辑型。每个 <code>case</code> 语句中所使用的数值必须是固定的常量，不能使用变量，类型要与表达式 e 的类型一致。</p>
 <h4 id="5-2-4-多重-if-结构嵌套"><a href="#5-2-4-多重-if-结构嵌套" class="headerlink" title="5.2.4 多重 if 结构嵌套"></a>5.2.4 多重 if 结构嵌套</h4><p>注意内层和外层不能交叉，包含关系必须清楚。</p>
 <blockquote>
@@ -728,10 +739,8 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
         <span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token string">"Hello"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> <span class="token string">"次"</span>
     <span class="token keyword">end do</span>
 <span class="token keyword">end program</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><code>do</code> 循环语句的一般格式写成：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">do</span> V <span class="token operator">=</span> e1<span class="token punctuation">,</span> e2[<span class="token punctuation">,</span> e3]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>中括号表示可以没有。<code>e1</code> 表示循环变量的初值，<code>e2</code> 表示循环变量的终值，<code>e3</code> 表示循环变量的步长（增量）。<code>V</code> 表示循环控制变量（计数器），即循环变量。</p>
 <p>循环变量在循环体中只能被引用，不能被赋值。</p>
 <p>举个「水仙花数」的例子：</p>
@@ -746,11 +755,9 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
         <span class="token keyword">end if</span>
     <span class="token keyword">end do</span>
 <span class="token keyword">end program</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="5-3-1-2-隐含-do-循环"><a href="#5-3-1-2-隐含-do-循环" class="headerlink" title="5.3.1.2 隐含 do 循环"></a>5.3.1.2 隐含 do 循环</h5><p>这样写：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">print</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span>W<span class="token punctuation">,</span> V <span class="token operator">=</span> e1<span class="token punctuation">,</span> e2[<span class="token punctuation">,</span> e3]<span class="token punctuation">)</span>    <span class="token comment">! 输出</span>
 <span class="token keyword">read</span> <span class="token operator">*</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span>W<span class="token punctuation">,</span> V <span class="token operator">=</span> e1<span class="token punctuation">,</span> e2[<span class="token punctuation">,</span> e3]<span class="token punctuation">)</span>    <span class="token comment">! 输入</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p><code>W</code> 是输入或者输出项的列表。</p>
 <blockquote>
 <p>隐含 do 循环在一行中输出，而一般的 do 循环将换行输出。</p>
@@ -759,7 +766,6 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">do</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>逻辑表达式<span class="token punctuation">)</span>
     循环体
 <span class="token keyword">end do</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>该循环由三部分组成，分别是 <code>do while</code> 语句、循环体和 <code>end do</code> 语句。</p>
 <blockquote>
 <p>在使用 do while 循环的时候，一定要避免死循环。保证循环中至少有一条控制循环条件的语句。</p>
@@ -772,36 +778,28 @@ ch5 <span class="token operator">=</span> ch4 <span class="token operator">//</s
 </blockquote>
 <h3 id="6-1-语句函数"><a href="#6-1-语句函数" class="headerlink" title="6.1 语句函数"></a>6.1 语句函数</h3><p>定义形式：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">函数名<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> x3<span class="token punctuation">,</span> ...<span class="token punctuation">,</span> xn<span class="token punctuation">)</span> <span class="token operator">=</span> 表达式<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h4 id="6-1-1-语句函数名"><a href="#6-1-1-语句函数名" class="headerlink" title="6.1.1 语句函数名"></a>6.1.1 语句函数名</h4><p>命名方法与变量命名方法相同。注意，语句函数名不能与本程序单元中的任何其他变量同名。例如：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">root1<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">-</span> b <span class="token operator">+</span> sqrt<span class="token punctuation">(</span>b <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">4.0</span> <span class="token operator">*</span> a <span class="token operator">*</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2.0</span> <span class="token operator">*</span> a<span class="token punctuation">)</span>
 da<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span> sqrt<span class="token punctuation">(</span>b <span class="token operator">*</span> b <span class="token operator">+</span> a <span class="token operator">*</span> a <span class="token operator">*</span> a<span class="token punctuation">)</span>
 <span class="token keyword">integer</span> db
 db<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span> sqrt<span class="token punctuation">(</span>b <span class="token operator">*</span> b <span class="token operator">+</span> a <span class="token operator">*</span> a<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="6-1-2-形式参数"><a href="#6-1-2-形式参数" class="headerlink" title="6.1.2 形式参数"></a>6.1.2 形式参数</h4><p>如果语句函数没有形式参数时，括号也不能省略。当形式参数多于一个时，它们之间用逗号隔开。形式参数不代表任何实在的值，因此，它可以与程序中的变量同名。</p>
 <h4 id="6-1-3-语句函数的调用"><a href="#6-1-3-语句函数的调用" class="headerlink" title="6.1.3 语句函数的调用"></a>6.1.3 语句函数的调用</h4><p>一旦声明了语句函数，就可以在同一程序单元中调用它。一般写成：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">函数名<span class="token punctuation">(</span>实参表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h3 id="6-2-函数子程序"><a href="#6-2-函数子程序" class="headerlink" title="6.2 函数子程序"></a>6.2 函数子程序</h3><p>语句函数只能解决一些较为简单的问题，当函数关系较为复杂，用一个语句无法定义的时候就需要函数子程序。</p>
 <h4 id="6-2-1-函数子程序的定义"><a href="#6-2-1-函数子程序的定义" class="headerlink" title="6.2.1 函数子程序的定义"></a>6.2.1 函数子程序的定义</h4><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">[类型说明符] <span class="token keyword">function</span> 函数名<span class="token punctuation">(</span>形式参数表<span class="token punctuation">)</span>
     函数体
 <span class="token keyword">end</span> [<span class="token keyword">function</span> [函数名]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>函数名的类型说明既可以放在函数名之前，也可以放在函数体的开头。</p>
 <h4 id="6-2-2-函数子程序的调用"><a href="#6-2-2-函数子程序的调用" class="headerlink" title="6.2.2 函数子程序的调用"></a>6.2.2 函数子程序的调用</h4><p>方法与调用标准函数、语句函数相同。这样写：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran">函数名<span class="token punctuation">(</span>实参列表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h3 id="6-3-子例行子程序"><a href="#6-3-子例行子程序" class="headerlink" title="6.3 子例行子程序"></a>6.3 子例行子程序</h3><p>Subroutine，子例行子程序。子例行子程序的名字不代表一个具体的值，与函数子程序不同，它只是提供调用时的一个识别符号，因此需要类型说明。</p>
 <h4 id="6-3-1-子例行子程序的定义"><a href="#6-3-1-子例行子程序的定义" class="headerlink" title="6.3.1 子例行子程序的定义"></a>6.3.1 子例行子程序的定义</h4><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">subroutine</span> 子例行子程序名<span class="token punctuation">(</span>形式参数表<span class="token punctuation">)</span>
     程序体
 <span class="token keyword">end</span> [<span class="token keyword">subroutine</span> [子例行子程序名]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="6-3-2-子例行子程序的调用"><a href="#6-3-2-子例行子程序的调用" class="headerlink" title="6.3.2 子例行子程序的调用"></a>6.3.2 子例行子程序的调用</h4><pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">call</span> 子例行子程序名<span class="token punctuation">(</span>实参表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>注意，当子例行子程序没有形式参数时，调用方式如下：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">call</span> 子例行子程序名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>此时调用的子例行子程序名后面没有括号。</p>
 <h3 id="6-4-递归子程序"><a href="#6-4-递归子程序" class="headerlink" title="6.4 递归子程序"></a>6.4 递归子程序</h3><blockquote>
 <p>Fortran 在 90 版本之前是不支持递归调用的。</p>
@@ -810,12 +808,10 @@ db<span class="token punctuation">(</span>a<span class="token punctuation">,</sp
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">recursive</span> <span class="token keyword">function</span> 函数名<span class="token punctuation">(</span>[形式参数表]<span class="token punctuation">)</span> <span class="token keyword">result</span><span class="token punctuation">(</span>函数结果名<span class="token punctuation">)</span>
     调用该函数本身
 <span class="token keyword">end</span> [<span class="token keyword">function</span> [函数名]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>递归子程序的一般形式则是这样：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">recursive</span> <span class="token keyword">subroutine</span> 子程序名<span class="token punctuation">(</span>[形式参数表]<span class="token punctuation">)</span>
     调用该子程序本身
 <span class="token keyword">end</span> [<span class="token keyword">subroutine</span> [子程序名]]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="7-文件"><a href="#7-文件" class="headerlink" title="7. 文件"></a>7. 文件</h2><h3 id="7-1-文件的基本概念"><a href="#7-1-文件的基本概念" class="headerlink" title="7.1 文件的基本概念"></a>7.1 文件的基本概念</h3><p>File，就是一组相关信息的集合，给定一个标识符，并将其存放在计算机的某一个存储介质上。在对文件进行操作的时候是以记录为基本单位的。</p>
 <h3 id="7-2-什么是记录"><a href="#7-2-什么是记录" class="headerlink" title="7.2 什么是记录"></a>7.2 什么是记录</h3><ul>
 <li>有格式记录<ul>
@@ -847,18 +843,14 @@ db<span class="token punctuation">(</span>a<span class="token punctuation">,</sp
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">open</span><span class="token punctuation">(</span>unit <span class="token operator">=</span> number<span class="token punctuation">,</span> <span class="token keyword">file</span> <span class="token operator">=</span> <span class="token string">"filename"</span><span class="token punctuation">,</span> form <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">,</span> status <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">,</span> access <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">,</span> recl <span class="token operator">=</span> length<span class="token punctuation">,</span><span class="token punctuation">&amp;</span>
     err <span class="token operator">=</span> label<span class="token punctuation">,</span> iostat <span class="token operator">=</span> var<span class="token punctuation">,</span> blank <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">,</span> position <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">,</span><span class="token punctuation">&amp;</span>
     action <span class="token operator">=</span> action<span class="token punctuation">,</span> pad <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">,</span> delim <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>文件的关闭语句，这样：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">close</span><span class="token punctuation">(</span>unit <span class="token operator">=</span> number<span class="token punctuation">,</span> err <span class="token operator">=</span> label<span class="token punctuation">,</span> iostat <span class="token operator">=</span> var<span class="token punctuation">,</span> status <span class="token operator">=</span> <span class="token string">"..."</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h4 id="7-4-2-文件的输入输出"><a href="#7-4-2-文件的输入输出" class="headerlink" title="7.4.2 文件的输入输出"></a>7.4.2 文件的输入输出</h4><p>文件打开之后就可以进行读写操作了，也就是输入输出。输入语句格式如下：</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">read</span><span class="token punctuation">(</span>unit <span class="token operator">=</span> number<span class="token punctuation">,</span> fmt <span class="token operator">=</span> <span class="token keyword">format</span><span class="token punctuation">,</span> nml <span class="token operator">=</span> <span class="token keyword">namelist</span><span class="token punctuation">,</span> rec <span class="token operator">=</span> record<span class="token punctuation">,</span> iostat <span class="token operator">=</span> <span class="token keyword">stat</span><span class="token punctuation">,</span><span class="token punctuation">&amp;</span>
     err <span class="token operator">=</span> errlabel<span class="token punctuation">,</span> <span class="token keyword">end</span> <span class="token operator">=</span> endlabel<span class="token punctuation">,</span> advance <span class="token operator">=</span> advance<span class="token punctuation">,</span> size <span class="token operator">=</span> size<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>文件的输出与文件输入的格式完全相同，只不过把 <code>read</code> 改为 <code>write</code> 而已。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">write</span><span class="token punctuation">(</span>unit <span class="token operator">=</span> number<span class="token punctuation">,</span> fmt <span class="token operator">=</span> <span class="token keyword">format</span><span class="token punctuation">,</span> nml <span class="token operator">=</span> <span class="token keyword">namelist</span><span class="token punctuation">,</span> rec <span class="token operator">=</span> record<span class="token punctuation">,</span> iostat <span class="token operator">=</span> <span class="token keyword">stat</span><span class="token punctuation">,</span><span class="token punctuation">&amp;</span>
     err <span class="token operator">=</span> errlabel<span class="token punctuation">,</span> <span class="token keyword">end</span> <span class="token operator">=</span> endlabel<span class="token punctuation">,</span> advance <span class="token operator">=</span> advance<span class="token punctuation">,</span> size <span class="token operator">=</span> size<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <h2 id="8-Fortran-并行计算基础"><a href="#8-Fortran-并行计算基础" class="headerlink" title="8. Fortran 并行计算基础"></a>8. Fortran 并行计算基础</h2><h3 id="8-1-MPI-使用概述"><a href="#8-1-MPI-使用概述" class="headerlink" title="8.1 MPI 使用概述"></a>8.1 MPI 使用概述</h3><p>MPI 消息传递接口。多台机器同时计算时，一边计算一边传递信息。同一个程序，在每一个节点上运行一个进程。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">include</span> <span class="token string">'mpif.h'</span>
 <span class="token keyword">integer</span> b<span class="token punctuation">,</span> y<span class="token punctuation">,</span> ierr<span class="token punctuation">,</span> myid<span class="token punctuation">,</span> num<span class="token punctuation">,</span> status<span class="token punctuation">(</span>mpi_status_size<span class="token punctuation">)</span><span class="token punctuation">,</span> j2
@@ -871,34 +863,26 @@ db<span class="token punctuation">(</span>a<span class="token punctuation">,</sp
 <span class="token keyword">call</span> mpi_recv<span class="token punctuation">(</span>delta1<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> mpi_double_precision<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> mpi_comm_world<span class="token punctuation">,</span> status<span class="token punctuation">,</span> ieer<span class="token punctuation">)</span>
 <span class="token keyword">call</span> mpi_send<span class="token punctuation">(</span>delta<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> mpi_double_precision<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> mpi_comm_world<span class="token punctuation">,</span> ieer<span class="token punctuation">)</span>
 <span class="token keyword">call</span> mpi_finalize<span class="token punctuation">(</span>ieer<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>Fortran90 以上支持并行计算，子程序。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">call</span> mpi_init<span class="token punctuation">(</span>ierr<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>初始化。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">call</span> mpi_barrier<span class="token punctuation">(</span>mpi_comm_world<span class="token punctuation">,</span> ieer<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>等所有的节点都执行到这一句之后，接下来才继续执行。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">call</span> mpi_recv<span class="token punctuation">(</span>delta1<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> mpi_double_precision<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> mpi_comm_world<span class="token punctuation">,</span> status<span class="token punctuation">,</span> ieer<span class="token punctuation">)</span>
 <span class="token keyword">call</span> mpi_send<span class="token punctuation">(</span>delta<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> mpi_double_precision<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> mpi_comm_world<span class="token punctuation">,</span> ieer<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>向其他节点发送以及从其他节点接受消息，用于同步数据。</p>
 <h3 id="8-2-编译含有-MPI-的并行计算程序"><a href="#8-2-编译含有-MPI-的并行计算程序" class="headerlink" title="8.2 编译含有 MPI 的并行计算程序"></a>8.2 编译含有 MPI 的并行计算程序</h3><p>编译，可以使用 GCC 或者 Intel 的编译器，建议使用 Intel 的 ifort。<br>编译前需要使用命令方式配置编译环境。配置方法：在天河计算机上执行下面指令。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /opt/intel/Compiler/11.1/059/bin/intel64/iccvars_intel64.sh
 <span class="token builtin class-name">source</span> /opt/intel/Compiler/11.1/059/bin/intel64/ifortvars_intel64.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>或者</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /vol6/appsoftware/intel/11.1/059/bin/intel64/iccvars_intel64.sh
 <span class="token builtin class-name">source</span> /vol6/appsoftware/intel/11.1/059/bin/intel64/ifortvars_intel64.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>把 Fortran90 源文件上传至天河机之后，使用合适的 MPI 编译器编译。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mpif90 <span class="token operator">&lt;</span>源程序.f9<span class="token operator"><span class="token file-descriptor important">0</span>></span> <span class="token parameter variable">-o</span> <span class="token operator">&lt;</span>编译完成后的程序名<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>例如：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mpif90 expmtt.f90 <span class="token parameter variable">-o</span> cyrain<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h3 id="8-3-实际操作"><a href="#8-3-实际操作" class="headerlink" title="8.3 实际操作"></a>8.3 实际操作</h3><p>「纸上得来终觉浅，绝知此事要躬行。」</p>
-<h4 id="8-3-1-例子"><a href="#8-3-1-例子" class="headerlink" title="8.3.1 例子"></a>8.3.1 例子</h4><p>对 8 * 8 的矩阵进行转置，使用四台机器。mat01.txt, mat02.txt, mat03.txt, mat04.txt 四块 4 * 4 的矩阵。下面是用于测试的源代码。</p>
+<h4 id="8-3-1-例子"><a href="#8-3-1-例子" class="headerlink" title="8.3.1 例子"></a>8.3.1 例子</h4><p>对 8 <em> 8 的矩阵进行转置，使用四台机器。mat01.txt, mat02.txt, mat03.txt, mat04.txt 四块 4 </em> 4 的矩阵。下面是用于测试的源代码。</p>
 <pre class="line-numbers language-fortran" data-language="fortran"><code class="language-fortran"><span class="token keyword">program</span> main
     <span class="token keyword">include</span> <span class="token string">'mpif.h'</span>
     <span class="token keyword">character</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> fname
@@ -960,7 +944,6 @@ db<span class="token punctuation">(</span>a<span class="token punctuation">,</sp
     <span class="token keyword">close</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
     <span class="token keyword">call</span> mpi_finalize<span class="token punctuation">(</span>ierr<span class="token punctuation">)</span>
 <span class="token keyword">end program</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="8-3-2-遇到问题"><a href="#8-3-2-遇到问题" class="headerlink" title="8.3.2 遇到问题"></a>8.3.2 遇到问题</h4><p>以下是在登录天河计算机时的界面展示。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>stu05@ln1%tianhe ~<span class="token punctuation">]</span>$ <span class="token function">ls</span>
 ChenChangyu   les7         result4.log  results.log   results3.log  results6.log  ?????????  ?????????  ?????????  ??????
@@ -975,10 +958,8 @@ MAT01.TXT  MAT11.TXT  MAT21.TXT  MAT31.TXT  expmtt.f90
 <span class="token punctuation">[</span>stu05@ln1%tianhe example<span class="token punctuation">]</span>$ mpif90 expmtt.f90 <span class="token parameter variable">-o</span> /ChenChangyu/example/expmtt
 ifort: internal error: error generating temporary <span class="token function">file</span> name, check disk space and permissions  <span class="token punctuation">(</span>shared/driver/hostutil.c, line <span class="token number">853</span><span class="token punctuation">)</span>
 <span class="token punctuation">[</span>stu05@ln1%tianhe example<span class="token punctuation">]</span>$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>可以看到，编译失败啦！哈哈哈哈哈哈！一开始以为权限不够，于是尝试着更改权限。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">777</span> /example<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>现在我的 <code>example</code> 文件夹下的所有文件的权限都是 <code>777</code>，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。</p>
 
 

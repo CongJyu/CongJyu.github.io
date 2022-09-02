@@ -143,17 +143,12 @@ ga('send', 'pageview');
 		<div class="entry-content">
 			
 				<h1 id="在基于-Apple-Silicon-的-Mac-上使用-Visual-Studio-Code-简单搭建-C-开发环境Building-C-dev-environment-with-Visual-Studio-simply-on-Mac-based-on-Apple-Silicon"><a href="#在基于-Apple-Silicon-的-Mac-上使用-Visual-Studio-Code-简单搭建-C-开发环境Building-C-dev-environment-with-Visual-Studio-simply-on-Mac-based-on-Apple-Silicon" class="headerlink" title="在基于 Apple Silicon 的 Mac 上使用 Visual Studio Code 简单搭建 C++ 开发环境Building C++ dev environment with Visual Studio simply on Mac based on Apple Silicon"></a>在基于 Apple Silicon 的 Mac 上使用 Visual Studio Code 简单搭建 C++ 开发环境<br>Building C++ dev environment with Visual Studio simply on Mac based on Apple Silicon</h1><h3 id="打开-Visual-Studio-Code，安装以下扩展Open-Visual-Studio-Code-and-install-the-following-extensions"><a href="#打开-Visual-Studio-Code，安装以下扩展Open-Visual-Studio-Code-and-install-the-following-extensions" class="headerlink" title="打开 Visual Studio Code，安装以下扩展Open Visual Studio Code and install the following extensions"></a>打开 Visual Studio Code，安装以下扩展<br>Open Visual Studio Code and install the following extensions</h3><ul>
-<li>C&#x2F;C++</li>
-<li>C&#x2F;C++ Clang Command Adapter</li>
+<li>C/C++</li>
+<li>C/C++ Clang Command Adapter</li>
 <li>Code Runner</li>
 <li>CodeLLDB</li>
 </ul>
-<h3 id="在-Visual-Studio-Code-中打开一个你认为合适的文件夹Open-a-suitabale-folder-in-Visual-Studio-Code"><a href="#在-Visual-Studio-Code-中打开一个你认为合适的文件夹Open-a-suitabale-folder-in-Visual-Studio-Code" class="headerlink" title="在 Visual Studio Code 中打开一个你认为合适的文件夹Open a suitabale folder in Visual Studio Code"></a>在 Visual Studio Code 中打开一个你认为合适的文件夹<br>Open a suitabale folder in Visual Studio Code</h3><br>
-打开 Settings，点按 Workspace 选项卡，搜索「RunInTerminal」,勾选为 True。<br>Open Settings, click Workspace item, search "RunInTerminal", turn it on.<br>
-<br>
-新建或打开一个文件，命名为「helloworld.cpp」，输入以下内容。<br>
-New or open a file, name as "helloworld.cpp", type the following code in it.
-
+<h3 id="在-Visual-Studio-Code-中打开一个你认为合适的文件夹Open-a-suitabale-folder-in-Visual-Studio-Code"><a href="#在-Visual-Studio-Code-中打开一个你认为合适的文件夹Open-a-suitabale-folder-in-Visual-Studio-Code" class="headerlink" title="在 Visual Studio Code 中打开一个你认为合适的文件夹Open a suitabale folder in Visual Studio Code"></a>在 Visual Studio Code 中打开一个你认为合适的文件夹<br>Open a suitabale folder in Visual Studio Code</h3><p><br><br>打开 Settings，点按 Workspace 选项卡，搜索「RunInTerminal」,勾选为 True。<br>Open Settings, click Workspace item, search “RunInTerminal”, turn it on.<br><br><br><br>新建或打开一个文件，命名为「helloworld.cpp」，输入以下内容。<br><br>New or open a file, name as “helloworld.cpp”, type the following code in it.</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// helloworld.cpp -- the first</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -162,14 +157,13 @@ New or open a file, name as "helloworld.cpp", type the following code in it.
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Hello world!"</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>点按右上角的绿色箭头运行。<br>Click the green arrow to run.<br></p>
 <h3 id="在该文件夹中的隐藏文件如「settings-json」等，可以根据自己的需要进行修改和配置The-hidden-files-can-be-change-and-config-when-you-need-to-for-example-the-“settings-json”-file"><a href="#在该文件夹中的隐藏文件如「settings-json」等，可以根据自己的需要进行修改和配置The-hidden-files-can-be-change-and-config-when-you-need-to-for-example-the-“settings-json”-file" class="headerlink" title="在该文件夹中的隐藏文件如「settings.json」等，可以根据自己的需要进行修改和配置The hidden files can be change and config when you need to, for example, the “settings.json” file"></a>在该文件夹中的隐藏文件如「settings.json」等，可以根据自己的需要进行修改和配置<br>The hidden files can be change and config when you need to, for example, the “settings.json” file</h3><p>按下 ⌘Command+⇧Shift+. 来显示或不显示隐藏的文件和文件夹。<br>Press ⌘Command+⇧Shift+. to show or hide the hidden files or folders.<br><br></p>
 <h2 id="在基于Apple-Silicon的Mac上使用Visual-Studio-Code进行C-程序调试Debug-C-program-with-Visual-Studio-simply-on-Mac-based-on-Apple-Silicon"><a href="#在基于Apple-Silicon的Mac上使用Visual-Studio-Code进行C-程序调试Debug-C-program-with-Visual-Studio-simply-on-Mac-based-on-Apple-Silicon" class="headerlink" title="在基于Apple Silicon的Mac上使用Visual Studio Code进行C++程序调试Debug C++ program with Visual Studio simply on Mac based on Apple Silicon"></a>在基于Apple Silicon的Mac上使用Visual Studio Code进行C++程序调试<br>Debug C++ program with Visual Studio simply on Mac based on Apple Silicon</h2><h3 id="你需要在-Visual-Studio-Code-中安装以下扩展You-need-to-install-the-following-extensions"><a href="#你需要在-Visual-Studio-Code-中安装以下扩展You-need-to-install-the-following-extensions" class="headerlink" title="你需要在 Visual Studio Code 中安装以下扩展You need to install the following extensions"></a>你需要在 Visual Studio Code 中安装以下扩展<br>You need to install the following extensions</h3><ul>
-<li>C&#x2F;C++</li>
+<li>C/C++</li>
 <li>CodeLLDB</li>
 </ul>
-<h3 id="在-Visual-Studio-Code-中打开你的工作文件夹Open-your-workfolder-in-Visual-Studio-Code"><a href="#在-Visual-Studio-Code-中打开你的工作文件夹Open-your-workfolder-in-Visual-Studio-Code" class="headerlink" title="在 Visual Studio Code 中打开你的工作文件夹Open your workfolder in Visual Studio Code"></a>在 Visual Studio Code 中打开你的工作文件夹<br>Open your workfolder in Visual Studio Code</h3><p>打开一个实例，比如「helloworld.cpp」，然后按 F1 键，选择「C&#x2F;C++: Build and Debug Active File」<br>Open an example, such as “helloworld.cpp”, then press F1, select “C&#x2F;C++: Build and Debug Active File”<br><br><br><br><br>Visual Studio Code 将会自动生成「tasks.json」的文件，内容如下<br><br>Visual Studio Code will create “tasks.json” file automatically as follow<br></p>
+<h3 id="在-Visual-Studio-Code-中打开你的工作文件夹Open-your-workfolder-in-Visual-Studio-Code"><a href="#在-Visual-Studio-Code-中打开你的工作文件夹Open-your-workfolder-in-Visual-Studio-Code" class="headerlink" title="在 Visual Studio Code 中打开你的工作文件夹Open your workfolder in Visual Studio Code"></a>在 Visual Studio Code 中打开你的工作文件夹<br>Open your workfolder in Visual Studio Code</h3><p>打开一个实例，比如「helloworld.cpp」，然后按 F1 键，选择「C/C++: Build and Debug Active File」<br>Open an example, such as “helloworld.cpp”, then press F1, select “C/C++: Build and Debug Active File”<br><br><br><br><br>Visual Studio Code 将会自动生成「tasks.json」的文件，内容如下<br><br>Visual Studio Code will create “tasks.json” file automatically as follow<br></p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token property">"tasks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token punctuation">&#123;</span>
@@ -198,7 +192,6 @@ New or open a file, name as "helloworld.cpp", type the following code in it.
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"2.0.0"</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="选择左侧菜单栏的「调试」图标，点击「Create-a-launch-json-fiile」Choose-“Debug”-icon-click-“Create-a-launch-json-file”"><a href="#选择左侧菜单栏的「调试」图标，点击「Create-a-launch-json-fiile」Choose-“Debug”-icon-click-“Create-a-launch-json-file”" class="headerlink" title="选择左侧菜单栏的「调试」图标，点击「Create a launch.json fiile」Choose “Debug” icon, click “Create a launch.json file”"></a>选择左侧菜单栏的「调试」图标，点击「Create a launch.json fiile」<br>Choose “Debug” icon, click “Create a launch.json file”</h3><p>选择「LLDB」选项，创建一个「launch.json」文件<br>Select “LLDB” option to create a “launch.json” file</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token comment">// Use IntelliSense to learn about possible attributes.</span>
@@ -216,9 +209,7 @@ New or open a file, name as "helloworld.cpp", type the following code in it.
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<br>
-把以上内容改为以下内容<br>Change the above to below
-
+<p><br><br>把以上内容改为以下内容<br>Change the above to below</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
     <span class="token comment">// Use IntelliSense to learn about possible attributes.</span>
     <span class="token comment">// Hover to view descriptions of existing attributes.</span>
@@ -235,7 +226,6 @@ New or open a file, name as "helloworld.cpp", type the following code in it.
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="最后，按-⌘Command-⇧Shift-B-编译Finally-press-⌘Command-⇧Shift-B-to-compile"><a href="#最后，按-⌘Command-⇧Shift-B-编译Finally-press-⌘Command-⇧Shift-B-to-compile" class="headerlink" title="最后，按 ⌘Command + ⇧Shift + B 编译Finally, press ⌘Command + ⇧Shift + B to compile"></a>最后，按 ⌘Command + ⇧Shift + B 编译<br>Finally, press ⌘Command + ⇧Shift + B to compile</h3><p>按触控栏上的调试小箭头或 F5 进行调试<br><br>Press the arrow on the Touchbar or F5 to debug<br><br><br><br></p>
 <blockquote>
 <p>⚠️注意：这个笔记是根据网络上的各种资料和文档进行总结归纳的，仅供参考<br>⚠️Attention: This note is a summary according to some pages and files on the Internet</p>
