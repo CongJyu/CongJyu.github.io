@@ -1,0 +1,1025 @@
+<html>
+<!-- Head tag -->
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	
+    	<link rel="icon" href="/images/favicon.ico">
+  	 
+      <title>让 Terminal 飞起来 | Rain Chen&#39;s Blog</title>
+	
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+
+	
+<link rel="stylesheet" href="/css/style.css">
+
+	
+<link rel="stylesheet" href="/css/highlight.css">
+
+	
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?542b4962c3c4035fce9071b7c665f0d2";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-97838175-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+	<div id="site" class="site">
+		<div id="sidebar" class="sidebar">
+			<header id="header" class="site-header">
+	<div class="site-branding">
+		<h1 class="site-title">
+			
+				<a href="/images/RainChen.png" class="avatar-circle"><img src="/images/RainChen.png" /></a>
+			
+			<a href="/" rel="home">Rain Chen&#39;s Blog</a></h1>
+		<p class="site-description">🏳️‍⚧️🏳️‍⚧️🏳️‍⚧️ Everyone has her/his right to wear skirts!</p>
+		<button class="secondary-toggle font-asesome-icon">Menu and widgets</button>
+	</div>
+</header>
+<div id="secondary" class="secondary">
+	<nav class="main-navigation">
+                         <ul id="menu-demo-menu" class="nav-menu">
+						 
+							<li class="menu-item"><a href="/">الرئيسية</a></li>
+						
+							<li class="menu-item"><a href="/archives">الأرشيف</a></li>
+						
+							<li class="menu-item"><a href="/about">حولي</a></li>
+						
+                         </ul>
+    </nav>
+	
+		
+<aside class="widget">
+		<h3 class="widget-title">الأرشيف</h3>		
+		<ul>
+			<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">يوليو ٢٠٢٢</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">يونيو ٢٠٢٢</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">أبريل ٢٠٢٢</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">يناير ٢٠٢٢</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">ديسمبر ٢٠٢١</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">نوفمبر ٢٠٢١</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">سبتمبر ٢٠٢١</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">يوليو ٢٠٢١</a><span class="archive-list-count">2</span></li></ul>
+		</ul>
+	</aside>
+
+
+	
+		<aside class="widget">
+    <input id="local-search-input" type="search" class="search-field" placeholder="Search …" value="" name="s">
+    <div id="local-search-result" class="search-result">
+    </div>
+</aside>
+	
+		
+<aside class="widget">
+		<h3 class="widget-title">المشاركات الأخيرة</h3>		
+		<ul>
+			
+          <li>
+            <a href="/2022/07/04/2022-07-03-HNU%E5%A4%8F%E5%AD%A3%E5%AD%A6%E6%9C%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E8%A7%A3%E4%BA%8C/">HNU 夏季学期「程序设计训练 2022」 课程题解（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/22/2022-06-22-HNU%E5%A4%8F%E5%AD%A3%E5%AD%A6%E6%9C%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E8%A7%A3%E4%B8%80/">HNU 夏季学期「程序设计训练 2022」 课程题解（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/24/2022-04-24-%E4%B8%80%E4%BA%9Bzsh%E7%9A%84%E9%85%8D%E7%BD%AE/">当我卸载了 oh-my-zsh 之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
+          </li>
+        
+		</ul>
+	</aside>
+
+
+	
+		
+  <aside class="widget">
+		<h3 class="widget-title">سحابة الوسوم</h3>
+        <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8/" style="font-size: 20px;">开发与应用</a> <a href="/tags/%E6%9D%82%E8%B0%88%E7%A2%8E%E7%AC%94/" style="font-size: 10px;">杂谈碎笔</a>
+    </aside>
+
+	
+</div>
+
+		</div>
+		<div id="content" class="site-content">
+			<main id="main" class="site-main" role="main">
+				
+<article class="hentry ">
+		
+		
+			<header class="entry-header">
+				<h2 class="entry-title"><a class="post-title-link" href="/2021/12/19/2021-12-19-%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/" rel="bookmark">让 Terminal 飞起来</a></h2>	
+			</header>
+		
+		<!-- .entry-header -->
+		<div class="entry-content">
+			
+				<h1 id="让-Terminal-飞起来"><a href="#让-Terminal-飞起来" class="headerlink" title="让 Terminal 飞起来"></a>让 Terminal 飞起来</h1><h2 id="使用-iTerm"><a href="#使用-iTerm" class="headerlink" title="使用 iTerm"></a>使用 iTerm</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>从这里下载安装：<a target="_blank" rel="noopener" href="https://iterm2.com/">iTerm2</a></p>
+<p>把 iTerm.app 拖入 Applications 文件夹之后，就可以打开使用了。根据自己的需要对 iTerm 进行设置，例如终端上的显示信息等。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>我的 iTerm 配置文件，如下所示：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"Ansi 6 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Tags"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
+
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 12 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 7 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 8 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Bold Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 9 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 3 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Right Option Key Sends"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Rows"</span> <span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
+  <span class="token property">"Default Bookmark"</span> <span class="token operator">:</span> <span class="token string">"No"</span><span class="token punctuation">,</span>
+  <span class="token property">"Blend"</span> <span class="token operator">:</span> <span class="token number">0.49971580615942024</span><span class="token punctuation">,</span>
+  <span class="token property">"Cursor Guide Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.70214027166366577</span><span class="token punctuation">,</span>
+    <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">0.25</span><span class="token punctuation">,</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.92681378126144409</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Non-ASCII Anti Aliased"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Use Bright Bold"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 10 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Ambiguous Double Width"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Jobs to Ignore"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"rlogin"</span><span class="token punctuation">,</span>
+    <span class="token string">"ssh"</span><span class="token punctuation">,</span>
+    <span class="token string">"slogin"</span><span class="token punctuation">,</span>
+    <span class="token string">"telnet"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"Show Status Bar"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 15 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Foreground Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Working Directory"</span> <span class="token operator">:</span> <span class="token string">"\/Users\/rainchen"</span><span class="token punctuation">,</span>
+  <span class="token property">"Blinking Cursor"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Disable Window Resizing"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Sync Title"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Prompt Before Closing 2"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"BM Growl"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Command"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token property">"Description"</span> <span class="token operator">:</span> <span class="token string">"Default"</span><span class="token punctuation">,</span>
+  <span class="token property">"Mouse Reporting"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Screen"</span> <span class="token operator">:</span> <span class="token number">-1</span><span class="token punctuation">,</span>
+  <span class="token property">"Selection Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.8353000283241272</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.70980000495910645</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Initial Use Transparency"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Only The Default BG Color Uses Transparency"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Columns"</span> <span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span>
+  <span class="token property">"Idle Code"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 13 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Custom Command"</span> <span class="token operator">:</span> <span class="token string">"No"</span><span class="token punctuation">,</span>
+  <span class="token property">"ASCII Anti Aliased"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Non Ascii Font"</span> <span class="token operator">:</span> <span class="token string">"Monaco 12"</span><span class="token punctuation">,</span>
+  <span class="token property">"Vertical Spacing"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"Use Bold Font"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Option Key Sends"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Selected Text Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Background Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Character Encoding"</span> <span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 11 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Use Italic Font"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Unlimited Scrollback"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Keyboard Map"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"0xf700-0x260000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;6A"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x37-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1f"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x32-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x00"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf709-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[17;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf70c-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[20;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf729-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2H"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf72b-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;5F"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf705-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2Q"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf703-0x260000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;6C"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf700-0x220000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2A"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf701-0x280000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1b 0x1b 0x5b 0x42"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x38-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x7f"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x33-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1b"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf703-0x220000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2C"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf701-0x240000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;5B"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf70d-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[21;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf702-0x260000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;6D"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf729-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;5H"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf706-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2R"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x34-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1c"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf700-0x280000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1b 0x1b 0x5b 0x41"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x2d-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1f"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf70e-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[23;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf702-0x220000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2D"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf703-0x280000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1b 0x1b 0x5b 0x43"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf700-0x240000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;5A"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf707-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2S"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf70a-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[18;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x35-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1d"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf70f-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[24;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf703-0x240000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;5C"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf701-0x260000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;6B"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf702-0x280000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1b 0x1b 0x5b 0x44"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf72b-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2F"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0x36-0x40000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"0x1e"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">11</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf708-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[15;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf701-0x220000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2B"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf70b-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[19;2~"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf702-0x240000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;5D"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"0xf704-0x20000"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"Text"</span> <span class="token operator">:</span> <span class="token string">"[1;2P"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span> <span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Window Type"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Blur Radius"</span> <span class="token operator">:</span> <span class="token number">64</span><span class="token punctuation">,</span>
+  <span class="token property">"Background Image Location"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token property">"Blur"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Badge Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.14910027384757996</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Scrollback Lines"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Send Code When Idle"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Close Sessions On End"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Terminal Type"</span> <span class="token operator">:</span> <span class="token string">"xterm-256color"</span><span class="token punctuation">,</span>
+  <span class="token property">"Visual Bell"</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">"Flashing Bell"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Status Bar Layout"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"components"</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarClockComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"format"</span> <span class="token operator">:</span> <span class="token string">"M\/dd h:mm"</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarWorkingDirectoryComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"path"</span> <span class="token operator">:</span> <span class="token string">"path"</span><span class="token punctuation">,</span>
+            <span class="token property">"maxwidth"</span> <span class="token operator">:</span> <span class="token number">1.7976931348623157e+308</span><span class="token punctuation">,</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.84060000000000001</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">"minwidth"</span> <span class="token operator">:</span> <span class="token number">0</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarJobComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.74880000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"minwidth"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"maxwidth"</span> <span class="token operator">:</span> <span class="token number">1.7976931348623157e+308</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarGitComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.7218</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"iTermStatusBarGitComponentPollingIntervalKey"</span> <span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"minwidth"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">"maxwidth"</span> <span class="token operator">:</span> <span class="token number">1.7976931348623157e+308</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarBatteryComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.86760000000000004</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarCPUUtilizationComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.65700000000000003</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarMemoryUtilizationComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.81359999999999999</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"class"</span> <span class="token operator">:</span> <span class="token string">"iTermStatusBarNetworkUtilizationComponent"</span><span class="token punctuation">,</span>
+        <span class="token property">"configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">"knobs"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"base: priority"</span> <span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            <span class="token property">"shared text color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+              <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.90000000000000002</span><span class="token punctuation">,</span>
+              <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+              <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.77580000000000005</span><span class="token punctuation">,</span>
+              <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.63</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token property">"base: compression resistance"</span> <span class="token operator">:</span> <span class="token number">1</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token property">"layout advanced configuration dictionary value"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+            <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"advanced configuration"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"remove empty components"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">"font"</span> <span class="token operator">:</span> <span class="token string">".AppleSystemUIFont 12"</span><span class="token punctuation">,</span>
+      <span class="token property">"algorithm"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">"auto-rainbow style"</span> <span class="token operator">:</span> <span class="token number">3</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Show Timestamps"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"Silence Bell"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 14 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.3333333432674408</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Name"</span> <span class="token operator">:</span> <span class="token string">"rainchen"</span><span class="token punctuation">,</span>
+  <span class="token property">"Cursor Text Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Shortcut"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  <span class="token property">"Cursor Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Transparency"</span> <span class="token operator">:</span> <span class="token number">0.49817320478723409</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 0 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Horizontal Spacing"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token property">"Custom Directory"</span> <span class="token operator">:</span> <span class="token string">"No"</span><span class="token punctuation">,</span>
+  <span class="token property">"Guid"</span> <span class="token operator">:</span> <span class="token string">"720BA903-717A-4AE9-A428-9E97E288F31C"</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 5 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Use Non-ASCII Font"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 1 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Normal Font"</span> <span class="token operator">:</span> <span class="token string">"SFMono-Regular 18"</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 2 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Ansi 4 Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73333334922790527</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"Link Color"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"Red Component"</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Color Space"</span> <span class="token operator">:</span> <span class="token string">"sRGB"</span><span class="token punctuation">,</span>
+    <span class="token property">"Blue Component"</span> <span class="token operator">:</span> <span class="token number">0.73422712087631226</span><span class="token punctuation">,</span>
+    <span class="token property">"Alpha Component"</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Green Component"</span> <span class="token operator">:</span> <span class="token number">0.35915297269821167</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上的文件可以实现窗口的半透明模糊背景效果，字体使用的是 San Francisco Mono，字号为 18。</p>
+<h2 id="使用-oh-my-zsh"><a href="#使用-oh-my-zsh" class="headerlink" title="使用 oh-my-zsh"></a>使用 oh-my-zsh</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>官方的网址：<a target="_blank" rel="noopener" href="https://ohmyz.sh/">oh-my-zsh</a></p>
+<p>安装方式非常简单，只需要输入以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sh</span> <span class="token parameter variable">-c</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是鉴于「众所周知的原因」，官方给出的安装方法经常会遇到各种奇奇怪怪的问题。所以，我又找到了另一种有点「简单粗暴」的安装方式。当然，你还是要能够访问 GitHub 才行。从 oh-my-zsh 的仓库中 clone 整个仓库到本地，放在一个你认为合适的位置，找到其中的 <code>install.sh</code> 文件（目录在 <code>ohmyzsh/master/tools/install.sh</code>），在终端运行即可。保持网络连接。</p>
+<p>如何在终端运行这个 <code>install.sh</code> 脚本？看下面：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /ohmyzsh/master/tools
+<span class="token function">sh</span> install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>如果看到 oh-my-zsh 的 Code Banner 就算安装完成了。</p>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>首次启动终端的时候，会在用户目录下生成一个 <code>.zshrc</code> 的文件。对，就是这个名字，不要以为它没有文件名只有扩展名。使用文本编辑器打开它，比如使用 Visual Studio Code，Sublime Text，Emacs，Vim 等等，都行。总而言之你需要打开它，然后发现以下内容。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># If you come from bash you might have to change your $PATH.</span>
+<span class="token comment"># export PATH=$HOME/bin:/usr/local/bin:$PATH</span>
+
+<span class="token comment"># Path to your oh-my-zsh installation.</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ZSH</span><span class="token operator">=</span><span class="token string">"/Users/rainchen/.oh-my-zsh"</span>
+
+<span class="token comment"># Set name of the theme to load --- if set to "random", it will</span>
+<span class="token comment"># load a random theme each time oh-my-zsh is loaded, in which case,</span>
+<span class="token comment"># to know which specific one was loaded, run: echo $RANDOM_THEME</span>
+<span class="token comment"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span>
+<span class="token assign-left variable">ZSH_THEME</span><span class="token operator">=</span><span class="token string">"rainsmac"</span>
+
+<span class="token comment"># Set list of themes to pick from when loading at random</span>
+<span class="token comment"># Setting this variable when ZSH_THEME=random will cause zsh to load</span>
+<span class="token comment"># a theme from this variable instead of looking in $ZSH/themes/</span>
+<span class="token comment"># If set to an empty array, this variable will have no effect.</span>
+<span class="token comment"># ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )</span>
+
+<span class="token comment"># Uncomment the following line to use case-sensitive completion.</span>
+<span class="token comment"># CASE_SENSITIVE="true"</span>
+
+<span class="token comment"># Uncomment the following line to use hyphen-insensitive completion.</span>
+<span class="token comment"># Case-sensitive completion must be off. _ and - will be interchangeable.</span>
+<span class="token comment"># HYPHEN_INSENSITIVE="true"</span>
+
+<span class="token comment"># Uncomment one of the following lines to change the auto-update behavior</span>
+<span class="token comment"># zstyle ':omz:update' mode disabled  # disable automatic updates</span>
+<span class="token comment"># zstyle ':omz:update' mode auto      # update automatically without asking</span>
+<span class="token comment"># zstyle ':omz:update' mode reminder  # just remind me to update when it's time</span>
+
+<span class="token comment"># Uncomment the following line to change how often to auto-update (in days).</span>
+<span class="token comment"># zstyle ':omz:update' frequency 13</span>
+
+<span class="token comment"># Uncomment the following line if pasting URLs and other text is messed up.</span>
+<span class="token comment"># DISABLE_MAGIC_FUNCTIONS="true"</span>
+
+<span class="token comment"># Uncomment the following line to disable colors in ls.</span>
+<span class="token comment"># DISABLE_LS_COLORS="true"</span>
+
+<span class="token comment"># Uncomment the following line to disable auto-setting terminal title.</span>
+<span class="token comment"># DISABLE_AUTO_TITLE="true"</span>
+
+<span class="token comment"># Uncomment the following line to enable command auto-correction.</span>
+<span class="token comment"># ENABLE_CORRECTION="true"</span>
+
+<span class="token comment"># Uncomment the following line to display red dots whilst waiting for completion.</span>
+<span class="token comment"># You can also set it to another string to have that shown instead of the default red dots.</span>
+<span class="token comment"># e.g. COMPLETION_WAITING_DOTS="%F&#123;yellow&#125;waiting...%f"</span>
+<span class="token comment"># Caution: this setting can cause issues with multiline prompts in zsh &lt; 5.7.1 (see #5765)</span>
+<span class="token comment"># COMPLETION_WAITING_DOTS="true"</span>
+
+<span class="token comment"># Uncomment the following line if you want to disable marking untracked files</span>
+<span class="token comment"># under VCS as dirty. This makes repository status check for large repositories</span>
+<span class="token comment"># much, much faster.</span>
+<span class="token comment"># DISABLE_UNTRACKED_FILES_DIRTY="true"</span>
+
+<span class="token comment"># Uncomment the following line if you want to change the command execution time</span>
+<span class="token comment"># stamp shown in the history command output.</span>
+<span class="token comment"># You can set one of the optional three formats:</span>
+<span class="token comment"># "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"</span>
+<span class="token comment"># or set a custom format using the strftime function format specifications,</span>
+<span class="token comment"># see 'man strftime' for details.</span>
+<span class="token comment"># HIST_STAMPS="mm/dd/yyyy"</span>
+
+<span class="token comment"># Would you like to use another custom folder than $ZSH/custom?</span>
+<span class="token comment"># ZSH_CUSTOM=/path/to/new-custom-folder</span>
+
+<span class="token comment"># Which plugins would you like to load?</span>
+<span class="token comment"># Standard plugins can be found in $ZSH/plugins/</span>
+<span class="token comment"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span>
+<span class="token comment"># Example format: plugins=(rails git textmate ruby lighthouse)</span>
+<span class="token comment"># Add wisely, as too many plugins slow down shell startup.</span>
+<span class="token assign-left variable">plugins</span><span class="token operator">=</span><span class="token punctuation">(</span>git<span class="token punctuation">)</span>
+
+<span class="token builtin class-name">source</span> <span class="token variable">$ZSH</span>/oh-my-zsh.sh
+
+<span class="token comment"># User configuration</span>
+
+<span class="token comment"># export MANPATH="/usr/local/man:$MANPATH"</span>
+
+<span class="token comment"># You may need to manually set your language environment</span>
+<span class="token comment"># export LANG=en_US.UTF-8</span>
+
+<span class="token comment"># Preferred editor for local and remote sessions</span>
+<span class="token comment"># if [[ -n $SSH_CONNECTION ]]; then</span>
+<span class="token comment">#   export EDITOR='vim'</span>
+<span class="token comment"># else</span>
+<span class="token comment">#   export EDITOR='mvim'</span>
+<span class="token comment"># fi</span>
+
+<span class="token comment"># Compilation flags</span>
+<span class="token comment"># export ARCHFLAGS="-arch x86_64"</span>
+
+<span class="token comment"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span>
+<span class="token comment"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span>
+<span class="token comment"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span>
+<span class="token comment"># For a full list of active aliases, run `alias`.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Example aliases</span>
+<span class="token comment"># alias zshconfig="mate ~/.zshrc"</span>
+<span class="token comment"># alias ohmyzsh="mate ~/.oh-my-zsh"</span>
+
+<span class="token builtin class-name">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+<span class="token builtin class-name">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来你需要去编辑这个配置文件。设定自己喜欢的主题，这个主题可以是 oh-my-zsh 预设的主题，也可以自己做的主题。只要主题文件放在 oh-my-zsh 的安装位置的主题文件夹 <code>/Users/rainchen/.oh-my-zsh/themes</code> 下就行。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">ZSH_THEME</span><span class="token operator">=</span><span class="token string">"这里写你的主题名字"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>下面分享我的主题配置文件：（注意， Apple 的标记在某些系统上可能无法显示）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">function</span> <span class="token function-name function">toon</span> <span class="token punctuation">&#123;</span>
+  <span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token string">""</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function-name function">get_git_dirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--quiet</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token string">'*'</span>
+<span class="token punctuation">&#125;</span>
+
+autoload <span class="token parameter variable">-Uz</span> vcs_info
+zstyle <span class="token string">':vcs_info:*'</span> check-for-changes <span class="token boolean">true</span>
+zstyle <span class="token string">':vcs_info:*'</span> unstagedstr <span class="token string">'%F&#123;red&#125;*'</span>   <span class="token comment"># display this when there are unstaged changes</span>
+zstyle <span class="token string">':vcs_info:*'</span> stagedstr <span class="token string">'%F&#123;yellow&#125;+'</span>  <span class="token comment"># display this when there are staged changes</span>
+zstyle <span class="token string">':vcs_info:*'</span> actionformats <span class="token punctuation">\</span>
+    <span class="token string">'%F&#123;5&#125;%F&#123;5&#125;[%F&#123;2&#125;%b%F&#123;3&#125;|%F&#123;1&#125;%a%c%u%F&#123;5&#125;]%f '</span>
+zstyle <span class="token string">':vcs_info:*'</span> formats       <span class="token punctuation">\</span>
+    <span class="token string">'%F&#123;5&#125;%F&#123;5&#125;[%F&#123;2&#125;%b%c%u%F&#123;5&#125;]%f '</span>
+zstyle <span class="token string">':vcs_info:(sv[nk]|bzr):*'</span> branchformat <span class="token string">'%b%F&#123;1&#125;:%F&#123;3&#125;%r'</span>
+zstyle <span class="token string">':vcs_info:*'</span> <span class="token builtin class-name">enable</span> <span class="token function">git</span> cvs svn
+
+<span class="token function-name function">theme_precmd</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    vcs_info
+<span class="token punctuation">&#125;</span>
+
+setopt prompt_subst
+<span class="token assign-left variable">PROMPT</span><span class="token operator">=</span><span class="token string">'%&#123;$fg[magenta]%&#125;$(toon)%&#123;$reset_color%&#125; %~/ %# %&#123;$reset_color%&#125;$&#123;vcs_info_msg_0_&#125;%&#123;$reset_color%&#125;'</span>
+
+autoload <span class="token parameter variable">-U</span> add-zsh-hook
+add-zsh-hook precmd theme_precmd
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h3><p>下面介绍我使用的两个比较好用而且经典的插件</p>
+<h4 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h4><p>顾名思义，语法高亮。使用 Homebrew 安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> zsh-syntax-highlighting<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安装完之后，查看软件包的路径。然后把路径添加到 <code>.zshrc</code> 配置文件的最后。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>保存即可。随后在终端 Shell 中输入下面的指令来使配置生效。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h4><p>这个包，顾名思义，自动建议和补全。可以自动补全指令，减少了大量的输入，降低了出错的风险。</p>
+<p>同样，我们使用 Homebrew 安装这个软件包。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> zsh-autosuggestions<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安装完成之后，查看软件包的路径。然后把路径添加到 <code>.zshrc</code> 配置文件的最后。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /opt/homebrew/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>保存即可。随后在终端 Shell 中输入下面的指令来使配置生效。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>至此，我们的终端配置就基本完成了，之后可以根据自己的需要对终端进行配置。</p>
+
+
+				
+				
+			
+		</div><!-- .entry-content -->
+		
+		<footer class="entry-footer">
+			<span class="posted-on font-asesome-icon">
+	<a href="" rel="bookmark">
+	<time class="updated" datetime="2021-12-18T16:00:00.000Z">2021-12-19</time>
+	</a>
+</span>
+
+
+	<span class="tags-links font-asesome-icon">
+	
+		<a href="/tags/Mac/" rel="category tag">Mac</a>
+    
+		<a href="/tags/%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8/" rel="category tag">开发与应用</a>
+    
+</span>
+		
+
+    <span class="eye font-asesome-icon leancloud_visitors" id="/2021/12/19/2021-12-19-%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/" data-flag-title="让 Terminal 飞起来">
+         <span class="leancloud-visitors-count">
+        
+        </span>
+    </span>
+
+		</footer><!-- .entry-footer -->
+</article>
+<div class="misc">
+    <a href="#main"><span class="top font-asesome-icon">Top</span></a>
+</div>
+
+			</main>
+		</div>
+		<footer id="colophon" class="site-footer">
+			<div class="site-info">
+				<span>powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;&nbsp; theme by <a target="_blank" rel="noopener" href="https://github.com/Troy-Yang/hexo-theme-twentyfifteen-wordpress">Troy</a> &nbsp; inspired by <a target="_blank" rel="noopener" href="https://wordpress.org/themes/">wordpress</a></span>
+			</div><!-- .site-info -->
+		</footer>
+	</div>
+	
+    <!-- After footer scripts -->
+    
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+  <script>
+    (function () {
+      function leancloudSelector(url) {
+        url = encodeURI(url);
+        return document.getElementById(url).querySelector('.leancloud-visitors-count');
+      }
+
+      function addCount(Counter) {
+        var visitors = document.querySelector('.leancloud_visitors');
+        var url = decodeURI(visitors.id);
+        var title = visitors.dataset.flagTitle;
+
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+          .then(response => response.json())
+          .then(({ results }) => {
+            if (results.length > 0) {
+              var counter = results[0];
+              leancloudSelector(url).innerText = counter.time + 1;
+              Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+                .catch(error => {
+                  console.error('Failed to save visitor count', error);
+                });
+            } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+            }
+          })
+          .catch(error => {
+            console.error('LeanCloud Counter Error', error);
+          });
+      }
+
+      function showTime(Counter) {
+        var visitors = document.querySelectorAll('.leancloud_visitors');
+        var entries = [...visitors].map(element => {
+          return decodeURI(element.id);
+        });
+
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+          .then(response => response.json())
+          .then(({ results }) => {
+            for (let url of entries) {
+              let target = results.find(item => item.url === url);
+              leancloudSelector(url).innerText = target ? target.time : 0;
+            }
+          })
+          .catch(error => {
+            console.error('LeanCloud Counter Error', error);
+          });
+      }
+
+      let app_id = "wzqncxgqp9MCPiPERe3gnX2Q-gzGzoHsz";
+      let app_key = "CCtBiqyPtJWupuozt1393AXm";
+      let server_url = "https://wzqncxgq.lc-cn-n1-shared.com";
+      function fetchData(api_server) {
+        var Counter = (method, url, data) => {
+          return fetch(`${api_server}/1.1${url}`, {
+            method,
+            headers: {
+              'X-LC-Id': app_id,
+              'X-LC-Key': app_key,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+        };
+        if ($('.leancloud_visitors').length == 1) {
+          addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+          showTime(Counter);
+        }
+      }
+
+      let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+      if (api_server) {
+        fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+          .then(response => response.json())
+          .then(({ api_server }) => {
+            fetchData('https://' + api_server);
+          });
+      }
+    })();
+  </script>
+  
+
+</body>
+</html>
