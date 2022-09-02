@@ -107,11 +107,11 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
+            <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
           </li>
         
           <li>
-            <a href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/">macOS Basic Usages</a>
+            <a href="/2022/01/26/2022-01-26-FortranProgramming/">Fortran Programming</a>
           </li>
         
 		</ul>
@@ -2486,6 +2486,102 @@ autoload <span class="token parameter variable">-U</span> compinit
 		
 		
 			<header class="entry-header">
+				<h2 class="entry-title"><a class="post-title-link" href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" rel="bookmark">macOS Basic Usages</a></h2>	
+			</header>
+		
+		<!-- .entry-header -->
+		<div class="entry-content">
+			
+				<h1 id="macOS-Basic-Usages"><a href="#macOS-Basic-Usages" class="headerlink" title="macOS Basic Usages"></a>macOS Basic Usages</h1><h2 id="0-Introduction-to-macOS"><a href="#0-Introduction-to-macOS" class="headerlink" title="0. Introduction to macOS"></a>0. Introduction to macOS</h2><p>Obviously, an operating system for Apple Mac computers.</p>
+<h2 id="1-Restore-Launchpad-and-Dock"><a href="#1-Restore-Launchpad-and-Dock" class="headerlink" title="1. Restore Launchpad and Dock"></a>1. Restore Launchpad and Dock</h2><h3 id="1-1-Restore-Launchpad"><a href="#1-1-Restore-Launchpad" class="headerlink" title="1.1 Restore Launchpad"></a>1.1 Restore Launchpad</h3><p>First, type the following command in Terminal.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> ~/Library/Application<span class="token punctuation">\</span> Support/Dock/*.db <span class="token operator">&amp;&amp;</span> <span class="token function">killall</span> Dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Then, use this command to restore icons.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">defaults <span class="token function">write</span> com.apple.dock ResetLaunchPad <span class="token parameter variable">-bool</span> <span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token function">killall</span> Dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>After doing the above steps, all the Apps made by Apple will be put into the first screen.</p>
+<h3 id="1-2-Restore-Dock"><a href="#1-2-Restore-Dock" class="headerlink" title="1.2 Restore Dock"></a>1.2 Restore Dock</h3><p>First, type the following in Terminal.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">defaults delete com.apple.dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Then, use the following command to restart the Dock.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">killall</span> Dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>All is done.</p>
+<h2 id="2-Install-Softwares"><a href="#2-Install-Softwares" class="headerlink" title="2. Install Softwares"></a>2. Install Softwares</h2><h3 id="2-1-macOS-Software-Packages"><a href="#2-1-macOS-Software-Packages" class="headerlink" title="2.1 macOS Software Packages"></a>2.1 macOS Software Packages</h3><p>Generally, macOS software packages are with names end with <code>.app</code>, which make them look like files. Actually, an App package is a folder named with <code>AppName.app</code>, containing all the components for the program. If you want to see the contents, just secondary click the App icon, choose <code>Show Package Contents</code> option. Remember that double click the icon will only open and run the software.</p>
+<h3 id="2-2-Install-an-App"><a href="#2-2-Install-an-App" class="headerlink" title="2.2 Install an App"></a>2.2 Install an App</h3><h4 id="2-2-1-Install-an-App-from-App-Store"><a href="#2-2-1-Install-an-App-from-App-Store" class="headerlink" title="2.2.1 Install an App from App Store"></a>2.2.1 Install an App from App Store</h4><ol>
+<li>Open App Store, login with your Apple ID</li>
+<li>Search your App on the left.</li>
+<li>Or you can choose the classified gallery.</li>
+<li>Or have a glance at the Discovery pages.</li>
+</ol>
+<h4 id="2-2-2-Get-an-PKG-File"><a href="#2-2-2-Get-an-PKG-File" class="headerlink" title="2.2.2 Get an PKG File?"></a>2.2.2 Get an PKG File?</h4><p>Use Installer to install the app if you have a <code>xxx.pkg</code> file.</p>
+<ol>
+<li>Double click to open it.</li>
+<li>Follow the tips to install.</li>
+</ol>
+<h4 id="2-2-3-Get-a-DMG-File"><a href="#2-2-3-Get-a-DMG-File" class="headerlink" title="2.2.3 Get a DMG File?"></a>2.2.3 Get a DMG File?</h4><p>Drag and drop. If you have a <code>xxx.dmg</code> file, just open it.</p>
+<ol>
+<li>Drag the <code>xxx.app</code> icon to the <code>Applications</code> folder.</li>
+<li>Close the window and eject the image.</li>
+</ol>
+<h4 id="2-2-4-Get-an-Install-app"><a href="#2-2-4-Get-an-Install-app" class="headerlink" title="2.2.4 Get an Install.app?"></a>2.2.4 Get an Install.app?</h4><p>Some DMG files only contain an <code>xxxInstaller.app</code> package. Just run it and follow the steps.</p>
+<p>Some large softwares may use this installing methods.</p>
+<p>Eject the image after the installation is done.</p>
+<h4 id="2-2-5-Get-a-ZIP-File"><a href="#2-2-5-Get-a-ZIP-File" class="headerlink" title="2.2.5 Get a ZIP File?"></a>2.2.5 Get a ZIP File?</h4><p>Use a archiver to extract the file. Generally you will get a <code>xxx.app</code> package.</p>
+<p>Move the package into <code>Applications</code> folder.</p>
+<h3 id="2-3-Want-to-use-pirate-Apps"><a href="#2-3-Want-to-use-pirate-Apps" class="headerlink" title="2.3 Want to use pirate Apps?"></a>2.3 Want to use pirate Apps?</h3><p>No, you don’t want to.</p>
+<h2 id="3-Recommended-Apps"><a href="#3-Recommended-Apps" class="headerlink" title="3. Recommended Apps"></a>3. Recommended Apps</h2><h3 id="3-1-Utilities"><a href="#3-1-Utilities" class="headerlink" title="3.1 Utilities"></a>3.1 Utilities</h3><h4 id="VLC-media-player"><a href="#VLC-media-player" class="headerlink" title="VLC media player"></a>VLC media player</h4><p>A cross-platform media player. Free and open-source.</p>
+<p>Portal: <a target="_blank" rel="noopener" href="https://www.videolan.org/">https://www.videolan.org</a></p>
+<h4 id="Keka"><a href="#Keka" class="headerlink" title="Keka"></a>Keka</h4><p>A free achiever with no ads.</p>
+<p>Portal: <a target="_blank" rel="noopener" href="https://www.keka.io/">https://www.keka.io</a></p>
+<h4 id="Motrix"><a href="#Motrix" class="headerlink" title="Motrix"></a>Motrix</h4><p>A Bittorrent downloading client. Free and open-source.</p>
+<p>Portal: <a target="_blank" rel="noopener" href="https://www.motrix.app/">https://www.motrix.app</a></p>
+<h4 id="Downie"><a href="#Downie" class="headerlink" title="Downie"></a>Downie</h4><p>Video downloading. Not free.</p>
+<h3 id="3-2-Developing-Tools"><a href="#3-2-Developing-Tools" class="headerlink" title="3.2 Developing Tools"></a>3.2 Developing Tools</h3><h4 id="iTerm"><a href="#iTerm" class="headerlink" title="iTerm"></a>iTerm</h4><p>macOS Terminal. Many functions.</p>
+<h4 id="Clash"><a href="#Clash" class="headerlink" title="Clash"></a>Clash</h4><p>A proxy tool.</p>
+<h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h4><p>Editing envolved.</p>
+<h4 id="UTM"><a href="#UTM" class="headerlink" title="UTM"></a>UTM</h4><p>Virtual machines. Support Apple Silicon.</p>
+<h3 id="3-3-Creative-Apps"><a href="#3-3-Creative-Apps" class="headerlink" title="3.3 Creative Apps"></a>3.3 Creative Apps</h3><h4 id="Blender"><a href="#Blender" class="headerlink" title="Blender"></a>Blender</h4><p>Open-source 3D and editing app.</p>
+<h4 id="Aegisub"><a href="#Aegisub" class="headerlink" title="Aegisub"></a>Aegisub</h4><p>Subtitle editing app.</p>
+
+
+				
+				
+			
+		</div><!-- .entry-content -->
+		
+		<footer class="entry-footer">
+			<span class="posted-on font-asesome-icon">
+	<a href="" rel="bookmark">
+	<time class="updated" datetime="2022-01-25T16:00:00.000Z">٢٠٢٢-٠١-٢٦</time>
+	</a>
+</span>
+
+
+	<span class="tags-links font-asesome-icon">
+	
+		<a href="/tags/Mac/" rel="category tag">Mac</a>
+    
+</span>
+		
+
+    <span class="eye font-asesome-icon leancloud_visitors" id="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" data-flag-title="macOS Basic Usages">
+         <span class="leancloud-visitors-count">
+        
+        </span>
+    </span>
+
+		</footer><!-- .entry-footer -->
+</article>
+<div class="misc">
+    <a href="#main"><span class="top font-asesome-icon">Top</span></a>
+</div>
+  
+    
+<article class="hentry ">
+		
+		
+			<header class="entry-header">
 				<h2 class="entry-title"><a class="post-title-link" href="/2022/01/26/2022-01-26-FortranProgramming/" rel="bookmark">Fortran Programming</a></h2>	
 			</header>
 		
@@ -3353,102 +3449,6 @@ ifort: internal error: error generating temporary <span class="token function">f
 		
 
     <span class="eye font-asesome-icon leancloud_visitors" id="/2022/01/26/2022-01-26-FortranProgramming/" data-flag-title="Fortran Programming">
-         <span class="leancloud-visitors-count">
-        
-        </span>
-    </span>
-
-		</footer><!-- .entry-footer -->
-</article>
-<div class="misc">
-    <a href="#main"><span class="top font-asesome-icon">Top</span></a>
-</div>
-  
-    
-<article class="hentry ">
-		
-		
-			<header class="entry-header">
-				<h2 class="entry-title"><a class="post-title-link" href="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" rel="bookmark">macOS Basic Usages</a></h2>	
-			</header>
-		
-		<!-- .entry-header -->
-		<div class="entry-content">
-			
-				<h1 id="macOS-Basic-Usages"><a href="#macOS-Basic-Usages" class="headerlink" title="macOS Basic Usages"></a>macOS Basic Usages</h1><h2 id="0-Introduction-to-macOS"><a href="#0-Introduction-to-macOS" class="headerlink" title="0. Introduction to macOS"></a>0. Introduction to macOS</h2><p>Obviously, an operating system for Apple Mac computers.</p>
-<h2 id="1-Restore-Launchpad-and-Dock"><a href="#1-Restore-Launchpad-and-Dock" class="headerlink" title="1. Restore Launchpad and Dock"></a>1. Restore Launchpad and Dock</h2><h3 id="1-1-Restore-Launchpad"><a href="#1-1-Restore-Launchpad" class="headerlink" title="1.1 Restore Launchpad"></a>1.1 Restore Launchpad</h3><p>First, type the following command in Terminal.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> ~/Library/Application<span class="token punctuation">\</span> Support/Dock/*.db <span class="token operator">&amp;&amp;</span> <span class="token function">killall</span> Dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>Then, use this command to restore icons.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">defaults <span class="token function">write</span> com.apple.dock ResetLaunchPad <span class="token parameter variable">-bool</span> <span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token function">killall</span> Dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>After doing the above steps, all the Apps made by Apple will be put into the first screen.</p>
-<h3 id="1-2-Restore-Dock"><a href="#1-2-Restore-Dock" class="headerlink" title="1.2 Restore Dock"></a>1.2 Restore Dock</h3><p>First, type the following in Terminal.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">defaults delete com.apple.dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>Then, use the following command to restart the Dock.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">killall</span> Dock<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>All is done.</p>
-<h2 id="2-Install-Softwares"><a href="#2-Install-Softwares" class="headerlink" title="2. Install Softwares"></a>2. Install Softwares</h2><h3 id="2-1-macOS-Software-Packages"><a href="#2-1-macOS-Software-Packages" class="headerlink" title="2.1 macOS Software Packages"></a>2.1 macOS Software Packages</h3><p>Generally, macOS software packages are with names end with <code>.app</code>, which make them look like files. Actually, an App package is a folder named with <code>AppName.app</code>, containing all the components for the program. If you want to see the contents, just secondary click the App icon, choose <code>Show Package Contents</code> option. Remember that double click the icon will only open and run the software.</p>
-<h3 id="2-2-Install-an-App"><a href="#2-2-Install-an-App" class="headerlink" title="2.2 Install an App"></a>2.2 Install an App</h3><h4 id="2-2-1-Install-an-App-from-App-Store"><a href="#2-2-1-Install-an-App-from-App-Store" class="headerlink" title="2.2.1 Install an App from App Store"></a>2.2.1 Install an App from App Store</h4><ol>
-<li>Open App Store, login with your Apple ID</li>
-<li>Search your App on the left.</li>
-<li>Or you can choose the classified gallery.</li>
-<li>Or have a glance at the Discovery pages.</li>
-</ol>
-<h4 id="2-2-2-Get-an-PKG-File"><a href="#2-2-2-Get-an-PKG-File" class="headerlink" title="2.2.2 Get an PKG File?"></a>2.2.2 Get an PKG File?</h4><p>Use Installer to install the app if you have a <code>xxx.pkg</code> file.</p>
-<ol>
-<li>Double click to open it.</li>
-<li>Follow the tips to install.</li>
-</ol>
-<h4 id="2-2-3-Get-a-DMG-File"><a href="#2-2-3-Get-a-DMG-File" class="headerlink" title="2.2.3 Get a DMG File?"></a>2.2.3 Get a DMG File?</h4><p>Drag and drop. If you have a <code>xxx.dmg</code> file, just open it.</p>
-<ol>
-<li>Drag the <code>xxx.app</code> icon to the <code>Applications</code> folder.</li>
-<li>Close the window and eject the image.</li>
-</ol>
-<h4 id="2-2-4-Get-an-Install-app"><a href="#2-2-4-Get-an-Install-app" class="headerlink" title="2.2.4 Get an Install.app?"></a>2.2.4 Get an Install.app?</h4><p>Some DMG files only contain an <code>xxxInstaller.app</code> package. Just run it and follow the steps.</p>
-<p>Some large softwares may use this installing methods.</p>
-<p>Eject the image after the installation is done.</p>
-<h4 id="2-2-5-Get-a-ZIP-File"><a href="#2-2-5-Get-a-ZIP-File" class="headerlink" title="2.2.5 Get a ZIP File?"></a>2.2.5 Get a ZIP File?</h4><p>Use a archiver to extract the file. Generally you will get a <code>xxx.app</code> package.</p>
-<p>Move the package into <code>Applications</code> folder.</p>
-<h3 id="2-3-Want-to-use-pirate-Apps"><a href="#2-3-Want-to-use-pirate-Apps" class="headerlink" title="2.3 Want to use pirate Apps?"></a>2.3 Want to use pirate Apps?</h3><p>No, you don’t want to.</p>
-<h2 id="3-Recommended-Apps"><a href="#3-Recommended-Apps" class="headerlink" title="3. Recommended Apps"></a>3. Recommended Apps</h2><h3 id="3-1-Utilities"><a href="#3-1-Utilities" class="headerlink" title="3.1 Utilities"></a>3.1 Utilities</h3><h4 id="VLC-media-player"><a href="#VLC-media-player" class="headerlink" title="VLC media player"></a>VLC media player</h4><p>A cross-platform media player. Free and open-source.</p>
-<p>Portal: <a target="_blank" rel="noopener" href="https://www.videolan.org/">https://www.videolan.org</a></p>
-<h4 id="Keka"><a href="#Keka" class="headerlink" title="Keka"></a>Keka</h4><p>A free achiever with no ads.</p>
-<p>Portal: <a target="_blank" rel="noopener" href="https://www.keka.io/">https://www.keka.io</a></p>
-<h4 id="Motrix"><a href="#Motrix" class="headerlink" title="Motrix"></a>Motrix</h4><p>A Bittorrent downloading client. Free and open-source.</p>
-<p>Portal: <a target="_blank" rel="noopener" href="https://www.motrix.app/">https://www.motrix.app</a></p>
-<h4 id="Downie"><a href="#Downie" class="headerlink" title="Downie"></a>Downie</h4><p>Video downloading. Not free.</p>
-<h3 id="3-2-Developing-Tools"><a href="#3-2-Developing-Tools" class="headerlink" title="3.2 Developing Tools"></a>3.2 Developing Tools</h3><h4 id="iTerm"><a href="#iTerm" class="headerlink" title="iTerm"></a>iTerm</h4><p>macOS Terminal. Many functions.</p>
-<h4 id="Clash"><a href="#Clash" class="headerlink" title="Clash"></a>Clash</h4><p>A proxy tool.</p>
-<h4 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h4><p>Editing envolved.</p>
-<h4 id="UTM"><a href="#UTM" class="headerlink" title="UTM"></a>UTM</h4><p>Virtual machines. Support Apple Silicon.</p>
-<h3 id="3-3-Creative-Apps"><a href="#3-3-Creative-Apps" class="headerlink" title="3.3 Creative Apps"></a>3.3 Creative Apps</h3><h4 id="Blender"><a href="#Blender" class="headerlink" title="Blender"></a>Blender</h4><p>Open-source 3D and editing app.</p>
-<h4 id="Aegisub"><a href="#Aegisub" class="headerlink" title="Aegisub"></a>Aegisub</h4><p>Subtitle editing app.</p>
-
-
-				
-				
-			
-		</div><!-- .entry-content -->
-		
-		<footer class="entry-footer">
-			<span class="posted-on font-asesome-icon">
-	<a href="" rel="bookmark">
-	<time class="updated" datetime="2022-01-25T16:00:00.000Z">٢٠٢٢-٠١-٢٦</time>
-	</a>
-</span>
-
-
-	<span class="tags-links font-asesome-icon">
-	
-		<a href="/tags/Mac/" rel="category tag">Mac</a>
-    
-</span>
-		
-
-    <span class="eye font-asesome-icon leancloud_visitors" id="/2022/01/26/2022-01-26-macOS%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" data-flag-title="macOS Basic Usages">
          <span class="leancloud-visitors-count">
         
         </span>
