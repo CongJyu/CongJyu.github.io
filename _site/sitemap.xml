@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/blog/2021/07/31/C++%E6%A0%87%E5%87%86%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-<lastmod>2021-07-31T00:00:00+08:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/blog/2021/07/31/iPhone%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F/</loc>
-<lastmod>2021-07-31T00:00:00+08:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/blog/2021/09/25/Code-Blocks%E7%9A%84%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</loc>
 <lastmod>2021-09-25T00:00:00+08:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/blog/2021/09/27/%E5%9F%BA%E4%BA%8EApple-Silicon%E7%9A%84Mac%E9%85%8D%E7%BD%AEC++%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</loc>
-<lastmod>2021-09-27T00:00:00+08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/blog/2021/11/28/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E5%AE%88%E5%88%99/</loc>
