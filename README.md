@@ -1,4 +1,4 @@
-![Chen-Rain.github.io](https://socialify.git.ci/Chen-Rain/Chen-Rain.github.io/image?description=1&font=Bitter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light)
+![CongJyu.github.io](https://socialify.git.ci/CongJyu/CongJyu.github.io/image?description=1&font=Bitter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Signal&pulls=1&stargazers=1&theme=Light)
 
 # Chen-Rain.github.io
 
@@ -9,9 +9,9 @@
 
 ## 🌿 個人博客 🌿 Personal Blog
 
-地址 https://chen-rain.github.io
+地址 https://congjyu.github.io
 <br>
-Address https://chen-rain.github.io
+Address https://congjyu.github.io
 
 ## 🌿 貼士 🌿 Tips
 

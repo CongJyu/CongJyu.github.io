@@ -21,7 +21,7 @@ sass:
   style: compressed
 
 # Site Data
-url: https://chen-rain.github.io # the base hostname & protocol for your site, e.g. http://example.com
+url: https://congjyu.github.io # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: # the subpath of your site, e.g. /blog
 title: Rain Chen's Blog
 description: Everyone has her/his right to wear skirts!
@@ -35,7 +35,7 @@ author:
     - name: facebook
       url:
     - name: github
-      url: https://github.com/chen-rain
+      url: https://github.com/congjyu
     - name: instagram
       url:
     - name: linkedin
@@ -49,7 +49,7 @@ author:
 home:
   section1: <h1>Rain Chen's Blog</h1>
   section2: <h2>🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️</h2>
-  section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/chen-rain" title="View on GitHub"></a></div>
+  section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/congjyu" title="View on GitHub"></a></div>
 blog:
   cc_license: # A link to CC License of your choice.
   cc_license_image: # An image of your CC License. 
