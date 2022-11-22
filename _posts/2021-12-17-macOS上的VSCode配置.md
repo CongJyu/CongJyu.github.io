@@ -10,10 +10,6 @@ tags:
     - 开发与应用
 ---
 
-Contents
-- unordered list
-{:toc}
-
 # macOS 上的 Visual Studio Code 配置
 
 ## C/C++ 编译调试配置
@@ -218,4 +214,4 @@ Contents
 
 本文由 Rain Chen 自己摸索而成，仅供参考，不足之处，还请指出。
 
-> 转载请注明来源：https://chen-rain.github.io
+> 转载请注明来源：https://congjyu.github.io

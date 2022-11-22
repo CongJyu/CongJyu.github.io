@@ -18,8 +18,8 @@
 <meta property="og:title" content="Fortran Programming" />
 <meta name="author" content="Rain Chen" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Contents" />
-<meta property="og:description" content="Contents" />
+<meta name="description" content="Fortran Programming Review" />
+<meta property="og:description" content="Fortran Programming Review" />
 <link rel="canonical" href="http://localhost:4000/blog/2022/01/26/FortranProgramming/" />
 <meta property="og:url" content="http://localhost:4000/blog/2022/01/26/FortranProgramming/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Fortran Programming" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://localhost:4000/blog/2022/01/26/FortranProgramming/","description":"Contents","headline":"Fortran Programming","dateModified":"2022-01-26T00:00:00+08:00","datePublished":"2022-01-26T00:00:00+08:00","author":{"@type":"Person","name":"Rain Chen"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2022/01/26/FortranProgramming/"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/blog/2022/01/26/FortranProgramming/","description":"Fortran Programming Review","headline":"Fortran Programming","dateModified":"2022-01-26T00:00:00+08:00","datePublished":"2022-01-26T00:00:00+08:00","author":{"@type":"Person","name":"Rain Chen"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2022/01/26/FortranProgramming/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords" content="开发与应用" />
@@ -182,69 +182,7 @@
                         </ul>
                     </div>
                     <div itemprop="articleBody">
-                        <p>Contents</p>
-<ul id="markdown-toc">
-  <li><a href="#heading-fortran-programming-review" id="markdown-toc-heading-fortran-programming-review">Fortran Programming Review</a>    <ul>
-      <li><a href="#heading-0-fortran-简介" id="markdown-toc-heading-0-fortran-简介">0. Fortran 简介</a></li>
-      <li><a href="#heading-1-fortran-95-程序设计初步" id="markdown-toc-heading-1-fortran-95-程序设计初步">1. Fortran 95 程序设计初步</a>        <ul>
-          <li><a href="#heading-11-程序的结构说明" id="markdown-toc-heading-11-程序的结构说明">1.1 程序的结构说明</a></li>
-          <li><a href="#heading-12-字符集" id="markdown-toc-heading-12-字符集">1.2 字符集</a></li>
-          <li><a href="#heading-13-标识符" id="markdown-toc-heading-13-标识符">1.3 标识符</a></li>
-          <li><a href="#heading-14-关键字" id="markdown-toc-heading-14-关键字">1.4 关键字</a></li>
-          <li><a href="#heading-15-书写格式" id="markdown-toc-heading-15-书写格式">1.5 书写格式</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-2-数据类型" id="markdown-toc-heading-2-数据类型">2. 数据类型</a>        <ul>
-          <li><a href="#heading-21-基本数据类型" id="markdown-toc-heading-21-基本数据类型">2.1 基本数据类型</a></li>
-          <li><a href="#heading-22-数组类型" id="markdown-toc-heading-22-数组类型">2.2 数组类型</a></li>
-          <li><a href="#heading-23-指针类型" id="markdown-toc-heading-23-指针类型">2.3 指针类型</a></li>
-          <li><a href="#heading-24-派生类型与结构体" id="markdown-toc-heading-24-派生类型与结构体">2.4 派生类型与结构体</a></li>
-          <li><a href="#heading-25-公用区类型" id="markdown-toc-heading-25-公用区类型">2.5 公用区类型</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-3-变量与常量" id="markdown-toc-heading-3-变量与常量">3. 变量与常量</a>        <ul>
-          <li><a href="#heading-31-变量" id="markdown-toc-heading-31-变量">3.1 变量</a></li>
-          <li><a href="#heading-32-常量" id="markdown-toc-heading-32-常量">3.2 常量</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-4-表达式" id="markdown-toc-heading-4-表达式">4. 表达式</a>        <ul>
-          <li><a href="#heading-41-算术表达式" id="markdown-toc-heading-41-算术表达式">4.1 算术表达式</a></li>
-          <li><a href="#heading-42-字符表达式" id="markdown-toc-heading-42-字符表达式">4.2 字符表达式</a></li>
-          <li><a href="#heading-43-关系表达式" id="markdown-toc-heading-43-关系表达式">4.3 关系表达式</a></li>
-          <li><a href="#heading-44-逻辑表达式" id="markdown-toc-heading-44-逻辑表达式">4.4 逻辑表达式</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-5-程序的结构" id="markdown-toc-heading-5-程序的结构">5. 程序的结构</a>        <ul>
-          <li><a href="#heading-51-顺序结构" id="markdown-toc-heading-51-顺序结构">5.1 顺序结构</a></li>
-          <li><a href="#heading-52-选择结构" id="markdown-toc-heading-52-选择结构">5.2 选择结构</a></li>
-          <li><a href="#heading-53-循环结构" id="markdown-toc-heading-53-循环结构">5.3 循环结构</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-6-函数与子程序" id="markdown-toc-heading-6-函数与子程序">6. 函数与子程序</a>        <ul>
-          <li><a href="#heading-61-语句函数" id="markdown-toc-heading-61-语句函数">6.1 语句函数</a></li>
-          <li><a href="#heading-62-函数子程序" id="markdown-toc-heading-62-函数子程序">6.2 函数子程序</a></li>
-          <li><a href="#heading-63-子例行子程序" id="markdown-toc-heading-63-子例行子程序">6.3 子例行子程序</a></li>
-          <li><a href="#heading-64-递归子程序" id="markdown-toc-heading-64-递归子程序">6.4 递归子程序</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-7-文件" id="markdown-toc-heading-7-文件">7. 文件</a>        <ul>
-          <li><a href="#heading-71-文件的基本概念" id="markdown-toc-heading-71-文件的基本概念">7.1 文件的基本概念</a></li>
-          <li><a href="#heading-72-什么是记录" id="markdown-toc-heading-72-什么是记录">7.2 什么是记录</a></li>
-          <li><a href="#heading-73-文件的特性" id="markdown-toc-heading-73-文件的特性">7.3 文件的特性</a></li>
-          <li><a href="#heading-74-文件的操作语句" id="markdown-toc-heading-74-文件的操作语句">7.4 文件的操作语句</a></li>
-        </ul>
-      </li>
-      <li><a href="#heading-8-fortran-并行计算基础" id="markdown-toc-heading-8-fortran-并行计算基础">8. Fortran 并行计算基础</a>        <ul>
-          <li><a href="#heading-81-mpi-使用概述" id="markdown-toc-heading-81-mpi-使用概述">8.1 MPI 使用概述</a></li>
-          <li><a href="#heading-82-编译含有-mpi-的并行计算程序" id="markdown-toc-heading-82-编译含有-mpi-的并行计算程序">8.2 编译含有 MPI 的并行计算程序</a></li>
-          <li><a href="#heading-83-实际操作" id="markdown-toc-heading-83-实际操作">8.3 实际操作</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h1 id="heading-fortran-programming-review">Fortran Programming Review</h1>
+                        <h1 id="heading-fortran-programming-review">Fortran Programming Review</h1>
 
 <p>Made by Rain Chen</p>
 

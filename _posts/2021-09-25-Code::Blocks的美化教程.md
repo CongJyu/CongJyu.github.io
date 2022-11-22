@@ -9,10 +9,6 @@ tags:
     - 开发与应用
 ---
 
-Contents
-- unordered list
-{:toc}
-
 # Code::Blocks IDE 花里胡哨的美化教程
 
 ## 前言：审美疲劳会降低效率
@@ -75,4 +71,4 @@ Contents
 到此，我们的美化教程就告一段落啦。祝各位食用愉快！
 
 > 以上内容为笔者总结，参考了互联网上的资料，仅供参考。<br>
-> 转载请注明出处：<https://chen-rain.github.io>
+> 转载请注明出处：<https://congjyu.github.io>
