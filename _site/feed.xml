@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-12-25T10:27:31+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Everyone has her/his right to wear skirts!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;facebook&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;instagram&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;linkedin&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;stackoverflow&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;twitter&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;vk&quot;, &quot;url&quot;=&gt;nil}]}</name></author><entry><title type="html">网络短诗摘录</title><link href="http://localhost:4000/blog/2022/09/11/%E7%BD%91%E7%BB%9C%E7%9F%AD%E8%AF%97%E6%91%98%E5%BD%95/" rel="alternate" type="text/html" title="网络短诗摘录" /><published>2022-09-11T00:00:00+08:00</published><updated>2022-09-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/09/11/%E7%BD%91%E7%BB%9C%E7%9F%AD%E8%AF%97%E6%91%98%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/2022/09/11/%E7%BD%91%E7%BB%9C%E7%9F%AD%E8%AF%97%E6%91%98%E5%BD%95/">&lt;h1 id=&quot;heading-网络短诗摘录&quot;&gt;网络短诗摘录&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-05T17:45:48+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Everyone has her/his right to wear skirts!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;facebook&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;instagram&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;linkedin&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;stackoverflow&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;twitter&quot;, &quot;url&quot;=&gt;nil}, {&quot;name&quot;=&gt;&quot;vk&quot;, &quot;url&quot;=&gt;nil}]}</name></author><entry><title type="html">网络短诗摘录</title><link href="http://localhost:4000/blog/2022/09/11/%E7%BD%91%E7%BB%9C%E7%9F%AD%E8%AF%97%E6%91%98%E5%BD%95/" rel="alternate" type="text/html" title="网络短诗摘录" /><published>2022-09-11T00:00:00+08:00</published><updated>2022-09-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/09/11/%E7%BD%91%E7%BB%9C%E7%9F%AD%E8%AF%97%E6%91%98%E5%BD%95</id><content type="html" xml:base="http://localhost:4000/blog/2022/09/11/%E7%BD%91%E7%BB%9C%E7%9F%AD%E8%AF%97%E6%91%98%E5%BD%95/">&lt;h1 id=&quot;heading-网络短诗摘录&quot;&gt;网络短诗摘录&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-无题&quot;&gt;无题&lt;/h2&gt;
 
@@ -4606,62 +4606,7 @@ ifort: internal error: error generating temporary file name, check disk space an
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;777 /example
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;现在我的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example&lt;/code&gt; 文件夹下的所有文件的权限都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;777&lt;/code&gt;，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="开发与应用" /><summary type="html">Fortran Programming Review</summary></entry><entry><title type="html">你好 2022</title><link href="http://localhost:4000/blog/2022/01/01/%E4%BD%A0%E5%A5%BD2022/" rel="alternate" type="text/html" title="你好 2022" /><published>2022-01-01T00:00:00+08:00</published><updated>2022-01-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/01/01/%E4%BD%A0%E5%A5%BD2022</id><content type="html" xml:base="http://localhost:4000/blog/2022/01/01/%E4%BD%A0%E5%A5%BD2022/">&lt;h1 id=&quot;heading-你好-2022&quot;&gt;你好 2022&lt;/h1&gt;
-
-&lt;h2 id=&quot;heading-序言&quot;&gt;序言&lt;/h2&gt;
-
-&lt;p&gt;  不知不觉中，一觉睡醒就到了 2022 年的一月了，是时候应该回顾一下、总结一下去年的所得所失了。全文较长，请安排好阅读时间，感谢你阅读完。&lt;/p&gt;
-
-&lt;p&gt;  当你看到这些文字的时候，应该已经是 1 月 1 日或者之后的时间了，但是没关系，对于我来说，重要的是我在这些文字里写了什么，我在 2021 年有什么收获可以和你分享，在 2021 年遇到了什么不愉快的事情可以和你吐槽；在 2021 年有什么教训值得自己吸取，有什么经验值得自己积累。&lt;/p&gt;
-
-&lt;p&gt;  亲爱的读者，为了你的身体和心理健康，我还是要友情提醒一句。 &lt;strong&gt;&lt;em&gt;如果你在阅读这些文字的过程中，产生了任何心理上或身体上的不适，无论你阅读到什么位置，请立刻关闭本文，并寻找专业人士帮助。&lt;/em&gt;&lt;/strong&gt; 虽然这不太可能发生，我也不希望有这种事发生，但是个人认为还是要有个说明。&lt;/p&gt;
-
-&lt;h2 id=&quot;heading-第一部分&quot;&gt;第一部分&lt;/h2&gt;
-
-&lt;p&gt;  去年，也就是 2021 的上半年，我还是一个即将毕业的高中生。当我仍在高中的时候，我对我在高中所经历的一切、拥有的一切都习以为常。我以为高中生活无非就是如此，每天早上起床、去饭堂吃早餐：蛋挞、面包、甜甜圈、三明治、糖水……（此处省略 sizeof(早餐) 个字）然后去课室，自习、早读、上课、课间休息然后下课。然后等饭堂没那么多人的时候饭堂吃午餐：咖喱鸡……（此处省略 sizeof(午餐) 个字）睡过午觉之后，继续上下午的课。晚餐也是一样，每天都考虑一下要不要吃一个小火锅，要不要试试新出的金汤肥牛，又或者是白汁意面，还是卤蛋盖饭……（此处省略 sizeof(晚餐) 个字）&lt;/p&gt;
-
-&lt;p&gt;  日子就这么一天天过去了，然后高考了，接着我从高中毕业了。等到高考成绩公布的时候，很遗憾，这个分数是在是说高不算高，说低不算低。然后填志愿，由于之前没有参加某南某工大学的综合测评，所以别无选择，填了我现在的大学，被我现在在读的大学录取了，来到我现在所处的大学读书了。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;那些在没有了解过专业就盲目跟风填报热门专业的同学，提高了喜欢这些专业的同学的学习成本，是罪恶的，应当予以批评。&lt;/p&gt;
-
-  &lt;p&gt;——沃·兹基·硕德&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;  在收到录取通知书之后，我就准备收拾东西，离开我生活了 18 年的广州，准备前往人称「网红城市」的长沙。第一部分也就到此结束了，但其实也没有完全结束。&lt;/p&gt;
-
-&lt;h2 id=&quot;heading-第二部分&quot;&gt;第二部分&lt;/h2&gt;
-
-&lt;p&gt;  我来到了长沙，不到两天就深刻地感觉到了天壤之别。夸张点说，海鲜直接全部消失，取而代之的是满眼的「红色蔬菜」。我开始感觉到有些不适应，但一开始没有很明显。我对这边的饭菜的最初印象是很多油很多盐。用同学的话来说就是「好油腻啊」。说实话，我可以接受长沙的辣椒，但是有点不能接受每次吃完饭后都是满嘴的油，还要疯狂喝水。虽说现在油盐酱醋都不是什么价格昂贵的调料，但是少下点不仅可以节约食品的经费开支，而且对身体健康有好处，可以有效降低患……（此处省略 sizeof(相关疾病) 个字）的风险。&lt;/p&gt;
-
-&lt;p&gt;  在长沙逛了几天，总体感觉还是不错的，除了——垃圾桶。不是说不能有垃圾桶，只是我觉得目前来看好像垃圾桶的数量多的有些过了火。五步一桶，十步一车，廊腰缦回，檐牙高啄，啊不是。反正就是垃圾桶很多，给人一种到处都可以扔垃圾的错觉。另外，长沙地铁也是挺少人的，虽然我认为的「少人」在长沙同学的眼里可能是「拥挤」。天心区很繁华，好玩的东西很多，但是让我有一种不安全感。是错觉吗？我不知道。听说坑蒙拐骗比较多，有一点点体会。电动车是真的多，然后我是第一次知道修在人行道上与人行道同高的柏油绿道行人不能走，简直离谱。然后这边似乎非常喜欢把双行线硬生生地走成单行线。这里的防疫措施好像不是很到位，街上走动都没人带口罩，只能说是不够自觉。&lt;/p&gt;
-
-&lt;p&gt;  学校环境很优美，格局够开放，但是思维好像还有点保守（？也许，不确定）。我在这里遇到了非常多的非常不错的非常友善的非常优秀的同学们，学习的资源也挺丰富的，除去个别问题，感觉还是很好的。&lt;/p&gt;
-
-&lt;h2 id=&quot;heading-第三部分&quot;&gt;第三部分&lt;/h2&gt;
-
-&lt;p&gt;  既然提到学校了，我也就顺带回顾一下 2021 年我在大学的经历。军训，一言难尽，撇开不谈。在 2021 年的后半年，我觉得可以说是有得有失。&lt;/p&gt;
-
-&lt;p&gt;  在 2021 年，我因为一分的差距和选修第二外语的资格失之交臂——分数线是 136，而我高考英语是 135。在这一个不管你是什么地区，考试形式是什么样都是统一标准的时代，就算我高考口语拿了 20 分满分又有什么用。一堆高考不练口语和听力的同学，靠着刷题蹭分，却连简单的英文提示都看不懂。用现在网络流行用语来说，就是「笑死，一群英语说的稀烂的人还能去选其他外语课程，少修几个学分😅」。虽然如此，在 2021 年的后半年还是有些让我比较开心的事情的。我的选修课选到了 Fortran 语言编程实践，虽然 Fortran 现在几乎不怎么被使用了，但是仍然活跃在科学计算领域。这门课的老师很好，我也有幸学习使用学校国家超算长沙中心的天河计算机。这可以说是我前所未有的体验。在学期过了大约四分之一的时候，碰巧 HNU 微软俱乐部招新。我在毫无准备的情况下去面试了 GUI，Python，Web 三个小组，结果三个小组的面试全部通过了。妙啊。这学期的期中考试，C++ 程序设计拿到了满分，这个也没什么好说的。在这学期的末尾，我如愿加入了舞蹈社 RA 舞团，下学期准备开启新的旅程。&lt;/p&gt;
-
-&lt;p&gt;  在 2021 年的 HNU 网页设计大赛，和舍友一起辛辛苦苦做的网页，因为上课，没有时间去答辩，于是——队友不懂怎么操作（计科的同学不应该是这个水平），耗尽了 3 分钟的答辩时间，从此无缘决赛。现在 2022 年了，我绝对不会再允许这种事情再次发生。&lt;/p&gt;
-
-&lt;p&gt;  最近的令人尴尬的事情发生在上个星期。HNU 的 ACM 大学生程序设计新生赛，我在毫无准备的情况下报名参赛了，紧接着在毫无准备的情况下去比赛了，随后在毫无准备的情况下看到了比赛结果。5 个小时的比赛下来，一共 12 道题，我只通过了 3 道题，拿了 3 个气球，结果还有二等奖……&lt;/p&gt;
-
-&lt;p&gt;  2022 年已经来了，以后再也不毫无准备就做事情了……实在是太尴尬了。&lt;/p&gt;
-
-&lt;h2 id=&quot;heading-结束也是开始&quot;&gt;结束，也是开始&lt;/h2&gt;
-
-&lt;p&gt;  在上一年里，有欢笑，有悲伤，有汗水，有泪水。经历过因为中暑倒在 37 摄氏度的军训场上，也体会过帮助同学找回身份证后被感谢的喜悦；尝试过舞团的面试，也参加过编程的比赛。&lt;/p&gt;
-
-&lt;p&gt;  感谢这一年里陪伴我的所有人，感谢正在阅读本文的你，是你们的支持让我感觉不孤单；感谢我的高中，让我有一个值得怀念和记忆的高三生活；感谢我的 MacBook Pro，从来没有蓝屏死机过；感谢我的眼睛，让我感受到这大千世界里五彩斑斓的黑色和各种色号的红色；感谢我喜欢的人，没别的，就是想感谢。&lt;/p&gt;
-
-&lt;p&gt;  在本文的最后，也是 2022 的开始，愿世界疫情早日结束，愿中美关系早日回归正轨，愿中东局势早日稳定，愿少数群体的权益得到更好的保障。也希望自己努力在每一件事上做到最好。各位，2022 新年快乐！&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本文为 Rain Chen 原创，转载请注明出处：https://congjyu.github.io
-&lt;br /&gt;All Rights Reserved.&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Rain Chen</name></author><category term="杂谈碎笔" /><summary type="html">你好 2022</summary></entry><entry><title type="html">让 Terminal 飞起来</title><link href="http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/" rel="alternate" type="text/html" title="让 Terminal 飞起来" /><published>2021-12-19T00:00:00+08:00</published><updated>2021-12-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5</id><content type="html" xml:base="http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/">&lt;h1 id=&quot;heading-让-terminal-飞起来&quot;&gt;让 Terminal 飞起来&lt;/h1&gt;
+&lt;p&gt;现在我的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example&lt;/code&gt; 文件夹下的所有文件的权限都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;777&lt;/code&gt;，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="开发与应用" /><summary type="html">Fortran Programming Review</summary></entry><entry><title type="html">让 Terminal 飞起来</title><link href="http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/" rel="alternate" type="text/html" title="让 Terminal 飞起来" /><published>2021-12-19T00:00:00+08:00</published><updated>2021-12-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5</id><content type="html" xml:base="http://localhost:4000/blog/2021/12/19/%E8%AE%A9Terminal%E9%A3%9E%E8%B5%B7%E6%9D%A5/">&lt;h1 id=&quot;heading-让-terminal-飞起来&quot;&gt;让 Terminal 飞起来&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-使用-iterm&quot;&gt;使用 iTerm&lt;/h2&gt;
 
@@ -5695,4 +5640,72 @@ add-zsh-hook precmd theme_precmd
 &lt;blockquote&gt;
   &lt;p&gt;本守则纯属笔者虚构，如有雷同，纯属见鬼。
 转载请注明出处：https://congjyu.github.io&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Rain Chen</name></author><category term="杂谈碎笔" /><summary type="html">公众号用户使用守则</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Rain Chen</name></author><category term="杂谈碎笔" /><summary type="html">公众号用户使用守则</summary></entry><entry><title type="html">花里胡哨！Code::Blocks 的美化教程来啦</title><link href="http://localhost:4000/blog/2021/09/25/Code-Blocks%E7%9A%84%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/" rel="alternate" type="text/html" title="花里胡哨！Code::Blocks 的美化教程来啦" /><published>2021-09-25T00:00:00+08:00</published><updated>2021-09-25T00:00:00+08:00</updated><id>http://localhost:4000/blog/2021/09/25/Code::Blocks%E7%9A%84%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B</id><content type="html" xml:base="http://localhost:4000/blog/2021/09/25/Code-Blocks%E7%9A%84%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/">&lt;h1 id=&quot;heading-codeblocks-ide-花里胡哨的美化教程&quot;&gt;Code::Blocks IDE 花里胡哨的美化教程&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-前言审美疲劳会降低效率&quot;&gt;前言：审美疲劳会降低效率&lt;/h2&gt;
+
+&lt;p&gt;为什么要做这个事情？（有同学想让我出一期更改字体和背景的教程（不是）。）为什么要让 Code::Blocks 变得美观？笔者个人认为，美观的界面能够让使用者提高效率，降低不必要的思维损耗去思考数字1和字母l的区别；除此之外，还可以让使用者赏心悦目，让代码的可读性提高。总而言之，本文将要介绍的美化教程不仅仅是字面意思的美化，还是为大家将来的 Coding 学习与生活提供方便。&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-准备你需要有什么东西&quot;&gt;准备：你需要有什么东西&lt;/h2&gt;
+
+&lt;p&gt;为了做好在 Windows 平台上 Code::Blocks 的美化，你需要准备这些东西：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;你想要使用的字体&lt;/li&gt;
+  &lt;li&gt;一个安装有 Code::Blocks 的 Windows 系统的电脑&lt;/li&gt;
+  &lt;li&gt;脑子和手&lt;/li&gt;
+  &lt;li&gt;没有了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;heading-一些说明很重要会影响使用体验&quot;&gt;一些说明：很重要，会影响使用体验&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-关于字体&quot;&gt;关于字体&lt;/h3&gt;
+
+&lt;p&gt;不论你选择什么样的字体，都应该是「等宽（Mono）」的字体。敲黑板，这个要考，等宽字体，等宽字体，等宽字体！不然写出来的代码会很难看。另外一个要注意的点就是选择的字体应该易于区分。（把中文引号和英文引号搞混可不是什么好玩的事情）然后有一些程序员推荐字体，笔者就列在下面：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Menlo: 来自 Apple macOS 操作系统的默认等宽字体&lt;/li&gt;
+  &lt;li&gt;Monaco: 来自 Apple macOS 操作系统的默认等宽字体&lt;/li&gt;
+  &lt;li&gt;Ubuntu Mono: Ubuntu Linux 操作系统终端的默认等宽字体&lt;/li&gt;
+  &lt;li&gt;Sarasa Mono: 中文名「更纱黑体」,由华人设计的支持中日韩文的编程字体&lt;/li&gt;
+  &lt;li&gt;Consolas: 由 Lucas de Groot 设计的等宽字体&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;heading-关于背景&quot;&gt;关于背景&lt;/h3&gt;
+
+&lt;p&gt;容易凸显背景上的文本就行。&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-开始动手&quot;&gt;开始动手&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-配置主题&quot;&gt;配置主题&lt;/h3&gt;
+
+&lt;p&gt;打开 Code::Blocks，点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Settings&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Syntax Highlighting&lt;/code&gt;。然后请把视线移到右边，找到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Colour Theme&lt;/code&gt; 选择你喜欢的主题。点击下方的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Background&lt;/code&gt; 可以自定义背景颜色。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-配置字体&quot;&gt;配置字体&lt;/h3&gt;
+
+&lt;p&gt;打开 Code::Blocks，点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Settings&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Font&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Choose&lt;/code&gt;，选择你喜欢的字体和字号。推荐的字号是18，不至于太小导致看代码看到眼瞎。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-配置光标&quot;&gt;配置光标&lt;/h3&gt;
+
+&lt;p&gt;打开 Code::Blocks，点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Settings&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Margins and caret&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Caret&lt;/code&gt;，选择合适的光标大小和颜色。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-配置左侧行号区域&quot;&gt;配置左侧行号区域&lt;/h3&gt;
+
+&lt;p&gt;打开 Code::Blocks，点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Settings&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Environment&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Colours&lt;/code&gt;。找到以下内容。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor: Line numbers background colour&lt;/code&gt;：修改行号的背景，选择喜欢的颜色添加即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor: Line numbers foreground colour&lt;/code&gt;：修改行号的前景，选择喜欢的颜色添加即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor: Margin chrome colour&lt;/code&gt;：修改行号与代码之间区域的颜色，选择喜欢的颜色添加即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Editor: Margin chrome highlight colour&lt;/code&gt;：选择行号与代码之间区域的高亮颜色，选择喜欢的颜色添加即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-结束&quot;&gt;结束&lt;/h2&gt;
+
+&lt;p&gt;到此，我们的美化教程就告一段落啦。祝各位食用愉快！&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;以上内容为笔者总结，参考了互联网上的资料，仅供参考。&lt;br /&gt;
+转载请注明出处：&lt;a href=&quot;https://congjyu.github.io&quot;&gt;https://congjyu.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Rain Chen</name></author><category term="开发与应用" /><summary type="html">Code::Blocks IDE 花里胡哨的美化教程</summary></entry></feed>

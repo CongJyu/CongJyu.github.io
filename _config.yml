@@ -48,12 +48,12 @@ author:
       url:
 home:
   section1: <h1>Rain Chen's Blog</h1>
-  section2: <h2>🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️</h2>
+  section2: <h2>Hello 2023! Wish you a nice day!</h2>
   section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/congjyu" title="View on GitHub"></a></div>
 blog:
   cc_license: # A link to CC License of your choice.
   cc_license_image: # An image of your CC License. 
-  footer_content: 🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️
+  footer_content: Everyone has her/his right to wear skirts!
 
 disqus:
   shortname: # e.g. yizeng

@@ -15,7 +15,7 @@ Address https://congjyu.github.io
 
 如果你位於中國大陸地區，你可能需要一啲「更加科學嘅上網方式」嚟訪問上面嘅站點。
 <br>
-If you are in China mainland, you may need to use "a more scientific way" to visit the website.
+If you are in Mainland China, you may need to use "a more scientific way" to visit the website.
 
 ## 注意 Attentions
 
