@@ -23,7 +23,7 @@ sass:
 # Site Data
 url: https://congjyu.github.io # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: # the subpath of your site, e.g. /blog
-title: Rain Chan's Blog
+title: Rain Chen's Blog
 description: Everyone has her/his right to wear skirts!
 keywords: 'jekyll,theme,gem-based,blog'
 author:
@@ -47,7 +47,7 @@ author:
     - name: vk
       url:
 home:
-  section1: <h1>Rain Chan's Blog</h1>
+  section1: <h1>Rain Chen's Blog</h1>
   section2: <h2>Hello 2023! Wish you a nice day!</h2>
   section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/congjyu" title="View on GitHub"></a></div>
 blog:

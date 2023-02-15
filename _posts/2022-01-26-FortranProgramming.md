@@ -3,7 +3,7 @@ layout:     post
 title:      Fortran Programming Review
 subtitle:   Fortran Programming Review
 date:       2022-01-26
-author:     Rain Chan
+author:     Rain Chen
 catalog: true
 tags:
     - 开发与应用
