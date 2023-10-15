@@ -68,7 +68,7 @@ Fortran 95 中的一种特定的字符串。正确的关键字在代码编辑器
 常用的 Fortran 95 关键字
 
 | 关键字 | 关键字 | 关键字 | 关键字 | 关键字 |
-| ---- | ---- | ---- | ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- | ---- |
 | `program` | `implicit` | `read` | `write` | `print` |
 | `format` | `call` | `real` | `integer` | `character` |
 | `do` | `end` | `if` | `parameter` | `complex` |
