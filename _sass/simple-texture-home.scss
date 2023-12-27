@@ -12,7 +12,7 @@ body {
     font-size: 18px;
     line-height: 36px;
 
-    color: $color-text-dark;
+    color: $color-text-light;
 }
 
 h1 {
@@ -92,11 +92,11 @@ textarea {
 
 #fullPage-nav {
     span {
-        border: 1px solid #8A8A8A;
+        border: 1px solid #1c1c1c;
     }
 
     li .active span {
-        background: #707070;
+        background: #313131;
     }
 }
 

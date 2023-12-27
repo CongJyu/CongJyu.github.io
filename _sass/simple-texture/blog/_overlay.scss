@@ -9,21 +9,21 @@
         padding-right: 3px;
         padding-left: 3px;
 
-        color: #008cff;
+        color: #85c8ff;
         border-bottom: 1px dotted #e5ccff;
 
         &:hover {
             -webkit-transition: all .3s ease-out;
-               -moz-transition: all .3s ease-out;
-                 -o-transition: all .3s ease-out;
-                    transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out;
 
             color: $color-text;
             background-color: $color-hover;
         }
 
         &:visited {
-            color: #008cff;
+            color: #85c8ff;
         }
     }
 }
@@ -108,8 +108,8 @@ body.search-overlay {
         box-shadow: none;
 
         -webkit-appearance: none;
-           -moz-appearance: none;
-                appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 
     .menu {
@@ -139,9 +139,9 @@ body.search-overlay {
             font-weight: bold;
 
             -webkit-transition: all .3s ease-in-out;
-               -moz-transition: all .3s ease-in-out;
-                 -o-transition: all .3s ease-in-out;
-                    transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
         }
     }
 
@@ -168,9 +168,9 @@ body.search-overlay {
 
             &:hover {
                 -webkit-transition: all .3s ease-in-out;
-                   -moz-transition: all .3s ease-in-out;
-                     -o-transition: all .3s ease-in-out;
-                        transition: all .3s ease-in-out;
+                -moz-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+                transition: all .3s ease-in-out;
 
                 border: 1px dashed #FFFFFF;
             }
@@ -181,8 +181,10 @@ body.search-overlay {
 .nav-form .results {
     ul {
         padding: 0;
+
         li {
             list-style: none;
+
             a {
                 display: block;
 

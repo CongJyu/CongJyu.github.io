@@ -7,7 +7,7 @@
 @import 'simple-texture/common/pace';
 
 html {
-    background: url('/assets/images/home-bg.png') no-repeat fixed 0 0 #f9f9f9;
+    background: url('/assets/images/home-bg.png') no-repeat fixed 0 0 #0f0f0f;
     background-size: 100% 100%;
 }
 
@@ -22,8 +22,8 @@ body {
 .body .unit-body {
     padding: 12px 26px 26px 36px;
 
-    border-top: 1px solid rgba(255, 255, 255, .6);
-    background: #ffffff7e;
+    border-top: 1px solid rgba(66, 66, 66, 0.6);
+    background: #1818187e;
     box-shadow: $color-box-border 0 0 9px;
     border-radius: 10px;
 }
