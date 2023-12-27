@@ -1,6 +1,6 @@
 <header class="the-header">
-  <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
-  <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico">
     <div class="unit-head">
         <div class="unit-inner unit-head-inner">
             <nav class="nav-global">
@@ -12,12 +12,18 @@
                         <button class="btn-search" title="{{ site.data.i18n[site.lang].search }}"></button>
                         <!-- <![endif]-->
                     </li>
-                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].categories }}" href="{{ site.paths.categories | relative_url }}">{{ site.data.i18n[site.lang].categories }}</a></li>
-                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].tags }}" href="{{ site.paths.tags | relative_url }}">{{ site.data.i18n[site.lang].tags }}</a></li>
-                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].friends }}" href="{{ site.paths.friends | relative_url }}">{{ site.data.i18n[site.lang].friends }}</a></li>
-                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].aboutme }}" href="{{ site.paths.aboutme | relative_url }}">{{ site.data.i18n[site.lang].aboutme }}</a></li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].tags }}"
+                            href="{{ site.paths.tags | relative_url }}">{{ site.data.i18n[site.lang].tags }}</a></li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].friends }}"
+                            href="{{ site.paths.friends | relative_url }}">{{ site.data.i18n[site.lang].friends }}</a>
+                    </li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].aboutme }}"
+                            href="{{ site.paths.aboutme | relative_url }}">{{ site.data.i18n[site.lang].aboutme }}</a>
+                    </li>
                     <!--[if !IE]> -->
-                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].search }}" class="btn-search" href="#">{{ site.data.i18n[site.lang].search }}</a></li>
+                    <li class="nav-link"><a title="{{ site.data.i18n[site.lang].search }}" class="btn-search"
+                            href="#">{{
+                            site.data.i18n[site.lang].search }}</a></li>
                     <!-- <![endif]-->
                 </ul>
             </nav>
@@ -25,13 +31,13 @@
     </div>
 </header>
 <!-- 数学公式 -->
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    type="text/javascript"></script>
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      inlineMath: [['$','$']]
-    }
-  });
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+        }
+    });
 </script>
-
