@@ -38,7 +38,7 @@ author:
 home:
   section1: <h1>Rain Chen's Blog</h1>
   section2: <h3>又係新嘅一天，向 2024 打聲招呼！</h3>
-  section3: <div class="social-links"><a class="ico-github" href="https://github.com/congjyu" title="View My GitHub">View My Github</a></div>
+  section3: <div class="social-links"><a class="ico-github" target="#" href="https://github.com/congjyu" title="View My GitHub">View My Github</a></div>
 blog:
   cc_license: # A link to CC License of your choice.
   cc_license_image: # An image of your CC License. 
