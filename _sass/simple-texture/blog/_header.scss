@@ -38,14 +38,14 @@
 
             .btn-menu {
                 float: left;
-
-                background: url('/assets/images/home-bg.png') no-repeat;
+                background: url('/assets/images/theme/btn-menu.svg') no-repeat;
+                background-color: transparent;
             }
 
             .btn-search {
                 float: right;
-
-                background: url('/assets/images/home-bg.png') no-repeat;
+                background: url('/assets/images/theme/btn-search.svg') no-repeat;
+                background-color: transparent;
             }
         }
 
@@ -67,9 +67,9 @@
                 a:hover {
                     cursor: pointer;
                     -webkit-transition: all .3s ease-in-out;
-                       -moz-transition: all .3s ease-in-out;
-                         -o-transition: all .3s ease-in-out;
-                            transition: all .3s ease-in-out;
+                    -moz-transition: all .3s ease-in-out;
+                    -o-transition: all .3s ease-in-out;
+                    transition: all .3s ease-in-out;
 
                     background-color: $color-hover;
                 }
