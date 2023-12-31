@@ -104,9 +104,9 @@ textarea {
 .btn-light,
 .btn-dark {
     -webkit-transition: all .3s ease-in-out;
-       -moz-transition: all .3s ease-in-out;
-         -o-transition: all .3s ease-in-out;
-            transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
     text-decoration: none;
 
     color: $color-text-light;
@@ -120,6 +120,7 @@ textarea {
 
 .btn-dark {
     background-color: $color-background-dark !important;
+
     &:hover,
     &:focus {
         background-color: $color-background-light !important;
@@ -128,6 +129,7 @@ textarea {
 
 .btn-light {
     background-color: $color-background-light !important;
+
     &:hover,
     &:focus {
         background-color: $color-background-dark !important;
@@ -152,9 +154,9 @@ textarea {
     padding: 12px;
 
     -webkit-transition: all .3s ease-in-out;
-       -moz-transition: all .3s ease-in-out;
-         -o-transition: all .3s ease-in-out;
-            transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
     text-indent: -9999em;
 
     outline: none;
@@ -162,16 +164,17 @@ textarea {
     background-repeat: no-repeat;
     background-position: center center;
 
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &:hover {
         -webkit-animation-name: bounce;
-                animation-name: bounce;
+        animation-name: bounce;
     }
 }
 
 .social-links {
     $icon-size: 64px;
+
     a {
         display: inline-block;
 

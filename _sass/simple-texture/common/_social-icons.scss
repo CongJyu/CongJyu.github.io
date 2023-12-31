@@ -2,7 +2,7 @@ $base-url: '../images/simple-icons/' !default;
 $size: 48;
 
 @mixin get-ico-image($name) {
-    background-image: url('#{$base-url}#{$name}-#{$size}.png');
+    background-image: url('#{$base-url}#{$name}-#{$size}.svg');
 }
 
 .social-links {
@@ -14,11 +14,12 @@ $size: 48;
         background-position: center center;
 
         filter: alpha(opacity=30);
+
         &:hover {
             -webkit-transition: all .3s ease-out;
-               -moz-transition: all .3s ease-out;
-                 -o-transition: all .3s ease-out;
-                    transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out;
 
             opacity: 1.0;
 
@@ -26,66 +27,10 @@ $size: 48;
         }
     }
 
-    .ico-facebook {
-        @include get-ico-image(facebook);
-
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
     .ico-github {
         @include get-ico-image(github);
 
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
-    .ico-gmail {
-        @include get-ico-image(gmail);
-
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
-    .ico-instagram {
-        @include get-ico-image(instagram);
-
-        background-color: #3b3b3b;
-        border-radius: 15px;
-    }
-
-    .ico-linkedin {
-        @include get-ico-image(linkedin);
-
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
-    .ico-rss {
-        @include get-ico-image(rss);
-
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
-    .ico-stackoverflow {
-        @include get-ico-image(stackoverflow);
-
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
-    .ico-twitter {
-        @include get-ico-image(twitter);
-
-        background-color: #3b3b3b;
-        border-radius: 10px;
-    }
-
-    .ico-vk {
-        @include get-ico-image(vk);
-
-        background-color: #3b3b3b;
+        background-color: #3b3b3b00;
         border-radius: 10px;
     }
 }

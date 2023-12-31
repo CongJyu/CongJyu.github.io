@@ -24,7 +24,7 @@ sass:
 url: https://congjyu.github.io # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: # the subpath of your site, e.g. /blog
 title: Rain Chen's Blog
-description: Everyone has her/his right to wear skirts!
+description: Nice to meet you!
 keywords: 'jekyll,theme,gem-based,blog'
 author:
   name:
@@ -32,24 +32,13 @@ author:
   location:
   email:
   social_links:
-    - name: facebook
-      url:
     - name: github
       url: https://github.com/congjyu
-    - name: instagram
-      url:
-    - name: linkedin
-      url:
-    - name: stackoverflow
-      url:
-    - name: twitter
-      url: 
-    - name: vk
-      url:
+
 home:
   section1: <h1>Rain Chen's Blog</h1>
   section2: <h3>又係新嘅一天，向 2024 打聲招呼！</h3>
-  section3: 
+  section3: <div class="social-links"><a class="ico-github" href="https://github.com/congjyu" title="View My GitHub">View My Github</a></div>
 blog:
   cc_license: # A link to CC License of your choice.
   cc_license_image: # An image of your CC License. 

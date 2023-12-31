@@ -23,9 +23,9 @@
         });
 
         $('.comments .show-hidden').on('click', function () {
-            $.ajaxSetup({cache: true});
+            $.ajaxSetup({ cache: true });
             $.getScript('//' + disqusShortname + '.disqus.com/embed.js');
-            $.ajaxSetup({cache: false});
+            $.ajaxSetup({ cache: false });
             $(this).remove();
         });
 
