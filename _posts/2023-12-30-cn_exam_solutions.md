@@ -7,7 +7,7 @@ author:     Rain Chen
 catalog: true
 tags:
     - 計算機網絡
-    - Computer Networking
+    - ComputerNetworking
 ---
 
 # HNU 计算机网络往年期末卷题目及解析
