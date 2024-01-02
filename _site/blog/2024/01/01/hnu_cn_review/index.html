@@ -20,15 +20,15 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="HNU 计算机网络期末考试考点复习" />
 <meta property="og:description" content="HNU 计算机网络期末考试考点复习" />
-<link rel="canonical" href="http://localhost:4000/blog/2024/01/01/hnu_cn_review/" />
-<meta property="og:url" content="http://localhost:4000/blog/2024/01/01/hnu_cn_review/" />
+<link rel="canonical" href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" />
+<meta property="og:url" content="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-01-01T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HNU 计算机网络期末考试考点复习" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain Chen"},"dateModified":"2024-01-01T00:00:00+08:00","datePublished":"2024-01-01T00:00:00+08:00","description":"HNU 计算机网络期末考试考点复习","headline":"HNU 计算机网络期末考试考点复习","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2024/01/01/hnu_cn_review/"},"url":"http://localhost:4000/blog/2024/01/01/hnu_cn_review/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain Chen"},"dateModified":"2024-01-01T00:00:00+08:00","datePublished":"2024-01-01T00:00:00+08:00","description":"HNU 计算机网络期末考试考点复习","headline":"HNU 计算机网络期末考试考点复习","mainEntityOfPage":{"@type":"WebPage","@id":"https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/"},"url":"https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
@@ -38,7 +38,7 @@
 
 
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+<link type="application/atom+xml" rel="alternate" href="https://congjyu.github.io/feed.xml" title="Rain Chen&apos;s Blog" />
     <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
@@ -287,6 +287,75 @@
 <h2 id="heading-第二章应用层">第二章：应用层</h2>
 
 <h2 id="heading-第三章运输层">第三章：运输层</h2>
+
+<h3 id="heading-可靠数据传输">可靠数据传输</h3>
+
+<h4 id="heading-rdt10">rdt1.0</h4>
+
+<p>无比特差错，无分组丢失。完全可靠信道。发送端只通过 <code class="language-plaintext highlighter-rouge">rdt_send(data)</code> 接受来自较高层的数据，并通过 <code class="language-plaintext highlighter-rouge">make_pkt(data)</code> 产生一个包含该数据的分组，并将其发送至信道中。接收端通过 <code class="language-plaintext highlighter-rouge">rdt_rcv(packet)</code> 从底层信道中接收一个分组，并用 <code class="language-plaintext highlighter-rouge">extract(packet, data)</code> 解包，从中取出数据，并将数据传送至较高层。</p>
+
+<h4 id="heading-rdt20">rdt2.0</h4>
+
+<p>有差错检测和重传，但是不能纠错。停等协议（stop-and-wait），发送方发送一个分组之后，需要等待接收方发送 ACK（肯定确认）或者 NAK（否定确认），才会继续发送。接收方的状态仍然只有一个，接收分组，并判断是否受损，回答 ACK 或者 NAK。</p>
+
+<p>如果 ACK 或者 NAK 受损了呢？</p>
+
+<ul>
+  <li>请重复一遍？你说什么？导致回答含糊不清。</li>
+  <li>增加足够多<strong>检验和</strong>比特，使发送方可以检验差错，甚至可以纠正差错。对于会产生差错但不会丢失分组的信道来说，此种方法可以解决问题。</li>
+  <li>收到含糊不清的 ACK 或者 NAK 分组时，直接重传当前数据分组。引入「冗余分组」。但是无法事先知道接收到的分组是新的还是一次重传分组。</li>
+</ul>
+
+<h4 id="heading-rdt21">rdt2.1</h4>
+
+<p>为了解决以上问题，设计了 rdt2.0 的修订版 rdt2.1，增加了<strong>序号</strong>（sequence number）放在将要发送的数据分组的一个新字段中。通过「期望接收的序号」和实际接收到的分组的序号来判断是否出现了差错。</p>
+
+<h4 id="heading-rdt22">rdt2.2</h4>
+
+<p>rdt2.2 与 rdt2.1 的不同之处在于 rdt2.2 的接收方必须包括由一个 ACK 报文所确认的分组序号，发送方也必须检查收到的 ACK 报文的确认的分组序号。</p>
+
+<h4 id="heading-rdt30">rdt3.0</h4>
+
+<p>rdt3.0 可以在具有比特差错和丢包的信道上工作。使用基于时间的重传机制，即选择一个合适的时间值，用来判定可能发生了丢包。如果在这个时间内没有收到 ACK，则认为已经丢包，直接重传该分组，即使该分组有可能实际上没有丢失。因此引入了冗余数据分组（duplicate data packet），此问题可以用 rdt2.2 中的序号来解决。由于分组序号在 0 和 1 之间交替，因此 rdt3.0 有时候也被称为<strong>比特交替协议</strong>。</p>
+
+<p>如果用「滑动窗口」的视角来看 rdt 协议的话，由于一次只传输一个分组，因此<strong>滑动窗口的大小是 1</strong>（详见下一小节）。</p>
+
+<h3 id="heading-pipelining-流水线可靠数据传输">Pipelining 流水线可靠数据传输</h3>
+
+<p>导致 rdt3.0 性能较差的原因是<strong>停等协议</strong>。解决该问题的方式是不使用停等协议，允许发送方发送多个分组而无需等待确认，将这些分组填充到一个流水线中，因此得名。由于没有等待确认，所以流水线传输需要另外的差错检测和恢复方式。</p>
+
+<h4 id="heading-回退-n-步go-back-n-gbn">回退 N 步（Go-Back-N, GBN）</h4>
+
+<p>在 GBN 协议中，允许发送方发送多个分组而不需要等待确认，但是需要保证未确认的分组数不超过最大允许数量 $N$。</p>
+
+<p>基序号（$base$）是最早<strong>未确认的序号</strong>。下一个序号（$nextseqnum$）是最小<strong>未使用序号</strong>。于是序号范围被分成了四段：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>已确认</th>
+      <th>未确认</th>
+      <th>还未发送</th>
+      <th>不可用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$[0, base - 1]$</td>
+      <td>$[base, nextseqnum - 1]$</td>
+      <td>$[nextseqnum, base + N - 1]$</td>
+      <td>$[base + N, …)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>其中把 $N$ 看成窗口长度，随着协议的运行，窗口在序号空间内向前滑动，因此又称为「滑动窗口协议（sliding-window protocol）」。</p>
+
+<p>GBN 使用累积确认，对序号为 $n$ 的分组的收到确认，表示接收方已经收到序号为 $n$ 及其之前序号的所有分组。在其他情况下，分组将会丢弃。GBN 接收方将会丢弃所有失序的分组，数据必须按顺序交付。</p>
+
+<h4 id="heading-选择重传selective-repeat-sr">选择重传（Selective Repeat, SR）</h4>
+
+<p>由于单个分组的差错可能导致 GBN 重传大量分组，但是很多分组根本没有必要重传。</p>
 
 <h2 id="heading-第四章网路层之数据平面">第四章：网路层之数据平面</h2>
 

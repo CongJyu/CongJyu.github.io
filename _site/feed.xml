@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-02T00:44:54+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="http://localhost:4000/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="http://localhost:4000/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-02T11:13:12+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
 
 &lt;p&gt;🎉🎉 Happy New Year 2024! 🎉🎉&lt;/p&gt;
 
@@ -93,6 +93,75 @@
 &lt;h2 id=&quot;heading-第二章应用层&quot;&gt;第二章：应用层&lt;/h2&gt;
 
 &lt;h2 id=&quot;heading-第三章运输层&quot;&gt;第三章：运输层&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-可靠数据传输&quot;&gt;可靠数据传输&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-rdt10&quot;&gt;rdt1.0&lt;/h4&gt;
+
+&lt;p&gt;无比特差错，无分组丢失。完全可靠信道。发送端只通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rdt_send(data)&lt;/code&gt; 接受来自较高层的数据，并通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make_pkt(data)&lt;/code&gt; 产生一个包含该数据的分组，并将其发送至信道中。接收端通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rdt_rcv(packet)&lt;/code&gt; 从底层信道中接收一个分组，并用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extract(packet, data)&lt;/code&gt; 解包，从中取出数据，并将数据传送至较高层。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-rdt20&quot;&gt;rdt2.0&lt;/h4&gt;
+
+&lt;p&gt;有差错检测和重传，但是不能纠错。停等协议（stop-and-wait），发送方发送一个分组之后，需要等待接收方发送 ACK（肯定确认）或者 NAK（否定确认），才会继续发送。接收方的状态仍然只有一个，接收分组，并判断是否受损，回答 ACK 或者 NAK。&lt;/p&gt;
+
+&lt;p&gt;如果 ACK 或者 NAK 受损了呢？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;请重复一遍？你说什么？导致回答含糊不清。&lt;/li&gt;
+  &lt;li&gt;增加足够多&lt;strong&gt;检验和&lt;/strong&gt;比特，使发送方可以检验差错，甚至可以纠正差错。对于会产生差错但不会丢失分组的信道来说，此种方法可以解决问题。&lt;/li&gt;
+  &lt;li&gt;收到含糊不清的 ACK 或者 NAK 分组时，直接重传当前数据分组。引入「冗余分组」。但是无法事先知道接收到的分组是新的还是一次重传分组。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-rdt21&quot;&gt;rdt2.1&lt;/h4&gt;
+
+&lt;p&gt;为了解决以上问题，设计了 rdt2.0 的修订版 rdt2.1，增加了&lt;strong&gt;序号&lt;/strong&gt;（sequence number）放在将要发送的数据分组的一个新字段中。通过「期望接收的序号」和实际接收到的分组的序号来判断是否出现了差错。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-rdt22&quot;&gt;rdt2.2&lt;/h4&gt;
+
+&lt;p&gt;rdt2.2 与 rdt2.1 的不同之处在于 rdt2.2 的接收方必须包括由一个 ACK 报文所确认的分组序号，发送方也必须检查收到的 ACK 报文的确认的分组序号。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-rdt30&quot;&gt;rdt3.0&lt;/h4&gt;
+
+&lt;p&gt;rdt3.0 可以在具有比特差错和丢包的信道上工作。使用基于时间的重传机制，即选择一个合适的时间值，用来判定可能发生了丢包。如果在这个时间内没有收到 ACK，则认为已经丢包，直接重传该分组，即使该分组有可能实际上没有丢失。因此引入了冗余数据分组（duplicate data packet），此问题可以用 rdt2.2 中的序号来解决。由于分组序号在 0 和 1 之间交替，因此 rdt3.0 有时候也被称为&lt;strong&gt;比特交替协议&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;如果用「滑动窗口」的视角来看 rdt 协议的话，由于一次只传输一个分组，因此&lt;strong&gt;滑动窗口的大小是 1&lt;/strong&gt;（详见下一小节）。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-pipelining-流水线可靠数据传输&quot;&gt;Pipelining 流水线可靠数据传输&lt;/h3&gt;
+
+&lt;p&gt;导致 rdt3.0 性能较差的原因是&lt;strong&gt;停等协议&lt;/strong&gt;。解决该问题的方式是不使用停等协议，允许发送方发送多个分组而无需等待确认，将这些分组填充到一个流水线中，因此得名。由于没有等待确认，所以流水线传输需要另外的差错检测和恢复方式。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-回退-n-步go-back-n-gbn&quot;&gt;回退 N 步（Go-Back-N, GBN）&lt;/h4&gt;
+
+&lt;p&gt;在 GBN 协议中，允许发送方发送多个分组而不需要等待确认，但是需要保证未确认的分组数不超过最大允许数量 $N$。&lt;/p&gt;
+
+&lt;p&gt;基序号（$base$）是最早&lt;strong&gt;未确认的序号&lt;/strong&gt;。下一个序号（$nextseqnum$）是最小&lt;strong&gt;未使用序号&lt;/strong&gt;。于是序号范围被分成了四段：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;已确认&lt;/th&gt;
+      &lt;th&gt;未确认&lt;/th&gt;
+      &lt;th&gt;还未发送&lt;/th&gt;
+      &lt;th&gt;不可用&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$[0, base - 1]$&lt;/td&gt;
+      &lt;td&gt;$[base, nextseqnum - 1]$&lt;/td&gt;
+      &lt;td&gt;$[nextseqnum, base + N - 1]$&lt;/td&gt;
+      &lt;td&gt;$[base + N, …)$&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;其中把 $N$ 看成窗口长度，随着协议的运行，窗口在序号空间内向前滑动，因此又称为「滑动窗口协议（sliding-window protocol）」。&lt;/p&gt;
+
+&lt;p&gt;GBN 使用累积确认，对序号为 $n$ 的分组的收到确认，表示接收方已经收到序号为 $n$ 及其之前序号的所有分组。在其他情况下，分组将会丢弃。GBN 接收方将会丢弃所有失序的分组，数据必须按顺序交付。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-选择重传selective-repeat-sr&quot;&gt;选择重传（Selective Repeat, SR）&lt;/h4&gt;
+
+&lt;p&gt;由于单个分组的差错可能导致 GBN 重传大量分组，但是很多分组根本没有必要重传。&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-第四章网路层之数据平面&quot;&gt;第四章：网路层之数据平面&lt;/h2&gt;
 
@@ -241,7 +310,7 @@
 
 &lt;h4 id=&quot;heading-发送数据报到子网之外&quot;&gt;发送数据报到子网之外&lt;/h4&gt;
 
-&lt;p&gt;当主机 A 与主机 B 在同一个子网中时，数据报可以直接交付对方；当主机 A 与主机 B 不在同一个子网中时，不能直接交付。ARP 不能跨网段使用，只在局域网中使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络期末考试考点复习</summary></entry><entry><title type="html">HNU 计算机网络往年期末卷题目及解析</title><link href="http://localhost:4000/blog/2023/12/30/cn_exam_solutions/" rel="alternate" type="text/html" title="HNU 计算机网络往年期末卷题目及解析" /><published>2023-12-30T00:00:00+08:00</published><updated>2023-12-30T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/12/30/cn_exam_solutions</id><content type="html" xml:base="http://localhost:4000/blog/2023/12/30/cn_exam_solutions/">&lt;h1 id=&quot;heading-hnu-计算机网络往年期末卷题目及解析&quot;&gt;HNU 计算机网络往年期末卷题目及解析&lt;/h1&gt;
+&lt;p&gt;当主机 A 与主机 B 在同一个子网中时，数据报可以直接交付对方；当主机 A 与主机 B 不在同一个子网中时，不能直接交付。ARP 不能跨网段使用，只在局域网中使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络期末考试考点复习</summary></entry><entry><title type="html">HNU 计算机网络往年期末卷题目及解析</title><link href="https://congjyu.github.io/blog/2023/12/30/cn_exam_solutions/" rel="alternate" type="text/html" title="HNU 计算机网络往年期末卷题目及解析" /><published>2023-12-30T00:00:00+08:00</published><updated>2023-12-30T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/12/30/cn_exam_solutions</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/12/30/cn_exam_solutions/">&lt;h1 id=&quot;heading-hnu-计算机网络往年期末卷题目及解析&quot;&gt;HNU 计算机网络往年期末卷题目及解析&lt;/h1&gt;
 
 &lt;p&gt;Rain CongJyu Chen 整理，Dec. 29, 2023&lt;/p&gt;
 
@@ -569,7 +638,7 @@ TCP 是面向连接的，从进程到进程；IP 层则负责主机到主机的�
 
 &lt;p&gt;BGP 协议作为边界网关协议，完成自治系统之间的路由选择。&lt;/p&gt;
 
-&lt;p&gt;正确，BGP 边界网关协议是自治系统间路由选择协议。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络往年期末卷题目及解析</summary></entry><entry><title type="html">CongJyu 嘅 Linux 使用配置入門筆記</title><link href="http://localhost:4000/blog/2023/05/06/linux_notes/" rel="alternate" type="text/html" title="CongJyu 嘅 Linux 使用配置入門筆記" /><published>2023-05-06T00:00:00+08:00</published><updated>2023-05-06T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/05/06/linux_notes</id><content type="html" xml:base="http://localhost:4000/blog/2023/05/06/linux_notes/">&lt;h1 id=&quot;heading-congjyu-嘅-linux-使用配置入門筆記&quot;&gt;CongJyu 嘅 Linux 使用配置入門筆記&lt;/h1&gt;
+&lt;p&gt;正确，BGP 边界网关协议是自治系统间路由选择协议。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络往年期末卷题目及解析</summary></entry><entry><title type="html">CongJyu 嘅 Linux 使用配置入門筆記</title><link href="https://congjyu.github.io/blog/2023/05/06/linux_notes/" rel="alternate" type="text/html" title="CongJyu 嘅 Linux 使用配置入門筆記" /><published>2023-05-06T00:00:00+08:00</published><updated>2023-05-06T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/05/06/linux_notes</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/05/06/linux_notes/">&lt;h1 id=&quot;heading-congjyu-嘅-linux-使用配置入門筆記&quot;&gt;CongJyu 嘅 Linux 使用配置入門筆記&lt;/h1&gt;
 
 &lt;p&gt;Written by &lt;a href=&quot;https://github.com/congjyu&quot;&gt;Rain CongJyu Chen&lt;/a&gt;, not for commercial use.&lt;/p&gt;
 
@@ -951,7 +1020,7 @@ drwxr-xr-x   11 rainchen  staff    352 Apr 29 22:48 vmShare
 
 &lt;h2 id=&quot;heading-4-根據自己嘅偏好來設定界面&quot;&gt;4. 根據自己嘅偏好來設定界面&lt;/h2&gt;
 
-&lt;p&gt;前面用熟咗先，就咁啦。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">CongJyu 嘅 Linux 使用配置入門筆記</summary></entry><entry><title type="html">记梦</title><link href="http://localhost:4000/blog/2023/02/03/dreams/" rel="alternate" type="text/html" title="记梦" /><published>2023-02-03T00:00:00+08:00</published><updated>2023-02-03T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/02/03/dreams</id><content type="html" xml:base="http://localhost:4000/blog/2023/02/03/dreams/">&lt;h1 id=&quot;heading-记梦&quot;&gt;记梦&lt;/h1&gt;
+&lt;p&gt;前面用熟咗先，就咁啦。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">CongJyu 嘅 Linux 使用配置入門筆記</summary></entry><entry><title type="html">记梦</title><link href="https://congjyu.github.io/blog/2023/02/03/dreams/" rel="alternate" type="text/html" title="记梦" /><published>2023-02-03T00:00:00+08:00</published><updated>2023-02-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/02/03/dreams</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/02/03/dreams/">&lt;h1 id=&quot;heading-记梦&quot;&gt;记梦&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-提示&quot;&gt;提示&lt;/h2&gt;
 
@@ -975,7 +1044,7 @@ drwxr-xr-x   11 rainchen  staff    352 Apr 29 22:48 vmShare
 
 &lt;h2 id=&quot;heading-许可协议&quot;&gt;许可协议&lt;/h2&gt;
 
-&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">记梦</summary></entry><entry><title type="html">网络短诗摘录</title><link href="http://localhost:4000/blog/2022/09/11/short_poems/" rel="alternate" type="text/html" title="网络短诗摘录" /><published>2022-09-11T00:00:00+08:00</published><updated>2022-09-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/09/11/short_poems</id><content type="html" xml:base="http://localhost:4000/blog/2022/09/11/short_poems/">&lt;h1 id=&quot;heading-网络短诗摘录&quot;&gt;网络短诗摘录&lt;/h1&gt;
+&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">记梦</summary></entry><entry><title type="html">网络短诗摘录</title><link href="https://congjyu.github.io/blog/2022/09/11/short_poems/" rel="alternate" type="text/html" title="网络短诗摘录" /><published>2022-09-11T00:00:00+08:00</published><updated>2022-09-11T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2022/09/11/short_poems</id><content type="html" xml:base="https://congjyu.github.io/blog/2022/09/11/short_poems/">&lt;h1 id=&quot;heading-网络短诗摘录&quot;&gt;网络短诗摘录&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-无题&quot;&gt;无题&lt;/h2&gt;
 
@@ -989,7 +1058,7 @@ drwxr-xr-x   11 rainchen  staff    352 Apr 29 22:48 vmShare
 
 &lt;h2 id=&quot;heading-本文许可协议&quot;&gt;本文许可协议&lt;/h2&gt;
 
-&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">网络短诗摘录</summary></entry><entry><title type="html">当我卸载了 oh-my-zsh 之后</title><link href="http://localhost:4000/blog/2022/04/24/zsh_configurations/" rel="alternate" type="text/html" title="当我卸载了 oh-my-zsh 之后" /><published>2022-04-24T00:00:00+08:00</published><updated>2022-04-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/04/24/zsh_configurations</id><content type="html" xml:base="http://localhost:4000/blog/2022/04/24/zsh_configurations/">&lt;h1 id=&quot;heading-当我卸载了-oh-my-zsh-之后&quot;&gt;当我卸载了 oh-my-zsh 之后&lt;/h1&gt;
+&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">网络短诗摘录</summary></entry><entry><title type="html">当我卸载了 oh-my-zsh 之后</title><link href="https://congjyu.github.io/blog/2022/04/24/zsh_configurations/" rel="alternate" type="text/html" title="当我卸载了 oh-my-zsh 之后" /><published>2022-04-24T00:00:00+08:00</published><updated>2022-04-24T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2022/04/24/zsh_configurations</id><content type="html" xml:base="https://congjyu.github.io/blog/2022/04/24/zsh_configurations/">&lt;h1 id=&quot;heading-当我卸载了-oh-my-zsh-之后&quot;&gt;当我卸载了 oh-my-zsh 之后&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-事件起因&quot;&gt;事件起因&lt;/h2&gt;
 
@@ -1397,7 +1466,7 @@ autoload &lt;span class=&quot;nt&quot;&gt;-U&lt;/span&gt; compinit
 
 &lt;p&gt;由此，我自己重新配置了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt; 文件，并写下这些文字记录，以供参考。&lt;/p&gt;
 
-&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">当我卸载了 oh-my-zsh 之后</summary></entry><entry><title type="html">Fortran Programming Review</title><link href="http://localhost:4000/blog/2022/01/26/fortran_programming_review/" rel="alternate" type="text/html" title="Fortran Programming Review" /><published>2022-01-26T00:00:00+08:00</published><updated>2022-01-26T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/01/26/fortran_programming_review</id><content type="html" xml:base="http://localhost:4000/blog/2022/01/26/fortran_programming_review/">&lt;h1 id=&quot;heading-fortran-programming-review&quot;&gt;Fortran Programming Review&lt;/h1&gt;
+&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/&quot;&gt;Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License&lt;/a&gt;.&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">当我卸载了 oh-my-zsh 之后</summary></entry><entry><title type="html">Fortran Programming Review</title><link href="https://congjyu.github.io/blog/2022/01/26/fortran_programming_review/" rel="alternate" type="text/html" title="Fortran Programming Review" /><published>2022-01-26T00:00:00+08:00</published><updated>2022-01-26T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2022/01/26/fortran_programming_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2022/01/26/fortran_programming_review/">&lt;h1 id=&quot;heading-fortran-programming-review&quot;&gt;Fortran Programming Review&lt;/h1&gt;
 
 &lt;p&gt;Made by Rain Chen&lt;/p&gt;
 
@@ -2813,7 +2882,7 @@ ifort: internal error: error generating temporary file name, check disk space an
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;777 /example
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;现在我的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example&lt;/code&gt; 文件夹下的所有文件的权限都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;777&lt;/code&gt;，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">Fortran Programming Review</summary></entry><entry><title type="html">公众号用户使用守则</title><link href="http://localhost:4000/blog/2021/11/28/official_account_rules/" rel="alternate" type="text/html" title="公众号用户使用守则" /><published>2021-11-28T00:00:00+08:00</published><updated>2021-11-28T00:00:00+08:00</updated><id>http://localhost:4000/blog/2021/11/28/official_account_rules</id><content type="html" xml:base="http://localhost:4000/blog/2021/11/28/official_account_rules/">&lt;h1 id=&quot;heading-公众号用户使用守则&quot;&gt;公众号用户使用守则&lt;/h1&gt;
+&lt;p&gt;现在我的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example&lt;/code&gt; 文件夹下的所有文件的权限都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;777&lt;/code&gt;，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">Fortran Programming Review</summary></entry><entry><title type="html">公众号用户使用守则</title><link href="https://congjyu.github.io/blog/2021/11/28/official_account_rules/" rel="alternate" type="text/html" title="公众号用户使用守则" /><published>2021-11-28T00:00:00+08:00</published><updated>2021-11-28T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2021/11/28/official_account_rules</id><content type="html" xml:base="https://congjyu.github.io/blog/2021/11/28/official_account_rules/">&lt;h1 id=&quot;heading-公众号用户使用守则&quot;&gt;公众号用户使用守则&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-重要说明&quot;&gt;重要说明&lt;/h2&gt;
 
