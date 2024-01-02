@@ -320,7 +320,7 @@
 
 <p>如果用「滑动窗口」的视角来看 rdt 协议的话，由于一次只传输一个分组，因此<strong>滑动窗口的大小是 1</strong>（详见下一小节）。</p>
 
-<h3 id="heading-pipelining-流水线可靠数据传输">Pipelining 流水线可靠数据传输</h3>
+<h4 id="heading-pipelining-流水线可靠数据传输">Pipelining 流水线可靠数据传输</h4>
 
 <p>导致 rdt3.0 性能较差的原因是<strong>停等协议</strong>。解决该问题的方式是不使用停等协议，允许发送方发送多个分组而无需等待确认，将这些分组填充到一个流水线中，因此得名。由于没有等待确认，所以流水线传输需要另外的差错检测和恢复方式。</p>
 
@@ -355,7 +355,25 @@
 
 <h4 id="heading-选择重传selective-repeat-sr">选择重传（Selective Repeat, SR）</h4>
 
-<p>由于单个分组的差错可能导致 GBN 重传大量分组，但是很多分组根本没有必要重传。</p>
+<p>由于单个分组的差错可能导致 GBN 重传大量分组，但是很多分组根本没有必要重传。SR 接收方不管是否乱序。</p>
+
+<h3 id="heading-tcp">TCP</h3>
+
+<p><strong><em>什么是 3 次握手和 4 次挥手？</em></strong> TCP 连接的建立与断开。</p>
+
+<p>TCP 的差错恢复机制是所谓「选择确认（selective acknowledge）」，应当被理解为 GBN 协议和 SR 协议的混合体。</p>
+
+<h3 id="heading-拥塞控制">拥塞控制</h3>
+
+<p>注意与「流量控制」区分开：流量控制是一个速度匹配服务，使发送方的速率和接收方应用程序的读取速率相匹配。</p>
+
+<p>TCP 发送方因为 IP 网络的拥塞被遏制，于是有「拥塞控制（congestion control）」。</p>
+
+<h4 id="heading-tcp-拥塞控制算法">TCP 拥塞控制算法</h4>
+
+<p>每次确认就增加一个 $MSS$，每个 $RTT$ 之后拥塞窗口 $cwnd$ 翻一番，呈指数级增长。当 $cwnd$ 到达慢启动阈值 $ssthresh$ 之后，进入拥塞避免阶段。当收到 3 个冗余的 ACK 的时候（此时发送方一共发送了 4 个 ACK），进入快速恢复阶段：$ssthresh$ 减为 $cwnd$ 的一半（TCP Reno），线性增长；$sshthresh$ 直接减为 $1$（TCP Tahoe），进入慢启动。</p>
+
+<p><strong>「加性增，乘性减」</strong>。</p>
 
 <h2 id="heading-第四章网路层之数据平面">第四章：网路层之数据平面</h2>
 

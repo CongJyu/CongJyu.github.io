@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-02T11:13:12+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-02T11:39:26+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
 
 &lt;p&gt;🎉🎉 Happy New Year 2024! 🎉🎉&lt;/p&gt;
 
@@ -126,7 +126,7 @@
 
 &lt;p&gt;如果用「滑动窗口」的视角来看 rdt 协议的话，由于一次只传输一个分组，因此&lt;strong&gt;滑动窗口的大小是 1&lt;/strong&gt;（详见下一小节）。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-pipelining-流水线可靠数据传输&quot;&gt;Pipelining 流水线可靠数据传输&lt;/h3&gt;
+&lt;h4 id=&quot;heading-pipelining-流水线可靠数据传输&quot;&gt;Pipelining 流水线可靠数据传输&lt;/h4&gt;
 
 &lt;p&gt;导致 rdt3.0 性能较差的原因是&lt;strong&gt;停等协议&lt;/strong&gt;。解决该问题的方式是不使用停等协议，允许发送方发送多个分组而无需等待确认，将这些分组填充到一个流水线中，因此得名。由于没有等待确认，所以流水线传输需要另外的差错检测和恢复方式。&lt;/p&gt;
 
@@ -161,7 +161,25 @@
 
 &lt;h4 id=&quot;heading-选择重传selective-repeat-sr&quot;&gt;选择重传（Selective Repeat, SR）&lt;/h4&gt;
 
-&lt;p&gt;由于单个分组的差错可能导致 GBN 重传大量分组，但是很多分组根本没有必要重传。&lt;/p&gt;
+&lt;p&gt;由于单个分组的差错可能导致 GBN 重传大量分组，但是很多分组根本没有必要重传。SR 接收方不管是否乱序。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-tcp&quot;&gt;TCP&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;什么是 3 次握手和 4 次挥手？&lt;/em&gt;&lt;/strong&gt; TCP 连接的建立与断开。&lt;/p&gt;
+
+&lt;p&gt;TCP 的差错恢复机制是所谓「选择确认（selective acknowledge）」，应当被理解为 GBN 协议和 SR 协议的混合体。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-拥塞控制&quot;&gt;拥塞控制&lt;/h3&gt;
+
+&lt;p&gt;注意与「流量控制」区分开：流量控制是一个速度匹配服务，使发送方的速率和接收方应用程序的读取速率相匹配。&lt;/p&gt;
+
+&lt;p&gt;TCP 发送方因为 IP 网络的拥塞被遏制，于是有「拥塞控制（congestion control）」。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-tcp-拥塞控制算法&quot;&gt;TCP 拥塞控制算法&lt;/h4&gt;
+
+&lt;p&gt;每次确认就增加一个 $MSS$，每个 $RTT$ 之后拥塞窗口 $cwnd$ 翻一番，呈指数级增长。当 $cwnd$ 到达慢启动阈值 $ssthresh$ 之后，进入拥塞避免阶段。当收到 3 个冗余的 ACK 的时候（此时发送方一共发送了 4 个 ACK），进入快速恢复阶段：$ssthresh$ 减为 $cwnd$ 的一半（TCP Reno），线性增长；$sshthresh$ 直接减为 $1$（TCP Tahoe），进入慢启动。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「加性增，乘性减」&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-第四章网路层之数据平面&quot;&gt;第四章：网路层之数据平面&lt;/h2&gt;
 
