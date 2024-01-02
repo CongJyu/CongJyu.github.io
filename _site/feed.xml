@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-02T11:39:26+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-02T14:27:08+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
 
 &lt;p&gt;🎉🎉 Happy New Year 2024! 🎉🎉&lt;/p&gt;
 
@@ -90,7 +90,108 @@
 
 &lt;h2 id=&quot;heading-第一章计算机网络和因特网&quot;&gt;第一章：计算机网络和因特网&lt;/h2&gt;
 
+&lt;p&gt;网络的核心：分组交换机和链路构成的网状网络。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-分组交换&quot;&gt;分组交换&lt;/h3&gt;
+
+&lt;p&gt;分组交换中的时延：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;处理时延，$d_{proc}$ ，检查分组首部和决定将该分组导向何处。&lt;/li&gt;
+  &lt;li&gt;排队时延，$d_{queue}$，分组在链路上等待传输。&lt;/li&gt;
+  &lt;li&gt;传输时延，$d_{trans} = \frac{L}{R}$，长度为 $L$ 比特的分组在传输速率为 $R \text{bps}$ 的链路上发射所需要的时间。&lt;/li&gt;
+  &lt;li&gt;传播时延，$d_{prop} = \frac{d}{s}$，分组在距离为 $d$，传播速率为 $s$ 的链路上传输所用时间。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;因此，总时延&lt;/p&gt;
+
+\[d_{total} = d_{proc} + d_{queue} + d_{trans} + d_{prop} \\ = d_{proc} + d_{queue} + \frac{L}{R} + \frac{d}{s}\]
+
+&lt;p&gt;对于端到端时延&lt;/p&gt;
+
+\[d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})\]
+
+&lt;p&gt;需要乘上链路的总数 $N$。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-电路交换&quot;&gt;电路交换&lt;/h3&gt;
+
+&lt;p&gt;电路交换中有两种复用（multiplexing）：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;频分复用（Frequency-Division Multiplexing, FDM）&lt;/li&gt;
+  &lt;li&gt;时分复用（Time-Division Multiplexing, TDM）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;电路交换的总时延&lt;/p&gt;
+
+\[d_{total} = t_{创建电路} + t_{文件传输}\]
+
+&lt;h3 id=&quot;heading-对比&quot;&gt;对比&lt;/h3&gt;
+
+&lt;p&gt;对于分组交换：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;不适合实时服务，由于端到端时延是可变的和不可预测的。&lt;/li&gt;
+  &lt;li&gt;提供了更好的共享带宽，相比于电路交换支持更多的并发用户。&lt;/li&gt;
+  &lt;li&gt;成本更低，实现更加简单有效。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;电路交换反之。&lt;/p&gt;
+
 &lt;h2 id=&quot;heading-第二章应用层&quot;&gt;第二章：应用层&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-internet-中的电子邮件&quot;&gt;Internet 中的电子邮件&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;需要注意的是，应将电子邮件放于与 Web 同等的地位。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;电子邮件系统主要有 3 个组成部分：用户代理（user agent）、邮件服务器（mail server）和简单邮件传输协议（SMTP）。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-smtp&quot;&gt;SMTP&lt;/h4&gt;
+
+&lt;p&gt;简单邮件传输协议（SMTP）是因特网电子邮件的核心。SMTP 限制了邮件的体部分只能采用 7 比特 ASCII 表示，因此现在邮件传送之前，应该先对其进行编码使之符合要求。&lt;strong&gt;SMTP 使用 25 号端口，运行在 TCP 连接之上&lt;/strong&gt;。它是「推」协议，将邮件从用户代理推向邮件服务器，再从邮件服务器把文件推向接收服务器。如果接收服务器没有开机，则邮件将会停留在发送服务器上，并不会在中间某个邮件服务器中留存。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-pop3&quot;&gt;POP3&lt;/h4&gt;
+
+&lt;p&gt;第三版邮局协议（POP3）使得用户可以从邮件服务器上拉取邮件，即 POP3 将邮件服务器上的邮件传送至用户代理。工作阶段如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;特许（authorization）&lt;/li&gt;
+  &lt;li&gt;事务处理&lt;/li&gt;
+  &lt;li&gt;更新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注：IMAP（因特网邮件访问协议）、HTTP 均可实现拉取邮件的操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;heading-dns&quot;&gt;DNS&lt;/h3&gt;
+
+&lt;p&gt;DNS（Domain Name System，域名系统）提供主机名到 IP 地址转换的服务，工作于 UDP 之上，提供非可靠服务，端口 53 号。它是&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;一个分布式 DNS 数据库&lt;/li&gt;
+  &lt;li&gt;一个使主机能查询分布式数据库的应用层协议&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;DNS 服务器通常是运行 Berkeley Internet Name Domain（BIND）软件的 UNIX 机器。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-分布式层次数据库&quot;&gt;分布式层次数据库&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;根 DNS 服务器：有 13 台，从 A 到 M。&lt;/li&gt;
+  &lt;li&gt;顶级域（Top-Level Domain, TLD） DNS 服务器：com、org、net 等顶级域和所有国家和地区的顶级域，都有 TLD 服务器或者集群。&lt;/li&gt;
+  &lt;li&gt;权威 DNS 服务器：大型机构拥有，比如大学和大企业。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;需要注意的是，本地 DNS 服务器（Local DNS Server）不属于 DNS 服务器的层次结构中。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-迭代查询iterative-query和递归查询recursive-query&quot;&gt;迭代查询（Iterative query）和递归查询（Recursive query）&lt;/h4&gt;
+
+&lt;p&gt;理论上任何 DNS 查询都既可以是迭代查询也可以递归查询，但是一般来说，从请求主机到本地 DNS 服务器的查询是递归的，其余的查询都是迭代的。&lt;/p&gt;
+
+&lt;p&gt;迭代查询：此种查询方式带来的负担小，所有的结果都是直接返回给发起查询的主机。&lt;/p&gt;
+
+&lt;p&gt;递归查询：一层一层地返回结果。&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-第三章运输层&quot;&gt;第三章：运输层&lt;/h2&gt;
 
@@ -182,6 +283,82 @@
 &lt;p&gt;&lt;strong&gt;「加性增，乘性减」&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-第四章网路层之数据平面&quot;&gt;第四章：网路层之数据平面&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-ipv4-数据报分片&quot;&gt;IPv4 数据报分片&lt;/h3&gt;
+
+&lt;p&gt;由于并不是所有的链路层协议都能承载相同长度的网络层分组，因此需要对数据报进行分片。一个链路层帧能够承载的最大数据量叫做最大传送单元（MTU）。&lt;/p&gt;
+
+&lt;p&gt;IP 报文首部 20 字节，在分片的时候应该先去除。例如一个 4000 字节的数据报，去除掉 20 字节的 IP 首部之后，剩余 3980 字节的有效数据，由路由器转发到一条 MTU 为 1500 字节的链路上。此时该数据报中 3980 字节就要被分成 3 个独立的片（注意向上取整）。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-ipv4-编址&quot;&gt;IPv4 编址&lt;/h3&gt;
+
+&lt;p&gt;点分十进制记法，各字节之间以句点隔开。&lt;/p&gt;
+
+&lt;p&gt;一般而言，路由器有多少个端口，就有多少个子网，IP 编址会对这个子网分配一个地址，例如 223.1.1.0/24，其中「/24」表示子网，叫做子网掩码，意思是 32 比特中从左往右的 24 个比特全部为 1。&lt;/p&gt;
+
+&lt;p&gt;分类 IP 编址：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;类别&lt;/th&gt;
+      &lt;th&gt;开头&lt;/th&gt;
+      &lt;th&gt;net-id&lt;/th&gt;
+      &lt;th&gt;host-id&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A 类&lt;/td&gt;
+      &lt;td&gt;0 ~ 127&lt;/td&gt;
+      &lt;td&gt;8 位&lt;/td&gt;
+      &lt;td&gt;24 位&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;B 类&lt;/td&gt;
+      &lt;td&gt;128 ~ 191&lt;/td&gt;
+      &lt;td&gt;16 位&lt;/td&gt;
+      &lt;td&gt;16 位&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;C 类&lt;/td&gt;
+      &lt;td&gt;192 ~ 223&lt;/td&gt;
+      &lt;td&gt;24 位&lt;/td&gt;
+      &lt;td&gt;8 位&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;D 类&lt;/td&gt;
+      &lt;td&gt;224 ~ 239&lt;/td&gt;
+      &lt;td&gt;多播地址&lt;/td&gt;
+      &lt;td&gt;\&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;E 类&lt;/td&gt;
+      &lt;td&gt;240 ~ 255&lt;/td&gt;
+      &lt;td&gt;保留至今后使用&lt;/td&gt;
+      &lt;td&gt;\&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;heading-cidr-无类别域间路由选择&quot;&gt;CIDR 无类别域间路由选择&lt;/h4&gt;
+
+&lt;p&gt;将子网寻址概念一般化，表示为 $a.b.c.d/x$。此处参见 IP 编址例题。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-dhcp&quot;&gt;DHCP&lt;/h3&gt;
+
+&lt;p&gt;即插即用，动态主机配置协议。该协议可以自动为新到达的主机分配 IP 地址。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;DHCP 服务器发现：通过 DHCP 发现报文，向广播地址发送。&lt;/li&gt;
+  &lt;li&gt;DHCP 服务器收到一个 DHCP 发现报文之后，向客户端做出响应：推荐 IP 地址、网络掩码、租用期等。&lt;/li&gt;
+  &lt;li&gt;DHCP 请求：新到达的客户主机从提供的服务器中选择一个，并向该服务器提供 DHCP 请求报文，回显配置的参数。&lt;/li&gt;
+  &lt;li&gt;DHCP ACK：服务器用 DHCP ACK 报文对请求报文进行响应，证实所要求的参数。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;heading-nat&quot;&gt;NAT&lt;/h3&gt;
+
+&lt;p&gt;网络地址转换（NAT），解决 IPv4 地址不足的问题，但是 NAT 破坏了端到端的数据传送（即主机应该彼此直接对话）。&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-第五章网络层之控制平面&quot;&gt;第五章：网络层之控制平面&lt;/h2&gt;
 

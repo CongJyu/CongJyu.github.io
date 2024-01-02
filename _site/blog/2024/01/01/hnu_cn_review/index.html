@@ -284,7 +284,108 @@
 
 <h2 id="heading-第一章计算机网络和因特网">第一章：计算机网络和因特网</h2>
 
+<p>网络的核心：分组交换机和链路构成的网状网络。</p>
+
+<h3 id="heading-分组交换">分组交换</h3>
+
+<p>分组交换中的时延：</p>
+
+<ol>
+  <li>处理时延，$d_{proc}$ ，检查分组首部和决定将该分组导向何处。</li>
+  <li>排队时延，$d_{queue}$，分组在链路上等待传输。</li>
+  <li>传输时延，$d_{trans} = \frac{L}{R}$，长度为 $L$ 比特的分组在传输速率为 $R \text{bps}$ 的链路上发射所需要的时间。</li>
+  <li>传播时延，$d_{prop} = \frac{d}{s}$，分组在距离为 $d$，传播速率为 $s$ 的链路上传输所用时间。</li>
+</ol>
+
+<p>因此，总时延</p>
+
+\[d_{total} = d_{proc} + d_{queue} + d_{trans} + d_{prop} \\ = d_{proc} + d_{queue} + \frac{L}{R} + \frac{d}{s}\]
+
+<p>对于端到端时延</p>
+
+\[d_{end-end} = N(d_{proc} + d_{trans} + d_{prop})\]
+
+<p>需要乘上链路的总数 $N$。</p>
+
+<h3 id="heading-电路交换">电路交换</h3>
+
+<p>电路交换中有两种复用（multiplexing）：</p>
+
+<ul>
+  <li>频分复用（Frequency-Division Multiplexing, FDM）</li>
+  <li>时分复用（Time-Division Multiplexing, TDM）</li>
+</ul>
+
+<p>电路交换的总时延</p>
+
+\[d_{total} = t_{创建电路} + t_{文件传输}\]
+
+<h3 id="heading-对比">对比</h3>
+
+<p>对于分组交换：</p>
+
+<ul>
+  <li>不适合实时服务，由于端到端时延是可变的和不可预测的。</li>
+  <li>提供了更好的共享带宽，相比于电路交换支持更多的并发用户。</li>
+  <li>成本更低，实现更加简单有效。</li>
+</ul>
+
+<p>电路交换反之。</p>
+
 <h2 id="heading-第二章应用层">第二章：应用层</h2>
+
+<h3 id="heading-internet-中的电子邮件">Internet 中的电子邮件</h3>
+
+<p><strong><em>需要注意的是，应将电子邮件放于与 Web 同等的地位。</em></strong></p>
+
+<p>电子邮件系统主要有 3 个组成部分：用户代理（user agent）、邮件服务器（mail server）和简单邮件传输协议（SMTP）。</p>
+
+<h4 id="heading-smtp">SMTP</h4>
+
+<p>简单邮件传输协议（SMTP）是因特网电子邮件的核心。SMTP 限制了邮件的体部分只能采用 7 比特 ASCII 表示，因此现在邮件传送之前，应该先对其进行编码使之符合要求。<strong>SMTP 使用 25 号端口，运行在 TCP 连接之上</strong>。它是「推」协议，将邮件从用户代理推向邮件服务器，再从邮件服务器把文件推向接收服务器。如果接收服务器没有开机，则邮件将会停留在发送服务器上，并不会在中间某个邮件服务器中留存。</p>
+
+<h4 id="heading-pop3">POP3</h4>
+
+<p>第三版邮局协议（POP3）使得用户可以从邮件服务器上拉取邮件，即 POP3 将邮件服务器上的邮件传送至用户代理。工作阶段如下：</p>
+
+<ul>
+  <li>特许（authorization）</li>
+  <li>事务处理</li>
+  <li>更新</li>
+</ul>
+
+<blockquote>
+  <p>注：IMAP（因特网邮件访问协议）、HTTP 均可实现拉取邮件的操作。</p>
+</blockquote>
+
+<h3 id="heading-dns">DNS</h3>
+
+<p>DNS（Domain Name System，域名系统）提供主机名到 IP 地址转换的服务，工作于 UDP 之上，提供非可靠服务，端口 53 号。它是</p>
+
+<ol>
+  <li>一个分布式 DNS 数据库</li>
+  <li>一个使主机能查询分布式数据库的应用层协议</li>
+</ol>
+
+<p>DNS 服务器通常是运行 Berkeley Internet Name Domain（BIND）软件的 UNIX 机器。</p>
+
+<h4 id="heading-分布式层次数据库">分布式层次数据库</h4>
+
+<ol>
+  <li>根 DNS 服务器：有 13 台，从 A 到 M。</li>
+  <li>顶级域（Top-Level Domain, TLD） DNS 服务器：com、org、net 等顶级域和所有国家和地区的顶级域，都有 TLD 服务器或者集群。</li>
+  <li>权威 DNS 服务器：大型机构拥有，比如大学和大企业。</li>
+</ol>
+
+<p>需要注意的是，本地 DNS 服务器（Local DNS Server）不属于 DNS 服务器的层次结构中。</p>
+
+<h4 id="heading-迭代查询iterative-query和递归查询recursive-query">迭代查询（Iterative query）和递归查询（Recursive query）</h4>
+
+<p>理论上任何 DNS 查询都既可以是迭代查询也可以递归查询，但是一般来说，从请求主机到本地 DNS 服务器的查询是递归的，其余的查询都是迭代的。</p>
+
+<p>迭代查询：此种查询方式带来的负担小，所有的结果都是直接返回给发起查询的主机。</p>
+
+<p>递归查询：一层一层地返回结果。</p>
 
 <h2 id="heading-第三章运输层">第三章：运输层</h2>
 
@@ -376,6 +477,82 @@
 <p><strong>「加性增，乘性减」</strong>。</p>
 
 <h2 id="heading-第四章网路层之数据平面">第四章：网路层之数据平面</h2>
+
+<h3 id="heading-ipv4-数据报分片">IPv4 数据报分片</h3>
+
+<p>由于并不是所有的链路层协议都能承载相同长度的网络层分组，因此需要对数据报进行分片。一个链路层帧能够承载的最大数据量叫做最大传送单元（MTU）。</p>
+
+<p>IP 报文首部 20 字节，在分片的时候应该先去除。例如一个 4000 字节的数据报，去除掉 20 字节的 IP 首部之后，剩余 3980 字节的有效数据，由路由器转发到一条 MTU 为 1500 字节的链路上。此时该数据报中 3980 字节就要被分成 3 个独立的片（注意向上取整）。</p>
+
+<h3 id="heading-ipv4-编址">IPv4 编址</h3>
+
+<p>点分十进制记法，各字节之间以句点隔开。</p>
+
+<p>一般而言，路由器有多少个端口，就有多少个子网，IP 编址会对这个子网分配一个地址，例如 223.1.1.0/24，其中「/24」表示子网，叫做子网掩码，意思是 32 比特中从左往右的 24 个比特全部为 1。</p>
+
+<p>分类 IP 编址：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>类别</th>
+      <th>开头</th>
+      <th>net-id</th>
+      <th>host-id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A 类</td>
+      <td>0 ~ 127</td>
+      <td>8 位</td>
+      <td>24 位</td>
+    </tr>
+    <tr>
+      <td>B 类</td>
+      <td>128 ~ 191</td>
+      <td>16 位</td>
+      <td>16 位</td>
+    </tr>
+    <tr>
+      <td>C 类</td>
+      <td>192 ~ 223</td>
+      <td>24 位</td>
+      <td>8 位</td>
+    </tr>
+    <tr>
+      <td>D 类</td>
+      <td>224 ~ 239</td>
+      <td>多播地址</td>
+      <td>\</td>
+    </tr>
+    <tr>
+      <td>E 类</td>
+      <td>240 ~ 255</td>
+      <td>保留至今后使用</td>
+      <td>\</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="heading-cidr-无类别域间路由选择">CIDR 无类别域间路由选择</h4>
+
+<p>将子网寻址概念一般化，表示为 $a.b.c.d/x$。此处参见 IP 编址例题。</p>
+
+<h3 id="heading-dhcp">DHCP</h3>
+
+<p>即插即用，动态主机配置协议。该协议可以自动为新到达的主机分配 IP 地址。</p>
+
+<ol>
+  <li>DHCP 服务器发现：通过 DHCP 发现报文，向广播地址发送。</li>
+  <li>DHCP 服务器收到一个 DHCP 发现报文之后，向客户端做出响应：推荐 IP 地址、网络掩码、租用期等。</li>
+  <li>DHCP 请求：新到达的客户主机从提供的服务器中选择一个，并向该服务器提供 DHCP 请求报文，回显配置的参数。</li>
+  <li>DHCP ACK：服务器用 DHCP ACK 报文对请求报文进行响应，证实所要求的参数。</li>
+</ol>
+
+<h3 id="heading-nat">NAT</h3>
+
+<p>网络地址转换（NAT），解决 IPv4 地址不足的问题，但是 NAT 破坏了端到端的数据传送（即主机应该彼此直接对话）。</p>
 
 <h2 id="heading-第五章网络层之控制平面">第五章：网络层之控制平面</h2>
 
