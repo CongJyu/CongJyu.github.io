@@ -355,7 +355,7 @@ $$
 
 #### Description
 
-一个马尔可夫链的状态空间 $I = \{ 1, 2, ..., N \}$，已知 $s$ 时刻到 $r$ 时刻及 $r$ 时刻到 $n$ 时刻的状态转移概率分别为 $p_{ik}(s, r) = P \{ X(r) = K \vert X(s) = i \}$、$p_{kj}(r, n) = P \{ X(n) = j \vert X(r) = k \}$，则 $P \{ X(n) = j \vert X(s) = i \}$  是多少？
+一个马尔可夫链的状态空间 $I = \{ 1, 2, ..., N \}$，已知 $s$ 时刻到 $r$ 时刻及 $r$ 时刻到 $n$ 时刻的状态转移概率分别为 $p_{ik}(s, r) = P \{ X(r) = K \left\vert X(s) = i \right.\}$、$p_{kj}(r, n) = P \{ X(n) = j \left\vert X(r) = k \right.\}$，则 $P \{ X(n) = j \left\vert X(s) = i\right.\}$  是多少？
 
 #### Solutions
 
@@ -379,7 +379,7 @@ $$
 
 #### Description
 
-已知某泊松过程 $X(t)$ 的到达率参数为 $\lambda$。给定两个时刻 $s$ 和 $t(s \lt t)$，如果已知 $s$ 时刻的事件发生次数为 $k$，则概率 $P \{X(t) = n \vert X(s) = k \}$ 表示什么含义？其值如何计算？
+已知某泊松过程 $X(t)$ 的到达率参数为 $\lambda$。给定两个时刻 $s$ 和 $t(s \lt t)$，如果已知 $s$ 时刻的事件发生次数为 $k$，则概率 $P\{X(t) = n \left\vert X(s) = k \right.\}$ 表示什么含义？其值如何计算？
 
 #### Solutions
 
