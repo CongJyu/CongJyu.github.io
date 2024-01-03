@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Stochastic Process Review | Rain Chen&#39;s Blog</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Stochastic Process Review" />
+<meta name="author" content="Rain Chen" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Stochastic Process Review" />
+<meta property="og:description" content="Stochastic Process Review" />
+<link rel="canonical" href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" />
+<meta property="og:url" content="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" />
+<meta property="og:site_name" content="Rain Chen&#39;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-03T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Stochastic Process Review" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain Chen"},"dateModified":"2024-01-03T00:00:00+08:00","datePublished":"2024-01-03T00:00:00+08:00","description":"Stochastic Process Review","headline":"Stochastic Process Review","mainEntityOfPage":{"@type":"WebPage","@id":"https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/"},"url":"https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords"
+    content="StochasticProcess,Mathematics,數學,隨機" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="https://congjyu.github.io/feed.xml" title="Rain Chen&apos;s Blog" />
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.3.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+    
+</head>
+
+<body>
+    
+
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="http://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/blog/friends/">Friends</a></li>
+                <li><a href="/blog/aboutme/">About Me</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field"
+            placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Rain Chen's Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Tags"
+                            href="/blog/tags/">Tags</a></li>
+                    <li class="nav-link"><a title="Friends"
+                            href="/blog/friends/">Friends</a>
+                    </li>
+                    <li class="nav-link"><a title="About Me"
+                            href="/blog/aboutme/">About Me</a>
+                    </li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search"
+                            href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- 数学公式 -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+        }
+    });
+</script>
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">Stochastic Process Review</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2024-01-03T00:00:00+08:00" datetime="2024-01-03T00:00:00+08:00">January 03, 2024 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Rain Chen</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+
+
+<li>
+    <a href="/blog/tags/#Mathematics"
+        title="Mathematics">Mathematics <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#StochasticProcess"
+        title="StochasticProcess">StochasticProcess <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#數學"
+        title="數學">數學 <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#隨機"
+        title="隨機">隨機 <span>1</span></a>
+</li>
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <h1 id="heading-stochastic-process-review">Stochastic Process Review</h1>
+
+<h2 id="heading-problem-strings">Problem Strings</h2>
+
+<h3 id="heading-1">1.</h3>
+
+<h4 id="heading-description">Description</h4>
+
+<p>一个有限状态的离散随机变量平方之后，新随机变量的概率密度应该如何计算？</p>
+
+<h4 id="heading-solutions">Solutions</h4>
+
+<h3 id="heading-2">2.</h3>
+
+<h4 id="heading-description-1">Description</h4>
+
+<p>已知两个联合正态分布的零均值随机变量 $X$，$Y$，他们的二维联合概率密度函数为 $f_{XY}(x, y) = \frac{1}{2 \pi A}\exp{-(\frac{x^2}{6} - \frac{xy}{9} + \frac{y^2}{13.5})}$，那么随机变量 $X$ 和 $Y$ 的相关系数是多少？二维联合概率密度中的常数 $A$ 是多少？</p>
+
+<h4 id="heading-solutions-1">Solutions</h4>
+
+<p>由于两个联合正态分布的随机变量是零均值的，因此</p>
+
+\[E(X) = E(Y) = m_X = m_Y = 0\]
+
+<p>又根据随机变量联合正态的定义</p>
+
+\[f_{XY}(x, y) = \frac{1}{2 \pi \sigma_{X1} \sigma_{Y} \sqrt{1 - r^2}} \exp\{-\frac{1}{2(1 - r^2)} [\frac{(x-m_X)^2}{\sigma_{X}^2} - \frac{2r(x-m_X)(y-m_Y)}{\sigma_{X} \sigma_{Y}} + \frac{(y-m_Y)^2}{\sigma_{Y}^2}] \}\]
+
+<p>因此可以知道题目描述中的常数 $A$ 就是 $\sigma_X \sigma_Y \sqrt{1 - r^2}$。所以由此推断：</p>
+
+\[\sigma_X^2 = 6, \sigma_X \sigma_Y = 9, \sigma_Y^2 = 13.5\]
+
+<p>以及</p>
+
+\[-\frac{1}{2(1-r^2)} = -1\]
+
+<p>解得：</p>
+
+\[r = \frac{\sqrt{2}}{2}, \sigma_X = \sqrt{6}, \sigma_Y = 3 \sqrt{\frac{3}{2}}\]
+
+<p>所以相关系数 $r = \frac{\sqrt{2}}{2}$，常数 $A = \frac{9 \sqrt{2}}{2}$。</p>
+
+<h3 id="heading-3">3.</h3>
+
+<h4 id="heading-description-2">Description</h4>
+
+<p>一个实随机过程的两个时刻相隔越远，则这两个时刻的自相关函数的绝对值是不是越小？</p>
+
+<h4 id="heading-solutions-2">Solutions</h4>
+
+<p>是。自相关函数 $R_X(t_1, t_2) = \sigma_X^2(t) + m_X^2(t)$ 可正可负，其绝对值越大，表示相关性越强，一般来说，$t_1$、$t_2$ 相隔越远，相关性就越弱，$R_X(t_1, t_2)$ 的绝对值就越小；当 $t_1 = t_2 = 0$ 时，相关性是最强的，此时 $R_X(t_1, t_2)$ 最大。</p>
+
+<h3 id="heading-4">4.</h3>
+
+<h4 id="heading-description-3">Description</h4>
+
+<p>对于一个已知的随机过程 $X(t)$，给定任意实数 $x$，根据 $X(t)$ 的值定义另一个随机过程 $Y(t)$：当 $X(t) \le x$ 时 $Y(t) = 1$，当 $X(t) \gt x$ 时 $Y(t) = 0$，那么 $Y(t)$ 的均值函数是什么样的？$Y(t)$ 的自相关函数是怎么样的？</p>
+
+<h4 id="heading-solutions-3">Solutions</h4>
+
+<p>根据题目描述，可以得到下面这个表达式：</p>
+
+\[Y(t) = \left\{
+  \begin{array}{ll}
+      1, X(t) \le x \\
+      0, X(t) \gt x
+  \end{array}
+\right.\]
+
+<p>$Y(t)$ 的均值函数是</p>
+
+\[E[Y(t)] = 1 \times P\{Y(t) = 1\} + 0 \times P\{Y(t) = 0\}\]
+
+\[= P\{X(t) \le x\} = F(x, t)\]
+
+<p>是 $X(t)$ 的一维分布函数。</p>
+
+<p>$Y(t)$ 的自相关函数</p>
+
+\[R_Y(t_1, t_2) = E[Y(t_1Y(t_2))] = 1 \times 1 \times P\{Y(t_1) = 1, Y(t_2) = 1\} + 1 \times 0 \times P\{Y(t_1) = 1, Y(t_2) = 0\}\]
+
+\[+ 0 \times 1 \times P\{Y(t_1) = 0, Y(t_2) = 1\} + 0 \times 0 \times P\{Y(t_1) = 0, Y(t_2) = 0\}\]
+
+\[= F_X(x, x; t_1, t_2)\]
+
+<p>是 $X(t)$ 的二维分布函数。</p>
+
+<h3 id="heading-5">5.</h3>
+
+<h4 id="heading-description-4">Description</h4>
+
+<p>设随机过程 $Z(t) = X \cos t + Y \sin t, -\infty \lt t \lt \infty$，其中 $X$ 和 $Y$ 为相互独立的随机变量，并分别以概率 $\frac{2}{3}$、$\frac{1}{3}$ 取值 $-1$ 和 $2$，那么 $Z(t)$ 是广义平稳随机过程还是狭义平稳随机过程？</p>
+
+<h4 id="heading-solutions-4">Solutions</h4>
+
+<p>狭义平稳随机过程：随机过程 $X(t)$ 的任意 $N$ 维分布不随时间起点的不同而变化。特别是一维概率密度 $f_X(x, t) = f_X(x)$ 与时间无关，二维概率密度 $f_X(x_1, x_2, t_1, t_2) = f_X(x_1, x_2, \tau)$ 仅与时间差有关，$(\tau = t_1 - t_2)$。</p>
+
+<p>广义平稳随机过程：随机过程 $X(t)$ 的均值为常数，自相关函数只与 $\tau = t_1 - t_2$有关：</p>
+
+\[m_X(t) = m_X\]
+
+\[R_X(t_1, t_2) = R_X(\tau), (\tau = t_1 - t_2)\]
+
+<table>
+  <thead>
+    <tr>
+      <th>取值</th>
+      <th>$-1$</th>
+      <th>$2$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$P$</td>
+      <td>$\frac{2}{3}$</td>
+      <td>$\frac{1}{3}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>所以可以计算 $X$ 和 $Y$ 的一阶矩和二阶矩：</p>
+
+\[E(X) = -1 \times \frac{2}{3} + 2 \times \frac{1}{3} = 0\]
+
+\[E(X^2) = (-1)^2 \times \frac{2}{3} + 2^2 \times \frac{1}{3} = 2\]
+
+<p>同理，</p>
+
+\[E(Y) = -1 \times \frac{2}{3} + 2 \times \frac{1}{3} = 0\]
+
+\[E(Y^2) = (-1)^2 \times \frac{2}{3} + 2^2 \times \frac{1}{3} = 2\]
+
+<p>所以可以求出</p>
+
+\[m_Z(t) = E[X \sin t + Y \cos t] = E(X) \cos t + E(Y) \sin t = 0\]
+
+<p>然后求自相关函数：</p>
+
+\[R_Z(t_1, t_2) = E[Z(t_1)Z(t_2)] = E[(X \cos t_1 + Y \sin t_1)(X \cos t_2 + Y \sin t_2)]\]
+
+\[= E(X^2) \cos t_1 \cos t_2 + E(Y^2) \sin t_1 \sin t_2 + E(XY)(\cos t_1 \sin t_2 + \sin t_1 \cos t_2)\]
+
+\[= 2 [\cos t_1 \cos t_2 + \sin t_1 \sin t_2] = 2 \cos (t_2 - t_1)\]
+
+\[= R_Z(t_2 - t_1)\]
+
+<p>自相关函数只与 $\tau$ 有关，所以 $Z(t)$ 是广义平稳随机过程。又由于 $Z(t)$ 的一维分布函数与 $t$ 有关，所以 $Z(t)$ 不是狭义严格平稳过程（稍后补充证明过程）。</p>
+
+<h3 id="heading-6">6.</h3>
+
+<h4 id="heading-description-5">Description</h4>
+
+<p>平稳随机过程的相关时间大小与随机过程的变化快慢的对应关系是什么样的？</p>
+
+<h4 id="heading-solutions-5">Solutions</h4>
+
+<h3 id="heading-7">7.</h3>
+
+<h4 id="heading-description-6">Description</h4>
+
+<p>若平稳随机过程 $X(t)$ 的协方差函数 $K_X(\tau)$ 不满足 $K_X(\infty) = 0$，则该过程是否隐含周期性。</p>
+
+<h4 id="heading-solutions-6">Solutions</h4>
+
+<h3 id="heading-8">8.</h3>
+
+<h4 id="heading-description-7">Description</h4>
+
+<p>一个随机过程 $X(t)$ 定义为 $X(t) = f(t + \epsilon)$，其中 $f(t)$ 是具有周期 $T$ 的周期信号，$\epsilon$ 是在区间 $[0, T]$ 内均匀分布的随机变量，请问 $X(t)$ 是不是平稳？</p>
+
+<h4 id="heading-solutions-7">Solutions</h4>
+
+<h3 id="heading-9">9.</h3>
+
+<h4 id="heading-description-8">Description</h4>
+
+<p>一个平稳随机过程叠加一个确定性的余弦信号之后，新过程是否为各态经历的随机过程？</p>
+
+<h4 id="heading-solutions-8">Solutions</h4>
+
+<h3 id="heading-10">10.</h3>
+
+<h4 id="heading-description-9">Description</h4>
+
+<p>已知 $X(n)$ 是一个独立随机过程，$Y(n)$ 的表达式为 $Y(n) = \sum_{k = 1}^{n}{X(k)}$，那么 $Y(n)$ 是独立随机过程吗？是增量随机过程吗？</p>
+
+<h4 id="heading-solutions-9">Solutions</h4>
+
+<h3 id="heading-11">11.</h3>
+
+<h4 id="heading-description-10">Description</h4>
+
+<p>一个正态随机过程的均值为常数，自相关函数只与时间有关，该过程是否为一个狭义平稳随机过程？</p>
+
+<h4 id="heading-solutions-10">Solutions</h4>
+
+<h3 id="heading-12">12.</h3>
+
+<h4 id="heading-description-11">Description</h4>
+
+<p>对于一个平稳的正态随机过程，其全部的统计特性是否能够由其均值函数及自相关函数确定？</p>
+
+<h4 id="heading-solutions-11">Solutions</h4>
+
+<h3 id="heading-13">13.</h3>
+
+<h4 id="heading-description-12">Description</h4>
+
+<p>如果正态平稳随机过程 $X(t)$ 的功率谱密度</p>
+
+\[G_X(\omega) = \frac{6 \omega^2 + 12}{\omega ^ 4 + 5 \omega ^ 2 + 4}\]
+
+<p>那么，$X(t)$ 的自相关函数是多少？能求出 $X(t)$ 的一维概率密度分布吗？</p>
+
+<h4 id="heading-solutions-12">Solutions</h4>
+
+<h3 id="heading-14">14.</h3>
+
+<h4 id="heading-description-13">Description</h4>
+
+<p>一个正态随机过程叠加一个确定性信号后服从什么分布？是否平稳？</p>
+
+<h4 id="heading-solutions-13">Solutions</h4>
+
+<h3 id="heading-15">15.</h3>
+
+<h4 id="heading-description-14">Description</h4>
+
+<p>一个正态随机过程在某两个时刻上的采样值如果互不相关，则该过程在这两个时刻上的采样值是否一定相互独立？</p>
+
+<h4 id="heading-solutions-14">Solutions</h4>
+
+<h3 id="heading-16">16.</h3>
+
+<h4 id="heading-description-15">Description</h4>
+
+<p>一个平稳过程 $X(t)$ 通过一个AWGN 信道到达接受端后会产生延迟 $T$，并且会叠加一个平稳的高斯白噪声 $W(t)$，则接收信号 $Y(t)$ 的表达式是什么？它与 $X(t)$ 的互相关函数是多少？</p>
+
+<h4 id="heading-solutions-15">Solutions</h4>
+
+<h3 id="heading-17">17.</h3>
+
+<h4 id="heading-description-16">Description</h4>
+
+<p>希尔伯特变换器的幅频特性具有什么特点？是一个什么网络？它对输入信号的所有频率分量放大能力是一样的吗？</p>
+
+<h4 id="heading-solutions-16">Solutions</h4>
+
+<h3 id="heading-18">18.</h3>
+
+<h4 id="heading-description-17">Description</h4>
+
+<p>对于一个实平稳随机过程和它的希尔伯特变换，二者之间的自相关函数具有什么关系？功率谱密度有什么关系？</p>
+
+<h4 id="heading-solutions-17">Solutions</h4>
+
+<h3 id="heading-19">19.</h3>
+
+<h4 id="heading-description-18">Description</h4>
+
+<p>已知信号 $X(t)$ 的表达式为 $X(t) = (1 + A \cos \omega t), \omega \ll \omega_0$，则 $X(t)$ 的复解析信号表达式是怎么样的？</p>
+
+<h4 id="heading-solutions-18">Solutions</h4>
+
+<h3 id="heading-20">20.</h3>
+
+<h4 id="heading-description-19">Description</h4>
+
+<p>一个窄带正态随机过程的包络服从什么分布？相位服从什么分布？其包络和相位是否相互独立？</p>
+
+<h4 id="heading-solutions-19">Solutions</h4>
+
+<h3 id="heading-21">21.</h3>
+
+<h4 id="heading-description-20">Description</h4>
+
+<p>若某通信系统中的一个调频信号 $X(t) = A \cos [\omega_0 t + m(t)]$ 为窄带信号，$A$ 为常数，则其希尔伯特变换是什么？其复信号表示是什么？</p>
+
+<h4 id="heading-solutions-20">Solutions</h4>
+
+<h3 id="heading-22">22.</h3>
+
+<h4 id="heading-description-21">Description</h4>
+
+<p>高斯白噪声中的「高斯」指的是什么？「白」指的是什么？它通过一个窄带系统之后是什么噪声？「窄带」指的是什么？</p>
+
+<h4 id="heading-solutions-21">Solutions</h4>
+
+<h3 id="heading-23">23.</h3>
+
+<h4 id="heading-description-22">Description</h4>
+
+<p>一个实平稳随机过程 $X(t)$ 的解析信号 $\tilde{X}(t)$ 的表达式是怎么样的？$E[\tilde{X}(t) \tilde{X^*}(t - \tau)]$ 和 $E[\tilde{X}(t) \tilde{X}(t - \tau)]$ 的结果一样吗？</p>
+
+<h4 id="heading-solutions-22">Solutions</h4>
+
+<h3 id="heading-24">24.</h3>
+
+<h4 id="heading-description-23">Description</h4>
+
+<p>一个齐次的马尔可夫链是否是一个平稳的随机过程？</p>
+
+<h4 id="heading-solutions-23">Solutions</h4>
+
+<h3 id="heading-25">25.</h3>
+
+<h4 id="heading-description-24">Description</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>一个马尔可夫链的状态空间 $I = {1, 2, …, N}$，已知 $s$ 时刻到 $r$ 时刻及 $r$ 时刻到 $n$ 时刻的状态转移概率分别为 $p_{ik}(s, r) = P{X(r) = K</td>
+      <td>X(s) = i}$、$p_{kj}(r, n) = P{X(n) = j</td>
+      <td>X(r) = k}$，则 $P{X(n) = j</td>
+      <td>X(s) = i}$  是多少？</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="heading-solutions-24">Solutions</h4>
+
+<h3 id="heading-26">26.</h3>
+
+<h4 id="heading-description-25">Description</h4>
+
+<p>一个马尔可夫过程 $X(t)$，当 $t_s \lt t_r \lt t_n$ 时，如果 $t_r$ 时刻的状态 $X(t_r)$ 已知，那么随机变量 $X(t_s)$ 与 $X(t_n)$ 是否统计独立？用概率密度表示如何？</p>
+
+<h4 id="heading-solutions-25">Solutions</h4>
+
+<h3 id="heading-27">27.</h3>
+
+<h4 id="heading-description-26">Description</h4>
+
+<p>泊松随机过程是否为独立增量随机过程？是否为独立随机过程？</p>
+
+<h4 id="heading-solutions-26">Solutions</h4>
+
+<h3 id="heading-28">28.</h3>
+
+<h4 id="heading-description-27">Description</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>已知某泊松过程 $X(t)$ 的到达率参数为 $\lambda$。给定两个时刻 $s$ 和 $t(s \lt t)$，如果已知 $s$ 时刻的事件发生次数为 $k$，则概率 $P{X(t) = n</td>
+      <td>X(s) = k}$ 表示什么含义？其值如何计算？</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="heading-solutions-27">Solutions</h4>
+
+<h3 id="heading-29">29.</h3>
+
+<h4 id="heading-description-28">Description</h4>
+
+<p>泊松随机过程的概率分布率如何计算？两个独立泊松过程叠加后服从什么分布？叠加后得到的新随机过程的强度是多少？</p>
+
+<h4 id="heading-solutions-28">Solutions</h4>
+
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2024/01/01/hnu_cn_review/" title=" 'HNU 计算机网络期末考试考点复习'"> ← HNU 计算机网络期末考试考点复习</a>
+                        
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                    <p>🏳️‍⚧️ Everyone has her/his right to wear skirts! 🏳️‍⚧️</p>
+                    
+                    
+                </div>
+                <div class="social-links">
+                    
+                    
+                    <a class="ico-github" href="https://github.com/congjyu" rel="me" target="_blank"
+                        title="github"></a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+</footer>
+    </div>
+
+    <script>
+    $(document).ready(function () {
+        var offset = 50,
+            duration = 500,
+            width = 960;
+        $(window).scroll(function () {
+            if ($(window).width() > width) {
+                if ($(this).scrollTop() > offset) {
+                    $('footer').css('top', '20px');
+                    $('footer .back-to-top').fadeIn(duration);
+                } else {
+                    $('footer').css('top', 'auto');
+                    $('footer .back-to-top').fadeOut(duration);
+                }
+            }
+        });
+        $(window).resize(function () {
+            if ($(window).width() < width) {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+            if ($(window).width() >= width && $(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            }
+        });
+
+        $('footer .back-to-top, .gotop').on('click', function (event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, duration);
+            return false;
+        });
+
+        $('.show-hidden').on('click', function () {
+            $(this).parent().next().toggleClass("hidden");
+            $(this).toggleClass("hidden");
+        });
+    });
+</script>
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.search-field').simpleJekyllSearch({
+            jsonFile: '/search.json',
+            template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+            searchResults: '.search-wrapper .results',
+            searchResultsTitle: '<h4>Search results</h4>',
+            noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+        });
+    });
+
+    (function ($, window, undefined) {
+        var closeOverlay = function () {
+            $('.nav-wrapper, .search-wrapper').removeAttr('style');
+            $(".nav-form, .search-form").removeClass('active');
+            $("body").removeClass('nav-overlay search-overlay');
+        };
+
+        $('.nav-global .btn-search').on('click', function () {
+            $('.search-wrapper').css({ display: "block" });
+            $(".search-form").addClass('active');
+            $(".search-form").find('input').focus();
+            $("body").addClass('search-overlay');
+        });
+
+        $('.nav-global .btn-menu').on('click', function () {
+            $('.nav-wrapper').css({ display: "block" });
+            $(".nav-form").addClass('active');
+            $(".nav-form .search-field").prop('disabled', true);
+            $("body").addClass('nav-overlay');
+        });
+
+        $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+            closeOverlay();
+        });
+
+        $(document).on('keyup', function (e) {
+            if (e.keyCode === 27) {
+                closeOverlay();
+            }
+        });
+    })(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+</body>
+
+</html>

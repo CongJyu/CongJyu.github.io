@@ -1,4 +1,362 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-03T10:43:39+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-03T22:50:42+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-problem-strings&quot;&gt;Problem Strings&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-1&quot;&gt;1.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个有限状态的离散随机变量平方之后，新随机变量的概率密度应该如何计算？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-2&quot;&gt;2.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-1&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;已知两个联合正态分布的零均值随机变量 $X$，$Y$，他们的二维联合概率密度函数为 $f_{XY}(x, y) = \frac{1}{2 \pi A}\exp{-(\frac{x^2}{6} - \frac{xy}{9} + \frac{y^2}{13.5})}$，那么随机变量 $X$ 和 $Y$ 的相关系数是多少？二维联合概率密度中的常数 $A$ 是多少？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-1&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;由于两个联合正态分布的随机变量是零均值的，因此&lt;/p&gt;
+
+\[E(X) = E(Y) = m_X = m_Y = 0\]
+
+&lt;p&gt;又根据随机变量联合正态的定义&lt;/p&gt;
+
+\[f_{XY}(x, y) = \frac{1}{2 \pi \sigma_{X1} \sigma_{Y} \sqrt{1 - r^2}} \exp\{-\frac{1}{2(1 - r^2)} [\frac{(x-m_X)^2}{\sigma_{X}^2} - \frac{2r(x-m_X)(y-m_Y)}{\sigma_{X} \sigma_{Y}} + \frac{(y-m_Y)^2}{\sigma_{Y}^2}] \}\]
+
+&lt;p&gt;因此可以知道题目描述中的常数 $A$ 就是 $\sigma_X \sigma_Y \sqrt{1 - r^2}$。所以由此推断：&lt;/p&gt;
+
+\[\sigma_X^2 = 6, \sigma_X \sigma_Y = 9, \sigma_Y^2 = 13.5\]
+
+&lt;p&gt;以及&lt;/p&gt;
+
+\[-\frac{1}{2(1-r^2)} = -1\]
+
+&lt;p&gt;解得：&lt;/p&gt;
+
+\[r = \frac{\sqrt{2}}{2}, \sigma_X = \sqrt{6}, \sigma_Y = 3 \sqrt{\frac{3}{2}}\]
+
+&lt;p&gt;所以相关系数 $r = \frac{\sqrt{2}}{2}$，常数 $A = \frac{9 \sqrt{2}}{2}$。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-3&quot;&gt;3.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-2&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个实随机过程的两个时刻相隔越远，则这两个时刻的自相关函数的绝对值是不是越小？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-2&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;是。自相关函数 $R_X(t_1, t_2) = \sigma_X^2(t) + m_X^2(t)$ 可正可负，其绝对值越大，表示相关性越强，一般来说，$t_1$、$t_2$ 相隔越远，相关性就越弱，$R_X(t_1, t_2)$ 的绝对值就越小；当 $t_1 = t_2 = 0$ 时，相关性是最强的，此时 $R_X(t_1, t_2)$ 最大。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-4&quot;&gt;4.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-3&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;对于一个已知的随机过程 $X(t)$，给定任意实数 $x$，根据 $X(t)$ 的值定义另一个随机过程 $Y(t)$：当 $X(t) \le x$ 时 $Y(t) = 1$，当 $X(t) \gt x$ 时 $Y(t) = 0$，那么 $Y(t)$ 的均值函数是什么样的？$Y(t)$ 的自相关函数是怎么样的？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-3&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;根据题目描述，可以得到下面这个表达式：&lt;/p&gt;
+
+\[Y(t) = \left\{
+  \begin{array}{ll}
+      1, X(t) \le x \\
+      0, X(t) \gt x
+  \end{array}
+\right.\]
+
+&lt;p&gt;$Y(t)$ 的均值函数是&lt;/p&gt;
+
+\[E[Y(t)] = 1 \times P\{Y(t) = 1\} + 0 \times P\{Y(t) = 0\}\]
+
+\[= P\{X(t) \le x\} = F(x, t)\]
+
+&lt;p&gt;是 $X(t)$ 的一维分布函数。&lt;/p&gt;
+
+&lt;p&gt;$Y(t)$ 的自相关函数&lt;/p&gt;
+
+\[R_Y(t_1, t_2) = E[Y(t_1Y(t_2))] = 1 \times 1 \times P\{Y(t_1) = 1, Y(t_2) = 1\} + 1 \times 0 \times P\{Y(t_1) = 1, Y(t_2) = 0\}\]
+
+\[+ 0 \times 1 \times P\{Y(t_1) = 0, Y(t_2) = 1\} + 0 \times 0 \times P\{Y(t_1) = 0, Y(t_2) = 0\}\]
+
+\[= F_X(x, x; t_1, t_2)\]
+
+&lt;p&gt;是 $X(t)$ 的二维分布函数。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-5&quot;&gt;5.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-4&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;设随机过程 $Z(t) = X \cos t + Y \sin t, -\infty \lt t \lt \infty$，其中 $X$ 和 $Y$ 为相互独立的随机变量，并分别以概率 $\frac{2}{3}$、$\frac{1}{3}$ 取值 $-1$ 和 $2$，那么 $Z(t)$ 是广义平稳随机过程还是狭义平稳随机过程？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-4&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;狭义平稳随机过程：随机过程 $X(t)$ 的任意 $N$ 维分布不随时间起点的不同而变化。特别是一维概率密度 $f_X(x, t) = f_X(x)$ 与时间无关，二维概率密度 $f_X(x_1, x_2, t_1, t_2) = f_X(x_1, x_2, \tau)$ 仅与时间差有关，$(\tau = t_1 - t_2)$。&lt;/p&gt;
+
+&lt;p&gt;广义平稳随机过程：随机过程 $X(t)$ 的均值为常数，自相关函数只与 $\tau = t_1 - t_2$有关：&lt;/p&gt;
+
+\[m_X(t) = m_X\]
+
+\[R_X(t_1, t_2) = R_X(\tau), (\tau = t_1 - t_2)\]
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;取值&lt;/th&gt;
+      &lt;th&gt;$-1$&lt;/th&gt;
+      &lt;th&gt;$2$&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$P$&lt;/td&gt;
+      &lt;td&gt;$\frac{2}{3}$&lt;/td&gt;
+      &lt;td&gt;$\frac{1}{3}$&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;所以可以计算 $X$ 和 $Y$ 的一阶矩和二阶矩：&lt;/p&gt;
+
+\[E(X) = -1 \times \frac{2}{3} + 2 \times \frac{1}{3} = 0\]
+
+\[E(X^2) = (-1)^2 \times \frac{2}{3} + 2^2 \times \frac{1}{3} = 2\]
+
+&lt;p&gt;同理，&lt;/p&gt;
+
+\[E(Y) = -1 \times \frac{2}{3} + 2 \times \frac{1}{3} = 0\]
+
+\[E(Y^2) = (-1)^2 \times \frac{2}{3} + 2^2 \times \frac{1}{3} = 2\]
+
+&lt;p&gt;所以可以求出&lt;/p&gt;
+
+\[m_Z(t) = E[X \sin t + Y \cos t] = E(X) \cos t + E(Y) \sin t = 0\]
+
+&lt;p&gt;然后求自相关函数：&lt;/p&gt;
+
+\[R_Z(t_1, t_2) = E[Z(t_1)Z(t_2)] = E[(X \cos t_1 + Y \sin t_1)(X \cos t_2 + Y \sin t_2)]\]
+
+\[= E(X^2) \cos t_1 \cos t_2 + E(Y^2) \sin t_1 \sin t_2 + E(XY)(\cos t_1 \sin t_2 + \sin t_1 \cos t_2)\]
+
+\[= 2 [\cos t_1 \cos t_2 + \sin t_1 \sin t_2] = 2 \cos (t_2 - t_1)\]
+
+\[= R_Z(t_2 - t_1)\]
+
+&lt;p&gt;自相关函数只与 $\tau$ 有关，所以 $Z(t)$ 是广义平稳随机过程。又由于 $Z(t)$ 的一维分布函数与 $t$ 有关，所以 $Z(t)$ 不是狭义严格平稳过程（稍后补充证明过程）。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-6&quot;&gt;6.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-5&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;平稳随机过程的相关时间大小与随机过程的变化快慢的对应关系是什么样的？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-5&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-7&quot;&gt;7.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-6&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;若平稳随机过程 $X(t)$ 的协方差函数 $K_X(\tau)$ 不满足 $K_X(\infty) = 0$，则该过程是否隐含周期性。&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-6&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-8&quot;&gt;8.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-7&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个随机过程 $X(t)$ 定义为 $X(t) = f(t + \epsilon)$，其中 $f(t)$ 是具有周期 $T$ 的周期信号，$\epsilon$ 是在区间 $[0, T]$ 内均匀分布的随机变量，请问 $X(t)$ 是不是平稳？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-7&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-9&quot;&gt;9.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-8&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个平稳随机过程叠加一个确定性的余弦信号之后，新过程是否为各态经历的随机过程？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-8&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-10&quot;&gt;10.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-9&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;已知 $X(n)$ 是一个独立随机过程，$Y(n)$ 的表达式为 $Y(n) = \sum_{k = 1}^{n}{X(k)}$，那么 $Y(n)$ 是独立随机过程吗？是增量随机过程吗？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-9&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-11&quot;&gt;11.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-10&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个正态随机过程的均值为常数，自相关函数只与时间有关，该过程是否为一个狭义平稳随机过程？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-10&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-12&quot;&gt;12.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-11&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;对于一个平稳的正态随机过程，其全部的统计特性是否能够由其均值函数及自相关函数确定？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-11&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-13&quot;&gt;13.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-12&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;如果正态平稳随机过程 $X(t)$ 的功率谱密度&lt;/p&gt;
+
+\[G_X(\omega) = \frac{6 \omega^2 + 12}{\omega ^ 4 + 5 \omega ^ 2 + 4}\]
+
+&lt;p&gt;那么，$X(t)$ 的自相关函数是多少？能求出 $X(t)$ 的一维概率密度分布吗？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-12&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-14&quot;&gt;14.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-13&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个正态随机过程叠加一个确定性信号后服从什么分布？是否平稳？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-13&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-15&quot;&gt;15.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-14&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个正态随机过程在某两个时刻上的采样值如果互不相关，则该过程在这两个时刻上的采样值是否一定相互独立？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-14&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-16&quot;&gt;16.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-15&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个平稳过程 $X(t)$ 通过一个AWGN 信道到达接受端后会产生延迟 $T$，并且会叠加一个平稳的高斯白噪声 $W(t)$，则接收信号 $Y(t)$ 的表达式是什么？它与 $X(t)$ 的互相关函数是多少？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-15&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-17&quot;&gt;17.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-16&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;希尔伯特变换器的幅频特性具有什么特点？是一个什么网络？它对输入信号的所有频率分量放大能力是一样的吗？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-16&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-18&quot;&gt;18.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-17&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;对于一个实平稳随机过程和它的希尔伯特变换，二者之间的自相关函数具有什么关系？功率谱密度有什么关系？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-17&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-19&quot;&gt;19.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-18&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;已知信号 $X(t)$ 的表达式为 $X(t) = (1 + A \cos \omega t), \omega \ll \omega_0$，则 $X(t)$ 的复解析信号表达式是怎么样的？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-18&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-20&quot;&gt;20.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-19&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个窄带正态随机过程的包络服从什么分布？相位服从什么分布？其包络和相位是否相互独立？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-19&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-21&quot;&gt;21.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-20&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;若某通信系统中的一个调频信号 $X(t) = A \cos [\omega_0 t + m(t)]$ 为窄带信号，$A$ 为常数，则其希尔伯特变换是什么？其复信号表示是什么？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-20&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-22&quot;&gt;22.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-21&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;高斯白噪声中的「高斯」指的是什么？「白」指的是什么？它通过一个窄带系统之后是什么噪声？「窄带」指的是什么？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-21&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-23&quot;&gt;23.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-22&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个实平稳随机过程 $X(t)$ 的解析信号 $\tilde{X}(t)$ 的表达式是怎么样的？$E[\tilde{X}(t) \tilde{X^*}(t - \tau)]$ 和 $E[\tilde{X}(t) \tilde{X}(t - \tau)]$ 的结果一样吗？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-22&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-24&quot;&gt;24.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-23&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个齐次的马尔可夫链是否是一个平稳的随机过程？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-23&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-25&quot;&gt;25.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-24&quot;&gt;Description&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;一个马尔可夫链的状态空间 $I = {1, 2, …, N}$，已知 $s$ 时刻到 $r$ 时刻及 $r$ 时刻到 $n$ 时刻的状态转移概率分别为 $p_{ik}(s, r) = P{X(r) = K&lt;/td&gt;
+      &lt;td&gt;X(s) = i}$、$p_{kj}(r, n) = P{X(n) = j&lt;/td&gt;
+      &lt;td&gt;X(r) = k}$，则 $P{X(n) = j&lt;/td&gt;
+      &lt;td&gt;X(s) = i}$  是多少？&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;heading-solutions-24&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-26&quot;&gt;26.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-25&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;一个马尔可夫过程 $X(t)$，当 $t_s \lt t_r \lt t_n$ 时，如果 $t_r$ 时刻的状态 $X(t_r)$ 已知，那么随机变量 $X(t_s)$ 与 $X(t_n)$ 是否统计独立？用概率密度表示如何？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-25&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-27&quot;&gt;27.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-26&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;泊松随机过程是否为独立增量随机过程？是否为独立随机过程？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-26&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-28&quot;&gt;28.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-27&quot;&gt;Description&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;已知某泊松过程 $X(t)$ 的到达率参数为 $\lambda$。给定两个时刻 $s$ 和 $t(s \lt t)$，如果已知 $s$ 时刻的事件发生次数为 $k$，则概率 $P{X(t) = n&lt;/td&gt;
+      &lt;td&gt;X(s) = k}$ 表示什么含义？其值如何计算？&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;heading-solutions-27&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;h3 id=&quot;heading-29&quot;&gt;29.&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-description-28&quot;&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;泊松随机过程的概率分布率如何计算？两个独立泊松过程叠加后服从什么分布？叠加后得到的新随机过程的强度是多少？&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-solutions-28&quot;&gt;Solutions&lt;/h4&gt;</content><author><name>Rain Chen</name></author><category term="StochasticProcess" /><category term="Mathematics" /><category term="數學" /><category term="隨機" /><summary type="html">Stochastic Process Review</summary></entry><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
 
 &lt;p&gt;🎉🎉 Happy New Year 2024! 🎉🎉&lt;/p&gt;
 
