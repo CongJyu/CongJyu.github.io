@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-03T22:55:02+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-03T23:37:51+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-problem-strings&quot;&gt;Problem Strings&lt;/h2&gt;
 
@@ -258,7 +258,7 @@
 
 &lt;h4 id=&quot;heading-description-18&quot;&gt;Description&lt;/h4&gt;
 
-&lt;p&gt;已知信号 $X(t)$ 的表达式为 $X(t) = (1 + A \cos \omega t), \omega \ll \omega_0$，则 $X(t)$ 的复解析信号表达式是怎么样的？&lt;/p&gt;
+&lt;p&gt;已知信号 $X(t)$ 的表达式为 $X(t) = (1 + A \cos \omega t)$，$\omega \ll \omega_0$，则 $X(t)$ 的复解析信号表达式是怎么样的？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-18&quot;&gt;Solutions&lt;/h4&gt;
 
@@ -306,7 +306,17 @@
 
 &lt;h4 id=&quot;heading-description-24&quot;&gt;Description&lt;/h4&gt;
 
-&lt;p&gt;一个马尔可夫链的状态空间 $I = {1, 2, …, N}$，已知 $s$ 时刻到 $r$ 时刻及 $r$ 时刻到 $n$ 时刻的状态转移概率分别为 $p_{ik}(s, r) = P{X(r) = K \vert X(s) = i}$、$p_{kj}(r, n) = P{X(n) = j \vert X(r) = k}$，则 $P{X(n) = j \vert X(s) = i}$  是多少？&lt;/p&gt;
+&lt;p&gt;一个马尔可夫链的状态空间 $I = { 1, 2, …, N }$，已知 $s$ 时刻到 $r$ 时刻及 $r$ 时刻到 $n$ 时刻的状态转移概率分别为&lt;/p&gt;
+
+\[p_{ik}(s, r) = P \{ X(r) = K \mid X(s) = i \}\]
+
+\[p_{kj}(r, n) = P \{ X(n) = j \mid X(r) = k \}\]
+
+&lt;p&gt;则&lt;/p&gt;
+
+\[P \{ X(n) = j \mid X(s) = i\}\]
+
+&lt;p&gt;是多少？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-24&quot;&gt;Solutions&lt;/h4&gt;
 
@@ -330,7 +340,11 @@
 
 &lt;h4 id=&quot;heading-description-27&quot;&gt;Description&lt;/h4&gt;
 
-&lt;p&gt;已知某泊松过程 $X(t)$ 的到达率参数为 $\lambda$。给定两个时刻 $s$ 和 $t(s \lt t)$，如果已知 $s$ 时刻的事件发生次数为 $k$，则概率 $P{X(t) = n \vert X(s) = k}$ 表示什么含义？其值如何计算？&lt;/p&gt;
+&lt;p&gt;已知某泊松过程 $X(t)$ 的到达率参数为 $\lambda$。给定两个时刻 $s$ 和 $t(s \lt t)$，如果已知 $s$ 时刻的事件发生次数为 $k$，则概率&lt;/p&gt;
+
+\[P\{X(t) = n \mid X(s) = k \}\]
+
+&lt;p&gt;表示什么含义？其值如何计算？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-27&quot;&gt;Solutions&lt;/h4&gt;
 
