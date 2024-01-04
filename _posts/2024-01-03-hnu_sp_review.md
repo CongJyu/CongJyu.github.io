@@ -424,6 +424,30 @@ $$
 
 #### Solutions
 
+对于一个实平稳随机过程 $X $ 和它的希尔伯特变换 $\mathcal{H}[X ]$，二者之间的自相关函数具有以下的关系：
+
+$$
+R_{X\hat{X}}(\tau) = jR_{XX}(\tau)
+$$
+
+$$
+R_{\hat{X}\hat{X}}(\tau) = -R_{XX}(\tau)
+$$
+
+其中，$R_{X\hat{X}}(\tau)$ 是 $X$ 和 $\mathcal{H}[X]$ 的互相关函数，$R_{XX}(\tau)$ 是 $X$ 的自相关函数，$R_{\hat{X}\hat{X}}(\tau)$ 是 $\mathcal{H}[X]$ 的自相关函数。
+
+对于一个实平稳随机过程 $X$ 和它的希尔伯特变换 $\mathcal{H}[X]$，二者之间的功率谱密度具有以下的关系：
+
+$$
+S_{X\hat{X}}(f) = jS_{XX}(f)
+$$
+
+$$
+S_{\hat{X}\hat{X}}(f) = -S_{XX}(f)
+$$
+
+其中，$S_{X\hat{X}}(f)$ 是 $X$ 和 $\mathcal{H}[X]$ 的互功率谱密度，$S_{XX}(f)$ 是 $X$ 的功率谱密度，$S_{\hat{X}\hat{X}}(f)$ 是 $\mathcal{H}[X]$ 的功率谱密度。
+
 ### 19.
 
 #### Description
@@ -431,6 +455,30 @@ $$
 已知信号 $X(t)$ 的表达式为 $X(t) = (1 + A \cos \omega t)$，$\omega \ll \omega_0$，则 $X(t)$ 的复解析信号表达式是怎么样的？
 
 #### Solutions
+
+$X(t)$ 的复解析信号表达式是 
+
+$$
+\tilde{X}(t) = X(t) + j\hat{X}(t)
+$$
+
+其中，$\hat{X}(t)$ 是 $X(t)$ 的 希尔伯特变换 ，即
+
+$$
+\hat{X}(t) = \mathcal{H}[X(t)] = \frac{1}{\pi} \int_{-\infty}^{\infty} \frac{X(\tau)}{t-\tau} d\tau
+$$
+
+由于 $\omega \ll \omega_0$，我们可以近似地认为 $X(t)$ 是一个窄带信号，那么其希尔伯特变换可以用以下的公式来计算：
+
+$$
+\hat{X}(t) = \mathcal{H}[X(t)] \approx -A \sin \omega t
+$$
+
+因此，$X(t)$ 的复解析信号表达式为
+
+$$
+\tilde{X}(t) \approx (1 + A \cos \omega t) - jA \sin \omega t
+$$
 
 ### 20.
 
@@ -440,7 +488,13 @@ $$
 
 #### Solutions
 
+一个窄带正态随机过程的包络服从瑞利分布，相位服从均匀分布。其包络和相位是相互独立的。这是因为窄带正态随机过程可以用包络-相位模型来表示，即
 
+$$
+x(t)=a(t)\cos[\varphi(t)]
+$$
+
+其中，$a(t)$ 是包络，$\varphi(t)$ 是相位。如果 $x(t)$ 是一个平稳的正态随机过程，那么 $a(t)$ 和 $\phi(t)$ 是相互独立的随机变量，且 $a(t)$ 服从瑞利分布，$\varphi(t)$ 服从均匀分布。
 
 ### 21.
 
@@ -453,7 +507,7 @@ $$
 求希尔伯特变换：
 
 $$
-\mathscr{H}[X(t)] = \hat{X}(t) = \frac{1}{\pi} \int_{-\infty}^{\infty}{\frac{x(\tau)}{t - \tau}} \text{d}\tau
+\mathcal{H}[X(t)] = \hat{X}(t) = \frac{1}{\pi} \int_{-\infty}^{\infty}{\frac{x(\tau)}{t - \tau}} \text{d}\tau
 $$
 
 即是 $X(t)$ 与 $\frac{1}{\pi}$ 的卷积。因此，$X(t) = A \cos [\omega_0 t + m(t)]$ 的希尔伯特变换是

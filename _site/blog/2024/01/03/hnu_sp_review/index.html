@@ -540,6 +540,22 @@
 
 <h4 id="heading-solutions-17">Solutions</h4>
 
+<p>对于一个实平稳随机过程 $X $ 和它的希尔伯特变换 $\mathcal{H}[X ]$，二者之间的自相关函数具有以下的关系：</p>
+
+\[R_{X\hat{X}}(\tau) = jR_{XX}(\tau)\]
+
+\[R_{\hat{X}\hat{X}}(\tau) = -R_{XX}(\tau)\]
+
+<p>其中，$R_{X\hat{X}}(\tau)$ 是 $X$ 和 $\mathcal{H}[X]$ 的互相关函数，$R_{XX}(\tau)$ 是 $X$ 的自相关函数，$R_{\hat{X}\hat{X}}(\tau)$ 是 $\mathcal{H}[X]$ 的自相关函数。</p>
+
+<p>对于一个实平稳随机过程 $X$ 和它的希尔伯特变换 $\mathcal{H}[X]$，二者之间的功率谱密度具有以下的关系：</p>
+
+\[S_{X\hat{X}}(f) = jS_{XX}(f)\]
+
+\[S_{\hat{X}\hat{X}}(f) = -S_{XX}(f)\]
+
+<p>其中，$S_{X\hat{X}}(f)$ 是 $X$ 和 $\mathcal{H}[X]$ 的互功率谱密度，$S_{XX}(f)$ 是 $X$ 的功率谱密度，$S_{\hat{X}\hat{X}}(f)$ 是 $\mathcal{H}[X]$ 的功率谱密度。</p>
+
 <h3 id="heading-19">19.</h3>
 
 <h4 id="heading-description-18">Description</h4>
@@ -548,6 +564,22 @@
 
 <h4 id="heading-solutions-18">Solutions</h4>
 
+<p>$X(t)$ 的复解析信号表达式是</p>
+
+\[\tilde{X}(t) = X(t) + j\hat{X}(t)\]
+
+<p>其中，$\hat{X}(t)$ 是 $X(t)$ 的 希尔伯特变换 ，即</p>
+
+\[\hat{X}(t) = \mathcal{H}[X(t)] = \frac{1}{\pi} \int_{-\infty}^{\infty} \frac{X(\tau)}{t-\tau} d\tau\]
+
+<p>由于 $\omega \ll \omega_0$，我们可以近似地认为 $X(t)$ 是一个窄带信号，那么其希尔伯特变换可以用以下的公式来计算：</p>
+
+\[\hat{X}(t) = \mathcal{H}[X(t)] \approx -A \sin \omega t\]
+
+<p>因此，$X(t)$ 的复解析信号表达式为</p>
+
+\[\tilde{X}(t) \approx (1 + A \cos \omega t) - jA \sin \omega t\]
+
 <h3 id="heading-20">20.</h3>
 
 <h4 id="heading-description-19">Description</h4>
@@ -555,6 +587,12 @@
 <p>一个窄带正态随机过程的包络服从什么分布？相位服从什么分布？其包络和相位是否相互独立？</p>
 
 <h4 id="heading-solutions-19">Solutions</h4>
+
+<p>一个窄带正态随机过程的包络服从瑞利分布，相位服从均匀分布。其包络和相位是相互独立的。这是因为窄带正态随机过程可以用包络-相位模型来表示，即</p>
+
+\[x(t)=a(t)\cos[\varphi(t)]\]
+
+<p>其中，$a(t)$ 是包络，$\varphi(t)$ 是相位。如果 $x(t)$ 是一个平稳的正态随机过程，那么 $a(t)$ 和 $\phi(t)$ 是相互独立的随机变量，且 $a(t)$ 服从瑞利分布，$\varphi(t)$ 服从均匀分布。</p>
 
 <h3 id="heading-21">21.</h3>
 
@@ -566,7 +604,7 @@
 
 <p>求希尔伯特变换：</p>
 
-\[\mathscr{H}[X(t)] = \hat{X}(t) = \frac{1}{\pi} \int_{-\infty}^{\infty}{\frac{x(\tau)}{t - \tau}} \text{d}\tau\]
+\[\mathcal{H}[X(t)] = \hat{X}(t) = \frac{1}{\pi} \int_{-\infty}^{\infty}{\frac{x(\tau)}{t - \tau}} \text{d}\tau\]
 
 <p>即是 $X(t)$ 与 $\frac{1}{\pi}$ 的卷积。因此，$X(t) = A \cos [\omega_0 t + m(t)]$ 的希尔伯特变换是</p>
 
