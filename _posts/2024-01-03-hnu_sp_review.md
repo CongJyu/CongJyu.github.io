@@ -201,6 +201,18 @@ $$
 
 #### Solutions
 
+对于平稳随机过程来说，它的均值为常数，自相关函数只与时间的差值有关。为了比较随机过程的相关特性，引用「相关系数」的概念。相关系数实际上是对平稳随机过程的协方差函数作归一化处理：
+
+$$
+r_X(\tau) = \frac{C_X(\tau)}{\sigma_X^2} = \frac{R_X(\tau) - m_X^2}{\sigma_X^2}
+$$
+
+有时也被叫做**归一化相关函数**或者**标准协方差函数**。
+
+对于相关时间，定义一个 $\tau_0$  参量表示。当 $\tau \rightarrow \infty$ 时，$r_X(\infty) = 0$，$X(t + \tau)$  与 $X(t)$ 才是不相关的；但是实际上当 $\tau$ 大到一定程度时，$r_X(\tau)$ 的值很小，可以近似看作不相关。因此当 $\tau \gt \tau_0$ 时，就认为 $X(t + \tau)$ 与 $X(t)$ 是不相关的。
+
+相关时间越小，意味着相关系数随着 $\tau$ 的增大而迅速减小，说明随机过程随时间的变化快；反之，相关时间越大，则说明随机过程随时间的变化缓慢。
+
 ### 7.
 
 #### Description
@@ -208,6 +220,14 @@ $$
 若平稳随机过程 $X(t)$ 的协方差函数 $K_X(\tau)$ 不满足 $K_X(\infty) = 0$，则该过程是否隐含周期性。
 
 #### Solutions
+
+协方差函数
+
+$$
+K_X(\tau) = K_X(t_1, t_2) = R_X(t_1, t_2) - m_X(t_1) m_X(t_2)
+$$
+
+由于 $X(t)$ 是平稳随机过程，均值 $m_X$ 为常数，所以 $R_X(t_1, t_2)$ 隐含周期性。由于相关函数隐含周期性，该随机过程也包含周期性。
 
 ### 8.
 
@@ -217,6 +237,46 @@ $$
 
 #### Solutions
 
+判断一个随机过程是否平稳，则需要判断该随机过程的均值是否为一个常数，自相关函数是否只与时间差有关。
+
+因此， $X(t)$ 的均值：
+
+$$
+E[X(t)] = E[f(t + \epsilon)]
+$$
+
+$$
+= \int_{0}^{T}{f(t + \epsilon) \frac{1}{T}} \text{d} \epsilon
+$$
+
+$$
+= \frac{1}{T} \int_{t}^{t + T}{f(x)} \text{d}x
+$$
+
+$$
+= \frac{1}{T} \int_{0}^{T}{f(x)} \text{d}x = Constant.
+$$
+
+是一个常数；
+
+$X(t)$ 的自相关函数：
+
+$$
+R_X(t + \tau, t) = E[X(t + \tau)X(t)] = E[f(t + \tau + \epsilon)X(t + \epsilon)]
+$$
+
+$$
+= \int_{t}^{t + T}{f(x + \tau)f{t} \frac{1}{T}} \text{d}x
+$$
+
+$$
+= \frac{1}{T} \int_{0}^{T}{f(t + \tau)f(t)} \text{d}x
+$$
+
+是时间差 $\tau$ 的函数，与其他参数无关。
+
+因此 $X(t)$ 是一个平稳随机过程。
+
 ### 9.
 
 #### Description
@@ -225,6 +285,26 @@ $$
 
 #### Solutions
 
+平稳随机过程 $X(t)$ 具有均值遍历性的充要条件是：
+
+$$
+\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{1 - \frac{\tau}{2T}[R_X(\tau) - m_X^2]} \text{d}x = 0
+$$
+
+具有相关函数遍历性的充要条件是：
+
+$$
+\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{(1 - \frac{\tau}{2T})[R_\Phi(\tau) - R_X^2(\tau)]} \text{d}\tau = 0
+$$
+
+对于零均值的平稳正态随机过程，如果 $R_X(\tau)$ 连续，那么具有各态经历性的充要条件是：
+
+$$
+\int_{0}^{+\infty} \vert R_X(\tau)\vert \text{d}\tau < \infty
+$$
+
+由于平稳随机过程叠加了一个确定的余弦信号之后变得不平稳，因此新过程不是各态经历的随机过程。
+
 ### 10.
 
 #### Description
@@ -232,6 +312,8 @@ $$
 已知 $X(n)$ 是一个独立随机过程，$Y(n)$ 的表达式为 $Y(n) = \sum_{k = 1}^{n}{X(k)}$，那么 $Y(n)$ 是独立随机过程吗？是增量随机过程吗？
 
 #### Solutions
+
+
 
 ### 11.
 
@@ -327,6 +409,24 @@ $$
 
 #### Solutions
 
+求希尔伯特变换：
+
+$$
+\mathscr{H}[X(t)] = \hat{X}(t) = \frac{1}{\pi} \int_{-\infty}^{\infty}{\frac{x(\tau)}{t - \tau}} \text{d}\tau
+$$
+
+即是 $X(t)$ 与 $\frac{1}{\pi}$ 的卷积。因此，$X(t) = A \cos [\omega_0 t + m(t)]$ 的希尔伯特变换是
+
+$$
+\hat{X}(t) = A \sin [\omega_0 t + m(t)]
+$$
+
+复信号表示为：
+
+$$
+\tilde{X}(t) = X(t) + j \hat{X}(x)
+$$
+
 ### 22.
 
 #### Description
@@ -334,6 +434,8 @@ $$
 高斯白噪声中的「高斯」指的是什么？「白」指的是什么？它通过一个窄带系统之后是什么噪声？「窄带」指的是什么？
 
 #### Solutions
+
+窄带是指：$\omega_0$ 大于物理带宽的 $\frac{1}{2}$（中频）；高斯指的是正态随机过程，任意 $n$ 个随机变量服从 $n$ 维的联合正态分布；白噪声是指通带内功率谱密度是常数。
 
 ### 23.
 
@@ -343,6 +445,38 @@ $$
 
 #### Solutions
 
+结论：结果不一样。
+
+解析信号（复信号表示）：
+
+$$
+\tilde{X}(t) = X(t) + j \hat{X}(t)
+$$
+
+其中 $\hat{X}(t)$ 是 $X(t)$ 的希尔伯特变换。
+
+- 求 $E[\tilde{X}(t) \tilde{X}^*(t - \tau)]$
+
+$$
+E[\tilde{X}(t) \tilde{X}^* (t - \tau)] = R_{\tilde{X}}(\tau) = 2 [R_X(\tau) + j R_X(\tau)]
+$$
+
+- 求 $E[\tilde{X}(t) \tilde{X}(t - \tau)]$
+
+$$
+E[\tilde{X}(t) \tilde{X}(t - \tau)] = E \{ [X(t) + j \hat{X}(t)] [X(t - \tau) + j \hat{X}(t - \tau)] \}
+$$
+
+$$
+= R_X(\tau) + j R_{\hat{X}X}(\tau) + j R_{X \hat{X}}(\tau) - R_{\hat{X}(\tau)}
+$$
+
+根据希尔伯特变换性质 $R_X(\tau) = R_{\hat{X}}(\tau)$ 和 $R_{\hat{X}X}(\tau) = -R_{X \hat{X}}(\tau)$，可以得到：
+
+$$
+E[\tilde{X}(t) \tilde{X}(t - \tau)] = R_X(\tau) + j R_{\hat{X}X}(\tau) + j R_{X \hat{X}}(\tau) - R_{\hat{X}(\tau)} = 0
+$$
+
 ### 24.
 
 #### Description
@@ -350,6 +484,10 @@ $$
 一个齐次的马尔可夫链是否是一个平稳的随机过程？
 
 #### Solutions
+
+不一定是。
+
+> 满足的条件和证明稍后补充。
 
 ### 25.
 
@@ -375,6 +513,8 @@ $$
 
 #### Solutions
 
+
+
 ### 26.
 
 #### Description
@@ -391,6 +531,8 @@ $$
 
 #### Solutions
 
+泊松随机过程是**独立增量**随机过程，即发生在不相交的时间区间中的事件的个数是彼此独立的；但泊松随机过程不是独立随机过程。
+
 ### 28.
 
 #### Description
@@ -405,6 +547,14 @@ $$
 
 #### Solutions
 
+条件概率。$P\{X(t) = n \mid X(s) = k \}$ 表示在「已知 $s$ 时刻事件发生次数为 $k$ 」的条件下 $t$ 时刻事件发生的次数。它反映了泊松过程的**独立增量性质**，也就是说泊松过程不同时间区间的事件数是相互独立的。
+
+可以根据泊松分布的公式进行计算：
+
+$$
+P \{X(t) = n \mid X(s) = k \} = \frac{e^{-\lambda (t-s)} (\lambda (t-s))^{n-k}}{(n-k)!}, \quad n \geq k
+$$
+
 ### 29.
 
 #### Description
@@ -413,3 +563,16 @@ $$
 
 #### Solutions
 
+泊松随机过程的概率分布：
+
+$$
+P\{ N(t) = k \} = \frac{(\lambda t)^k}{k!} \cdot e ^ {-\lambda t}
+$$
+
+分别设两个独立的泊松过程强度参数 $\lambda_1$ 和 $\lambda_2$，概率分布为 $N_1(t)$ 和 $N_2(t)$。那么叠加后：
+
+$$
+P \{N_1(t) + N_2(t) = k\} = \frac{(\lambda_1 t + \lambda_2 t)^k}{k!} \cdot e ^ {-(\lambda_1 + \lambda_2) t}
+$$
+
+因此叠加后的强度 $\lambda = \lambda_1 + \lambda_2$，仍然服从泊松分布。

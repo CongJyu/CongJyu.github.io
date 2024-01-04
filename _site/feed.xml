@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-03T23:37:51+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-04T15:39:56+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-problem-strings&quot;&gt;Problem Strings&lt;/h2&gt;
 
@@ -154,6 +154,16 @@
 
 &lt;h4 id=&quot;heading-solutions-5&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;对于平稳随机过程来说，它的均值为常数，自相关函数只与时间的差值有关。为了比较随机过程的相关特性，引用「相关系数」的概念。相关系数实际上是对平稳随机过程的协方差函数作归一化处理：&lt;/p&gt;
+
+\[r_X(\tau) = \frac{C_X(\tau)}{\sigma_X^2} = \frac{R_X(\tau) - m_X^2}{\sigma_X^2}\]
+
+&lt;p&gt;有时也被叫做&lt;strong&gt;归一化相关函数&lt;/strong&gt;或者&lt;strong&gt;标准协方差函数&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;对于相关时间，定义一个 $\tau_0$  参量表示。当 $\tau \rightarrow \infty$ 时，$r_X(\infty) = 0$，$X(t + \tau)$  与 $X(t)$ 才是不相关的；但是实际上当 $\tau$ 大到一定程度时，$r_X(\tau)$ 的值很小，可以近似看作不相关。因此当 $\tau \gt \tau_0$ 时，就认为 $X(t + \tau)$ 与 $X(t)$ 是不相关的。&lt;/p&gt;
+
+&lt;p&gt;相关时间越小，意味着相关系数随着 $\tau$ 的增大而迅速减小，说明随机过程随时间的变化快；反之，相关时间越大，则说明随机过程随时间的变化缓慢。&lt;/p&gt;
+
 &lt;h3 id=&quot;heading-7&quot;&gt;7.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-6&quot;&gt;Description&lt;/h4&gt;
@@ -161,6 +171,12 @@
 &lt;p&gt;若平稳随机过程 $X(t)$ 的协方差函数 $K_X(\tau)$ 不满足 $K_X(\infty) = 0$，则该过程是否隐含周期性。&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-6&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;协方差函数&lt;/p&gt;
+
+\[K_X(\tau) = K_X(t_1, t_2) = R_X(t_1, t_2) - m_X(t_1) m_X(t_2)\]
+
+&lt;p&gt;由于 $X(t)$ 是平稳随机过程，均值 $m_X$ 为常数，所以 $R_X(t_1, t_2)$ 隐含周期性。由于相关函数隐含周期性，该随机过程也包含周期性。&lt;/p&gt;
 
 &lt;h3 id=&quot;heading-8&quot;&gt;8.&lt;/h3&gt;
 
@@ -170,6 +186,32 @@
 
 &lt;h4 id=&quot;heading-solutions-7&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;判断一个随机过程是否平稳，则需要判断该随机过程的均值是否为一个常数，自相关函数是否只与时间差有关。&lt;/p&gt;
+
+&lt;p&gt;因此， $X(t)$ 的均值：&lt;/p&gt;
+
+\[E[X(t)] = E[f(t + \epsilon)]\]
+
+\[= \int_{0}^{T}{f(t + \epsilon) \frac{1}{T}} \text{d} \epsilon\]
+
+\[= \frac{1}{T} \int_{t}^{t + T}{f(x)} \text{d}x\]
+
+\[= \frac{1}{T} \int_{0}^{T}{f(x)} \text{d}x = Constant.\]
+
+&lt;p&gt;是一个常数；&lt;/p&gt;
+
+&lt;p&gt;$X(t)$ 的自相关函数：&lt;/p&gt;
+
+\[R_X(t + \tau, t) = E[X(t + \tau)X(t)] = E[f(t + \tau + \epsilon)X(t + \epsilon)]\]
+
+\[= \int_{t}^{t + T}{f(x + \tau)f{t} \frac{1}{T}} \text{d}x\]
+
+\[= \frac{1}{T} \int_{0}^{T}{f(t + \tau)f(t)} \text{d}x\]
+
+&lt;p&gt;是时间差 $\tau$ 的函数，与其他参数无关。&lt;/p&gt;
+
+&lt;p&gt;因此 $X(t)$ 是一个平稳随机过程。&lt;/p&gt;
+
 &lt;h3 id=&quot;heading-9&quot;&gt;9.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-8&quot;&gt;Description&lt;/h4&gt;
@@ -177,6 +219,20 @@
 &lt;p&gt;一个平稳随机过程叠加一个确定性的余弦信号之后，新过程是否为各态经历的随机过程？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-8&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;平稳随机过程 $X(t)$ 具有均值遍历性的充要条件是：&lt;/p&gt;
+
+\[\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{1 - \frac{\tau}{2T}[R_X(\tau) - m_X^2]} \text{d}x = 0\]
+
+&lt;p&gt;具有相关函数遍历性的充要条件是：&lt;/p&gt;
+
+\[\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{(1 - \frac{\tau}{2T})[R_\Phi(\tau) - R_X^2(\tau)]} \text{d}\tau = 0\]
+
+&lt;p&gt;对于零均值的平稳正态随机过程，如果 $R_X(\tau)$ 连续，那么具有各态经历性的充要条件是：&lt;/p&gt;
+
+\[\int_{0}^{+\infty} \vert R_X(\tau)\vert \text{d}\tau &amp;lt; \infty\]
+
+&lt;p&gt;由于平稳随机过程叠加了一个确定的余弦信号之后变得不平稳，因此新过程不是各态经历的随机过程。&lt;/p&gt;
 
 &lt;h3 id=&quot;heading-10&quot;&gt;10.&lt;/h3&gt;
 
@@ -278,6 +334,18 @@
 
 &lt;h4 id=&quot;heading-solutions-20&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;求希尔伯特变换：&lt;/p&gt;
+
+\[\mathscr{H}[X(t)] = \hat{X}(t) = \frac{1}{\pi} \int_{-\infty}^{\infty}{\frac{x(\tau)}{t - \tau}} \text{d}\tau\]
+
+&lt;p&gt;即是 $X(t)$ 与 $\frac{1}{\pi}$ 的卷积。因此，$X(t) = A \cos [\omega_0 t + m(t)]$ 的希尔伯特变换是&lt;/p&gt;
+
+\[\hat{X}(t) = A \sin [\omega_0 t + m(t)]\]
+
+&lt;p&gt;复信号表示为：&lt;/p&gt;
+
+\[\tilde{X}(t) = X(t) + j \hat{X}(x)\]
+
 &lt;h3 id=&quot;heading-22&quot;&gt;22.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-21&quot;&gt;Description&lt;/h4&gt;
@@ -285,6 +353,8 @@
 &lt;p&gt;高斯白噪声中的「高斯」指的是什么？「白」指的是什么？它通过一个窄带系统之后是什么噪声？「窄带」指的是什么？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-21&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;窄带是指：$\omega_0$ 大于物理带宽的 $\frac{1}{2}$（中频）；高斯指的是正态随机过程，任意 $n$ 个随机变量服从 $n$ 维的联合正态分布；白噪声是指通带内功率谱密度是常数。&lt;/p&gt;
 
 &lt;h3 id=&quot;heading-23&quot;&gt;23.&lt;/h3&gt;
 
@@ -294,6 +364,32 @@
 
 &lt;h4 id=&quot;heading-solutions-22&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;结论：结果不一样。&lt;/p&gt;
+
+&lt;p&gt;解析信号（复信号表示）：&lt;/p&gt;
+
+\[\tilde{X}(t) = X(t) + j \hat{X}(t)\]
+
+&lt;p&gt;其中 $\hat{X}(t)$ 是 $X(t)$ 的希尔伯特变换。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;求 $E[\tilde{X}(t) \tilde{X}^*(t - \tau)]$&lt;/li&gt;
+&lt;/ul&gt;
+
+\[E[\tilde{X}(t) \tilde{X}^* (t - \tau)] = R_{\tilde{X}}(\tau) = 2 [R_X(\tau) + j R_X(\tau)]\]
+
+&lt;ul&gt;
+  &lt;li&gt;求 $E[\tilde{X}(t) \tilde{X}(t - \tau)]$&lt;/li&gt;
+&lt;/ul&gt;
+
+\[E[\tilde{X}(t) \tilde{X}(t - \tau)] = E \{ [X(t) + j \hat{X}(t)] [X(t - \tau) + j \hat{X}(t - \tau)] \}\]
+
+\[= R_X(\tau) + j R_{\hat{X}X}(\tau) + j R_{X \hat{X}}(\tau) - R_{\hat{X}(\tau)}\]
+
+&lt;p&gt;根据希尔伯特变换性质 $R_X(\tau) = R_{\hat{X}}(\tau)$ 和 $R_{\hat{X}X}(\tau) = -R_{X \hat{X}}(\tau)$，可以得到：&lt;/p&gt;
+
+\[E[\tilde{X}(t) \tilde{X}(t - \tau)] = R_X(\tau) + j R_{\hat{X}X}(\tau) + j R_{X \hat{X}}(\tau) - R_{\hat{X}(\tau)} = 0\]
+
 &lt;h3 id=&quot;heading-24&quot;&gt;24.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-23&quot;&gt;Description&lt;/h4&gt;
@@ -301,6 +397,12 @@
 &lt;p&gt;一个齐次的马尔可夫链是否是一个平稳的随机过程？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-23&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;不一定是。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;满足的条件和证明稍后补充。&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;heading-25&quot;&gt;25.&lt;/h3&gt;
 
@@ -336,6 +438,8 @@
 
 &lt;h4 id=&quot;heading-solutions-26&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;泊松随机过程是&lt;strong&gt;独立增量&lt;/strong&gt;随机过程，即发生在不相交的时间区间中的事件的个数是彼此独立的；但泊松随机过程不是独立随机过程。&lt;/p&gt;
+
 &lt;h3 id=&quot;heading-28&quot;&gt;28.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-27&quot;&gt;Description&lt;/h4&gt;
@@ -348,13 +452,29 @@
 
 &lt;h4 id=&quot;heading-solutions-27&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;条件概率。$P{X(t) = n \mid X(s) = k }$ 表示在「已知 $s$ 时刻事件发生次数为 $k$ 」的条件下 $t$ 时刻事件发生的次数。它反映了泊松过程的&lt;strong&gt;独立增量性质&lt;/strong&gt;，也就是说泊松过程不同时间区间的事件数是相互独立的。&lt;/p&gt;
+
+&lt;p&gt;可以根据泊松分布的公式进行计算：&lt;/p&gt;
+
+\[P \{X(t) = n \mid X(s) = k \} = \frac{e^{-\lambda (t-s)} (\lambda (t-s))^{n-k}}{(n-k)!}, \quad n \geq k\]
+
 &lt;h3 id=&quot;heading-29&quot;&gt;29.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-28&quot;&gt;Description&lt;/h4&gt;
 
 &lt;p&gt;泊松随机过程的概率分布率如何计算？两个独立泊松过程叠加后服从什么分布？叠加后得到的新随机过程的强度是多少？&lt;/p&gt;
 
-&lt;h4 id=&quot;heading-solutions-28&quot;&gt;Solutions&lt;/h4&gt;</content><author><name>Rain Chen</name></author><category term="StochasticProcess" /><category term="Mathematics" /><category term="數學" /><category term="隨機" /><summary type="html">Stochastic Process Review</summary></entry><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
+&lt;h4 id=&quot;heading-solutions-28&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;泊松随机过程的概率分布：&lt;/p&gt;
+
+\[P\{ N(t) = k \} = \frac{(\lambda t)^k}{k!} \cdot e ^ {-\lambda t}\]
+
+&lt;p&gt;分别设两个独立的泊松过程强度参数 $\lambda_1$ 和 $\lambda_2$，概率分布为 $N_1(t)$ 和 $N_2(t)$。那么叠加后：&lt;/p&gt;
+
+\[P \{N_1(t) + N_2(t) = k\} = \frac{(\lambda_1 t + \lambda_2 t)^k}{k!} \cdot e ^ {-(\lambda_1 + \lambda_2) t}\]
+
+&lt;p&gt;因此叠加后的强度 $\lambda = \lambda_1 + \lambda_2$，仍然服从泊松分布。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="StochasticProcess" /><category term="Mathematics" /><category term="數學" /><category term="隨機" /><summary type="html">Stochastic Process Review</summary></entry><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
 
 &lt;p&gt;🎉🎉 Happy New Year 2024! 🎉🎉&lt;/p&gt;
 
