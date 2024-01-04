@@ -288,7 +288,7 @@ $$
 平稳随机过程 $X(t)$ 具有均值遍历性的充要条件是：
 
 $$
-\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{1 - \frac{\tau}{2T}[R_X(\tau) - m_X^2]} \text{d}x = 0
+\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{(1 - \frac{\tau}{2T})[R_X(\tau) - m_X^2]} \text{d}x = 0
 $$
 
 具有相关函数遍历性的充要条件是：
@@ -323,6 +323,8 @@ $$
 
 #### Solutions
 
+一个均值为常数并且自相关函数只与时间有关的**正态随机过程**是狭义（严格）平稳随机过程。严格平稳随机过程的均值与方差均是与时间无关的常数，自相关函数只与时间的差值有关，正态随机过程满足第一点，因此只要该正态随机过程的自相关函数只与时间差有关，它就是严格平稳随机过程。
+
 ### 12.
 
 #### Description
@@ -330,6 +332,8 @@ $$
 对于一个平稳的正态随机过程，其全部的统计特性是否能够由其均值函数及自相关函数确定？
 
 #### Solutions
+
+是的，即是各态经历的。
 
 ### 13.
 
@@ -344,6 +348,41 @@ $$
 那么，$X(t)$ 的自相关函数是多少？能求出 $X(t)$ 的一维概率密度分布吗？
 
 #### Solutions
+
+根据**维纳-辛钦**定理，功率谱密度与自相关函数是一对傅立叶变换对。
+
+$$
+G_X(\omega) = \int_{-\infty}^{\infty}{e ^ {-\alpha \vert\tau\vert} e ^ {-j \omega \tau}} \text{d}\tau
+$$
+
+$$
+= \int_{-\infty}^{0}{e^{\alpha\tau} e^{-j\omega\tau}}\text{d}\tau - \int_{0}^{+\infty}{e^{-\alpha\tau} e^{-j\omega\tau}}\text{d}\tau
+$$
+
+$$
+= \frac{e^{(\alpha - j\omega)\tau}}{\alpha - j\omega}\Bigg\vert_{-\infty}^{0} - \frac{e^{-(\alpha + j\omega)}}{\alpha + j\omega}\Bigg\vert_{0}^{+\infty}
+$$
+
+$$
+= \frac{1}{\alpha - j\omega} + \frac{1}{\alpha + j\omega}
+$$
+
+$$
+= \frac{2 \alpha}{\alpha^2 + \omega^2}
+$$
+
+
+因此，可以对 $G_X(\omega)$ 进行因式分解：
+
+$$
+G_X(\omega) = \frac{6\omega^2 + 12}{\omega^4 + 5\omega^2 + 4} = \frac{6\omega^2 + 12}{(\omega^2 + 1)(\omega^2 + 4)} = \frac{2}{\omega^2 + 1} + \frac{4}{\omega^2 + 4}
+$$
+
+所以自相关函数：
+
+$$
+R_X(\tau) = \frac{\sqrt{2}}{1} e ^ {-\vert\tau\vert} + \frac{1}{2} e ^ {-2 \vert\tau\vert} = \sqrt{2} e ^ {-\vert\tau\vert} + \frac{1}{2} e ^ {-2 \vert\tau\vert}
+$$
 
 ### 14.
 
@@ -400,6 +439,8 @@ $$
 一个窄带正态随机过程的包络服从什么分布？相位服从什么分布？其包络和相位是否相互独立？
 
 #### Solutions
+
+
 
 ### 21.
 

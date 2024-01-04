@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-04T15:39:56+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-01-04T16:31:44+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-problem-strings&quot;&gt;Problem Strings&lt;/h2&gt;
 
@@ -222,7 +222,7 @@
 
 &lt;p&gt;平稳随机过程 $X(t)$ 具有均值遍历性的充要条件是：&lt;/p&gt;
 
-\[\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{1 - \frac{\tau}{2T}[R_X(\tau) - m_X^2]} \text{d}x = 0\]
+\[\lim_{T \rightarrow \infty} \frac{1}{T} \int_{0}^{2T}{(1 - \frac{\tau}{2T})[R_X(\tau) - m_X^2]} \text{d}x = 0\]
 
 &lt;p&gt;具有相关函数遍历性的充要条件是：&lt;/p&gt;
 
@@ -250,6 +250,8 @@
 
 &lt;h4 id=&quot;heading-solutions-10&quot;&gt;Solutions&lt;/h4&gt;
 
+&lt;p&gt;一个均值为常数并且自相关函数只与时间有关的&lt;strong&gt;正态随机过程&lt;/strong&gt;是狭义（严格）平稳随机过程。严格平稳随机过程的均值与方差均是与时间无关的常数，自相关函数只与时间的差值有关，正态随机过程满足第一点，因此只要该正态随机过程的自相关函数只与时间差有关，它就是严格平稳随机过程。&lt;/p&gt;
+
 &lt;h3 id=&quot;heading-12&quot;&gt;12.&lt;/h3&gt;
 
 &lt;h4 id=&quot;heading-description-11&quot;&gt;Description&lt;/h4&gt;
@@ -257,6 +259,8 @@
 &lt;p&gt;对于一个平稳的正态随机过程，其全部的统计特性是否能够由其均值函数及自相关函数确定？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-11&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;是的，即是各态经历的。&lt;/p&gt;
 
 &lt;h3 id=&quot;heading-13&quot;&gt;13.&lt;/h3&gt;
 
@@ -269,6 +273,26 @@
 &lt;p&gt;那么，$X(t)$ 的自相关函数是多少？能求出 $X(t)$ 的一维概率密度分布吗？&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-solutions-12&quot;&gt;Solutions&lt;/h4&gt;
+
+&lt;p&gt;根据&lt;strong&gt;维纳-辛钦&lt;/strong&gt;定理，功率谱密度与自相关函数是一对傅立叶变换对。&lt;/p&gt;
+
+\[G_X(\omega) = \int_{-\infty}^{\infty}{e ^ {-\alpha \vert\tau\vert} e ^ {-j \omega \tau}} \text{d}\tau\]
+
+\[= \int_{-\infty}^{0}{e^{\alpha\tau} e^{-j\omega\tau}}\text{d}\tau - \int_{0}^{+\infty}{e^{-\alpha\tau} e^{-j\omega\tau}}\text{d}\tau\]
+
+\[= \frac{e^{(\alpha - j\omega)\tau}}{\alpha - j\omega}\Bigg\vert_{-\infty}^{0} - \frac{e^{-(\alpha + j\omega)}}{\alpha + j\omega}\Bigg\vert_{0}^{+\infty}\]
+
+\[= \frac{1}{\alpha - j\omega} + \frac{1}{\alpha + j\omega}\]
+
+\[= \frac{2 \alpha}{\alpha^2 + \omega^2}\]
+
+&lt;p&gt;因此，可以对 $G_X(\omega)$ 进行因式分解：&lt;/p&gt;
+
+\[G_X(\omega) = \frac{6\omega^2 + 12}{\omega^4 + 5\omega^2 + 4} = \frac{6\omega^2 + 12}{(\omega^2 + 1)(\omega^2 + 4)} = \frac{2}{\omega^2 + 1} + \frac{4}{\omega^2 + 4}\]
+
+&lt;p&gt;所以自相关函数：&lt;/p&gt;
+
+\[R_X(\tau) = \frac{\sqrt{2}}{1} e ^ {-\vert\tau\vert} + \frac{1}{2} e ^ {-2 \vert\tau\vert} = \sqrt{2} e ^ {-\vert\tau\vert} + \frac{1}{2} e ^ {-2 \vert\tau\vert}\]
 
 &lt;h3 id=&quot;heading-14&quot;&gt;14.&lt;/h3&gt;
 
