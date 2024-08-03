@@ -220,5 +220,3 @@ zsh 的界面是给我们提供方便的。如果它严重影响到了终端的�
 除此之外，我发现在「简体中文网络」上搜索 zsh 的配置方案，结果有 99% 都是使用 oh-my-zsh 进行辅助配置。在这一点上，我认为 oh-my-zsh 是非常成功的，但是，根据我的日常使用情况来看，它的效率和性能实在是不敢恭维，显然没有自己写 `.zshrc` 配置来的高效。
 
 由此，我自己重新配置了 `.zshrc` 文件，并写下这些文字记录，以供参考。
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
