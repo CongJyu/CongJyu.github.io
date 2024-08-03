@@ -33,4 +33,10 @@ $size: 48;
         background-color: #3b3b3b00;
         border-radius: 10px;
     }
+    .ico-rss {
+        @include get-ico-image(rss);
+
+        background-color: #3b3b3b00;
+        border-radius: 10px;
+    }
 }

@@ -34,6 +34,8 @@ author:
   social_links:
     - name: github
       url: https://github.com/congjyu
+    - name: rss
+      url: https://congjyu.github.io/feed
 
 home:
   section1: <h1>Rain Chen's Blog</h1>
