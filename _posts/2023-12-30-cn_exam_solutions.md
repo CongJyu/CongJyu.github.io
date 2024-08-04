@@ -1,10 +1,9 @@
 ---
-layout:     post
-title:      HNU 计算机网络往年期末卷题目及解析
-subtitle:   选择、填空、判断部分
-date:       2023-12-30
-author:     Rain Chen
-catalog: true
+layout: post
+title: HNU 计算机网络往年期末卷题目及解析
+subtitle: 选择、填空、判断部分
+date: 2023-12-30
+author: Rain Chen
 tags:
     - 計算機網絡
     - ComputerNetworking

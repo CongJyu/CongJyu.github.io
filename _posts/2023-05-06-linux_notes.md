@@ -1,12 +1,12 @@
 ---
-layout:     post
-title:      CongJyu 嘅 Linux 使用配置入門筆記
-subtitle:   Linux 配置等等
-date:       2023-05-06
-author:     Rain Chen
-catalog: true
+layout: post
+title: CongJyu 嘅 Linux 使用配置入門筆記
+subtitle: Linux 配置等等
+date: 2023-05-06
+author: Rain Chen
 tags:
     - 編程思考
+    - Linux
 ---
 
 # CongJyu 嘅 Linux 使用配置入門筆記

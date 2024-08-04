@@ -4,7 +4,6 @@ title: Stochastic Process Review
 subtitle: 随机过程知识点复习
 date: 2024-01-03
 author: Rain Chen
-catalog: true
 tags:
   - StochasticProcess
   - Mathematics

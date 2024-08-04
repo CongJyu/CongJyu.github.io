@@ -1,10 +1,9 @@
 ---
-layout:     post
-title:      当我卸载了 oh-my-zsh 之后
-subtitle:   一些 zsh 的使用配置
-date:       2022-04-24
-author:     Rain Chen
-catalog: true
+layout: post
+title: 当我卸载了 oh-my-zsh 之后
+subtitle: 一些 zsh 的使用配置
+date: 2022-04-24
+author: Rain Chen
 tags:
     - 編程思考
 ---

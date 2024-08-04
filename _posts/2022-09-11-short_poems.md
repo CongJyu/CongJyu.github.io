@@ -1,10 +1,9 @@
 ---
-layout:     post
-title:      网络短诗摘录
-subtitle:   收集一些流传于网络上的震撼人心的诗句
-date:       2022-09-11
-author:     Rain Chen
-catalog: true
+layout: post
+title: 网络短诗摘录
+subtitle: 收集一些流传于网络上的震撼人心的诗句
+date: 2022-09-11
+author: Rain Chen
 tags:
     - 雜談碎筆
 ---

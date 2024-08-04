@@ -1,10 +1,9 @@
 ---
-layout:     post
-title:      公众号用户使用守则
-subtitle:   原创文章
-date:       2021-11-28
-author:     Rain Chen
-catalog: true
+layout: post
+title: 公众号用户使用守则
+subtitle: 原创文章
+date: 2021-11-28
+author: Rain Chen
 tags:
     - 雜談碎筆
 ---

@@ -4,7 +4,6 @@ title: HNU 计算机网络期末考试考点复习
 subtitle: 知识点速通
 date: 2024-01-01
 author: Rain Chen
-catalog: true
 tags:
   - 計算機網絡
   - ComputerNetworking
