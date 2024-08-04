@@ -183,6 +183,9 @@ textarea {
         margin: 18px;
 
         background-size: $icon-size $icon-size;
+        &:hover {
+            background-color: $color-hover-icon;
+        }
     }
 }
 
