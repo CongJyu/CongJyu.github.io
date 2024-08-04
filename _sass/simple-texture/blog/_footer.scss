@@ -15,7 +15,8 @@
                  -o-transition: all .3s ease-in-out;
                     transition: all .3s ease-in-out;
 
-            color: $color-hover;
+            color: $color-text-dark;
+            background-color: $color-hover-transparent;
         }
     }
 
@@ -31,7 +32,7 @@
             }
 
             &:hover {
-                color: $color-text;
+                color: $color-text-dark;
                 background-color: $color-hover-transparent;
             }
         }

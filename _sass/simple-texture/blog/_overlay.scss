@@ -18,8 +18,8 @@
             -o-transition: all .3s ease-out;
             transition: all .3s ease-out;
 
-            color: $color-text;
-            background-color: $color-hover;
+            color: $color-text-dark;
+            background-color: $color-hover-transparent;
         }
 
         &:visited {

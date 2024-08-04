@@ -22,8 +22,8 @@
                 margin-left: 8px;
 
                 &:hover {
-                    color: $color-hover;
-                    background-color: transparent;
+                    color: $color-text-dark;
+                    background-color: $color-hover-transparent;
                 }
             }
 
@@ -71,7 +71,8 @@
                     -o-transition: all .3s ease-in-out;
                     transition: all .3s ease-in-out;
 
-                    background-color: $color-hover;
+                    color: $color-text-dark;
+                    background-color: $color-hover-transparent;
                 }
             }
         }

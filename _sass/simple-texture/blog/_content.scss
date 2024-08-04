@@ -13,22 +13,17 @@
             -o-transition: all .3s ease-in-out;
             transition: all .3s ease-in-out;
 
-            color: $color-text;
+            color: $color-text-dark;
             background-color: $color-hover-transparent;
-        }
-
-        &:visited {
-            color: #85c8ff;
         }
     }
 
     a.internal {
         color: $color-text;
 
-        &:active,
-        &:hover,
-        &:visited {
-            color: $color-text;
+        &:hover {
+            color: $color-text-dark;
+            background-color: $color-hover-transparent;
         }
     }
 
@@ -59,9 +54,8 @@
         text-shadow: none;
 
         &:hover {
-            color: $color-hover;
-            border-color: $color-hover;
-            background-color: #1e1e1e;
+            color: $color-text-dark;
+            background-color: $color-hover-transparent;
         }
     }
 
@@ -297,9 +291,9 @@
             border: none;
 
             &:active,
-            &:hover,
-            &:visited {
-                color: $color-text;
+            &:hover {
+                color: $color-text-dark;
+                background-color: $color-hover-transparent;
             }
         }
 
@@ -476,13 +470,13 @@
                 text-shadow: 0 -1px 0 rgba(255, 255, 255, .2);
 
                 &:hover {
-                    color: $color-text;
-                    border: 1px solid $color-text;
-                    background-color: $color-hover;
+                    color: $color-text-dark;
+                    border: 1px solid $color-text-dark;
+                    background-color: $color-hover-transparent;
 
                     span {
-                        border: 1px solid $color-text;
-                        background-color: $color-hover;
+                        border: 1px solid $color-text-dark;
+                        background-color: $color-hover-transparent;
                     }
                 }
 
@@ -598,7 +592,8 @@
                     color: $color-text;
 
                     &:hover span {
-                        background-color: $color-hover;
+                        color: $color-text-dark;
+                        background-color: $color-hover-transparent;
                     }
                 }
 
@@ -617,11 +612,11 @@
                     vertical-align: middle;
                     text-transform: uppercase;
 
-                    color: white;
+                    color: $color-text-dark;
                     -webkit-border-radius: 10px;
                     -moz-border-radius: 10px;
                     border-radius: 10px;
-                    background-color: $color-hover;
+                    background-color: $color-hover-transparent;
                 }
 
                 li {
@@ -732,7 +727,8 @@
                         transition: all .3s ease-out;
 
                         opacity: 1.0;
-                        background: transparent;
+                        color: $color-text-dark;
+                        background: $color-hover-transparent;
 
                         filter: alpha(opacity=100);
                     }
