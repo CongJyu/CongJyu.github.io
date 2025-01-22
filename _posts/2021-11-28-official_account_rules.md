@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 公众号用户使用守则
-subtitle: 原创文章
+title: 公眾號用戶使用守則
+subtitle: 原創怪談
 date: 2021-11-28
 author: Rain Chen
 tags:

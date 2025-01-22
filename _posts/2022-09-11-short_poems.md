@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 网络短诗摘录
-subtitle: 收集一些流传于网络上的震撼人心的诗句
+title: 網絡短詩收錄
+subtitle: COVID-19 時期之詩句
 date: 2022-09-11
 author: Rain Chen
 tags:
