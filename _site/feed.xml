@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-01-22T17:21:31+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen's Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="http://localhost:4000/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>http://localhost:4000/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="http://localhost:4000/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-01-22T17:31:56+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen's Blog</title><subtitle>Nice to meet you!</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Stochastic Process Review</title><link href="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/" rel="alternate" type="text/html" title="Stochastic Process Review" /><published>2024-01-03T00:00:00+08:00</published><updated>2024-01-03T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/03/hnu_sp_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/03/hnu_sp_review/">&lt;h1 id=&quot;heading-stochastic-process-review&quot;&gt;Stochastic Process Review&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-problem-strings&quot;&gt;Problem Strings&lt;/h2&gt;
 
@@ -536,7 +536,7 @@
 
 \[P \{N_1(t) + N_2(t) = k\} = \frac{(\lambda_1 t + \lambda_2 t)^k}{k!} \cdot e ^ {-(\lambda_1 + \lambda_2) t}\]
 
-&lt;p&gt;因此叠加后的强度 $\lambda = \lambda_1 + \lambda_2$，仍然服从泊松分布。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="StochasticProcess" /><category term="Mathematics" /><category term="數學" /><category term="隨機" /><summary type="html">Stochastic Process Review</summary></entry><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="http://localhost:4000/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="http://localhost:4000/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
+&lt;p&gt;因此叠加后的强度 $\lambda = \lambda_1 + \lambda_2$，仍然服从泊松分布。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="StochasticProcess" /><category term="Mathematics" /><category term="數學" /><category term="隨機" /><summary type="html">Stochastic Process Review</summary></entry><entry><title type="html">HNU 计算机网络期末考试考点复习</title><link href="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/" rel="alternate" type="text/html" title="HNU 计算机网络期末考试考点复习" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2024/01/01/hnu_cn_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2024/01/01/hnu_cn_review/">&lt;h1 id=&quot;heading-hnu-计算机网络期末考试考点复习&quot;&gt;HNU 计算机网络期末考试考点复习&lt;/h1&gt;
 
 &lt;p&gt;🎉🎉 Happy New Year 2024! 🎉🎉&lt;/p&gt;
 
@@ -1043,7 +1043,7 @@
 
 &lt;h4 id=&quot;heading-发送数据报到子网之外&quot;&gt;发送数据报到子网之外&lt;/h4&gt;
 
-&lt;p&gt;当主机 A 与主机 B 在同一个子网中时，数据报可以直接交付对方；当主机 A 与主机 B 不在同一个子网中时，不能直接交付。ARP 不能跨网段使用，只在局域网中使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络期末考试考点复习</summary></entry><entry><title type="html">HNU 计算机网络往年期末卷题目及解析</title><link href="http://localhost:4000/blog/2023/12/30/cn_exam_solutions/" rel="alternate" type="text/html" title="HNU 计算机网络往年期末卷题目及解析" /><published>2023-12-30T00:00:00+08:00</published><updated>2023-12-30T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/12/30/cn_exam_solutions</id><content type="html" xml:base="http://localhost:4000/blog/2023/12/30/cn_exam_solutions/">&lt;h1 id=&quot;heading-hnu-计算机网络往年期末卷题目及解析&quot;&gt;HNU 计算机网络往年期末卷题目及解析&lt;/h1&gt;
+&lt;p&gt;当主机 A 与主机 B 在同一个子网中时，数据报可以直接交付对方；当主机 A 与主机 B 不在同一个子网中时，不能直接交付。ARP 不能跨网段使用，只在局域网中使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络期末考试考点复习</summary></entry><entry><title type="html">HNU 计算机网络往年期末卷题目及解析</title><link href="https://congjyu.github.io/blog/2023/12/30/cn_exam_solutions/" rel="alternate" type="text/html" title="HNU 计算机网络往年期末卷题目及解析" /><published>2023-12-30T00:00:00+08:00</published><updated>2023-12-30T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/12/30/cn_exam_solutions</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/12/30/cn_exam_solutions/">&lt;h1 id=&quot;heading-hnu-计算机网络往年期末卷题目及解析&quot;&gt;HNU 计算机网络往年期末卷题目及解析&lt;/h1&gt;
 
 &lt;p&gt;Rain CongJyu Chen 整理，Dec. 29, 2023&lt;/p&gt;
 
@@ -1371,7 +1371,7 @@ TCP 是面向连接的，从进程到进程；IP 层则负责主机到主机的�
 
 &lt;p&gt;BGP 协议作为边界网关协议，完成自治系统之间的路由选择。&lt;/p&gt;
 
-&lt;p&gt;正确，BGP 边界网关协议是自治系统间路由选择协议。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络往年期末卷题目及解析</summary></entry><entry><title type="html">CongJyu 嘅 Linux 使用配置入門筆記</title><link href="http://localhost:4000/blog/2023/05/06/linux_notes/" rel="alternate" type="text/html" title="CongJyu 嘅 Linux 使用配置入門筆記" /><published>2023-05-06T00:00:00+08:00</published><updated>2023-05-06T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/05/06/linux_notes</id><content type="html" xml:base="http://localhost:4000/blog/2023/05/06/linux_notes/">&lt;h1 id=&quot;heading-congjyu-嘅-linux-使用配置入門筆記&quot;&gt;CongJyu 嘅 Linux 使用配置入門筆記&lt;/h1&gt;
+&lt;p&gt;正确，BGP 边界网关协议是自治系统间路由选择协议。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="計算機網絡" /><category term="ComputerNetworking" /><summary type="html">HNU 计算机网络往年期末卷题目及解析</summary></entry><entry><title type="html">CongJyu 嘅 Linux 使用配置入門筆記</title><link href="https://congjyu.github.io/blog/2023/05/06/linux_notes/" rel="alternate" type="text/html" title="CongJyu 嘅 Linux 使用配置入門筆記" /><published>2023-05-06T00:00:00+08:00</published><updated>2023-05-06T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/05/06/linux_notes</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/05/06/linux_notes/">&lt;h1 id=&quot;heading-congjyu-嘅-linux-使用配置入門筆記&quot;&gt;CongJyu 嘅 Linux 使用配置入門筆記&lt;/h1&gt;
 
 &lt;p&gt;Written by &lt;a href=&quot;https://github.com/congjyu&quot;&gt;Rain CongJyu Chen&lt;/a&gt;, not for commercial use.&lt;/p&gt;
 
@@ -1753,17 +1753,17 @@ drwxr-xr-x   11 rainchen  staff    352 Apr 29 22:48 vmShare
 
 &lt;h2 id=&quot;heading-4-根據自己嘅偏好來設定界面&quot;&gt;4. 根據自己嘅偏好來設定界面&lt;/h2&gt;
 
-&lt;p&gt;前面用熟咗先，就咁啦。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><category term="Linux" /><summary type="html">CongJyu 嘅 Linux 使用配置入門筆記</summary></entry><entry><title type="html">网络短诗摘录</title><link href="http://localhost:4000/blog/2022/09/11/short_poems/" rel="alternate" type="text/html" title="网络短诗摘录" /><published>2022-09-11T00:00:00+08:00</published><updated>2022-09-11T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/09/11/short_poems</id><content type="html" xml:base="http://localhost:4000/blog/2022/09/11/short_poems/">&lt;h1 id=&quot;heading-网络短诗摘录&quot;&gt;网络短诗摘录&lt;/h1&gt;
+&lt;p&gt;前面用熟咗先，就咁啦。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><category term="Linux" /><summary type="html">CongJyu 嘅 Linux 使用配置入門筆記</summary></entry><entry><title type="html">网络短诗摘录</title><link href="https://congjyu.github.io/blog/2022/09/11/short_poems/" rel="alternate" type="text/html" title="网络短诗摘录" /><published>2022-09-11T00:00:00+08:00</published><updated>2022-09-11T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2022/09/11/short_poems</id><content type="html" xml:base="https://congjyu.github.io/blog/2022/09/11/short_poems/">&lt;h1 id=&quot;heading-網絡短詩收錄&quot;&gt;網絡短詩收錄&lt;/h1&gt;
 
-&lt;h2 id=&quot;heading-无题&quot;&gt;无题&lt;/h2&gt;
+&lt;h2 id=&quot;heading-無題&quot;&gt;無題&lt;/h2&gt;
 
-&lt;p&gt;我要到伊犁采一朵大大的棉花&lt;br /&gt;
-我要到成都砍一根长长的竹子&lt;br /&gt;
-我要做一根世界上最大最长的棉签&lt;br /&gt;&lt;br /&gt;
-我要在午夜之前给月亮做一个核酸&lt;br /&gt;&lt;br /&gt;
+&lt;p&gt;我要到伊犁採一朵大大的棉花&lt;br /&gt;
+我要到成都砍一根長長的竹子&lt;br /&gt;
+我要做一根世界上最大最長的棉簽&lt;br /&gt;&lt;br /&gt;
+我要在午夜之前給月亮做一個核酸&lt;br /&gt;&lt;br /&gt;
 明天晚上&lt;br /&gt;
 月亮的光&lt;br /&gt;
-将照亮我们门上的封条&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">网络短诗摘录</summary></entry><entry><title type="html">当我卸载了 oh-my-zsh 之后</title><link href="http://localhost:4000/blog/2022/04/24/zsh_configurations/" rel="alternate" type="text/html" title="当我卸载了 oh-my-zsh 之后" /><published>2022-04-24T00:00:00+08:00</published><updated>2022-04-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/04/24/zsh_configurations</id><content type="html" xml:base="http://localhost:4000/blog/2022/04/24/zsh_configurations/">&lt;h1 id=&quot;heading-当我卸载了-oh-my-zsh-之后&quot;&gt;当我卸载了 oh-my-zsh 之后&lt;/h1&gt;
+將照亮我們門上的封條&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">網絡短詩收錄</summary></entry><entry><title type="html">当我卸载了 oh-my-zsh 之后</title><link href="https://congjyu.github.io/blog/2022/04/24/zsh_configurations/" rel="alternate" type="text/html" title="当我卸载了 oh-my-zsh 之后" /><published>2022-04-24T00:00:00+08:00</published><updated>2022-04-24T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2022/04/24/zsh_configurations</id><content type="html" xml:base="https://congjyu.github.io/blog/2022/04/24/zsh_configurations/">&lt;h1 id=&quot;heading-当我卸载了-oh-my-zsh-之后&quot;&gt;当我卸载了 oh-my-zsh 之后&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-事件起因&quot;&gt;事件起因&lt;/h2&gt;
 
@@ -2169,7 +2169,7 @@ autoload &lt;span class=&quot;nt&quot;&gt;-U&lt;/span&gt; compinit
 
 &lt;p&gt;除此之外，我发现在「简体中文网络」上搜索 zsh 的配置方案，结果有 99% 都是使用 oh-my-zsh 进行辅助配置。在这一点上，我认为 oh-my-zsh 是非常成功的，但是，根据我的日常使用情况来看，它的效率和性能实在是不敢恭维，显然没有自己写 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt; 配置来的高效。&lt;/p&gt;
 
-&lt;p&gt;由此，我自己重新配置了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt; 文件，并写下这些文字记录，以供参考。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">当我卸载了 oh-my-zsh 之后</summary></entry><entry><title type="html">Fortran Programming Review</title><link href="http://localhost:4000/blog/2022/01/26/fortran_programming_review/" rel="alternate" type="text/html" title="Fortran Programming Review" /><published>2022-01-26T00:00:00+08:00</published><updated>2022-01-26T00:00:00+08:00</updated><id>http://localhost:4000/blog/2022/01/26/fortran_programming_review</id><content type="html" xml:base="http://localhost:4000/blog/2022/01/26/fortran_programming_review/">&lt;h1 id=&quot;heading-fortran-programming-review&quot;&gt;Fortran Programming Review&lt;/h1&gt;
+&lt;p&gt;由此，我自己重新配置了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt; 文件，并写下这些文字记录，以供参考。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><summary type="html">当我卸载了 oh-my-zsh 之后</summary></entry><entry><title type="html">Fortran Programming Review</title><link href="https://congjyu.github.io/blog/2022/01/26/fortran_programming_review/" rel="alternate" type="text/html" title="Fortran Programming Review" /><published>2022-01-26T00:00:00+08:00</published><updated>2022-01-26T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2022/01/26/fortran_programming_review</id><content type="html" xml:base="https://congjyu.github.io/blog/2022/01/26/fortran_programming_review/">&lt;h1 id=&quot;heading-fortran-programming-review&quot;&gt;Fortran Programming Review&lt;/h1&gt;
 
 &lt;p&gt;Made by Rain Chen&lt;/p&gt;
 
@@ -3585,47 +3585,47 @@ ifort: internal error: error generating temporary file name, check disk space an
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;777 /example
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;现在我的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example&lt;/code&gt; 文件夹下的所有文件的权限都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;777&lt;/code&gt;，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><category term="Fortran" /><summary type="html">Fortran Programming Review</summary></entry><entry><title type="html">公众号用户使用守则</title><link href="http://localhost:4000/blog/2021/11/28/official_account_rules/" rel="alternate" type="text/html" title="公众号用户使用守则" /><published>2021-11-28T00:00:00+08:00</published><updated>2021-11-28T00:00:00+08:00</updated><id>http://localhost:4000/blog/2021/11/28/official_account_rules</id><content type="html" xml:base="http://localhost:4000/blog/2021/11/28/official_account_rules/">&lt;h1 id=&quot;heading-公众号用户使用守则&quot;&gt;公众号用户使用守则&lt;/h1&gt;
+&lt;p&gt;现在我的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;example&lt;/code&gt; 文件夹下的所有文件的权限都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;777&lt;/code&gt;，可读可写可执行，但是问题仍然没有解决。注意，更改权限是很危险的行为，一般不建议使用。&lt;/p&gt;</content><author><name>Rain Chen</name></author><category term="編程思考" /><category term="Fortran" /><summary type="html">Fortran Programming Review</summary></entry><entry><title type="html">公众号用户使用守则</title><link href="https://congjyu.github.io/blog/2021/11/28/official_account_rules/" rel="alternate" type="text/html" title="公众号用户使用守则" /><published>2021-11-28T00:00:00+08:00</published><updated>2021-11-28T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2021/11/28/official_account_rules</id><content type="html" xml:base="https://congjyu.github.io/blog/2021/11/28/official_account_rules/">&lt;h1 id=&quot;heading-公眾號用戶使用守則&quot;&gt;公眾號用戶使用守則&lt;/h1&gt;
 
-&lt;h2 id=&quot;heading-重要说明&quot;&gt;重要说明&lt;/h2&gt;
+&lt;h2 id=&quot;heading-重要說明&quot;&gt;重要說明&lt;/h2&gt;
 
-&lt;p&gt;在使用公众号之前请仔细阅读守则，并确保您不会违反其中的任何一条。如果您违反了任何一条，请自行承担后果。下面是守则的详细规定：&lt;/p&gt;
+&lt;p&gt;喺使用公眾號之前請仔細閱讀守則，並確保你唔會違反其中任何一條。如果你違反咗任何一條，請自行承擔後果。以下係守則嘅詳細規定：&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-规定细则&quot;&gt;规定细则&lt;/h2&gt;
+&lt;h2 id=&quot;heading-規定細則&quot;&gt;規定細則&lt;/h2&gt;
 
-&lt;h3 id=&quot;heading-第一条&quot;&gt;第一条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第一條&quot;&gt;第一條&lt;/h3&gt;
 
-&lt;p&gt;在任何时候使用公众号的时候，都应该遵守上一条规则以及本条规则以下的所有规则，否则我们无法保证您的安全，您必须自己承担后果。&lt;/p&gt;
+&lt;p&gt;喺任何時候使用公眾號嘅時候，都應該遵守上一條規則以及本條規則以下嘅所有規則，否則我哋無法保證你嘅安全，你必須自己承擔後果。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-第二条&quot;&gt;第二条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第二條&quot;&gt;第二條&lt;/h3&gt;
 
-&lt;p&gt;如果您在使用公众号的途中，遇到弹出来的您认为奇怪的广告，请直接忽略，并假装没有看见它。切记不要长时间关注此类广告，尤其不应该用眼睛直接盯着看，更不要用手指点击它。否则我们将无法保证您的身心健康安全和财产安全。&lt;/p&gt;
+&lt;p&gt;如果你喺使用公眾號嘅途中，遇到彈出嚟嘅你認為奇怪嘅廣告，請直接忽略，並假裝冇見到佢。切記唔好長時間關注呢類廣告，尤其唔應該用眼睛直接盯住睇，更唔好用手指點擊佢。否則我哋將無法保證你嘅身心健康安全同財產安全。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-第三条&quot;&gt;第三条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第三條&quot;&gt;第三條&lt;/h3&gt;
 
-&lt;p&gt;不要试图探究这份守则为什么会出现在这里，以及不要试图弄清楚第一条规则的上一条规则是什么。如果有其他用户问起您有关第一条规则的上一条规则的问题，请直接回答「太可怕了」即可。如果对方执意追问，请直接离开，不要理会。&lt;/p&gt;
+&lt;p&gt;唔好試圖探究呢份守則點解會出現喺呢度，同埋唔好試圖弄清楚第一條規則嘅上一條規則係咩。如果有其他用戶問起你有關第一條規則嘅上一條規則嘅問題，請直接回答「太可怕喇」就得。如果對方執意追問，請直接離開，唔好理會。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-第五条&quot;&gt;第五条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第五條&quot;&gt;第五條&lt;/h3&gt;
 
-&lt;p&gt;当您发表或者回复别人的评论的时候，如果您发现其他用户的评论后面加了「狗头」，请您也加上狗头。这是为了您的生命财产安全考虑，请不要违反，否则我们将无能为力。&lt;/p&gt;
+&lt;p&gt;當你發表或者回覆其他人嘅評論嘅時候，如果你發現其他用戶嘅評論後面加咗「狗頭」，請你亦加上狗頭。呢個係為咗你嘅生命財產安全考慮，請唔好違反，否則我哋將無能為力。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-第六条&quot;&gt;第六条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第六條&quot;&gt;第六條&lt;/h3&gt;
 
-&lt;p&gt;有些用户，甚至我们的部分员工认为本守则的第四条有些不合理。请您无需理会，并假装没看见。&lt;/p&gt;
+&lt;p&gt;有啲用戶，甚至我哋嘅部分員工認為本守則嘅第四條有啲唔合理。請你唔使理會，並假裝冇睇到。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-第七条&quot;&gt;第七条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第七條&quot;&gt;第七條&lt;/h3&gt;
 
-&lt;p&gt;如果您看见或者听见有其他用户向您讲述第四条规定的内容，请立刻打断其讲述并转身离开，无需理会其他用户的反应。如果您已经知道了第四条规定的内容，请务必按照第一条规定的上一条规定所说去做，否则我们将无法帮助您。&lt;/p&gt;
+&lt;p&gt;如果你見到或者聽到有其他用戶向你講述第四條規定嘅內容，請即刻打斷佢嘅講述並轉身離開，唔使理會其他用戶嘅反應。如果你已經知道咗第四條規定嘅內容，請務必按照第一條規定嘅上一條規定所講去做，否則我哋將幫唔到你。&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-第八条&quot;&gt;第八条&lt;/h3&gt;
+&lt;h3 id=&quot;heading-第八條&quot;&gt;第八條&lt;/h3&gt;
 
-&lt;p&gt;如果您能够遵守以上所有的规定，我们将能够保证您安全使用公众号；否则，造成的一切严重后果都将有您自行承担。&lt;/p&gt;
+&lt;p&gt;如果你能夠遵守以上所有嘅規定，我哋將會能夠保證你安全使用公眾號；否則，造成嘅一切嚴重後果都會有你自行承擔。&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-最后&quot;&gt;最后&lt;/h2&gt;
+&lt;h1 id=&quot;heading-最後&quot;&gt;最後&lt;/h1&gt;
 
-&lt;p&gt;祝您拥有一个愉快的公众号使用体验，祝您拥有愉快的一天！&lt;/p&gt;
+&lt;p&gt;祝你擁有一個愉快嘅公眾號使用體驗，祝你擁有愉快嘅一日！&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;本守则纯属笔者虚构，如有雷同，纯属见鬼。
-转载请注明出处：https://congjyu.github.io&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">公众号用户使用守则</summary></entry></feed>
+  &lt;p&gt;本守則純屬筆者虛構，如有雷同，純屬見鬼。
+轉載請注明出處：https://congjyu.github.io&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>Rain Chen</name></author><category term="雜談碎筆" /><summary type="html">公眾號用戶使用守則</summary></entry></feed>
