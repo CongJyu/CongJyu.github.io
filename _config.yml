@@ -56,5 +56,6 @@ paths:
   home: /
   blog: /blog/
   tags: /blog/tags/
+  centralhk: /blog/centralhk/
   friends: /blog/friends/
   aboutme: /blog/aboutme/
