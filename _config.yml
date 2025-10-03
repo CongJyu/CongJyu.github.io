@@ -22,7 +22,7 @@ sass:
 
 # Site Data
 url: https://congjyu.github.io # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: # the subpath of your site, e.g. /blog
+# baseurl: # the subpath of your site, e.g. /blog
 title: Rain Chen's Blog
 description: Rain Chen 嘅個人站點｜RSS 可用
 keywords: 'jekyll,theme,gem-based,blog'
@@ -43,14 +43,14 @@ home:
   section3: <div class="social-links"><a class="ico-github" target="#" href="https://github.com/congjyu" title="View My GitHub">View My Github</a></div>
 blog:
   cc_license: # A link to CC License of your choice.
-  cc_license_image: # An image of your CC License. 
-  footer_content: 🏳️‍⚧️ Love skirts! 🏳️‍⚧️
+  cc_license_image: # An image of your CC License.
+  footer_content: ～食個菠蘿包先啦～
 
 disqus:
   shortname: # e.g. yizeng
   public_key: # e.g. ULZ0b9TFefCUJHKQd4JCKv2v3u27YoG7YG8zXPewkWrT333Z0Se9YnxLzoV6VM8W
 google_tag_manager: # e.g. 'GTM-KCQJXZ8F'
-addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5 
+addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5
 
 paths:
   home: /
