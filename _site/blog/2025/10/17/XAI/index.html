@@ -13,26 +13,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>公眾號用戶使用守則 | Rain Chen&#39;s Blog</title>
+<title>Explainable AI - Notes and Practice | Rain Chen&#39;s Blog</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="公眾號用戶使用守則" />
-<meta name="author" content="Rain Chen" />
+<meta property="og:title" content="Explainable AI - Notes and Practice" />
+<meta name="author" content="Rain" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="公眾號用戶使用守則" />
-<meta property="og:description" content="公眾號用戶使用守則" />
-<link rel="canonical" href="http://localhost:4000/blog/2021/11/28/official_account_rules/" />
-<meta property="og:url" content="http://localhost:4000/blog/2021/11/28/official_account_rules/" />
+<meta name="description" content="Explainable AI - Notes and Practice" />
+<meta property="og:description" content="Explainable AI - Notes and Practice" />
+<link rel="canonical" href="http://localhost:4000/blog/2025/10/17/XAI/" />
+<meta property="og:url" content="http://localhost:4000/blog/2025/10/17/XAI/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-11-28T00:00:00+08:00" />
+<meta property="article:published_time" content="2025-10-17T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="公眾號用戶使用守則" />
+<meta property="twitter:title" content="Explainable AI - Notes and Practice" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain Chen"},"dateModified":"2021-11-28T00:00:00+08:00","datePublished":"2021-11-28T00:00:00+08:00","description":"公眾號用戶使用守則","headline":"公眾號用戶使用守則","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2021/11/28/official_account_rules/"},"url":"http://localhost:4000/blog/2021/11/28/official_account_rules/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-10-17T00:00:00+08:00","datePublished":"2025-10-17T00:00:00+08:00","description":"Explainable AI - Notes and Practice","headline":"Explainable AI - Notes and Practice","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2025/10/17/XAI/"},"url":"http://localhost:4000/blog/2025/10/17/XAI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
-    content="雜談碎筆" />
+    content="CityU,Artificial Intelligence,XAI" />
 
 
 
@@ -143,7 +143,7 @@
             <header>
                 <div class="unit-head">
                     <div class="unit-inner unit-head-inner">
-                        <h1 class="entry-title" itemprop="name">公眾號用戶使用守則</h1>
+                        <h1 class="entry-title" itemprop="name">Explainable AI - Notes and Practice</h1>
                     </div>
                 </div>
             </header>
@@ -153,11 +153,11 @@
                         <p class="date-publish">
                             Published:
                             <time itemprop="datePublished" class="date-pub updated"
-                                title="2021-11-28T00:00:00+08:00" datetime="2021-11-28T00:00:00+08:00">November 28, 2021 </time>
+                                title="2025-10-17T00:00:00+08:00" datetime="2025-10-17T00:00:00+08:00">October 17, 2025 </time>
                             by
                             <a class="author" href="/" rel="author" title="Show Author">
                                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                    <span itemprop="name">Rain Chen</span>
+                                    <span itemprop="name">Rain</span>
                                 </span>
                             </a>
                             
@@ -177,8 +177,20 @@
 
 
 <li>
-    <a href="/blog/tags/#雜談碎筆"
-        title="雜談碎筆">雜談碎筆 <span>2</span></a>
+    <a href="/blog/tags/#Artificial-Intelligence"
+        title="Artificial Intelligence">Artificial Intelligence <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#CityU"
+        title="CityU">CityU <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#XAI"
+        title="XAI">XAI <span>1</span></a>
 </li>
 
 
@@ -187,50 +199,64 @@
                         </ul>
                     </div>
                     <div itemprop="articleBody">
-                        <h1 id="heading-公眾號用戶使用守則">公眾號用戶使用守則</h1>
+                        <h1 id="heading-explainable-ai---notes-and-practice">Explainable AI - Notes and Practice</h1>
 
-<h2 id="heading-重要說明">重要說明</h2>
+<h2 id="heading-linear-regression-and-logistic-regression">Linear Regression and Logistic Regression</h2>
 
-<p>喺使用公眾號之前請仔細閱讀守則，並確保你唔會違反其中任何一條。如果你違反咗任何一條，請自行承擔後果。以下係守則嘅詳細規定：</p>
+<p>We make regression because we want to make a "supervise learning", that is, input observation $\mathbf{x}$ which is typically a vector in $\mathbb{R}^d$ and output a $y \in \mathbb{R}$ which is a real number. Our goal is to predict the output $y$ from input $\mathbf{x}$. That is, learn the function:</p>
 
-<h2 id="heading-規定細則">規定細則</h2>
+\[y = f(\mathbf{x}) + \epsilon\]
 
-<h3 id="heading-第一條">第一條</h3>
+<p>where $\epsilon$ is the noise.</p>
 
-<p>喺任何時候使用公眾號嘅時候，都應該遵守上一條規則以及本條規則以下嘅所有規則，否則我哋無法保證你嘅安全，你必須自己承擔後果。</p>
+<p>Then we come to the linear regression.</p>
 
-<h3 id="heading-第二條">第二條</h3>
+<h3 id="heading-linear-regression">Linear Regression</h3>
 
-<p>如果你喺使用公眾號嘅途中，遇到彈出嚟嘅你認為奇怪嘅廣告，請直接忽略，並假裝冇見到佢。切記唔好長時間關注呢類廣告，尤其唔應該用眼睛直接盯住睇，更唔好用手指點擊佢。否則我哋將無法保證你嘅身心健康安全同財產安全。</p>
+<p>Given a linear function of the input feature $x$, $f(x) = \omega * x + b$, where $\omega$ is the slope and $b$ is the intercept. Then we observe a noisy output of the function, then $f(x) = \omega * x + b + \epsilon$ where $\epsilon$ is a assumed Gaussian noise.</p>
 
-<h3 id="heading-第三條">第三條</h3>
+<p>We make it to the d-dimension case. The linear combination (also called weighted sum) of $d$ input variables $x_1, …, x_d$. Now we have:</p>
 
-<p>唔好試圖探究呢份守則點解會出現喺呢度，同埋唔好試圖弄清楚第一條規則嘅上一條規則係咩。如果有其他用戶問起你有關第一條規則嘅上一條規則嘅問題，請直接回答「太可怕喇」就得。如果對方執意追問，請直接離開，唔好理會。</p>
+\[f(x) = \omega_0 + \omega_1 x_1 + \omega_2 x_2 + ... + \omega_d x_d\]
 
-<h3 id="heading-第五條">第五條</h3>
+<p>where $x_j$ is the input features, $\omega_j$ is the input feature weights and $\omega_0$ is the intercept.</p>
 
-<p>當你發表或者回覆其他人嘅評論嘅時候，如果你發現其他用戶嘅評論後面加咗「狗頭」，請你亦加上狗頭。呢個係為咗你嘅生命財產安全考慮，請唔好違反，否則我哋將無能為力。</p>
+<p>The <strong>KEY ASSUMPTIONS</strong> of Linear Regression:</p>
 
-<h3 id="heading-第六條">第六條</h3>
+<ul>
+  <li><strong>Linearity</strong>: Prediction is a linear combination of features. (Obviously, linear effects are easily interpretable; and additivity seperates the effects.)</li>
+  <li><strong>Normality</strong>: Errors are normally distributed.</li>
+  <li><strong>Homoscedasticity</strong>: Constant variance of errors across feature space.</li>
+  <li><strong>Independence</strong>: Each instance is independent. (We do not measure a same thing repeatly.)</li>
+  <li><strong>Fixed Features</strong>: Features are treated as constants, free of measurement error.</li>
+  <li><strong>No Multicollinearity</strong>: Features should not be strongly correlated.</li>
+</ul>
 
-<p>有啲用戶，甚至我哋嘅部分員工認為本守則嘅第四條有啲唔合理。請你唔使理會，並假裝冇睇到。</p>
+<h3 id="heading-ordinary-least-squares-ols">Ordinary Least Squares (OLS)</h3>
 
-<h3 id="heading-第七條">第七條</h3>
+<p>Suppose we have a linear function:</p>
 
-<p>如果你見到或者聽到有其他用戶向你講述第四條規定嘅內容，請即刻打斷佢嘅講述並轉身離開，唔使理會其他用戶嘅反應。如果你已經知道咗第四條規定嘅內容，請務必按照第一條規定嘅上一條規定所講去做，否則我哋將幫唔到你。</p>
+\[f(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b\]
 
-<h3 id="heading-第八條">第八條</h3>
+<p>need to estimate the parameter $(\mathbf{w}, b)$ from the data. A method is to fit the parameters by minimizing the squared prediction error on the training set ${\lbrace(\mathbf{x}<em>i, y_i)\rbrace}^N</em>{i=1}$. Like this:</p>
 
-<p>如果你能夠遵守以上所有嘅規定，我哋將會能夠保證你安全使用公眾號；否則，造成嘅一切嚴重後果都會有你自行承擔。</p>
+\[\min_{\mathbf{w}, b}{\sum^{N}_{i = 1}{(y_i - f(x_i))^2}} = \min_{\mathbf{w}, b}{\sum^{N}_{i = 1}{(y_i - (\mathbf{w}^T \mathbf{x}_i + b))^2}}\]
 
-<h1 id="heading-最後">最後</h1>
+<p>We have a <strong>closed-form solution</strong> for this. The bias $b$ can be absorbed into $\mathbf{w}$ by redefining:</p>
 
-<p>祝你擁有一個愉快嘅公眾號使用體驗，祝你擁有愉快嘅一日！</p>
+\[\mathbf{w} \leftarrow \begin{bmatrix}\mathbf{w}\\b\end{bmatrix}, \mathbf{x} \leftarrow \begin{bmatrix}\mathbf{x}\\1\end{bmatrix}\]
 
-<blockquote>
-  <p>本守則純屬筆者虛構，如有雷同，純屬見鬼。
-轉載請注明出處：https://congjyu.github.io</p>
-</blockquote>
+<p>then the minimization problem will be like this:</p>
+
+\[\min_{\mathbf{w}} ||\mathbf{y} - \mathbf{X}^T \mathbf{w}||^2\]
+
+<p>where $\mathbf{X} = [\mathbf{x_1}, \mathbf{x_2}, …, \mathbf{x_N}]$ is the data matrix and $\mathbf{y} = [y_1, y_2, …, y_N]^T$ is the vector of outputs.</p>
+
+<p>So we get the closed-form solution.</p>
+
+\[\mathbf{w}^* = (\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{X}\mathbf{y}\]
+
+<p>The $(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{X}$ part is also called the pseudo-inverse of $\mathbf{X}$.</p>
 
                     </div>
                 </div>
@@ -243,8 +269,6 @@
                     </div>
                     <nav class="pagination">
                         
-                        
-                            <a class="internal" rel="next" href="/blog/2022/01/26/fortran_programming_review/" title="Next Post 'Fortran Programming Review'">Fortran Programming Review → </a>
                         
                     </nav>
                 </div>

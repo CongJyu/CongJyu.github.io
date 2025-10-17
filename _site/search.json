@@ -1,59 +1,10 @@
 [
   
     {
-      "title"      : "Stochastic Process Review",
-      "url"        : "/blog/2024/01/03/hnu_sp_review/",
-      "date"       : "2024-01-03 00:00:00 +0800",
-      "shortdate"  : "January 03, 2024"
-    } ,
-  
-    {
-      "title"      : "HNU 计算机网络期末考试考点复习",
-      "url"        : "/blog/2024/01/01/hnu_cn_review/",
-      "date"       : "2024-01-01 00:00:00 +0800",
-      "shortdate"  : "January 01, 2024"
-    } ,
-  
-    {
-      "title"      : "HNU 计算机网络往年期末卷题目及解析",
-      "url"        : "/blog/2023/12/30/cn_exam_solutions/",
-      "date"       : "2023-12-30 00:00:00 +0800",
-      "shortdate"  : "December 30, 2023"
-    } ,
-  
-    {
-      "title"      : "CongJyu 嘅 Linux 使用配置入門筆記",
-      "url"        : "/blog/2023/05/06/linux_notes/",
-      "date"       : "2023-05-06 00:00:00 +0800",
-      "shortdate"  : "May 06, 2023"
-    } ,
-  
-    {
-      "title"      : "網絡短詩收錄",
-      "url"        : "/blog/2022/09/11/short_poems/",
-      "date"       : "2022-09-11 00:00:00 +0800",
-      "shortdate"  : "September 11, 2022"
-    } ,
-  
-    {
-      "title"      : "当我卸载了 oh-my-zsh 之后",
-      "url"        : "/blog/2022/04/24/zsh_configurations/",
-      "date"       : "2022-04-24 00:00:00 +0800",
-      "shortdate"  : "April 24, 2022"
-    } ,
-  
-    {
-      "title"      : "Fortran Programming Review",
-      "url"        : "/blog/2022/01/26/fortran_programming_review/",
-      "date"       : "2022-01-26 00:00:00 +0800",
-      "shortdate"  : "January 26, 2022"
-    } ,
-  
-    {
-      "title"      : "公眾號用戶使用守則",
-      "url"        : "/blog/2021/11/28/official_account_rules/",
-      "date"       : "2021-11-28 00:00:00 +0800",
-      "shortdate"  : "November 28, 2021"
+      "title"      : "Explainable AI - Notes and Practice",
+      "url"        : "/blog/2025/10/17/XAI/",
+      "date"       : "2025-10-17 00:00:00 +0800",
+      "shortdate"  : "October 17, 2025"
     } 
   
 ]
