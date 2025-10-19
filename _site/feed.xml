@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-10-18T01:48:36+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Rain Chen 嘅個人站點｜RSS 可用</subtitle><author><name>{&quot;name&quot; =&gt; nil, &quot;job_title&quot; =&gt; nil, &quot;location&quot; =&gt; nil, &quot;email&quot; =&gt; nil, &quot;social_links&quot; =&gt; [{&quot;name&quot; =&gt; &quot;github&quot;, &quot;url&quot; =&gt; &quot;https://github.com/congjyu&quot;}, {&quot;name&quot; =&gt; &quot;rss&quot;, &quot;url&quot; =&gt; &quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Explainable AI - Notes and Practice</title><link href="https://congjyu.github.io/blog/2025/10/17/XAI/" rel="alternate" type="text/html" title="Explainable AI - Notes and Practice" /><published>2025-10-17T00:00:00+08:00</published><updated>2025-10-17T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2025/10/17/XAI</id><content type="html" xml:base="https://congjyu.github.io/blog/2025/10/17/XAI/">&lt;h1 id=&quot;heading-explainable-ai---notes-and-practice&quot;&gt;Explainable AI - Notes and Practice&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-10-20T00:43:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Rain Chen 嘅個人站點｜RSS 可用</subtitle><author><name>{&quot;name&quot; =&gt; nil, &quot;job_title&quot; =&gt; nil, &quot;location&quot; =&gt; nil, &quot;email&quot; =&gt; nil, &quot;social_links&quot; =&gt; [{&quot;name&quot; =&gt; &quot;github&quot;, &quot;url&quot; =&gt; &quot;https://github.com/congjyu&quot;}, {&quot;name&quot; =&gt; &quot;rss&quot;, &quot;url&quot; =&gt; &quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;I create this article because of the annoying confusing problems I met in the Python code. I have to admit that Python is a awesome programming language however… it DOSE exist some weird problems when coding not carefully. So this passage is used to record the problems and solutions for Python debugging.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">Quantitative Trading Notes</title><link href="http://localhost:4000/blog/2025/10/18/QuantTrading/" rel="alternate" type="text/html" title="Quantitative Trading Notes" /><published>2025-10-18T00:00:00+08:00</published><updated>2025-10-18T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/18/QuantTrading</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/18/QuantTrading/">&lt;h1 id=&quot;heading-quantitative-trading-notes&quot;&gt;Quantitative Trading Notes&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;⚠️ Warning: This article &lt;strong&gt;&lt;em&gt;DO NOT&lt;/em&gt;&lt;/strong&gt; provide any investiment advise. There are &lt;strong&gt;&lt;em&gt;RISKS&lt;/em&gt;&lt;/strong&gt; in investment and financial management, and you should be cautious.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Quantitative Trading" /><category term="FinTech" /><summary type="html">Quantitative Trading Notes</summary></entry><entry><title type="html">Explainable AI - Notes and Practice</title><link href="http://localhost:4000/blog/2025/10/17/XAI/" rel="alternate" type="text/html" title="Explainable AI - Notes and Practice" /><published>2025-10-17T00:00:00+08:00</published><updated>2025-10-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/17/XAI</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/17/XAI/">&lt;h1 id=&quot;heading-explainable-ai---notes-and-practice&quot;&gt;Explainable AI - Notes and Practice&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-linear-regression-and-logistic-regression&quot;&gt;Linear Regression and Logistic Regression&lt;/h2&gt;
 
@@ -55,4 +67,24 @@
 
 \[\mathbf{w}^* = (\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{X}\mathbf{y}\]
 
-&lt;p&gt;The $(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{X}$ part is also called the pseudo-inverse of $\mathbf{X}$.&lt;/p&gt;</content><author><name>Rain</name></author><category term="CityU" /><category term="Artificial Intelligence" /><category term="XAI" /><summary type="html">Explainable AI - Notes and Practice</summary></entry></feed>
+&lt;p&gt;The $(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{X}$ part is also called the pseudo-inverse of $\mathbf{X}$.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-model-fit-r-square&quot;&gt;Model Fit-R-Square&lt;/h3&gt;
+
+&lt;p&gt;Commonly known as &lt;strong&gt;R-Squared&lt;/strong&gt; ($R^2$), is a statistical measure that shows the proportion of the variance in the dependent variable that can be explained by the independent variables in a regression model. It essentially indicates how well the regression model fits the observed data.&lt;/p&gt;
+
+&lt;p&gt;For the prediction: $\hat{y_i} = f(x_i)$, R-Squared (Coefficient of Determination): proportion of variance is explained by the model.&lt;/p&gt;
+
+\[R^2 = 1 - \frac{SSE}{SST}\]
+
+&lt;p&gt;where the $SSE$ is the Sum of Squared Errors, calculated by $SSE = \sum^{n}&lt;em&gt;{i = 1}(y_i - \hat{y_i})^2$, measuring the total squared difference between actual and predicted values; and the $SST$ is the Total Sum of Squares, $SST = \sum^{n}&lt;/em&gt;{i = 1}(y_i - \bar{y})2$, measuring the total variance in the observed data, and $\bar{y}$ is the mean.&lt;/p&gt;
+
+&lt;p&gt;Now we get $R^2$ can we can make an interpretation. $R^2$ closed to 1 means model explains most of the variance; and $R^2$ closed to 0 means model explains little of the variance.&lt;/p&gt;
+
+&lt;p&gt;Then we have Adjusted R-Squared:&lt;/p&gt;
+
+\[\bar{R}^2 = 1 - (1 - R^2) \frac{n - 1}{n - p - 1}\]
+
+&lt;p&gt;and it adjusts $R^2$ for the number of predictors $p$ and the sample size $n$. Thus, we can use Adjusted R-Squared when comparing models with different numbers of features. Also, Adjusted R-Squared penalizes unnecessary predictors.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="CityU" /><category term="Artificial Intelligence" /><category term="XAI" /><summary type="html">Explainable AI - Notes and Practice</summary></entry></feed>

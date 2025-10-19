@@ -1,6 +1,20 @@
 [
   
     {
+      "title"      : "Weird Python",
+      "url"        : "/blog/2025/10/19/WeirdPython/",
+      "date"       : "2025-10-19 00:00:00 +0800",
+      "shortdate"  : "October 19, 2025"
+    } ,
+  
+    {
+      "title"      : "Quantitative Trading Notes",
+      "url"        : "/blog/2025/10/18/QuantTrading/",
+      "date"       : "2025-10-18 00:00:00 +0800",
+      "shortdate"  : "October 18, 2025"
+    } ,
+  
+    {
       "title"      : "Explainable AI - Notes and Practice",
       "url"        : "/blog/2025/10/17/XAI/",
       "date"       : "2025-10-17 00:00:00 +0800",
