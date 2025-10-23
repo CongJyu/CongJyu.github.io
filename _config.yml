@@ -24,7 +24,7 @@ sass:
 url: https://congjyu.github.io # the base hostname & protocol for your site, e.g. http://example.com
 # baseurl: # the subpath of your site, e.g. /blog
 title: Rain Chen's Blog
-description: Rain Chen 嘅個人站點｜RSS 可用
+description: Rain 嘅個人站點
 keywords: 'jekyll,theme,gem-based,blog'
 author:
   name:
