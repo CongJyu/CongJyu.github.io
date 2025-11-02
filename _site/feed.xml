@@ -1,4 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-10-27T13:34:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Rain 嘅個人站點</subtitle><author><name>{&quot;name&quot; =&gt; nil, &quot;job_title&quot; =&gt; nil, &quot;location&quot; =&gt; nil, &quot;email&quot; =&gt; nil, &quot;social_links&quot; =&gt; [{&quot;name&quot; =&gt; &quot;github&quot;, &quot;url&quot; =&gt; &quot;https://github.com/congjyu&quot;}, {&quot;name&quot; =&gt; &quot;rss&quot;, &quot;url&quot; =&gt; &quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-11-02T15:59:53+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Rain 嘅個人站點</subtitle><author><name>{&quot;name&quot; =&gt; nil, &quot;job_title&quot; =&gt; nil, &quot;location&quot; =&gt; nil, &quot;email&quot; =&gt; nil, &quot;social_links&quot; =&gt; [{&quot;name&quot; =&gt; &quot;github&quot;, &quot;url&quot; =&gt; &quot;https://github.com/congjyu&quot;}, {&quot;name&quot; =&gt; &quot;rss&quot;, &quot;url&quot; =&gt; &quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Intelligent System - Notes and Practice</title><link href="http://localhost:4000/blog/2025/10/30/IntelligentSystem/" rel="alternate" type="text/html" title="Intelligent System - Notes and Practice" /><published>2025-10-30T00:00:00+08:00</published><updated>2025-10-30T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/30/IntelligentSystem</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/30/IntelligentSystem/">&lt;h1 id=&quot;heading-intelligent-system---notes-and-practice&quot;&gt;Intelligent System - Notes and Practice&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Intelligence is a mental quality that consists of the abilities to learn from experience, adapt to new situations, understanding and handle abstract concepts, and use knowledge to manipulate one&apos;s environment.&lt;/p&gt;
+
+  &lt;p&gt;– Britannica&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;heading-a-definition-of-intelligent-systems&quot;&gt;A Definition of Intelligent Systems&lt;/h3&gt;
+
+&lt;p&gt;A system is an intelligent system if the system exhibits some intelligent behaviors. (e.g. fuzzy systems, simulated annealing, genetic algorithms and expert systems.)&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-support-vector-machines-svm&quot;&gt;Support Vector Machines (SVM)&lt;/h2&gt;
+
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Based on the provided citations (CS5486 slides 1–220), here’s a concise &lt;strong&gt;review note&lt;/strong&gt; to help you prepare for your exam. The content spans foundational topics in machine learning, neural networks, and optimization — especially SVMs, perceptrons, ADALINE, and evolutionary algorithms.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;heading--exam-review-note-cs5486-first-220-pages&quot;&gt;📘 &lt;strong&gt;Exam Review Note: CS5486 (First 220 Pages)&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-1-support-vector-machines-svm--core-concepts&quot;&gt;1. &lt;strong&gt;Support Vector Machines (SVM) – Core Concepts&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Maximal Margin Classifier&lt;/strong&gt; → Better generalization, less overfitting.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kernel Trick&lt;/strong&gt; → Maps data to higher dimensions without explicit transformation (only dot products used).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kernel Selection &amp;amp; Parameters&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Domain experts can help design similarity measures.&lt;/li&gt;
+      &lt;li&gt;Gaussian kernel: σ = distance between closest points of different classes.&lt;/li&gt;
+      &lt;li&gt;If no reliable criterion → use &lt;strong&gt;cross-validation&lt;/strong&gt; or &lt;strong&gt;validation set&lt;/strong&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Hard Margin vs. Soft Margin&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Hard margin: strict separation → only works if data is perfectly separable.&lt;/li&gt;
+      &lt;li&gt;Soft margin: allows some misclassification → more practical, especially with noisy data.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;heading-2-support-vector-regression-svr--least-squares-svm&quot;&gt;2. &lt;strong&gt;Support Vector Regression (SVR) &amp;amp; Least-Squares SVM&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;SVR: Extension of SVM for regression.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Least-Squares SVM (LS-SVM)&lt;/strong&gt; by Suykens &amp;amp; Vandewalle (1999):
+    &lt;ul&gt;
+      &lt;li&gt;Primal problem → Lagrangian → Final model with closed-form solution.&lt;/li&gt;
+      &lt;li&gt;Often faster than traditional SVM for regression.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;heading-3-neural-network-basics&quot;&gt;3. &lt;strong&gt;Neural Network Basics&lt;/strong&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading--perceptrons&quot;&gt;➤ Perceptrons&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Limitations&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Can only classify &lt;strong&gt;linearly separable&lt;/strong&gt; data.&lt;/li&gt;
+      &lt;li&gt;Slow convergence in high dimensions.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bipolar vs Unipolar&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Bipolar ([-1, 1]) better for algebraic structure and weight space representation.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading--adaline&quot;&gt;➤ ADALINE&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adaptive Linear Element (Widrow-Hoff, 1960s).&lt;/li&gt;
+  &lt;li&gt;Trained via &lt;strong&gt;Delta Rule / LMS Algorithm&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Learning rule: updates weights to minimize error (gradient descent).&lt;/li&gt;
+  &lt;li&gt;Training modes: Sequential, Batch, or Perceptron-style.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading--maxnet&quot;&gt;➤ MAXNET&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Winner-Takes-All (WTA) architecture.&lt;/li&gt;
+  &lt;li&gt;Uses self-excitatory &amp;amp; lateral-inhibitory connections.&lt;/li&gt;
+  &lt;li&gt;Often used as output layer to select max input → &quot;winner takes all&quot;.&lt;/li&gt;
+  &lt;li&gt;Proven to be &lt;strong&gt;globally stable and convergent&lt;/strong&gt; (Julian kWTA model).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;heading-4-optimization--global-search&quot;&gt;4. &lt;strong&gt;Optimization &amp;amp; Global Search&lt;/strong&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;heading--global-optimization&quot;&gt;➤ Global Optimization&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Search space: defined by min/max bounds of variables.&lt;/li&gt;
+  &lt;li&gt;Schwefel’s function: benchmark for optimization (non-convex, multimodal).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Evolutionary Algorithms (e.g., PSO, GA)&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Swarm evolution shown over iterations (0 → 500).&lt;/li&gt;
+      &lt;li&gt;Converged to global optimum: ~837.9658 (example value).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Optimization is critical for hyperparameter tuning (e.g., σ, C, kernel choice).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;heading-5-logic--learning-theory&quot;&gt;5. &lt;strong&gt;Logic &amp;amp; Learning Theory&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Two-Variable Logic Functions&lt;/strong&gt; (OR, AND, Majority, XOR).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;XOR Problem&lt;/strong&gt;: Classic non-linearly separable problem → &lt;strong&gt;cannot be solved by single-layer perceptron&lt;/strong&gt; → needs multi-layer networks (e.g., MLP).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Monte Carlo Tests&lt;/strong&gt;: Used to evaluate robustness of learning algorithms.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;heading--key-takeaways-for-exam&quot;&gt;🧠 &lt;strong&gt;Key Takeaways for Exam&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;✔️ Understand the &lt;strong&gt;difference between hard/soft margin SVMs&lt;/strong&gt;.&lt;br /&gt;
+✔️ Know how to &lt;strong&gt;choose kernel parameters&lt;/strong&gt; (σ, etc.) and when to use cross-validation.&lt;br /&gt;
+✔️ Be able to &lt;strong&gt;compare Perceptron, ADALINE, and MAXNET&lt;/strong&gt; — strengths, weaknesses, use cases.&lt;br /&gt;
+✔️ Understand the &lt;strong&gt;math behind LMS and gradient descent&lt;/strong&gt; for ADALINE.&lt;br /&gt;
+✔️ Know why &lt;strong&gt;SVMs can handle non-linear data&lt;/strong&gt; via kernel trick.&lt;br /&gt;
+✔️ Be familiar with &lt;strong&gt;optimization landscapes&lt;/strong&gt; (Schwefel’s function, evolutionary search).&lt;br /&gt;
+✔️ Know &lt;strong&gt;why XOR can’t be solved by single-layer perceptrons&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;heading--recommended-focus-areas&quot;&gt;📚 &lt;strong&gt;Recommended Focus Areas&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;SVMs (Primal, Dual, Kernels, Hard vs Soft)&lt;/li&gt;
+  &lt;li&gt;Neural Networks (Perceptron, ADALINE, MAXNET)&lt;/li&gt;
+  &lt;li&gt;Optimization (Gradient descent, global search)&lt;/li&gt;
+  &lt;li&gt;Logic functions (XOR, Majority, OR/AND)&lt;/li&gt;
+  &lt;li&gt;Learning Algorithms (LMS, Delta Rule)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;✅ &lt;strong&gt;Good luck on your exam!&lt;/strong&gt;&lt;br /&gt;
+You’ve got this — especially if you’ve reviewed the slides up to page 220. Focus on the &lt;em&gt;why&lt;/em&gt; behind the algorithms, not just the math.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>Rain</name></author><category term="CityU" /><category term="Intelligent System" /><category term="Artificial Intelligence" /><category term="Neural Network" /><summary type="html">Intelligent System - Notes and Practice</summary></entry><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 

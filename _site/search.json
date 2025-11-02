@@ -1,6 +1,13 @@
 [
   
     {
+      "title"      : "Intelligent System - Notes and Practice",
+      "url"        : "/blog/2025/10/30/IntelligentSystem/",
+      "date"       : "2025-10-30 00:00:00 +0800",
+      "shortdate"  : "October 30, 2025"
+    } ,
+  
+    {
       "title"      : "Weird Python",
       "url"        : "/blog/2025/10/19/WeirdPython/",
       "date"       : "2025-10-19 00:00:00 +0800",
