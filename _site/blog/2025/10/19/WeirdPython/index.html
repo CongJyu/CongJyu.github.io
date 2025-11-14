@@ -251,7 +251,21 @@ second
 
 <h3 id="heading-attempts--solution">Attempts &amp; Solution</h3>
 
-<h3 id="heading-summary">Summary</h3>
+<p>The solution is simple too. Now the <code class="language-plaintext highlighter-rouge">tqdm</code> package provides a special module for Jupyter Notebook, so we can use that module to show progress bar in Jupyter Notebook environment. However, the <code class="language-plaintext highlighter-rouge">tqdm</code> package is not import directly and it is import by another package. How can we replace the original <code class="language-plaintext highlighter-rouge">tqdm</code> method to the new specified Jupyter Notebook <code class="language-plaintext highlighter-rouge">tqdm</code> method?</p>
+
+<p>Change the code file in the <code class="language-plaintext highlighter-rouge">lucent</code> package and make it use <code class="language-plaintext highlighter-rouge">notebook.tqdm</code> directly DOES work… but it seems that it is not that "normal". (i.e. totally a strange method, does not robust and stable at all). So, any other methods?</p>
+
+<p>Luckily, there is an elegant way to solve this problem. We import <code class="language-plaintext highlighter-rouge">sys</code> the system package first. Then we import the <code class="language-plaintext highlighter-rouge">tqdm.notebook</code> package. Finally we can "patch" the <code class="language-plaintext highlighter-rouge">tqdm</code> with <code class="language-plaintext highlighter-rouge">tqdm.notebook.tqdm</code>, and this will help us enable the Jupyter Notebook progress bar.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">notebook</span>
+
+<span class="n">sys</span><span class="p">.</span><span class="n">modules</span><span class="p">[</span><span class="s">"tqdm"</span><span class="p">]</span> <span class="o">=</span> <span class="n">notebook</span>
+</code></pre></div></div>
+
+<p>Re-run the Jupyter Notebook, and we find that everything goes well.</p>
+
+<p>Also, this method works well with other situations when some packages need to be change in certain imported packages.</p>
 
 <h2 id="heading-つづく">つづく…</h2>
 

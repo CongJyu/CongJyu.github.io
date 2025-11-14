@@ -64,10 +64,21 @@ The situation is not what we want.
 
 ### Attempts & Solution
 
+The solution is simple too. Now the `tqdm` package provides a special module for Jupyter Notebook, so we can use that module to show progress bar in Jupyter Notebook environment. However, the `tqdm` package is not import directly and it is import by another package. How can we replace the original `tqdm` method to the new specified Jupyter Notebook `tqdm` method?
 
+Change the code file in the `lucent` package and make it use `notebook.tqdm` directly DOES work... but it seems that it is not that "normal". (i.e. totally a strange method, does not robust and stable at all). So, any other methods?
 
-### Summary
+Luckily, there is an elegant way to solve this problem. We import `sys` the system package first. Then we import the `tqdm.notebook` package. Finally we can "patch" the `tqdm` with `tqdm.notebook.tqdm`, and this will help us enable the Jupyter Notebook progress bar.
 
+```python
+import sys
+from tqdm import notebook
 
+sys.modules["tqdm"] = notebook
+```
+
+Re-run the Jupyter Notebook, and we find that everything goes well.
+
+Also, this method works well with other situations when some packages need to be change in certain imported packages.
 
 ## つづく...
