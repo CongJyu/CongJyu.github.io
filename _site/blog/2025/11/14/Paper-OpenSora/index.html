@@ -18,17 +18,17 @@
 <meta property="og:title" content="Paper Reading - Open-Sora 2.0" />
 <meta name="author" content="Rain" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Paper Reading" />
-<meta property="og:description" content="Paper Reading" />
-<link rel="canonical" href="http://localhost:4000/blog/2025/11/14/Paper-OpenSora/" />
-<meta property="og:url" content="http://localhost:4000/blog/2025/11/14/Paper-OpenSora/" />
+<meta name="description" content="Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k" />
+<meta property="og:description" content="Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k" />
+<link rel="canonical" href="https://congjyu.github.io/blog/2025/11/14/Paper-OpenSora/" />
+<meta property="og:url" content="https://congjyu.github.io/blog/2025/11/14/Paper-OpenSora/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-14T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Paper Reading - Open-Sora 2.0" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-11-14T00:00:00+08:00","datePublished":"2025-11-14T00:00:00+08:00","description":"Paper Reading","headline":"Paper Reading - Open-Sora 2.0","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2025/11/14/Paper-OpenSora/"},"url":"http://localhost:4000/blog/2025/11/14/Paper-OpenSora/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-11-14T00:00:00+08:00","datePublished":"2025-11-14T00:00:00+08:00","description":"Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k","headline":"Paper Reading - Open-Sora 2.0","mainEntityOfPage":{"@type":"WebPage","@id":"https://congjyu.github.io/blog/2025/11/14/Paper-OpenSora/"},"url":"https://congjyu.github.io/blog/2025/11/14/Paper-OpenSora/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
@@ -38,7 +38,7 @@
 
 
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+<link type="application/atom+xml" rel="alternate" href="https://congjyu.github.io/feed.xml" title="Rain Chen&apos;s Blog" />
     <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
@@ -193,9 +193,29 @@
                         </ul>
                     </div>
                     <div itemprop="articleBody">
-                        <h1 id="heading-paper-reading">Paper Reading</h1>
+                        <h1 id="heading-paper-reading---open-sora-20-training-a-commercial-level-video-generation-model-in-200k">Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k</h1>
 
-<h2 id="heading-open-sora-20-training-a-commercial-level-video-generation-model-in-200k">Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k</h2>
+<p>This paper is written by Open-Sora Team.</p>
+
+<h2 id="heading-motivation">Motivation</h2>
+
+<p>Video generation models have achieved remarkable progress in the pass year and the quality of the generated videos are also improved. But the costs and data quantity of these models increased, and it demands a greater training compute. The author presented a commercial-level video generation model that only costs $200k.</p>
+
+<p>To evaluate the Open-Sora model, the team has designed a comparing table, which covers three key aspects:</p>
+
+<ul>
+  <li>Visual quality</li>
+  <li>Prompt adherence</li>
+  <li>Motion quanlity</li>
+</ul>
+
+<h2 id="heading-model-architecture">Model Architecture</h2>
+
+<p>There are two key components of a video generation model: the autoencoder and the diffusion transformer. For the autoencoder, Open-Sora is initially trained on HunyuanVideo's VAE and later adapt to the Video DC-AE.</p>
+
+<h3 id="heading-3d-autoencoder">3D Autoencoder</h3>
+
+<p>While training this model, an open source video generation model HunyunVideo VAE is leveraged, and the team developed a video autoencoder with deep compression to improve efficiency and decrease the costs while maintaining high reconstruction fidelity, which is called "Video DC-AE".</p>
 
 
                     </div>
