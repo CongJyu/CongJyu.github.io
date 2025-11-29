@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-11-27T15:16:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Rain 嘅個人站點</subtitle><author><name>{&quot;name&quot; =&gt; nil, &quot;job_title&quot; =&gt; nil, &quot;location&quot; =&gt; nil, &quot;email&quot; =&gt; nil, &quot;social_links&quot; =&gt; [{&quot;name&quot; =&gt; &quot;github&quot;, &quot;url&quot; =&gt; &quot;https://github.com/congjyu&quot;}, {&quot;name&quot; =&gt; &quot;rss&quot;, &quot;url&quot; =&gt; &quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Paper Reading - Open-Sora 2.0</title><link href="http://localhost:4000/blog/2025/11/14/Paper-OpenSora/" rel="alternate" type="text/html" title="Paper Reading - Open-Sora 2.0" /><published>2025-11-14T00:00:00+08:00</published><updated>2025-11-14T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/11/14/Paper-OpenSora</id><content type="html" xml:base="http://localhost:4000/blog/2025/11/14/Paper-OpenSora/">&lt;h1 id=&quot;heading-paper-reading---open-sora-20-training-a-commercial-level-video-generation-model-in-200k&quot;&gt;Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-11-30T01:19:07+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>Rain 嘅個人站點</subtitle><author><name>{&quot;name&quot; =&gt; nil, &quot;job_title&quot; =&gt; nil, &quot;location&quot; =&gt; nil, &quot;email&quot; =&gt; nil, &quot;social_links&quot; =&gt; [{&quot;name&quot; =&gt; &quot;github&quot;, &quot;url&quot; =&gt; &quot;https://github.com/congjyu&quot;}, {&quot;name&quot; =&gt; &quot;rss&quot;, &quot;url&quot; =&gt; &quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Paper Reading - Open-Sora 2.0</title><link href="http://localhost:4000/blog/2025/11/14/Paper-OpenSora/" rel="alternate" type="text/html" title="Paper Reading - Open-Sora 2.0" /><published>2025-11-14T00:00:00+08:00</published><updated>2025-11-14T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/11/14/Paper-OpenSora</id><content type="html" xml:base="http://localhost:4000/blog/2025/11/14/Paper-OpenSora/">&lt;h1 id=&quot;heading-paper-reading---open-sora-20-training-a-commercial-level-video-generation-model-in-200k&quot;&gt;Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k&lt;/h1&gt;
 
 &lt;p&gt;This paper is written by Open-Sora Team.&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-motivation&quot;&gt;Motivation&lt;/h2&gt;
 
-&lt;p&gt;Video generation models have achieved remarkable progress in the pass year and the quality of the generated videos are also improved. But the costs and data quantity of these models increased, and it demands a greater training compute. The author presented a commercial-level video generation model that only costs $200k.&lt;/p&gt;
+&lt;p&gt;Video generation models have achieved remarkable progress in the pass year and the quality of the generated videos are
+also improved. But the costs and data quantity of these models increased, and it demands a greater training compute. The
+author presented a commercial-level video generation model that only costs $200k.&lt;/p&gt;
 
 &lt;p&gt;To evaluate the Open-Sora model, the team has designed a comparing table, which covers three key aspects:&lt;/p&gt;
 
@@ -16,45 +18,82 @@
 
 &lt;h2 id=&quot;heading-model-architecture&quot;&gt;Model Architecture&lt;/h2&gt;
 
-&lt;p&gt;There are two key components of a video generation model: the autoencoder and the diffusion transformer. For the autoencoder, Open-Sora is initially trained on HunyuanVideo&apos;s VAE and later adapt to the Video DC-AE.&lt;/p&gt;
+&lt;p&gt;There are two key components of a video generation model: the autoencoder and the diffusion transformer. For the
+autoencoder, Open-Sora is initially trained on HunyuanVideo&apos;s VAE and later adapt to the Video DC-AE.&lt;/p&gt;
 
 &lt;h3 id=&quot;heading-3d-autoencoder&quot;&gt;3D Autoencoder&lt;/h3&gt;
 
-&lt;p&gt;While training this model, an open source video generation model HunyunVideo VAE is leveraged, and the team developed a video autoencoder with deep compression to improve efficiency and decrease the costs while maintaining high reconstruction fidelity, which is called &quot;Video DC-AE&quot;.&lt;/p&gt;
+&lt;p&gt;While training this model, an open source video generation model HunyunVideo VAE is leveraged, and the team developed a
+video autoencoder with deep compression to improve efficiency and decrease the costs while maintaining high
+reconstruction fidelity, which is called &quot;Video DC-AE&quot;.&lt;/p&gt;
 
-&lt;p&gt;The overview of Video DC-AE: Each block in encoder introduces spatial downsampling, while temporal downsampling occurs at blocks 4 and 5, with a corresponding symmetric structure in the decoder. The Video DC-AE encoder consists of three residual blocks followed by three EfficientViT blocks, with the decoder adopting a symmetrical structure.&lt;/p&gt;
+&lt;p&gt;The overview of Video DC-AE: Each block in encoder introduces spatial downsampling, while temporal downsampling occurs
+at blocks 4 and 5, with a corresponding symmetric structure in the decoder. The Video DC-AE encoder consists of three
+residual blocks followed by three EfficientViT blocks, with the decoder adopting a symmetrical structure.&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-why-the-3-main-stages-in-training-process-structured-this-way&quot;&gt;Why the 3 main stages in training process structured this way?&lt;/h2&gt;
 
-&lt;p&gt;Open-Sora 2.0 uses a &lt;strong&gt;three-stage training pipeline&lt;/strong&gt; to achieve commercial-level video generation quality (comparable to models like HunyuanVideo and Runway Gen-3 Alpha) at dramatically lower cost (~$200k total, 5–10× cheaper than comparable models). The structure prioritizes efficiency by doing the heavy lifting (learning diverse motion patterns and semantics) at low resolution with cheaper compute, leveraging strong pre-trained image models, and reserving expensive high-resolution training for a short final fine-tuning phase.&lt;/p&gt;
+&lt;p&gt;Open-Sora 2.0 uses a &lt;strong&gt;three-stage training pipeline&lt;/strong&gt; to achieve commercial-level video generation quality (comparable
+to models like HunyuanVideo and Runway Gen-3 Alpha) at dramatically lower cost (~$200k total, 5–10× cheaper than
+comparable models). The structure prioritizes efficiency by doing the heavy lifting (learning diverse motion patterns
+and semantics) at low resolution with cheaper compute, leveraging strong pre-trained image models, and reserving
+expensive high-resolution training for a short final fine-tuning phase.&lt;/p&gt;
 
-&lt;p&gt;This avoids the prohibitive costs of training directly on high-resolution data from scratch, where attention complexity scales quadratically with token count/resolution, and minimizes token processing via a custom Video Deep Compression Autoencoder (Video DC-AE).&lt;/p&gt;
+&lt;p&gt;This avoids the prohibitive costs of training directly on high-resolution data from scratch, where attention complexity
+scales quadratically with token count/resolution, and minimizes token processing via a custom Video Deep Compression
+Autoencoder (Video DC-AE).&lt;/p&gt;
 
 &lt;h3 id=&quot;heading-stage-1-low-resolution-text-to-video-t2v-pretraining-256px&quot;&gt;Stage 1: Low-Resolution Text-to-Video (T2V) Pretraining (256px)&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;What happens&lt;/strong&gt;: The model (11B parameters, Diffusion Transformer-based) initializes from Flux (a strong open-source text-to-image model). It trains as text-to-video on ~70M carefully curated 256px short video clips for 85k iterations.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What happens&lt;/strong&gt;: The model (11B parameters, Diffusion Transformer-based) initializes from Flux (a strong open-source
+text-to-image model). It trains as text-to-video on ~70M carefully curated 256px short video clips for 85k iterations.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Cost&lt;/strong&gt;: ~$107.5k (most of the budget).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Why this stage first&lt;/strong&gt;: Low resolution keeps token counts and attention costs very low, allowing the model to efficiently learn diverse real-world motion patterns and text-video alignment on a massive scale. Starting from a pretrained T2I model (Flux) massively accelerates convergence instead of training video dynamics from scratch. The paper states: &quot;we first train on 256px resolution videos, allowing the model to learn diverse motion patterns efficiently.&quot;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Why this stage first&lt;/strong&gt;: Low resolution keeps token counts and attention costs very low, allowing the model to
+efficiently learn diverse real-world motion patterns and text-video alignment on a massive scale. Starting from a
+pretrained T2I model (Flux) massively accelerates convergence instead of training video dynamics from scratch. The
+paper states: &quot;we first train on 256px resolution videos, allowing the model to learn diverse motion patterns
+efficiently.&quot;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;heading-stage-2-low-resolution-image-to-video-i2v-adaptation-256px&quot;&gt;Stage 2: Low-Resolution Image-to-Video (I2V) Adaptation (256px)&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;What happens&lt;/strong&gt;: Continues from Stage 1 checkpoint, shifts to image-to-video conditioning (first frame provided as input), training on a higher-quality subset of ~10M 256px clips for 13k iterations.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What happens&lt;/strong&gt;: Continues from Stage 1 checkpoint, shifts to image-to-video conditioning (first frame provided as
+input), training on a higher-quality subset of ~10M 256px clips for 13k iterations.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Cost&lt;/strong&gt;: ~$18.4k.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Why switch to I2V here&lt;/strong&gt;: Image conditioning lets the model reuse powerful pretrained image features (especially from Flux) and focus purely on temporal/motion modeling. This sets up much more efficient resolution upscaling later. The authors note that &quot;adapting a model from 256px to 768px resolution is significantly more efficient using an image-to-video approach&quot; because I2V avoids regenerating the first frame from text at high res (which is harder/less stable) and instead concentrates compute on coherent motion given a sharp starting image.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Why switch to I2V here&lt;/strong&gt;: Image conditioning lets the model reuse powerful pretrained image features (especially
+from Flux) and focus purely on temporal/motion modeling. This sets up much more efficient resolution upscaling later.
+The authors note that &quot;adapting a model from 256px to 768px resolution is significantly more efficient using an
+image-to-video approach&quot; because I2V avoids regenerating the first frame from text at high res (which is harder/less
+stable) and instead concentrates compute on coherent motion given a sharp starting image.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;heading-stage-3-high-resolution-image-to-video-fine-tuning-768px&quot;&gt;Stage 3: High-Resolution Image-to-Video Fine-Tuning (768px)&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;What happens&lt;/strong&gt;: Fine-tunes the Stage 2 checkpoint as I2V (with text+image conditioning supported in the final model) on ~5M strictly filtered high-quality 768px videos for 13k iterations, using the Video DC-AE for extreme compression (4× temporal × 32× spatial = 4×32×32 overall, reducing tokens ~16× vs standard VAEs).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What happens&lt;/strong&gt;: Fine-tunes the Stage 2 checkpoint as I2V (with text+image conditioning supported in the final model)
+on ~5M strictly filtered high-quality 768px videos for 13k iterations, using the Video DC-AE for extreme compression (
+4× temporal × 32× spatial = 4×32×32 overall, reducing tokens ~16× vs standard VAEs).&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Cost&lt;/strong&gt;: ~$73.7k.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Why only fine-tune at high res, and why I2V&lt;/strong&gt;: High resolution is computationally brutal (much higher token counts), so they limit it to a short, targeted phase with a smaller dataset. Motion priors already learned in low-res stages transfer well, and I2V focuses effort on refining dynamics/perceptual quality rather than re-learning static composition. The paper emphasizes: &quot;increasing the resolution significantly improves perceptual quality,&quot; but doing it early would explode costs.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Why only fine-tune at high res, and why I2V&lt;/strong&gt;: High resolution is computationally brutal (much higher token counts),
+so they limit it to a short, targeted phase with a smaller dataset. Motion priors already learned in low-res stages
+transfer well, and I2V focuses effort on refining dynamics/perceptual quality rather than re-learning static
+composition. The paper emphasizes: &quot;increasing the resolution significantly improves perceptual quality,&quot; but doing it
+early would explode costs.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;heading-overall-rationale-for-the-3-stage-structure&quot;&gt;Overall Rationale for the 3-Stage Structure&lt;/h3&gt;
-&lt;p&gt;The core insight is progressive/curricular training: learn motion cheaply at low res → adapt to stronger image conditioning → polish at high res only. This + Flux initialization + Video DC-AE compression gives massive savings while preserving quality stays on par with models trained for millions of dollars. Direct high-res T2V training from scratch, or doing everything in one stage, would require far more GPU time because of quadratic scaling and poorer convergence. By decoupling motion learning (low-res) from visual fidelity (high-res fine-tune) and using I2V for the expensive parts, they achieve 5.2× training throughput gains and &amp;gt;10× inference speedup versus less-compressed alternatives.&lt;/p&gt;
 
-&lt;p&gt;In short, the staging is an elegant cost–quality optimization that proves you don&apos;t need million-dollar runs to reach the frontier — you just need to train smart.&lt;/p&gt;</content><author><name>Rain</name></author><category term="Artificial Intelligence" /><category term="Papers" /><summary type="html">Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k</summary></entry><entry><title type="html">Intelligent System - Notes and Practice</title><link href="http://localhost:4000/blog/2025/10/30/IntelligentSystem/" rel="alternate" type="text/html" title="Intelligent System - Notes and Practice" /><published>2025-10-30T00:00:00+08:00</published><updated>2025-10-30T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/30/IntelligentSystem</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/30/IntelligentSystem/">&lt;h1 id=&quot;heading-intelligent-system---notes-and-practice&quot;&gt;Intelligent System - Notes and Practice&lt;/h1&gt;
+&lt;p&gt;The core insight is progressive/curricular training: learn motion cheaply at low res → adapt to stronger image
+conditioning → polish at high res only. This + Flux initialization + Video DC-AE compression gives massive savings while
+preserving quality stays on par with models trained for millions of dollars. Direct high-res T2V training from scratch,
+or doing everything in one stage, would require far more GPU time because of quadratic scaling and poorer convergence.
+By decoupling motion learning (low-res) from visual fidelity (high-res fine-tune) and using I2V for the expensive parts,
+they achieve 5.2× training throughput gains and &amp;gt;10× inference speedup versus less-compressed alternatives.&lt;/p&gt;
+
+&lt;p&gt;In short, the staging is an elegant cost–quality optimization that proves you don&apos;t need million-dollar runs to reach
+the frontier — you just need to train smart.&lt;/p&gt;</content><author><name>Rain</name></author><category term="Artificial Intelligence" /><category term="Papers" /><summary type="html">Paper Reading - Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k</summary></entry><entry><title type="html">Intelligent System - Notes and Practice</title><link href="http://localhost:4000/blog/2025/10/30/IntelligentSystem/" rel="alternate" type="text/html" title="Intelligent System - Notes and Practice" /><published>2025-10-30T00:00:00+08:00</published><updated>2025-10-30T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/30/IntelligentSystem</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/30/IntelligentSystem/">&lt;h1 id=&quot;heading-intelligent-system---notes-and-practice&quot;&gt;Intelligent System - Notes and Practice&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Intelligence is a mental quality that consists of the abilities to learn from experience, adapt to new situations, understanding and handle abstract concepts, and use knowledge to manipulate one&apos;s environment.&lt;/p&gt;
