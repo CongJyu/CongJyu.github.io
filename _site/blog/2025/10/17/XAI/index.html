@@ -20,15 +20,15 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="Explainable AI - Notes and Practice" />
 <meta property="og:description" content="Explainable AI - Notes and Practice" />
-<link rel="canonical" href="http://localhost:4000/blog/2025/10/17/XAI/" />
-<meta property="og:url" content="http://localhost:4000/blog/2025/10/17/XAI/" />
+<link rel="canonical" href="https://congjyu.github.io/blog/2025/10/17/XAI/" />
+<meta property="og:url" content="https://congjyu.github.io/blog/2025/10/17/XAI/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-10-17T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Explainable AI - Notes and Practice" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-10-17T00:00:00+08:00","datePublished":"2025-10-17T00:00:00+08:00","description":"Explainable AI - Notes and Practice","headline":"Explainable AI - Notes and Practice","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2025/10/17/XAI/"},"url":"http://localhost:4000/blog/2025/10/17/XAI/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-10-17T00:00:00+08:00","datePublished":"2025-10-17T00:00:00+08:00","description":"Explainable AI - Notes and Practice","headline":"Explainable AI - Notes and Practice","mainEntityOfPage":{"@type":"WebPage","@id":"https://congjyu.github.io/blog/2025/10/17/XAI/"},"url":"https://congjyu.github.io/blog/2025/10/17/XAI/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
@@ -38,7 +38,7 @@
 
 
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+<link type="application/atom+xml" rel="alternate" href="https://congjyu.github.io/feed.xml" title="Rain Chen&apos;s Blog" />
     <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
@@ -203,7 +203,9 @@
 
 <h2 id="heading-linear-regression-and-logistic-regression">Linear Regression and Logistic Regression</h2>
 
-<p>We make regression because we want to make a "supervise learning", that is, input observation $\mathbf{x}$ which is typically a vector in $\mathbb{R}^d$ and output a $y \in \mathbb{R}$ which is a real number. Our goal is to predict the output $y$ from input $\mathbf{x}$. That is, learn the function:</p>
+<p>We make regression because we want to make a "supervise learning", that is, input observation $\mathbf{x}$ which is
+typically a vector in $\mathbb{R}^d$ and output a $y \in \mathbb{R}$ which is a real number. Our goal is to predict the
+output $y$ from input $\mathbf{x}$. That is, learn the function:</p>
 
 \[y = f(\mathbf{x}) + \epsilon\]
 
@@ -213,9 +215,12 @@
 
 <h3 id="heading-linear-regression">Linear Regression</h3>
 
-<p>Given a linear function of the input feature $x$, $f(x) = \omega * x + b$, where $\omega$ is the slope and $b$ is the intercept. Then we observe a noisy output of the function, then $f(x) = \omega * x + b + \epsilon$ where $\epsilon$ is a assumed Gaussian noise.</p>
+<p>Given a linear function of the input feature $x$, $f(x) = \omega * x + b$, where $\omega$ is the slope and $b$ is the
+intercept. Then we observe a noisy output of the function, then $f(x) = \omega * x + b + \epsilon$ where $\epsilon$ is a
+assumed Gaussian noise.</p>
 
-<p>We make it to the d-dimension case. The linear combination (also called weighted sum) of $d$ input variables $x_1, …, x_d$. Now we have:</p>
+<p>We make it to the d-dimension case. The linear combination (also called weighted sum) of $d$ input
+variables $x_1, …, x_d$. Now we have:</p>
 
 \[f(x) = \omega_0 + \omega_1 x_1 + \omega_2 x_2 + ... + \omega_d x_d\]
 
@@ -224,7 +229,8 @@
 <p>The <strong>KEY ASSUMPTIONS</strong> of Linear Regression:</p>
 
 <ul>
-  <li><strong>Linearity</strong>: Prediction is a linear combination of features. (Obviously, linear effects are easily interpretable; and additivity seperates the effects.)</li>
+  <li><strong>Linearity</strong>: Prediction is a linear combination of features. (Obviously, linear effects are easily interpretable;
+and additivity seperates the effects.)</li>
   <li><strong>Normality</strong>: Errors are normally distributed.</li>
   <li><strong>Homoscedasticity</strong>: Constant variance of errors across feature space.</li>
   <li><strong>Independence</strong>: Each instance is independent. (We do not measure a same thing repeatly.)</li>
@@ -238,7 +244,8 @@
 
 \[f(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b\]
 
-<p>need to estimate the parameter $(\mathbf{w}, b)$ from the data. A method is to fit the parameters by minimizing the squared prediction error on the training set</p>
+<p>need to estimate the parameter $(\mathbf{w}, b)$ from the data. A method is to fit the parameters by minimizing the
+squared prediction error on the training set</p>
 
 \[{\lbrace(\mathbf{x}_i, y_i)\rbrace}^{N}_{i = 1}\]
 
@@ -254,7 +261,8 @@
 
 \[\min_{\mathbf{w}} ||\mathbf{y} - \mathbf{X}^T \mathbf{w}||^2\]
 
-<p>where $\mathbf{X} = [\mathbf{x_1}, \mathbf{x_2}, …, \mathbf{x_N}]$ is the data matrix and $\mathbf{y} = [y_1, y_2, …, y_N]^T$ is the vector of outputs.</p>
+<p>where $\mathbf{X} = [\mathbf{x_1}, \mathbf{x_2}, …, \mathbf{x_N}]$ is the data matrix
+and $\mathbf{y} = [y_1, y_2, …, y_N]^T$ is the vector of outputs.</p>
 
 <p>So we get the closed-form solution.</p>
 
@@ -264,9 +272,12 @@
 
 <h3 id="heading-model-fit-r-square">Model Fit-R-Square</h3>
 
-<p>Commonly known as <strong>R-Squared</strong> ($R^2$), is a statistical measure that shows the proportion of the variance in the dependent variable that can be explained by the independent variables in a regression model. It essentially indicates how well the regression model fits the observed data.</p>
+<p>Commonly known as <strong>R-Squared</strong> ($R^2$), is a statistical measure that shows the proportion of the variance in the
+dependent variable that can be explained by the independent variables in a regression model. It essentially indicates
+how well the regression model fits the observed data.</p>
 
-<p>For the prediction: $\hat{y_i} = f(x_i)$, R-Squared (Coefficient of Determination): proportion of variance is explained by the model.</p>
+<p>For the prediction: $\hat{y_i} = f(x_i)$, R-Squared (Coefficient of Determination): proportion of variance is explained
+by the model.</p>
 
 \[R^2 = 1 - \frac{SSE}{SST}\]
 
@@ -274,15 +285,19 @@
 
 \[SSE = \sum^{n}_{i = 1}(y_i - \hat{y_i})^2\]
 
-<p>measuring the total squared difference between actual and predicted values; and the $SST$ is the Total Sum of Squares, $SST = \sum^{n}_{i = 1}(y_i - \bar{y})^2$, measuring the total variance in the observed data, and $\bar{y}$ is the mean.</p>
+<p>measuring the total squared difference between actual and predicted values; and the $SST$ is the Total Sum of
+Squares, $SST = \sum^{n}_{i = 1}(y_i - \bar{y})^2$, measuring the total variance in the observed data, and $\bar{y}$ is
+the mean.</p>
 
-<p>Now we get $R^2$ can we can make an interpretation. $R^2$ closed to 1 means model explains most of the variance; and $R^2$ closed to 0 means model explains little of the variance.</p>
+<p>Now we get $R^2$ can we can make an interpretation. $R^2$ closed to 1 means model explains most of the variance;
+and $R^2$ closed to 0 means model explains little of the variance.</p>
 
 <p>Then we have Adjusted R-Squared:</p>
 
 \[\bar{R}^2 = 1 - (1 - R^2) \frac{n - 1}{n - p - 1}\]
 
-<p>and it adjusts $R^2$ for the number of predictors $p$ and the sample size $n$. Thus, we can use Adjusted R-Squared when comparing models with different numbers of features. Also, Adjusted R-Squared penalizes unnecessary predictors.</p>
+<p>and it adjusts $R^2$ for the number of predictors $p$ and the sample size $n$. Thus, we can use Adjusted R-Squared when
+comparing models with different numbers of features. Also, Adjusted R-Squared penalizes unnecessary predictors.</p>
 
 <h2 id="heading-つづく">つづく…</h2>
 
