@@ -1,20 +1,6 @@
 [
   
     {
-      "title"      : "Paper Reading - Open-Sora 2.0",
-      "url"        : "/blog/2025/11/14/Paper-OpenSora/",
-      "date"       : "2025-11-14 00:00:00 +0800",
-      "shortdate"  : "November 14, 2025"
-    } ,
-  
-    {
-      "title"      : "Intelligent System - Notes and Practice",
-      "url"        : "/blog/2025/10/30/IntelligentSystem/",
-      "date"       : "2025-10-30 00:00:00 +0800",
-      "shortdate"  : "October 30, 2025"
-    } ,
-  
-    {
       "title"      : "Weird Python",
       "url"        : "/blog/2025/10/19/WeirdPython/",
       "date"       : "2025-10-19 00:00:00 +0800",
@@ -26,13 +12,6 @@
       "url"        : "/blog/2025/10/18/QuantTrading/",
       "date"       : "2025-10-18 00:00:00 +0800",
       "shortdate"  : "October 18, 2025"
-    } ,
-  
-    {
-      "title"      : "Explainable AI - Notes and Practice",
-      "url"        : "/blog/2025/10/17/XAI/",
-      "date"       : "2025-10-17 00:00:00 +0800",
-      "shortdate"  : "October 17, 2025"
     } 
   
 ]
