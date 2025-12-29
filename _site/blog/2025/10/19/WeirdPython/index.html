@@ -20,15 +20,15 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="Weird Python" />
 <meta property="og:description" content="Weird Python" />
-<link rel="canonical" href="http://localhost:4000/blog/2025/10/19/WeirdPython/" />
-<meta property="og:url" content="http://localhost:4000/blog/2025/10/19/WeirdPython/" />
+<link rel="canonical" href="https://congjyu.github.io/blog/2025/10/19/WeirdPython/" />
+<meta property="og:url" content="https://congjyu.github.io/blog/2025/10/19/WeirdPython/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-10-19T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Weird Python" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-10-19T00:00:00+08:00","datePublished":"2025-10-19T00:00:00+08:00","description":"Weird Python","headline":"Weird Python","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2025/10/19/WeirdPython/"},"url":"http://localhost:4000/blog/2025/10/19/WeirdPython/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2025-10-19T00:00:00+08:00","datePublished":"2025-10-19T00:00:00+08:00","description":"Weird Python","headline":"Weird Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://congjyu.github.io/blog/2025/10/19/WeirdPython/"},"url":"https://congjyu.github.io/blog/2025/10/19/WeirdPython/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
@@ -38,7 +38,7 @@
 
 
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+<link type="application/atom+xml" rel="alternate" href="https://congjyu.github.io/feed.xml" title="Rain Chen&apos;s Blog" />
     <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
@@ -203,23 +203,19 @@
 
 <h2 id="heading-introduction">Introduction</h2>
 
-<p>I create this article because of the annoying confusing problems I met in the Python code. I have to admit that Python
-is a awesome programming language however… it DOSE exist some weird problems when coding not carefully. So this
-passage is used to record the problems and solutions for Python debugging.</p>
+<p>I create this article because of the annoying confusing problems I met in the Python code. I have to admit that Python is a awesome programming language however… it DOSE exist some weird problems when coding not carefully. So this passage is used to record the problems and solutions for Python debugging.</p>
 
 <h2 id="heading-stable-method-for-patching-functions-in-packages">Stable Method for Patching Functions in Packages</h2>
 
 <h3 id="heading-problem">Problem</h3>
 
-<p>Well, here's the problem. It happened when I was completing my tutorials. The tutorial imported a Python package called
-<code class="language-plaintext highlighter-rouge">lucent</code>, which is used to visualize the layers of CNNs. The code was like this:</p>
+<p>Well, here's the problem. It happened when I was completing my tutorials. The tutorial imported a Python package called <code class="language-plaintext highlighter-rouge">lucent</code>, which is used to visualize the layers of CNNs. The code was like this:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">lucent.optvis</span> <span class="kn">import</span> <span class="n">render</span>
 <span class="kn">import</span> <span class="nn">lucent.modelzoo.util</span> <span class="k">as</span> <span class="n">lu_zoo</span>
 </code></pre></div></div>
 
-<p>It seems normal, but it may run into trouble because I will run this code on Jupyter Notebook (local or online). Then I
-use the <code class="language-plaintext highlighter-rouge">lucent</code> package to visualize the layers.</p>
+<p>It seems normal, but it may run into trouble because I will run this code on Jupyter Notebook (local or online). Then I use the <code class="language-plaintext highlighter-rouge">lucent</code> package to visualize the layers.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model1</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">ldevice</span><span class="p">).</span><span class="nb">eval</span><span class="p">()</span>
 <span class="n">lu_zoo</span><span class="p">.</span><span class="n">get_model_layers</span><span class="p">(</span><span class="n">model1</span><span class="p">)</span>
@@ -240,9 +236,7 @@ use the <code class="language-plaintext highlighter-rouge">lucent</code> package
 <span class="n">show_imgs</span><span class="p">(</span><span class="n">model1_conv_images</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Then the output cell run into trouble. There should be a beautiful progress bar loading in the output cell showing the
-current progress of the analyzation, however, the progress bar flashed and disappeared suddenly, leaving some static
-time text in the output cell. Like the cell below.</p>
+<p>Then the output cell run into trouble. There should be a beautiful progress bar loading in the output cell showing the current progress of the analyzation, however, the progress bar flashed and disappeared suddenly, leaving some static time text in the output cell. Like the cell below.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5it/s
 
@@ -257,17 +251,11 @@ second
 
 <h3 id="heading-attempts--solution">Attempts &amp; Solution</h3>
 
-<p>The solution is simple too. Now the <code class="language-plaintext highlighter-rouge">tqdm</code> package provides a special module for Jupyter Notebook, so we can use that
-module to show progress bar in Jupyter Notebook environment. However, the <code class="language-plaintext highlighter-rouge">tqdm</code> package is not import directly and it
-is import by another package. How can we replace the original <code class="language-plaintext highlighter-rouge">tqdm</code> method to the new specified Jupyter Notebook <code class="language-plaintext highlighter-rouge">tqdm</code>
-method?</p>
+<p>The solution is simple too. Now the <code class="language-plaintext highlighter-rouge">tqdm</code> package provides a special module for Jupyter Notebook, so we can use that module to show progress bar in Jupyter Notebook environment. However, the <code class="language-plaintext highlighter-rouge">tqdm</code> package is not import directly and it is import by another package. How can we replace the original <code class="language-plaintext highlighter-rouge">tqdm</code> method to the new specified Jupyter Notebook <code class="language-plaintext highlighter-rouge">tqdm</code> method?</p>
 
-<p>Change the code file in the <code class="language-plaintext highlighter-rouge">lucent</code> package and make it use <code class="language-plaintext highlighter-rouge">notebook.tqdm</code> directly DOES work… but it seems that it
-is not that "normal". (i.e. totally a strange method, does not robust and stable at all). So, any other methods?</p>
+<p>Change the code file in the <code class="language-plaintext highlighter-rouge">lucent</code> package and make it use <code class="language-plaintext highlighter-rouge">notebook.tqdm</code> directly DOES work… but it seems that it is not that "normal". (i.e. totally a strange method, does not robust and stable at all). So, any other methods?</p>
 
-<p>Luckily, there is an elegant way to solve this problem. We import <code class="language-plaintext highlighter-rouge">sys</code> the system package first. Then we import the
-<code class="language-plaintext highlighter-rouge">tqdm.notebook</code> package. Finally we can "patch" the <code class="language-plaintext highlighter-rouge">tqdm</code> with <code class="language-plaintext highlighter-rouge">tqdm.notebook.tqdm</code>, and this will help us enable the
-Jupyter Notebook progress bar.</p>
+<p>Luckily, there is an elegant way to solve this problem. We import <code class="language-plaintext highlighter-rouge">sys</code> the system package first. Then we import the <code class="language-plaintext highlighter-rouge">tqdm.notebook</code> package. Finally we can "patch" the <code class="language-plaintext highlighter-rouge">tqdm</code> with <code class="language-plaintext highlighter-rouge">tqdm.notebook.tqdm</code>, and this will help us enable the Jupyter Notebook progress bar.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">notebook</span>

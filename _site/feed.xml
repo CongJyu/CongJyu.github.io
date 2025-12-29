@@ -1,24 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-22T22:02:23+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-29T18:03:47+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="https://congjyu.github.io/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="https://congjyu.github.io/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;I create this article because of the annoying confusing problems I met in the Python code. I have to admit that Python
-is a awesome programming language however… it DOSE exist some weird problems when coding not carefully. So this
-passage is used to record the problems and solutions for Python debugging.&lt;/p&gt;
+&lt;p&gt;I create this article because of the annoying confusing problems I met in the Python code. I have to admit that Python is a awesome programming language however… it DOSE exist some weird problems when coding not carefully. So this passage is used to record the problems and solutions for Python debugging.&lt;/p&gt;
 
 &lt;h2 id=&quot;heading-stable-method-for-patching-functions-in-packages&quot;&gt;Stable Method for Patching Functions in Packages&lt;/h2&gt;
 
 &lt;h3 id=&quot;heading-problem&quot;&gt;Problem&lt;/h3&gt;
 
-&lt;p&gt;Well, here&apos;s the problem. It happened when I was completing my tutorials. The tutorial imported a Python package called
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucent&lt;/code&gt;, which is used to visualize the layers of CNNs. The code was like this:&lt;/p&gt;
+&lt;p&gt;Well, here&apos;s the problem. It happened when I was completing my tutorials. The tutorial imported a Python package called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucent&lt;/code&gt;, which is used to visualize the layers of CNNs. The code was like this:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lucent.optvis&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;lucent.modelzoo.util&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lu_zoo&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;It seems normal, but it may run into trouble because I will run this code on Jupyter Notebook (local or online). Then I
-use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucent&lt;/code&gt; package to visualize the layers.&lt;/p&gt;
+&lt;p&gt;It seems normal, but it may run into trouble because I will run this code on Jupyter Notebook (local or online). Then I use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucent&lt;/code&gt; package to visualize the layers.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;model1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ldevice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;lu_zoo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_model_layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -39,9 +35,7 @@ use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucen
 &lt;span class=&quot;n&quot;&gt;show_imgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model1_conv_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Then the output cell run into trouble. There should be a beautiful progress bar loading in the output cell showing the
-current progress of the analyzation, however, the progress bar flashed and disappeared suddenly, leaving some static
-time text in the output cell. Like the cell below.&lt;/p&gt;
+&lt;p&gt;Then the output cell run into trouble. There should be a beautiful progress bar loading in the output cell showing the current progress of the analyzation, however, the progress bar flashed and disappeared suddenly, leaving some static time text in the output cell. Like the cell below.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;5it/s
 
@@ -56,17 +50,11 @@ second
 
 &lt;h3 id=&quot;heading-attempts--solution&quot;&gt;Attempts &amp;amp; Solution&lt;/h3&gt;
 
-&lt;p&gt;The solution is simple too. Now the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; package provides a special module for Jupyter Notebook, so we can use that
-module to show progress bar in Jupyter Notebook environment. However, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; package is not import directly and it
-is import by another package. How can we replace the original &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; method to the new specified Jupyter Notebook &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt;
-method?&lt;/p&gt;
+&lt;p&gt;The solution is simple too. Now the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; package provides a special module for Jupyter Notebook, so we can use that module to show progress bar in Jupyter Notebook environment. However, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; package is not import directly and it is import by another package. How can we replace the original &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; method to the new specified Jupyter Notebook &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; method?&lt;/p&gt;
 
-&lt;p&gt;Change the code file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucent&lt;/code&gt; package and make it use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notebook.tqdm&lt;/code&gt; directly DOES work… but it seems that it
-is not that &quot;normal&quot;. (i.e. totally a strange method, does not robust and stable at all). So, any other methods?&lt;/p&gt;
+&lt;p&gt;Change the code file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lucent&lt;/code&gt; package and make it use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notebook.tqdm&lt;/code&gt; directly DOES work… but it seems that it is not that &quot;normal&quot;. (i.e. totally a strange method, does not robust and stable at all). So, any other methods?&lt;/p&gt;
 
-&lt;p&gt;Luckily, there is an elegant way to solve this problem. We import &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys&lt;/code&gt; the system package first. Then we import the
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm.notebook&lt;/code&gt; package. Finally we can &quot;patch&quot; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm.notebook.tqdm&lt;/code&gt;, and this will help us enable the
-Jupyter Notebook progress bar.&lt;/p&gt;
+&lt;p&gt;Luckily, there is an elegant way to solve this problem. We import &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys&lt;/code&gt; the system package first. Then we import the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm.notebook&lt;/code&gt; package. Finally we can &quot;patch&quot; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tqdm.notebook.tqdm&lt;/code&gt;, and this will help us enable the Jupyter Notebook progress bar.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tqdm&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;notebook&lt;/span&gt;
@@ -78,11 +66,10 @@ Jupyter Notebook progress bar.&lt;/p&gt;
 
 &lt;p&gt;Also, this method works well with other situations when some packages need to be change in certain imported packages.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">Quantitative Trading Notes</title><link href="http://localhost:4000/blog/2025/10/18/QuantTrading/" rel="alternate" type="text/html" title="Quantitative Trading Notes" /><published>2025-10-18T00:00:00+08:00</published><updated>2025-10-18T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/18/QuantTrading</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/18/QuantTrading/">&lt;h1 id=&quot;heading-quantitative-trading-notes&quot;&gt;Quantitative Trading Notes&lt;/h1&gt;
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">Quantitative Trading Notes</title><link href="https://congjyu.github.io/blog/2025/10/18/QuantTrading/" rel="alternate" type="text/html" title="Quantitative Trading Notes" /><published>2025-10-18T00:00:00+08:00</published><updated>2025-10-18T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2025/10/18/QuantTrading</id><content type="html" xml:base="https://congjyu.github.io/blog/2025/10/18/QuantTrading/">&lt;h1 id=&quot;heading-quantitative-trading-notes&quot;&gt;Quantitative Trading Notes&lt;/h1&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;⚠️ Warning: This article &lt;strong&gt;&lt;em&gt;DO NOT&lt;/em&gt;&lt;/strong&gt; provide any investiment advise. There are &lt;strong&gt;&lt;em&gt;RISKS&lt;/em&gt;&lt;/strong&gt; in investment and
-financial management, and you should be cautious.&lt;/p&gt;
+  &lt;p&gt;⚠️ Warning: This article &lt;strong&gt;&lt;em&gt;DO NOT&lt;/em&gt;&lt;/strong&gt; provide any investiment advise. There are &lt;strong&gt;&lt;em&gt;RISKS&lt;/em&gt;&lt;/strong&gt; in investment and financial management, and you should be cautious.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Quantitative Trading" /><category term="FinTech" /><summary type="html">Quantitative Trading Notes</summary></entry></feed>
