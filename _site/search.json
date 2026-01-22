@@ -12,6 +12,13 @@
       "url"        : "/blog/2025/10/18/QuantTrading/",
       "date"       : "2025-10-18 00:00:00 +0800",
       "shortdate"  : "October 18, 2025"
+    } ,
+  
+    {
+      "title"      : "The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore",
+      "url"        : "/blog/2025/08/15/MySQL/",
+      "date"       : "2025-08-15 00:00:00 +0800",
+      "shortdate"  : "August 15, 2025"
     } 
   
 ]
