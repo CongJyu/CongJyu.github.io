@@ -195,7 +195,7 @@
                     <div itemprop="articleBody">
                         <h1 id="heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔">The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</h1>
 
-<h2 id="heading-self-introduction-of-documentation--文檔自述">Self Introduction of Documentation | 文檔自述</h2>
+<h2 id="heading-1-self-introduction-of-documentation--文檔自述">1. Self Introduction of Documentation | 文檔自述</h2>
 
 <p>This documentation is for the installation, deployment, upgrading, main/duplicated database, backup and restoration.</p>
 
@@ -221,25 +221,402 @@
 
 <p>最後，本文件收錄咗一啲喺測試過程中喺 MySQL 安裝、部署、升級、備份等過程中遇到嘅問題，並提供咗問題分析及解決方法，以供實際部署 MySQL 時參考。</p>
 
-<h2 id="heading-command-line-prompt-examples--命令提示示例">Command Line Prompt Examples | 命令提示示例</h2>
+<h2 id="heading-2-command-line-prompt-examples--命令提示示例">2. Command Line Prompt Examples | 命令提示示例</h2>
 
 <p>The text in this document using isowidth font with dark underprint is the command line raw text in the terminal. where the command that needs to be entered is preceded by a one-character permission prompt. The <code class="language-plaintext highlighter-rouge">#</code> symbol indicates that the next command was entered under the test machine's root privileges, the <code class="language-plaintext highlighter-rouge">$</code> symbol indicates that the next command was entered under the test machine's ordinary user privileges, and the <code class="language-plaintext highlighter-rouge">&gt;</code> symbol indicates that the next command requires a login to the MySQL command line console for operation. The permission prompt is automatically displayed by the computer terminal when the command is actually entered, eliminating the need for the user to manually enter this permission prompt as well as the space immediately following the symbol.</p>
 
 <p>本文中使用等寬字體並帶有深色底紋嘅文本係終端中嘅命令行原始文本。其中需要輸入嘅命令前帶有一個字符嘅權限提示符。<code class="language-plaintext highlighter-rouge">#</code> 符號表示接下來嘅一條命令喺測試機嘅 root 權限下輸入；<code class="language-plaintext highlighter-rouge">$</code> 符號表示接下來嘅一條命令喺測試機嘅普通用戶權限下輸入；<code class="language-plaintext highlighter-rouge">&gt;</code> 符號表示接下來嘅命令需要登入 MySQL 命令行控制台進行操作。實際輸入命令時權限提示符號由電腦終端自動顯示，唔需要用戶手動輸入呢個權限提示符號以及符號後緊跟嘅空格。</p>
 
-<h2 id="heading-installation-and-deployment--安裝部署">Installation and Deployment | 安裝部署</h2>
+<h2 id="heading-3-installation-and-deployment--安裝部署">3. Installation and Deployment | 安裝部署</h2>
 
-<h2 id="heading-upgrade--版本升級">Upgrade | 版本升級</h2>
+<h3 id="heading-31-check-the-current-environment-of-the-machine--檢查機器當前嘅環境">3.1. Check the current environment of the machine | 檢查機器當前嘅環境</h3>
 
-<h2 id="heading-data-importing--數據導入">Data Importing | 數據導入</h2>
+<p>Check the current system information about the computer, and make sure they are matched with the MySQL for installation. Use <code class="language-plaintext highlighter-rouge">uname</code> tool can check the current system and architecture information easily.</p>
 
-<h2 id="heading-main-and-duplicate-database-preparing--主備數據庫搭建">Main and Duplicate Database Preparing | 主備數據庫搭建</h2>
+<p>檢查當前機器嘅系統信息，確保呢啲信息同需要安裝嘅 MySQL 數據庫軟件相匹配。使用 <code class="language-plaintext highlighter-rouge">uname</code> 工具可以方便地查看當前嘅系統和架構信息。</p>
 
-<h2 id="heading-backup-and-restore--備份及恢復">Backup and Restore | 備份及恢復</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># uname -a
+Linux clz-db-t2 3.10.0-693.el7.x86_64 #1 SMP Thu Jul 6 19:56:57 EDT 2017 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre></div></div>
 
-<h2 id="heading-diagnose--問題排查及解決方法">Diagnose | 問題排查及解決方法</h2>
+<p>Use <code class="language-plaintext highlighter-rouge">ldd</code> tool to check the version of system's GNU libc (Glibc).</p>
 
-<h2 id="heading-つづく">つづく…</h2>
+<p>使用 <code class="language-plaintext highlighter-rouge">ldd</code> 工具來檢查系統嘅 GNU libc (Glibc) 版本。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ldd --version
+ldd (GNU libc) 2.17
+Copyright (C) 2012 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+</code></pre></div></div>
+
+<p>The compatibility of the current machine with the required MySQL version is determined based on the system version, architecture, and glibc version, thus deciding which MySQL version to use. For example, the test machine in this case runs Red Hat Enterprise Linux 7, an x86_64 architecture, and uses GNU libc 2.17. Therefore, when selecting the MySQL binary package, a version compatible with el7, an x86_64 architecture, and based on glibc 2.17 should be chosen.</p>
+
+<p>兼容性要求當前呢台機器需要對應嘅 glibc 版本，因此亦都會決定邊啲 MySQL 版本可以使用。例如，依家情況下有一台測試機運行著 Red Hat Enterprise Linux，並且使用 GNU libc 2.17。因此，當選擇 MySQL 二進制包版本嘅時候就應該選擇一個兼容 el7，x86_64 架構，並且基於 glibc 2.17 嘅 MySQL 版本。</p>
+
+<p>If the system architecture is displayed as aarch64, then an aarch64 or arm64 package should be selected; if the system architecture is displayed as x86_64, then an x86_64, x64, or amd64 package should be selected. The specific naming of the architecture used by the package depends on the software distributor.</p>
+
+<p>如果系統架構顯示為 aarch64，咁應該選擇 aarch64 或者 arm64 包；如果系統架構顯示為 x86_64，咁應該選擇 x86_64、 x64 或者 amd64 包。包所用嘅架構嘅具體命名取決於軟件分銷商。</p>
+
+<h3 id="heading-32-download-mysql-package--下載-mysql-軟件包">3.2. Download MySQL package | 下載 MySQL 軟件包</h3>
+
+<p>This document describes how to deploy MySQL using a binary package installation. From the official MySQL archive download page (<a href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a>), select the required MySQL package and copy the link to that binary archive. On the machine where you want to deploy MySQL, use the wget tool to pull the MySQL binary package from that link and place it in the <code class="language-plaintext highlighter-rouge">/usr/local</code> directory. On the machine without an internet connection, use the ssh tool to upload the MySQL binary package from your local machine to the server.</p>
+
+<p>呢份文檔會講解點樣用二進制包安裝部署 MySQL。喺官方嘅 MySQL 封存檔案下載頁面（<a href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a>），選擇所需嘅 MySQL 包，然後將連結複製去嗰個二進制封存檔案。喺你想部署 MySQL 嘅機器上面，用 wget 工具喺嗰個連結度拉出 MySQL 二進制包，然後將佢放入 <code class="language-plaintext highlighter-rouge">/usr/local</code> 目錄。喺冇互聯網連線嘅機器上面，用 ssh 工具將 MySQL 二進制包由你嘅本地機器上載去伺服器。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cd /usr/local
+# wget "https://cdn.mysql.com/archives/mysql-8.0/mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz"
+</code></pre></div></div>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">ls</code> command in the <code class="language-plaintext highlighter-rouge">/usr/local</code> directory to view the files and directories in the current directory, ensuring that the MySQL binary package has been downloaded and placed in the specified location.</p>
+
+<p>你可以用 <code class="language-plaintext highlighter-rouge">/usr/local</code> 目錄入面嘅 <code class="language-plaintext highlighter-rouge">ls</code> 命令嚟睇返當前目錄入面嘅檔案同目錄，確保 MySQL 二進制包已經下載好，然後放喺指定位置。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ls -lah
+total 428M
+drwxr-xr-x. 16 root root 4.0K Jul 31 17:27 .
+drwxr-xr-x. 14 root root  166 Feb 27  2019 ..
+drwxr-xr-x.  2 root root   37 Aug 10  2020 bin
+drwxr-xr-x.  2 root root    6 Mar 10  2016 etc
+drwxr-xr-x.  2 root root    6 Mar 10  2016 games
+drwxr-xr-x.  3 root root   21 Aug 10  2020 include
+drwxr-xr-x.  2 root root    6 Mar 10  2016 lib
+drwxr-xr-x.  4 root root  159 Aug 10  2020 lib64
+drwxr-xr-x.  2 root root    6 Mar 10  2016 libexec
+-rw-r--r--   1 root root 428M Jun 28  2023 mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz
+drwxr-xr-x   5 root root   44 Mar 26  2018 openssh.bak
+drwxr-xr-x.  2 root root    6 Mar 10  2016 sbin
+drwxr-xr-x.  6 root root   60 Aug 10  2020 share
+drwxr-xr-x.  4 root root  106 Feb 27  2019 src
+drwxr-xr-x   9 root root  188 Aug 10  2020 ssl
+</code></pre></div></div>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">tar</code> tool to extract the package (in this example, "<code class="language-plaintext highlighter-rouge">mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz</code>") and place it in the same directory.</p>
+
+<p>用「<code class="language-plaintext highlighter-rouge">tar</code>」工具去解壓縮個包（喺呢個例子入面，係「<code class="language-plaintext highlighter-rouge">mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz</code>」），然後將佢放入同一個目錄。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tar -xvf mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz
+</code></pre></div></div>
+
+<p>The directory <code class="language-plaintext highlighter-rouge">/usr/local/mysql-8.1.0-linux-glibc2.17-x86_64</code> is obtained.</p>
+
+<p>得到咗個目錄「<code class="language-plaintext highlighter-rouge">/usr/local/mysql-8.1.0-linux-glibc2.17-x86_64</code>」。</p>
+
+<h3 id="heading-33-setup-users-and-groups--建立用戶和組">3.3. Setup users and groups | 建立用戶和組</h3>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">useradd</code> command to create the <code class="language-plaintext highlighter-rouge">mysql</code> user group, and then create a new <code class="language-plaintext highlighter-rouge">mysql</code> user within that group.</p>
+
+<p>用 <code class="language-plaintext highlighter-rouge">useradd</code> 命令去建立 <code class="language-plaintext highlighter-rouge">mysql</code> 用戶群組，然後喺嗰個群組入面建立一個新嘅 <code class="language-plaintext highlighter-rouge">mysql</code> 用戶。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># groupadd mysql
+# useradd -r -g mysql -s /bin/false mysql
+</code></pre></div></div>
+
+<h3 id="heading-34-setup-configuration-files-and-directories--建立配置文件和相關目錄">3.4. Setup configuration files and directories | 建立配置文件和相關目錄</h3>
+
+<p>Configure the <code class="language-plaintext highlighter-rouge">my.cnf</code> configuration file as follows and save it in the <code class="language-plaintext highlighter-rouge">/etc</code> directory. You can open and paste it using the Vim editor.</p>
+
+<p>配置 <code class="language-plaintext highlighter-rouge">my.cnf</code> 配置文件，然後將佢放入 <code class="language-plaintext highlighter-rouge">/etc</code> 目錄之中。你可以喺 Vim 編輯器之中打開並且貼上內容。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vim /etc/my.cnf
+</code></pre></div></div>
+
+<p>Paste the following contents.</p>
+
+<p>貼上下面呢啲內容。</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">client</span>]
+<span class="c">#ssl-mode=REQUIRED
+</span><span class="n">port</span> = <span class="m">3366</span>
+<span class="n">socket</span> = /<span class="n">tmp</span>/<span class="n">mysql</span>.<span class="n">sock</span>
+
+[<span class="n">mysql</span>]
+<span class="n">prompt</span>=<span class="s2">"\\u@\\h:\p \\R:\\m:\\s [\\d]&gt;"</span>
+<span class="c">#tee=/data/mysql/mysql_3366/data/query.log
+</span><span class="n">no</span>-<span class="n">auto</span>-<span class="n">rehash</span>
+<span class="n">default</span>-<span class="n">character</span>-<span class="n">set</span>=<span class="n">utf8</span>
+<span class="n">socket</span> = /<span class="n">tmp</span>/<span class="n">mysql</span>.<span class="n">sock</span>
+
+[<span class="n">mysqld</span>]
+<span class="c">#time_zone='+8:00'
+</span><span class="n">require_secure_transport</span>=<span class="n">off</span>
+<span class="n">basedir</span> = /<span class="n">usr</span>/<span class="n">local</span>/<span class="n">mysql</span>
+
+<span class="c">#misc
+</span><span class="n">user</span> = <span class="n">mysql</span>
+<span class="n">datadir</span> =/<span class="n">data</span>/<span class="n">mysql</span>/<span class="n">data</span>/
+<span class="n">port</span> = <span class="m">3366</span>
+<span class="n">socket</span> = /<span class="n">tmp</span>/<span class="n">mysql</span>.<span class="n">sock</span>
+<span class="n">event_scheduler</span> = <span class="n">off</span>
+<span class="c">#tmp
+</span><span class="n">tmpdir</span>=/<span class="n">tmp</span>
+
+<span class="c">#timeout
+</span><span class="n">interactive_timeout</span> = <span class="m">1800</span>
+<span class="n">wait_timeout</span> = <span class="m">1800</span>
+
+<span class="c">#character set
+</span><span class="n">character</span>-<span class="n">set</span>-<span class="n">server</span> = <span class="n">utf8</span>
+<span class="n">lower_case_table_names</span>=<span class="m">1</span>
+<span class="c">#character-set-server = utf8mb4
+#sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+</span>
+<span class="n">open_files_limit</span> = <span class="m">10240</span>
+<span class="n">max_connections</span> =<span class="m">1000</span>
+<span class="n">max_connect_errors</span> = <span class="m">100</span>
+
+<span class="c">#monitor
+#userstat=1
+</span>
+<span class="n">skip</span>-<span class="n">name</span>-<span class="n">resolve</span> = <span class="n">on</span>
+<span class="c">#logs
+</span><span class="n">log</span>-<span class="n">output</span>=<span class="n">file</span>
+<span class="n">slow_query_log</span> = <span class="m">1</span>
+<span class="n">slow_query_log_file</span> = /<span class="n">data</span>/<span class="n">mysql</span>/<span class="n">logs</span>/<span class="n">mysqlslow</span>.<span class="n">log</span>
+<span class="n">log</span>-<span class="n">error</span> = /<span class="n">data</span>/<span class="n">mysql</span>/<span class="n">logs</span>/<span class="n">mysqlerror</span>.<span class="n">log</span>
+<span class="c">#log_error_verbosity =
+</span><span class="n">pid</span>-<span class="n">file</span> = /<span class="n">tmp</span>/<span class="n">mysql</span>.<span class="n">pid</span>
+<span class="n">long_query_time</span> = <span class="m">0</span>.<span class="m">1</span>
+<span class="c">#log-slow-admin-statements =
+#log-queries-not-using-indexes =
+</span><span class="n">log</span>-<span class="n">slow</span>-<span class="n">slave</span>-<span class="n">statements</span> = <span class="n">off</span>
+
+<span class="c">#binlog
+</span><span class="n">binlog_checksum</span> = <span class="n">CRC32</span>
+<span class="n">binlog_format</span> = <span class="n">row</span>
+<span class="n">server</span>-<span class="n">id</span> = <span class="m">22567</span>
+<span class="n">log</span>-<span class="n">bin</span> = /<span class="n">data</span>/<span class="n">mysql</span>/<span class="n">binlog</span>/<span class="n">mysql</span>-<span class="n">bin</span>
+<span class="n">log</span>-<span class="n">bin</span>-<span class="n">index</span> = /<span class="n">data</span>/<span class="n">mysql</span>/<span class="n">binlog</span>/<span class="n">mysql</span>-<span class="n">bin</span>.<span class="n">index</span>
+<span class="n">binlog_cache_size</span> = <span class="m">32</span><span class="n">M</span>
+<span class="n">max_binlog_size</span> = <span class="m">1</span><span class="n">G</span>
+<span class="n">max_binlog_cache_size</span> = <span class="m">1</span><span class="n">G</span>
+<span class="n">sync_binlog</span> = <span class="m">1</span>
+<span class="n">expire_logs_days</span> = <span class="m">7</span>
+<span class="n">sync_master_info</span>=<span class="m">10000</span>
+<span class="c">#skip-log-bin
+</span>
+<span class="c">#relay log
+</span><span class="n">relay</span>-<span class="n">log</span> = /<span class="n">data</span>/<span class="n">mysql</span>/<span class="n">binlog</span>/<span class="n">mysql</span>-<span class="n">relay</span>-<span class="n">bin</span>
+<span class="n">skip_slave_start</span> =<span class="n">on</span>
+<span class="n">max_relay_log_size</span> = <span class="m">1</span><span class="n">G</span>
+<span class="n">relay_log_purge</span> =<span class="n">on</span>
+<span class="n">relay_log_recovery</span> =<span class="n">on</span>
+<span class="n">log_slave_updates</span> = <span class="n">on</span>
+<span class="c">#slave-skip-errors=,,
+</span><span class="n">sync_relay_log_info</span>=<span class="m">10000</span>
+
+<span class="n">slave_rows_search_algorithms</span>=<span class="n">INDEX_SCAN</span>,<span class="n">HASH_SCAN</span>
+
+<span class="n">explicit_defaults_for_timestamp</span>=<span class="n">off</span>
+<span class="c">#buffers &amp; cache
+</span><span class="n">table_open_cache</span> = <span class="m">10000</span>
+<span class="n">table_definition_cache</span> = <span class="m">10000</span>
+<span class="n">max_allowed_packet</span> = <span class="m">1073741824</span> 
+<span class="n">max_heap_table_size</span> = <span class="m">256</span><span class="n">M</span>
+<span class="n">sort_buffer_size</span> = <span class="m">16</span><span class="n">M</span>
+<span class="n">join_buffer_size</span> = <span class="m">16</span><span class="n">M</span>
+<span class="c">#thread_cache_size = 0
+#query_cache_size = 0
+#query_cache_type = 0
+#query_cache_limit = 256K
+</span><span class="n">thread_stack</span> = <span class="m">192</span><span class="n">K</span>
+<span class="n">tmp_table_size</span> = <span class="m">96</span><span class="n">M</span>
+<span class="n">key_buffer_size</span> = <span class="m">8</span><span class="n">M</span>
+<span class="n">read_buffer_size</span> = <span class="m">16</span><span class="n">M</span>
+<span class="n">read_rnd_buffer_size</span> = <span class="m">16</span><span class="n">M</span>
+<span class="n">bulk_insert_buffer_size</span> = <span class="m">32</span><span class="n">M</span>
+
+<span class="c">#myisam
+#myisam_sort_buffer_size = 128M
+#myisam_max_sort_file_size = 10G
+#myisam_repair_threads = 
+</span>
+<span class="c">#innodb
+</span><span class="n">innodb_adaptive_hash_index</span>=<span class="n">off</span>
+<span class="n">innodb_buffer_pool_size</span> = <span class="m">4</span><span class="n">G</span>
+<span class="n">innodb_buffer_pool_instances</span> = <span class="m">43</span>
+<span class="n">innodb_data_file_path</span> = <span class="n">ibdata1</span>:<span class="m">1</span><span class="n">G</span>:<span class="n">autoextend</span>
+<span class="n">innodb_flush_log_at_trx_commit</span> = <span class="m">1</span>
+<span class="n">innodb_log_buffer_size</span> = <span class="m">1</span><span class="n">G</span>
+<span class="n">innodb_log_file_size</span> = <span class="m">2</span><span class="n">G</span>
+<span class="n">innodb_log_files_in_group</span> = <span class="m">3</span>
+<span class="c">#innodb_max_dirty_pages_pct =
+</span><span class="n">innodb_file_per_table</span> = <span class="n">on</span>
+<span class="c">#innodb_rollback_on_timeout
+#innodb_status_file =
+#innodb_io_capacity = 50000
+</span><span class="n">innodb_io_capacity</span>=<span class="m">200</span>
+<span class="n">innodb_io_capacity_max</span>=<span class="m">400</span>
+<span class="n">transaction_isolation</span> = <span class="n">REPEATABLE</span>-<span class="n">READ</span>
+
+<span class="c">#innodb_flush_method = O_DIRECT
+</span>
+<span class="n">gtid_mode</span> = <span class="n">ON</span>
+<span class="n">enforce_gtid_consistency</span> = <span class="n">ON</span>
+<span class="n">master_info_repository</span> = <span class="n">TABLE</span>
+<span class="n">relay</span>-<span class="n">log</span>-<span class="n">info</span>-<span class="n">repository</span> = <span class="n">TABLE</span>
+<span class="n">innodb_undo_tablespaces</span>=<span class="m">0</span>
+<span class="n">innodb_undo_log_truncate</span> = <span class="n">on</span>
+<span class="n">innodb_lock_wait_timeout</span>=<span class="m">10</span>
+
+<span class="c"># replication
+#rpl_semi_sync_master_enabled = 0;
+#rpl_semi_sync_master_timeout = 3600;
+</span>
+<span class="c"># Two-Master configure
+#server-
+#auto-increment-offset =
+#auto-increment-increment = 
+</span>
+<span class="c">#server-
+#auto-increment-offset =
+#auto-increment-increment = 
+</span>
+<span class="n">slave_preserve_commit_order</span> = <span class="n">on</span>
+<span class="n">slave_transaction_retries</span> = <span class="m">10</span>
+<span class="n">log_timestamps</span> = <span class="n">system</span>
+<span class="c">#show_compatibility_56 = on
+</span><span class="n">slave_parallel_workers</span> = <span class="m">4</span>
+<span class="n">slave_parallel_type</span> = <span class="n">LOGICAL_CLOCK</span>
+
+<span class="n">interactive_timeout</span>=<span class="m">3600</span>
+<span class="n">wait_timeout</span>=<span class="m">3600</span>
+<span class="n">lock_wait_timeout</span>=<span class="m">60</span>
+<span class="n">max_user_connections</span>=<span class="m">800</span>
+<span class="c">#log_warnings=0
+#log_error_verbosity=0
+#optimizer_switch='index_merge=on,index_merge_union=on,index_merge_sort_union=on,index_merge_intersection=off,engine_condition_pushdown=on,index_condition_pushdown=on,mrr=on,mrr_cost_based=on,block_nested_loop=on,batched_key_access=off,materialization=on,semijoin=on,loosescan=on,firstmatch=on,duplicateweedout=on,subquery_materialization_cost_based=on,use_index_extensions=on,condition_fanout_filter=on,derived_merge=on,favor_range_scan=off'
+</span>
+[<span class="n">mysqld_safe</span>]
+<span class="n">nice</span>=-<span class="m">19</span>
+<span class="n">open</span>-<span class="n">files</span>-<span class="n">limit</span>=<span class="m">10240</span>
+</code></pre></div></div>
+
+<p>Save this configuration file after pasting. Create the MySQL-related directories to store the database's data files and logs.</p>
+
+<p>貼上之後儲存呢個設定檔案。建立 MySQL 相關目錄嚟儲存資料庫嘅數據檔案同記錄。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkdir -p /data/mysql/data
+# mkdir -p /data/mysql/binlog
+# mkdir -p /data/mysql/logs
+</code></pre></div></div>
+
+<p>After creating the directory, switch the current directory to <code class="language-plaintext highlighter-rouge">/data</code> and grant ownership of the directory to the <code class="language-plaintext highlighter-rouge">mysql</code> user and group.</p>
+
+<p>建立目錄之後，將當前目錄切換為 <code class="language-plaintext highlighter-rouge">/data</code>，並將目錄嘅擁有權授予 <code class="language-plaintext highlighter-rouge">mysql</code> 用戶同群組。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cd /data
+# chown -R mysql:mysql /data/mysql/
+</code></pre></div></div>
+
+<h3 id="heading-35-install--安裝">3.5. Install | 安裝</h3>
+
+<p>Switch to the directory where the MySQL package is located, <code class="language-plaintext highlighter-rouge">/usr/local</code>.</p>
+
+<p>切入去 MySQL 包嘅目錄，即係 <code class="language-plaintext highlighter-rouge">/usr/local</code>。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cd /usr/local
+</code></pre></div></div>
+
+<p>To facilitate subsequent deployment and use, create a symbolic link to the MySQL package: <code class="language-plaintext highlighter-rouge">/usr/local/mysl</code>.</p>
+
+<p>為咗方便部署及使用，創建一個軟鏈接，連接到 MySQL 嘅軟件包 <code class="language-plaintext highlighter-rouge">/usr/local/mysl</code>。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ln -s /usr/local/mysql-8.1.0-linux-glibc2.17-x86_64 /usr/local/mysql
+</code></pre></div></div>
+
+<p>Check if the symbolic link was created successfully.</p>
+
+<p>檢查此軟鏈接係咪已經成功創建。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ls -l | grep mysql
+lrwxrwxrwx  1 root root        45 Jul 24 13:50 mysql -&gt; /usr/local/mysql-8.1.0-linux-glibc2.17-x86_64
+drwxr-xr-x  9 root root       129 Jul 24 13:40 mysql-8.1.0-linux-glibc2.17-x86_64
+-rw-r--r--  1 root root 448377800 Jun 28  2023 mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz
+</code></pre></div></div>
+
+<h3 id="heading-36-initialization--初始化">3.6. Initialization | 初始化</h3>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">mysqld</code> program to initialize the MySQL server.</p>
+
+<p>使用 <code class="language-plaintext highlighter-rouge">mysqld</code> 程式來初始化 MySQL 伺服器。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysqld --initialize --user=mysql
+</code></pre></div></div>
+
+<p>Copy the startup script that comes with the MySQL support files and place it in the <code class="language-plaintext highlighter-rouge">/etc/init.d</code> directory.</p>
+
+<p>複製 MySQL 支援檔案隨附嘅啟動指令腳本，然後將佢放入 <code class="language-plaintext highlighter-rouge">/etc/init.d</code> 目錄。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql.server
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">service</code> tool to start the MySQL services.</p>
+
+<p>使用 <code class="language-plaintext highlighter-rouge">service</code> 工具來啟動 MySQL 服務。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysql.server start
+</code></pre></div></div>
+
+<p>When you see the message "<code class="language-plaintext highlighter-rouge">Starting MySQL... SUCCESS!</code>", it means the MySQL database has started successfully. The temporary password generated upon initial startup can be found in the MySQL logs. This password will be required for the first login, and you should change your account password immediately after logging into MySQL. According to the configuration file <code class="language-plaintext highlighter-rouge">my.cnf</code>, the MySQL error log is stored in <code class="language-plaintext highlighter-rouge">/data/mysql/logs/mysqlerror.log</code>. You can directly use the <code class="language-plaintext highlighter-rouge">cat</code> and <code class="language-plaintext highlighter-rouge">grep</code> tools to search for the keyword "<code class="language-plaintext highlighter-rouge">password</code>" to find the temporary password generated by MySQL.</p>
+
+<p>當你見到「<code class="language-plaintext highlighter-rouge">Starting MySQL... SUCCESS!</code>」嘅訊息，即係 MySQL 資料庫已經成功啟動。初次啟動時產生嘅臨時密碼可以喺 MySQL 記錄入面搵到。第一次登入需要呢個密碼，而你應該喺登入 MySQL 之後即刻更改你嘅帳戶密碼。根據配置檔案 <code class="language-plaintext highlighter-rouge">my.cnf</code>， MySQL 錯誤記錄儲存喺 <code class="language-plaintext highlighter-rouge">/data/mysql/logs/mysqlerror.log</code>。你可以直接用 <code class="language-plaintext highlighter-rouge">cat</code> 同 <code class="language-plaintext highlighter-rouge">grep</code> 工具去搜尋關鍵字「<code class="language-plaintext highlighter-rouge">password</code>」嚟搵 MySQL 生成嘅臨時密碼。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cat /data/mysql/logs/mysqlerror.log | grep password
+2025-07-21T17:10:07.293097+08:00 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: jnPW*+Lse52Z
+</code></pre></div></div>
+
+<p>"<code class="language-plaintext highlighter-rouge">jnPW*+Lse52Z</code>" is the temporary password generated in this example. It's important to note that the temporary password initialized after each MySQL deployment is different; therefore, you must check the logs for this password after each deployment and initialization. Use this password to log in to the MySQL server.</p>
+
+<p>「<code class="language-plaintext highlighter-rouge">jnPW*+Lse52Z</code>」係呢個例子入面生成嘅臨時密碼。重要嘅係要留意，每次 MySQL 部署之後初始化嘅臨時密碼都唔同；所以，你必須喺每次部署同初始化之後檢查呢個密碼嘅記錄。用呢個密碼登入 MySQL 伺服器。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysql -uroot -p
+</code></pre></div></div>
+
+<p>Follow the prompts to enter your password. The appearance of the "<code class="language-plaintext highlighter-rouge">&gt;</code>" sign indicates successful login to the MySQL command-line interface. Change the password for the root account.</p>
+
+<p>跟住啲提示輸入你嘅密碼。出現「<code class="language-plaintext highlighter-rouge">&gt;</code>」號表示成功登入 MySQL 命令行介面。更改 root 帳戶嘅密碼。</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">ALTER</span> <span class="k">USER</span> <span class="s1">'root'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'newpassword'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="heading-37-create-application-account--創建應用帳戶">3.7. Create application account | 創建應用帳戶</h3>
+
+<p>Using the MySQL root user for application connections is insecure; therefore, a dedicated account should be created for the application. Following the principle of least privilege, the application-specific account should be granted the necessary permissions. The application account name should be related to the current database ID or the application itself to avoid confusion. For example, on a server with server-id 13, create an account for the application, name it "apn_13", and grant it read and write permissions. The CREATE, DELETE, and DROP permissions should be granted cautiously based on the specific application requirements.</p>
+
+<p>用 MySQL 根用戶嚟連接應用程式係唔安全嘅；所以，應該為個應用程式建立一個專用嘅帳戶。根據最低特權原則，應用程式專用帳戶應該獲得必要嘅權限。應用程式帳戶名稱應該同當前嘅資料庫 ID 或者應用程式本身有關，以免混淆。例如，喺伺服器 ID 為 13 嘅伺服器上面，為應用程式建立一個帳戶，將佢命名為「apn_13」，然後授予佢讀寫權限。應該根據特定嘅應用程式要求，謹慎噉授予 CREATE、DELETE 同 DROP 權限。</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'apn_13'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'newpassword'</span><span class="p">;</span>
+<span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span> <span class="k">ON</span> <span class="n">database_name</span><span class="p">.</span><span class="n">database_table</span> <span class="k">TO</span> <span class="s1">'apn_13'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>In the command to create a user, the "<code class="language-plaintext highlighter-rouge">newpassword</code>" field needs to be set to a new password that meets the security requirements and is different from the root user's password. In the command to grant permissions, the "<code class="language-plaintext highlighter-rouge">database_name</code>" and "<code class="language-plaintext highlighter-rouge">database_table</code>" fields should be filled in according to the application's usage. If the application uses all databases and tables in the database, you can fill in "<code class="language-plaintext highlighter-rouge">*.*</code>" to represent all databases and tables, for example:</p>
+
+<p>喺建立用戶嘅命令入面，「<code class="language-plaintext highlighter-rouge">newpassword</code>」欄位需要設定為一個符合安全要求嘅新密碼，同埋同 root 用戶嘅密碼唔同。喺授予權限嘅命令入面，應該根據應用程式嘅用途填寫「<code class="language-plaintext highlighter-rouge">database_name</code>」同「<code class="language-plaintext highlighter-rouge">database_table</code>」欄位。如果應用程式用咗資料庫入面嘅所有資料庫同表，你可以填「<code class="language-plaintext highlighter-rouge">*.*</code>」嚟表示所有資料庫同表，例如：</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'apn_13'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="heading-4-upgrade--版本升級">4. Upgrade | 版本升級</h2>
+
+<p>つづく…</p>
+
+<h2 id="heading-5-data-importing--數據導入">5. Data Importing | 數據導入</h2>
+
+<p>つづく…</p>
+
+<h2 id="heading-6-main-and-duplicate-database-preparing--主備數據庫搭建">6. Main and Duplicate Database Preparing | 主備數據庫搭建</h2>
+
+<p>つづく…</p>
+
+<h2 id="heading-7-backup-and-restore--備份及恢復">7. Backup and Restore | 備份及恢復</h2>
+
+<p>つづく…</p>
+
+<h2 id="heading-8-diagnose--問題排查及解決方法">8. Diagnose | 問題排查及解決方法</h2>
+
+<p>つづく…</p>
 
 
                     </div>

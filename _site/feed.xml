@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-22T22:46:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-23T16:37:03+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -74,7 +74,7 @@ second
 
 &lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Quantitative Trading" /><category term="FinTech" /><summary type="html">Quantitative Trading Notes</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2025/08/15/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2025-08-15T00:00:00+08:00</published><updated>2025-08-15T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/08/15/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2025/08/15/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
 
-&lt;h2 id=&quot;heading-self-introduction-of-documentation--文檔自述&quot;&gt;Self Introduction of Documentation | 文檔自述&lt;/h2&gt;
+&lt;h2 id=&quot;heading-1-self-introduction-of-documentation--文檔自述&quot;&gt;1. Self Introduction of Documentation | 文檔自述&lt;/h2&gt;
 
 &lt;p&gt;This documentation is for the installation, deployment, upgrading, main/duplicated database, backup and restoration.&lt;/p&gt;
 
@@ -100,22 +100,399 @@ second
 
 &lt;p&gt;最後，本文件收錄咗一啲喺測試過程中喺 MySQL 安裝、部署、升級、備份等過程中遇到嘅問題，並提供咗問題分析及解決方法，以供實際部署 MySQL 時參考。&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-command-line-prompt-examples--命令提示示例&quot;&gt;Command Line Prompt Examples | 命令提示示例&lt;/h2&gt;
+&lt;h2 id=&quot;heading-2-command-line-prompt-examples--命令提示示例&quot;&gt;2. Command Line Prompt Examples | 命令提示示例&lt;/h2&gt;
 
 &lt;p&gt;The text in this document using isowidth font with dark underprint is the command line raw text in the terminal. where the command that needs to be entered is preceded by a one-character permission prompt. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#&lt;/code&gt; symbol indicates that the next command was entered under the test machine&apos;s root privileges, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; symbol indicates that the next command was entered under the test machine&apos;s ordinary user privileges, and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; symbol indicates that the next command requires a login to the MySQL command line console for operation. The permission prompt is automatically displayed by the computer terminal when the command is actually entered, eliminating the need for the user to manually enter this permission prompt as well as the space immediately following the symbol.&lt;/p&gt;
 
 &lt;p&gt;本文中使用等寬字體並帶有深色底紋嘅文本係終端中嘅命令行原始文本。其中需要輸入嘅命令前帶有一個字符嘅權限提示符。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#&lt;/code&gt; 符號表示接下來嘅一條命令喺測試機嘅 root 權限下輸入；&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt; 符號表示接下來嘅一條命令喺測試機嘅普通用戶權限下輸入；&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; 符號表示接下來嘅命令需要登入 MySQL 命令行控制台進行操作。實際輸入命令時權限提示符號由電腦終端自動顯示，唔需要用戶手動輸入呢個權限提示符號以及符號後緊跟嘅空格。&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-installation-and-deployment--安裝部署&quot;&gt;Installation and Deployment | 安裝部署&lt;/h2&gt;
+&lt;h2 id=&quot;heading-3-installation-and-deployment--安裝部署&quot;&gt;3. Installation and Deployment | 安裝部署&lt;/h2&gt;
 
-&lt;h2 id=&quot;heading-upgrade--版本升級&quot;&gt;Upgrade | 版本升級&lt;/h2&gt;
+&lt;h3 id=&quot;heading-31-check-the-current-environment-of-the-machine--檢查機器當前嘅環境&quot;&gt;3.1. Check the current environment of the machine | 檢查機器當前嘅環境&lt;/h3&gt;
 
-&lt;h2 id=&quot;heading-data-importing--數據導入&quot;&gt;Data Importing | 數據導入&lt;/h2&gt;
+&lt;p&gt;Check the current system information about the computer, and make sure they are matched with the MySQL for installation. Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uname&lt;/code&gt; tool can check the current system and architecture information easily.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-main-and-duplicate-database-preparing--主備數據庫搭建&quot;&gt;Main and Duplicate Database Preparing | 主備數據庫搭建&lt;/h2&gt;
+&lt;p&gt;檢查當前機器嘅系統信息，確保呢啲信息同需要安裝嘅 MySQL 數據庫軟件相匹配。使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uname&lt;/code&gt; 工具可以方便地查看當前嘅系統和架構信息。&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-backup-and-restore--備份及恢復&quot;&gt;Backup and Restore | 備份及恢復&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# uname -a
+Linux clz-db-t2 3.10.0-693.el7.x86_64 #1 SMP Thu Jul 6 19:56:57 EDT 2017 x86_64 x86_64 x86_64 GNU/Linux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;heading-diagnose--問題排查及解決方法&quot;&gt;Diagnose | 問題排查及解決方法&lt;/h2&gt;
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ldd&lt;/code&gt; tool to check the version of system&apos;s GNU libc (Glibc).&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Database" /><category term="SQL" /><summary type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</summary></entry></feed>
+&lt;p&gt;使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ldd&lt;/code&gt; 工具來檢查系統嘅 GNU libc (Glibc) 版本。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ldd --version
+ldd (GNU libc) 2.17
+Copyright (C) 2012 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The compatibility of the current machine with the required MySQL version is determined based on the system version, architecture, and glibc version, thus deciding which MySQL version to use. For example, the test machine in this case runs Red Hat Enterprise Linux 7, an x86_64 architecture, and uses GNU libc 2.17. Therefore, when selecting the MySQL binary package, a version compatible with el7, an x86_64 architecture, and based on glibc 2.17 should be chosen.&lt;/p&gt;
+
+&lt;p&gt;兼容性要求當前呢台機器需要對應嘅 glibc 版本，因此亦都會決定邊啲 MySQL 版本可以使用。例如，依家情況下有一台測試機運行著 Red Hat Enterprise Linux，並且使用 GNU libc 2.17。因此，當選擇 MySQL 二進制包版本嘅時候就應該選擇一個兼容 el7，x86_64 架構，並且基於 glibc 2.17 嘅 MySQL 版本。&lt;/p&gt;
+
+&lt;p&gt;If the system architecture is displayed as aarch64, then an aarch64 or arm64 package should be selected; if the system architecture is displayed as x86_64, then an x86_64, x64, or amd64 package should be selected. The specific naming of the architecture used by the package depends on the software distributor.&lt;/p&gt;
+
+&lt;p&gt;如果系統架構顯示為 aarch64，咁應該選擇 aarch64 或者 arm64 包；如果系統架構顯示為 x86_64，咁應該選擇 x86_64、 x64 或者 amd64 包。包所用嘅架構嘅具體命名取決於軟件分銷商。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-32-download-mysql-package--下載-mysql-軟件包&quot;&gt;3.2. Download MySQL package | 下載 MySQL 軟件包&lt;/h3&gt;
+
+&lt;p&gt;This document describes how to deploy MySQL using a binary package installation. From the official MySQL archive download page (&lt;a href=&quot;https://downloads.mysql.com/archives/community/&quot;&gt;https://downloads.mysql.com/archives/community/&lt;/a&gt;), select the required MySQL package and copy the link to that binary archive. On the machine where you want to deploy MySQL, use the wget tool to pull the MySQL binary package from that link and place it in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt; directory. On the machine without an internet connection, use the ssh tool to upload the MySQL binary package from your local machine to the server.&lt;/p&gt;
+
+&lt;p&gt;呢份文檔會講解點樣用二進制包安裝部署 MySQL。喺官方嘅 MySQL 封存檔案下載頁面（&lt;a href=&quot;https://downloads.mysql.com/archives/community/&quot;&gt;https://downloads.mysql.com/archives/community/&lt;/a&gt;），選擇所需嘅 MySQL 包，然後將連結複製去嗰個二進制封存檔案。喺你想部署 MySQL 嘅機器上面，用 wget 工具喺嗰個連結度拉出 MySQL 二進制包，然後將佢放入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt; 目錄。喺冇互聯網連線嘅機器上面，用 ssh 工具將 MySQL 二進制包由你嘅本地機器上載去伺服器。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# cd /usr/local
+# wget &quot;https://cdn.mysql.com/archives/mysql-8.0/mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls&lt;/code&gt; command in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt; directory to view the files and directories in the current directory, ensuring that the MySQL binary package has been downloaded and placed in the specified location.&lt;/p&gt;
+
+&lt;p&gt;你可以用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt; 目錄入面嘅 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls&lt;/code&gt; 命令嚟睇返當前目錄入面嘅檔案同目錄，確保 MySQL 二進制包已經下載好，然後放喺指定位置。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ls -lah
+total 428M
+drwxr-xr-x. 16 root root 4.0K Jul 31 17:27 .
+drwxr-xr-x. 14 root root  166 Feb 27  2019 ..
+drwxr-xr-x.  2 root root   37 Aug 10  2020 bin
+drwxr-xr-x.  2 root root    6 Mar 10  2016 etc
+drwxr-xr-x.  2 root root    6 Mar 10  2016 games
+drwxr-xr-x.  3 root root   21 Aug 10  2020 include
+drwxr-xr-x.  2 root root    6 Mar 10  2016 lib
+drwxr-xr-x.  4 root root  159 Aug 10  2020 lib64
+drwxr-xr-x.  2 root root    6 Mar 10  2016 libexec
+-rw-r--r--   1 root root 428M Jun 28  2023 mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz
+drwxr-xr-x   5 root root   44 Mar 26  2018 openssh.bak
+drwxr-xr-x.  2 root root    6 Mar 10  2016 sbin
+drwxr-xr-x.  6 root root   60 Aug 10  2020 share
+drwxr-xr-x.  4 root root  106 Feb 27  2019 src
+drwxr-xr-x   9 root root  188 Aug 10  2020 ssl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; tool to extract the package (in this example, &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz&lt;/code&gt;&quot;) and place it in the same directory.&lt;/p&gt;
+
+&lt;p&gt;用「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt;」工具去解壓縮個包（喺呢個例子入面，係「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz&lt;/code&gt;」），然後將佢放入同一個目錄。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# tar -xvf mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/mysql-8.1.0-linux-glibc2.17-x86_64&lt;/code&gt; is obtained.&lt;/p&gt;
+
+&lt;p&gt;得到咗個目錄「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/mysql-8.1.0-linux-glibc2.17-x86_64&lt;/code&gt;」。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-33-setup-users-and-groups--建立用戶和組&quot;&gt;3.3. Setup users and groups | 建立用戶和組&lt;/h3&gt;
+
+&lt;p&gt;Use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useradd&lt;/code&gt; command to create the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&lt;/code&gt; user group, and then create a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&lt;/code&gt; user within that group.&lt;/p&gt;
+
+&lt;p&gt;用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;useradd&lt;/code&gt; 命令去建立 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&lt;/code&gt; 用戶群組，然後喺嗰個群組入面建立一個新嘅 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&lt;/code&gt; 用戶。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# groupadd mysql
+# useradd -r -g mysql -s /bin/false mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;heading-34-setup-configuration-files-and-directories--建立配置文件和相關目錄&quot;&gt;3.4. Setup configuration files and directories | 建立配置文件和相關目錄&lt;/h3&gt;
+
+&lt;p&gt;Configure the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my.cnf&lt;/code&gt; configuration file as follows and save it in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc&lt;/code&gt; directory. You can open and paste it using the Vim editor.&lt;/p&gt;
+
+&lt;p&gt;配置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my.cnf&lt;/code&gt; 配置文件，然後將佢放入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc&lt;/code&gt; 目錄之中。你可以喺 Vim 編輯器之中打開並且貼上內容。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# vim /etc/my.cnf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Paste the following contents.&lt;/p&gt;
+
+&lt;p&gt;貼上下面呢啲內容。&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;]
+&lt;span class=&quot;c&quot;&gt;#ssl-mode=REQUIRED
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;3366&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;
+
+[&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt;=&lt;span class=&quot;s2&quot;&gt;&quot;\\u@\\h:\p \\R:\\m:\\s [\\d]&amp;gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#tee=/data/mysql/mysql_3366/data/query.log
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;no&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;auto&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;rehash&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;character&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;
+
+[&lt;span class=&quot;n&quot;&gt;mysqld&lt;/span&gt;]
+&lt;span class=&quot;c&quot;&gt;#time_zone=&apos;+8:00&apos;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require_secure_transport&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;basedir&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;local&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#misc
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;datadir&lt;/span&gt; =/&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/
+&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;3366&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;event_scheduler&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#tmp
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmpdir&lt;/span&gt;=/&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#timeout
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive_timeout&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1800&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wait_timeout&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1800&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#character set
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;character&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lower_case_table_names&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#character-set-server = utf8mb4
+#sql_mode=&apos;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&apos;
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;open_files_limit&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;10240&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_connections&lt;/span&gt; =&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_connect_errors&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#monitor
+#userstat=1
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;skip&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;resolve&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#logs
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;slow_query_log&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;slow_query_log_file&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;logs&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysqlslow&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;logs&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysqlerror&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#log_error_verbosity =
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;pid&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;long_query_time&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#log-slow-admin-statements =
+#log-queries-not-using-indexes =
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;slow&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;slave&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;statements&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#binlog
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binlog_checksum&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;CRC32&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;binlog_format&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;22567&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;binlog&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;binlog&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;binlog_cache_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_binlog_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_binlog_cache_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sync_binlog&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expire_logs_days&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sync_master_info&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;10000&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#skip-log-bin
+&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#relay log
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relay&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt; = /&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;binlog&lt;/span&gt;/&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;relay&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;skip_slave_start&lt;/span&gt; =&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_relay_log_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;relay_log_purge&lt;/span&gt; =&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;relay_log_recovery&lt;/span&gt; =&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log_slave_updates&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#slave-skip-errors=,,
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sync_relay_log_info&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;10000&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;slave_rows_search_algorithms&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;INDEX_SCAN&lt;/span&gt;,&lt;span class=&quot;n&quot;&gt;HASH_SCAN&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;explicit_defaults_for_timestamp&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#buffers &amp;amp; cache
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table_open_cache&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;10000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;table_definition_cache&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;10000&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_allowed_packet&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1073741824&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;max_heap_table_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sort_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;join_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#thread_cache_size = 0
+#query_cache_size = 0
+#query_cache_type = 0
+#query_cache_limit = 256K
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thread_stack&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tmp_table_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;key_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;read_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;read_rnd_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bulk_insert_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#myisam
+#myisam_sort_buffer_size = 128M
+#myisam_max_sort_file_size = 10G
+#myisam_repair_threads = 
+&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#innodb
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;innodb_adaptive_hash_index&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_buffer_pool_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_buffer_pool_instances&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;43&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_data_file_path&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;ibdata1&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;:&lt;span class=&quot;n&quot;&gt;autoextend&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_flush_log_at_trx_commit&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_log_buffer_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_log_file_size&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_log_files_in_group&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#innodb_max_dirty_pages_pct =
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;innodb_file_per_table&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#innodb_rollback_on_timeout
+#innodb_status_file =
+#innodb_io_capacity = 50000
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;innodb_io_capacity&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;200&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_io_capacity_max&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;400&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;transaction_isolation&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;REPEATABLE&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;READ&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#innodb_flush_method = O_DIRECT
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gtid_mode&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;ON&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;enforce_gtid_consistency&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;ON&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;master_info_repository&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;TABLE&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;relay&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;TABLE&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_undo_tablespaces&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_undo_log_truncate&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;innodb_lock_wait_timeout&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# replication
+#rpl_semi_sync_master_enabled = 0;
+#rpl_semi_sync_master_timeout = 3600;
+&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Two-Master configure
+#server-
+#auto-increment-offset =
+#auto-increment-increment = 
+&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#server-
+#auto-increment-offset =
+#auto-increment-increment = 
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;slave_preserve_commit_order&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;slave_transaction_retries&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;log_timestamps&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#show_compatibility_56 = on
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;slave_parallel_workers&lt;/span&gt; = &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;slave_parallel_type&lt;/span&gt; = &lt;span class=&quot;n&quot;&gt;LOGICAL_CLOCK&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;interactive_timeout&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;3600&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wait_timeout&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;3600&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lock_wait_timeout&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;60&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;max_user_connections&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;800&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#log_warnings=0
+#log_error_verbosity=0
+#optimizer_switch=&apos;index_merge=on,index_merge_union=on,index_merge_sort_union=on,index_merge_intersection=off,engine_condition_pushdown=on,index_condition_pushdown=on,mrr=on,mrr_cost_based=on,block_nested_loop=on,batched_key_access=off,materialization=on,semijoin=on,loosescan=on,firstmatch=on,duplicateweedout=on,subquery_materialization_cost_based=on,use_index_extensions=on,condition_fanout_filter=on,derived_merge=on,favor_range_scan=off&apos;
+&lt;/span&gt;
+[&lt;span class=&quot;n&quot;&gt;mysqld_safe&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;nice&lt;/span&gt;=-&lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;limit&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;10240&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Save this configuration file after pasting. Create the MySQL-related directories to store the database&apos;s data files and logs.&lt;/p&gt;
+
+&lt;p&gt;貼上之後儲存呢個設定檔案。建立 MySQL 相關目錄嚟儲存資料庫嘅數據檔案同記錄。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# mkdir -p /data/mysql/data
+# mkdir -p /data/mysql/binlog
+# mkdir -p /data/mysql/logs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After creating the directory, switch the current directory to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/data&lt;/code&gt; and grant ownership of the directory to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&lt;/code&gt; user and group.&lt;/p&gt;
+
+&lt;p&gt;建立目錄之後，將當前目錄切換為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/data&lt;/code&gt;，並將目錄嘅擁有權授予 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql&lt;/code&gt; 用戶同群組。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# cd /data
+# chown -R mysql:mysql /data/mysql/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;heading-35-install--安裝&quot;&gt;3.5. Install | 安裝&lt;/h3&gt;
+
+&lt;p&gt;Switch to the directory where the MySQL package is located, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;切入去 MySQL 包嘅目錄，即係 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# cd /usr/local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To facilitate subsequent deployment and use, create a symbolic link to the MySQL package: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/mysl&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;為咗方便部署及使用，創建一個軟鏈接，連接到 MySQL 嘅軟件包 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/mysl&lt;/code&gt;。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ln -s /usr/local/mysql-8.1.0-linux-glibc2.17-x86_64 /usr/local/mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check if the symbolic link was created successfully.&lt;/p&gt;
+
+&lt;p&gt;檢查此軟鏈接係咪已經成功創建。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ls -l | grep mysql
+lrwxrwxrwx  1 root root        45 Jul 24 13:50 mysql -&amp;gt; /usr/local/mysql-8.1.0-linux-glibc2.17-x86_64
+drwxr-xr-x  9 root root       129 Jul 24 13:40 mysql-8.1.0-linux-glibc2.17-x86_64
+-rw-r--r--  1 root root 448377800 Jun 28  2023 mysql-8.1.0-linux-glibc2.17-x86_64.tar.xz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;heading-36-initialization--初始化&quot;&gt;3.6. Initialization | 初始化&lt;/h3&gt;
+
+&lt;p&gt;Use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysqld&lt;/code&gt; program to initialize the MySQL server.&lt;/p&gt;
+
+&lt;p&gt;使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysqld&lt;/code&gt; 程式來初始化 MySQL 伺服器。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# /usr/local/mysql/bin/mysqld --initialize --user=mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Copy the startup script that comes with the MySQL support files and place it in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/init.d&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;複製 MySQL 支援檔案隨附嘅啟動指令腳本，然後將佢放入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/init.d&lt;/code&gt; 目錄。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql.server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service&lt;/code&gt; tool to start the MySQL services.&lt;/p&gt;
+
+&lt;p&gt;使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;service&lt;/code&gt; 工具來啟動 MySQL 服務。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# service mysql.server start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When you see the message &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Starting MySQL... SUCCESS!&lt;/code&gt;&quot;, it means the MySQL database has started successfully. The temporary password generated upon initial startup can be found in the MySQL logs. This password will be required for the first login, and you should change your account password immediately after logging into MySQL. According to the configuration file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my.cnf&lt;/code&gt;, the MySQL error log is stored in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/data/mysql/logs/mysqlerror.log&lt;/code&gt;. You can directly use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep&lt;/code&gt; tools to search for the keyword &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password&lt;/code&gt;&quot; to find the temporary password generated by MySQL.&lt;/p&gt;
+
+&lt;p&gt;當你見到「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Starting MySQL... SUCCESS!&lt;/code&gt;」嘅訊息，即係 MySQL 資料庫已經成功啟動。初次啟動時產生嘅臨時密碼可以喺 MySQL 記錄入面搵到。第一次登入需要呢個密碼，而你應該喺登入 MySQL 之後即刻更改你嘅帳戶密碼。根據配置檔案 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my.cnf&lt;/code&gt;， MySQL 錯誤記錄儲存喺 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/data/mysql/logs/mysqlerror.log&lt;/code&gt;。你可以直接用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat&lt;/code&gt; 同 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep&lt;/code&gt; 工具去搜尋關鍵字「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password&lt;/code&gt;」嚟搵 MySQL 生成嘅臨時密碼。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# cat /data/mysql/logs/mysqlerror.log | grep password
+2025-07-21T17:10:07.293097+08:00 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: jnPW*+Lse52Z
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jnPW*+Lse52Z&lt;/code&gt;&quot; is the temporary password generated in this example. It&apos;s important to note that the temporary password initialized after each MySQL deployment is different; therefore, you must check the logs for this password after each deployment and initialization. Use this password to log in to the MySQL server.&lt;/p&gt;
+
+&lt;p&gt;「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jnPW*+Lse52Z&lt;/code&gt;」係呢個例子入面生成嘅臨時密碼。重要嘅係要留意，每次 MySQL 部署之後初始化嘅臨時密碼都唔同；所以，你必須喺每次部署同初始化之後檢查呢個密碼嘅記錄。用呢個密碼登入 MySQL 伺服器。&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# /usr/local/mysql/bin/mysql -uroot -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Follow the prompts to enter your password. The appearance of the &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;&quot; sign indicates successful login to the MySQL command-line interface. Change the password for the root account.&lt;/p&gt;
+
+&lt;p&gt;跟住啲提示輸入你嘅密碼。出現「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;」號表示成功登入 MySQL 命令行介面。更改 root 帳戶嘅密碼。&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;newpassword&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;heading-37-create-application-account--創建應用帳戶&quot;&gt;3.7. Create application account | 創建應用帳戶&lt;/h3&gt;
+
+&lt;p&gt;Using the MySQL root user for application connections is insecure; therefore, a dedicated account should be created for the application. Following the principle of least privilege, the application-specific account should be granted the necessary permissions. The application account name should be related to the current database ID or the application itself to avoid confusion. For example, on a server with server-id 13, create an account for the application, name it &quot;apn_13&quot;, and grant it read and write permissions. The CREATE, DELETE, and DROP permissions should be granted cautiously based on the specific application requirements.&lt;/p&gt;
+
+&lt;p&gt;用 MySQL 根用戶嚟連接應用程式係唔安全嘅；所以，應該為個應用程式建立一個專用嘅帳戶。根據最低特權原則，應用程式專用帳戶應該獲得必要嘅權限。應用程式帳戶名稱應該同當前嘅資料庫 ID 或者應用程式本身有關，以免混淆。例如，喺伺服器 ID 為 13 嘅伺服器上面，為應用程式建立一個帳戶，將佢命名為「apn_13」，然後授予佢讀寫權限。應該根據特定嘅應用程式要求，謹慎噉授予 CREATE、DELETE 同 DROP 權限。&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;apn_13&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;newpassword&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;database_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;database_table&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;apn_13&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the command to create a user, the &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;newpassword&lt;/code&gt;&quot; field needs to be set to a new password that meets the security requirements and is different from the root user&apos;s password. In the command to grant permissions, the &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;database_name&lt;/code&gt;&quot; and &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;database_table&lt;/code&gt;&quot; fields should be filled in according to the application&apos;s usage. If the application uses all databases and tables in the database, you can fill in &quot;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.*&lt;/code&gt;&quot; to represent all databases and tables, for example:&lt;/p&gt;
+
+&lt;p&gt;喺建立用戶嘅命令入面，「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;newpassword&lt;/code&gt;」欄位需要設定為一個符合安全要求嘅新密碼，同埋同 root 用戶嘅密碼唔同。喺授予權限嘅命令入面，應該根據應用程式嘅用途填寫「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;database_name&lt;/code&gt;」同「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;database_table&lt;/code&gt;」欄位。如果應用程式用咗資料庫入面嘅所有資料庫同表，你可以填「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.*&lt;/code&gt;」嚟表示所有資料庫同表，例如：&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;apn_13&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;heading-4-upgrade--版本升級&quot;&gt;4. Upgrade | 版本升級&lt;/h2&gt;
+
+&lt;p&gt;つづく…&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-5-data-importing--數據導入&quot;&gt;5. Data Importing | 數據導入&lt;/h2&gt;
+
+&lt;p&gt;つづく…&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-6-main-and-duplicate-database-preparing--主備數據庫搭建&quot;&gt;6. Main and Duplicate Database Preparing | 主備數據庫搭建&lt;/h2&gt;
+
+&lt;p&gt;つづく…&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-7-backup-and-restore--備份及恢復&quot;&gt;7. Backup and Restore | 備份及恢復&lt;/h2&gt;
+
+&lt;p&gt;つづく…&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-8-diagnose--問題排查及解決方法&quot;&gt;8. Diagnose | 問題排查及解決方法&lt;/h2&gt;
+
+&lt;p&gt;つづく…&lt;/p&gt;</content><author><name>Rain</name></author><category term="Database" /><category term="SQL" /><summary type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</summary></entry></feed>
