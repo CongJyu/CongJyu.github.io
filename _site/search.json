@@ -1,6 +1,13 @@
 [
   
     {
+      "title"      : "Make Mac Mini an RDP Server",
+      "url"        : "/blog/2026/01/24/xrdp/",
+      "date"       : "2026-01-24 00:00:00 +0800",
+      "shortdate"  : "January 24, 2026"
+    } ,
+  
+    {
       "title"      : "Weird Python",
       "url"        : "/blog/2025/10/19/WeirdPython/",
       "date"       : "2025-10-19 00:00:00 +0800",

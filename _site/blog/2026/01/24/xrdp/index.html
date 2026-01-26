@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Make Mac Mini an RDP Server | Rain Chen&#39;s Blog</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Make Mac Mini an RDP Server" />
+<meta name="author" content="Rain" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Make Mac Mini an RDP Server" />
+<meta property="og:description" content="Make Mac Mini an RDP Server" />
+<link rel="canonical" href="http://localhost:4000/blog/2026/01/24/xrdp/" />
+<meta property="og:url" content="http://localhost:4000/blog/2026/01/24/xrdp/" />
+<meta property="og:site_name" content="Rain Chen&#39;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-01-24T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Make Mac Mini an RDP Server" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2026-01-24T00:00:00+08:00","datePublished":"2026-01-24T00:00:00+08:00","description":"Make Mac Mini an RDP Server","headline":"Make Mac Mini an RDP Server","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2026/01/24/xrdp/"},"url":"http://localhost:4000/blog/2026/01/24/xrdp/"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords"
+    content="靈車漂移,Remote Desktop,macOS" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.3.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+    
+</head>
+
+<body>
+    
+
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="http://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/blog/centralhk/">Central HK</a></li>
+                <li><a href="/blog/friends/">Friends</a></li>
+                <li><a href="/blog/aboutme/">About Me</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field"
+            placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Rain Chen's Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Tags"
+                            href="/blog/tags/">Tags</a></li>
+                    <li class="nav-link"><a title="Central HK"
+                            href="/blog/centralhk/">Central HK</a></li>
+                    <li class="nav-link"><a title="Friends"
+                            href="/blog/friends/">Friends</a></li>
+                    <li class="nav-link"><a title="About Me"
+                            href="/blog/aboutme/">About Me</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search"
+                            href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- 数学公式 -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+        }
+    });
+</script>
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">Make Mac Mini an RDP Server</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2026-01-24T00:00:00+08:00" datetime="2026-01-24T00:00:00+08:00">January 24, 2026 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Rain</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+
+
+<li>
+    <a href="/blog/tags/#Remote-Desktop"
+        title="Remote Desktop">Remote Desktop <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#macOS"
+        title="macOS">macOS <span>1</span></a>
+</li>
+
+
+<li>
+    <a href="/blog/tags/#靈車漂移"
+        title="靈車漂移">靈車漂移 <span>1</span></a>
+</li>
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <h1 id="heading-make-mac-mini-an-rdp-server">Make Mac Mini an RDP Server</h1>
+
+<blockquote>
+  <p>⚠️ THIS POST HAS A "靈車漂移" TAG, AND DOES NOT GUARANTEE STABILITY.</p>
+</blockquote>
+
+<h2 id="heading-background--motivation">Background &amp; Motivation</h2>
+
+<p>Recently Rain is using a combination of "separated" NAS and remote desktop, that is, an Intel NUC with a mounted external hard disk. It is worth attention that I want to have a user-friendly command line environment as well as a beautiful graphic user interface (GUI), so I installed a macOS Big Sur 11.9 on NUC, also called "Hacintosh". I will called it "Nucintosh" because it is installed on a NUC hardware.</p>
+
+<p>It is generally acknowledge that macOS use ARD to connect from remote, and it does not support the RDP protocol form Microsoft. Rain wants to make Nucintosh be connected via RDP, so that maybe I can adjust the resolution settings from remote client. (not sure)</p>
+
+<p>The method is to build an RDP server on macOS and make it run rdp services, and there is an open source solution called <code class="language-plaintext highlighter-rouge">xrdp</code> (<a href="https://github.com/neutrinolabs/xrdp">GitHub repo</a>) but however it does not support macOS officially.</p>
+
+<p>According to <a href="https://github.com/neutrinolabs/xrdp/issues/2194">some discussions</a>, there is a way to make Macs run <code class="language-plaintext highlighter-rouge">xrdp</code> and get remote connected.</p>
+
+<h2 id="heading-compile-xrdp">Compile XRDP</h2>
+
+<p>I choose <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> version for this task. Someone said this version runs well on macOS Monterey. My Nucintosh runs a macOS Big Sur system, which is earlier than macOS Monterey, so it has a large probability to work with <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> as well. Let us have a try.</p>
+
+<h3 id="heading-prepare-dependencies">Prepare dependencies</h3>
+
+<p>We need these following dependencies:</p>
+
+<ul>
+  <li>Xcode commandline tools</li>
+  <li>Homebrew</li>
+  <li>OpenSSL</li>
+  <li>Automake and Autoconfig</li>
+  <li>Libtool</li>
+  <li>pkgconfig</li>
+  <li>nasm</li>
+  <li>XQuartz and its libs</li>
+</ul>
+
+<p>If the machine do not have Homebrew installed, it is required to install one.</p>
+
+<p>First, get Xcode command line tools ready.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
+
+<p>Then install Homebrew.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>It is also okay to have the macOS has MacPorts installed, like my Nucintosh, but it is also highly recommend to install Homebrew in this case. Some dependencies seem can only be installed from Homebrew, like XQuartz components.</p>
+
+<p>Install <code class="language-plaintext highlighter-rouge">openssh</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>openssh
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">automake</code> and <code class="language-plaintext highlighter-rouge">autoconfig</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>automake
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">libtool</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>libtool
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">pkgconfig</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>pkgconfig
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">nasm</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>nasm
+</code></pre></div></div>
+
+<p>Install XQuartz and its related libraries.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>xquartz
+brew <span class="nb">install </span>libx11
+brew <span class="nb">install </span>libxfixes
+brew <span class="nb">install </span>libxrandr
+</code></pre></div></div>
+
+<p>Make sure all the dependencies above are installed.</p>
+
+<h3 id="heading-get-xrdp-source-code">Get XRDP source code</h3>
+
+<p>All the operations are completed via terminal and CLI, so the only thing now I need to do is to download <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> source code archive via command line. I use <code class="language-plaintext highlighter-rouge">wget</code> to do this.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="s2">"https://github.com/neutrinolabs/xrdp/releases/download/v0.9.19/xrdp-0.9.19.tar.gz"</span>
+</code></pre></div></div>
+
+<p>If the system do not have a <code class="language-plaintext highlighter-rouge">wget</code> tool installed, we can install from Homebrew easily. (if neccessary)</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>wget
+</code></pre></div></div>
+
+<p>Move this <code class="language-plaintext highlighter-rouge">tar</code> file to a coding place, for example, I put it in <code class="language-plaintext highlighter-rouge">~/Coding</code> directory.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>xrdp-0.9.19.tar.gz ~/Coding
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">tar</code> tool to extract the package.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> xrdp-0.9.19.tar.gz
+</code></pre></div></div>
+
+<p>Then <code class="language-plaintext highlighter-rouge">cd</code> into the directory.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>xrdp-0.9.19
+</code></pre></div></div>
+
+<h3 id="heading-compile-and-build">Compile and build</h3>
+
+<p>These steps are for x86_64 Macs.</p>
+
+<p>Start.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bootstrap
+</code></pre></div></div>
+
+<p>Configure the project. If the system does not have <code class="language-plaintext highlighter-rouge">pkgconfig</code> installed, it will throw an error out here.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/opt/X11/lib/pkgconfig
+</code></pre></div></div>
+
+<p>Make and build.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">xrdp</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">xrdp</code> will be installed at <code class="language-plaintext highlighter-rouge">/usr/local/sbin/xrdp</code> by default.</p>
+
+<h2 id="heading-settings-for-xrdp">Settings for XRDP</h2>
+
+<p>Make sure <code class="language-plaintext highlighter-rouge">xrdp</code> is installed on macOS.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which xrdp
+</code></pre></div></div>
+
+<p>If the output is <code class="language-plaintext highlighter-rouge">/usr/local/sbin/xrdp</code>, then <code class="language-plaintext highlighter-rouge">xrdp</code> is installed correctly.</p>
+
+<p>Generally, if no changes were made in source code before installation, the configuration file <code class="language-plaintext highlighter-rouge">xrdp.ini</code> will be stored at <code class="language-plaintext highlighter-rouge">/etc/rxdp</code>.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">vim</code> or other text editor to open it, with root privilige.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vim /etc/xrdp/xrdp.ini
+</code></pre></div></div>
+
+<p>We need to change some of the configurations to make <code class="language-plaintext highlighter-rouge">xrdp</code> run correctly on macOS.</p>
+
+<p>Find <code class="language-plaintext highlighter-rouge">[vnc-any]</code> line. The following lines are below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[vnc-any]
+name=vnc-any
+lib=libvnc.so
+ip=ask
+port=5900
+username=ask
+password=ask
+#pamusername=asksame
+#pampassword=asksame
+#pamsessionmng=127.0.0.1
+#delay_ms=2000
+</code></pre></div></div>
+
+<p>We need to make some changes, like below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[vnc-any]
+name=vnc-any
+lib=libvnc.dylib
+ip=127.0.0.1
+port=5900
+username=ask
+password=ask
+#pamusername=asksame
+#pampassword=asksame
+#pamsessionmng=127.0.0.1
+#delay_ms=2000
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">lib</code> file should be <code class="language-plaintext highlighter-rouge">libvnc.dylib</code> on macOS instead of <code class="language-plaintext highlighter-rouge">libvnc.so</code> on Linux. <code class="language-plaintext highlighter-rouge">ip</code> should be set to <code class="language-plaintext highlighter-rouge">127.0.0.1</code> by default.</p>
+
+<p>There are other session types, just comment them if not used, or they may cause some remote desktop client cannot connect successfully. Some clients may not display the <code class="language-plaintext highlighter-rouge">xrdp</code> portal correctly and lead to a crash.</p>
+
+<p>After editting the configuration file, save changes and exit <code class="language-plaintext highlighter-rouge">vim</code>.</p>
+
+<h2 id="heading-start-xrdp-services">Start XRDP services</h2>
+
+<p>Use root to run <code class="language-plaintext highlighter-rouge">xrdp</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /usr/local/sbin/xrdp
+<span class="nb">sudo</span> /usr/local/sbin/xrdp-sesman
+</code></pre></div></div>
+
+<p>Or, if the directory is in the PATH,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>xrdp
+<span class="nb">sudo </span>xrdp-sesman
+</code></pre></div></div>
+
+<h2 id="heading-connect-from-another-machine">Connect from another machine</h2>
+
+<p>I use Remote Desktop Manager to connect Nucintosh remotely. After I added a RDP session, it connected successfully. <code class="language-plaintext highlighter-rouge">xrdp</code> works. However, I soon found that I still cannot adjust the resolution. It is a limitation from macOS, not from ARD.</p>
+
+<h2 id="heading-conclusion">Conclusion</h2>
+
+<p><code class="language-plaintext highlighter-rouge">xrdp</code> can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the "dynamic resolution" on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.</p>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2025/10/19/WeirdPython/" title=" 'Weird Python'"> ← Weird Python</a>
+                        
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                    <p>～食個菠蘿包先啦～</p>
+                    
+                    
+                </div>
+                <div class="social-links">
+                    
+                    
+                    <a class="ico-github" href="https://github.com/congjyu" rel="me" target="_blank"
+                        title="github"></a>
+                    
+                    
+                    
+                    <a class="ico-rss" href="https://congjyu.github.io/feed" rel="me" target="_blank"
+                        title="rss"></a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+</footer>
+    </div>
+
+    <script>
+    $(document).ready(function () {
+        var offset = 50,
+            duration = 500,
+            width = 960;
+        $(window).scroll(function () {
+            if ($(window).width() > width) {
+                if ($(this).scrollTop() > offset) {
+                    $('footer').css('top', '20px');
+                    $('footer .back-to-top').fadeIn(duration);
+                } else {
+                    $('footer').css('top', 'auto');
+                    $('footer .back-to-top').fadeOut(duration);
+                }
+            }
+        });
+        $(window).resize(function () {
+            if ($(window).width() < width) {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+            if ($(window).width() >= width && $(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            }
+        });
+
+        $('footer .back-to-top, .gotop').on('click', function (event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, duration);
+            return false;
+        });
+
+        $('.show-hidden').on('click', function () {
+            $(this).parent().next().toggleClass("hidden");
+            $(this).toggleClass("hidden");
+        });
+    });
+</script>
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.search-field').simpleJekyllSearch({
+            jsonFile: '/search.json',
+            template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+            searchResults: '.search-wrapper .results',
+            searchResultsTitle: '<h4>Search results</h4>',
+            noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+        });
+    });
+
+    (function ($, window, undefined) {
+        var closeOverlay = function () {
+            $('.nav-wrapper, .search-wrapper').removeAttr('style');
+            $(".nav-form, .search-form").removeClass('active');
+            $("body").removeClass('nav-overlay search-overlay');
+        };
+
+        $('.nav-global .btn-search').on('click', function () {
+            $('.search-wrapper').css({ display: "block" });
+            $(".search-form").addClass('active');
+            $(".search-form").find('input').focus();
+            $("body").addClass('search-overlay');
+        });
+
+        $('.nav-global .btn-menu').on('click', function () {
+            $('.nav-wrapper').css({ display: "block" });
+            $(".nav-form").addClass('active');
+            $(".nav-form .search-field").prop('disabled', true);
+            $("body").addClass('nav-overlay');
+        });
+
+        $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+            closeOverlay();
+        });
+
+        $(document).on('keyup', function (e) {
+            if (e.keyCode === 27) {
+                closeOverlay();
+            }
+        });
+    })(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+</body>
+
+</html>

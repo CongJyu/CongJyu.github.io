@@ -1,4 +1,215 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-23T16:37:03+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-26T17:14:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Make Mac Mini an RDP Server</title><link href="http://localhost:4000/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac Mini an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/01/24/xrdp</id><content type="html" xml:base="http://localhost:4000/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-mini-an-rdp-server&quot;&gt;Make Mac Mini an RDP Server&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;⚠️ THIS POST HAS A &quot;靈車漂移&quot; TAG, AND DOES NOT GUARANTEE STABILITY.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;heading-background--motivation&quot;&gt;Background &amp;amp; Motivation&lt;/h2&gt;
+
+&lt;p&gt;Recently Rain is using a combination of &quot;separated&quot; NAS and remote desktop, that is, an Intel NUC with a mounted external hard disk. It is worth attention that I want to have a user-friendly command line environment as well as a beautiful graphic user interface (GUI), so I installed a macOS Big Sur 11.9 on NUC, also called &quot;Hacintosh&quot;. I will called it &quot;Nucintosh&quot; because it is installed on a NUC hardware.&lt;/p&gt;
+
+&lt;p&gt;It is generally acknowledge that macOS use ARD to connect from remote, and it does not support the RDP protocol form Microsoft. Rain wants to make Nucintosh be connected via RDP, so that maybe I can adjust the resolution settings from remote client. (not sure)&lt;/p&gt;
+
+&lt;p&gt;The method is to build an RDP server on macOS and make it run rdp services, and there is an open source solution called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; (&lt;a href=&quot;https://github.com/neutrinolabs/xrdp&quot;&gt;GitHub repo&lt;/a&gt;) but however it does not support macOS officially.&lt;/p&gt;
+
+&lt;p&gt;According to &lt;a href=&quot;https://github.com/neutrinolabs/xrdp/issues/2194&quot;&gt;some discussions&lt;/a&gt;, there is a way to make Macs run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; and get remote connected.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-compile-xrdp&quot;&gt;Compile XRDP&lt;/h2&gt;
+
+&lt;p&gt;I choose &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; version for this task. Someone said this version runs well on macOS Monterey. My Nucintosh runs a macOS Big Sur system, which is earlier than macOS Monterey, so it has a large probability to work with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; as well. Let us have a try.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-prepare-dependencies&quot;&gt;Prepare dependencies&lt;/h3&gt;
+
+&lt;p&gt;We need these following dependencies:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Xcode commandline tools&lt;/li&gt;
+  &lt;li&gt;Homebrew&lt;/li&gt;
+  &lt;li&gt;OpenSSL&lt;/li&gt;
+  &lt;li&gt;Automake and Autoconfig&lt;/li&gt;
+  &lt;li&gt;Libtool&lt;/li&gt;
+  &lt;li&gt;pkgconfig&lt;/li&gt;
+  &lt;li&gt;nasm&lt;/li&gt;
+  &lt;li&gt;XQuartz and its libs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If the machine do not have Homebrew installed, it is required to install one.&lt;/p&gt;
+
+&lt;p&gt;First, get Xcode command line tools ready.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xcode-select &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then install Homebrew.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It is also okay to have the macOS has MacPorts installed, like my Nucintosh, but it is also highly recommend to install Homebrew in this case. Some dependencies seem can only be installed from Homebrew, like XQuartz components.&lt;/p&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;openssh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;automake&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;autoconfig&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;automake
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libtool&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libtool
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkgconfig&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pkgconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nasm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nasm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install XQuartz and its related libraries.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;xquartz
+brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libx11
+brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libxfixes
+brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libxrandr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Make sure all the dependencies above are installed.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-get-xrdp-source-code&quot;&gt;Get XRDP source code&lt;/h3&gt;
+
+&lt;p&gt;All the operations are completed via terminal and CLI, so the only thing now I need to do is to download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; source code archive via command line. I use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; to do this.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;s2&quot;&gt;&quot;https://github.com/neutrinolabs/xrdp/releases/download/v0.9.19/xrdp-0.9.19.tar.gz&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If the system do not have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; tool installed, we can install from Homebrew easily. (if neccessary)&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;wget
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Move this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; file to a coding place, for example, I put it in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Coding&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;xrdp-0.9.19.tar.gz ~/Coding
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; tool to extract the package.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xvf&lt;/span&gt; xrdp-0.9.19.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd&lt;/code&gt; into the directory.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;xrdp-0.9.19
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;heading-compile-and-build&quot;&gt;Compile and build&lt;/h3&gt;
+
+&lt;p&gt;These steps are for x86_64 Macs.&lt;/p&gt;
+
+&lt;p&gt;Start.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bootstrap
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Configure the project. If the system does not have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkgconfig&lt;/code&gt; installed, it will throw an error out here.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./configure &lt;span class=&quot;nv&quot;&gt;PKG_CONFIG_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/X11/lib/pkgconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Make and build.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; will be installed at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/sbin/xrdp&lt;/code&gt; by default.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-settings-for-xrdp&quot;&gt;Settings for XRDP&lt;/h2&gt;
+
+&lt;p&gt;Make sure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; is installed on macOS.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which xrdp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If the output is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/sbin/xrdp&lt;/code&gt;, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; is installed correctly.&lt;/p&gt;
+
+&lt;p&gt;Generally, if no changes were made in source code before installation, the configuration file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp.ini&lt;/code&gt; will be stored at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/rxdp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt; or other text editor to open it, with root privilige.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vim /etc/xrdp/xrdp.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We need to change some of the configurations to make &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; run correctly on macOS.&lt;/p&gt;
+
+&lt;p&gt;Find &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[vnc-any]&lt;/code&gt; line. The following lines are below:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[vnc-any]
+name=vnc-any
+lib=libvnc.so
+ip=ask
+port=5900
+username=ask
+password=ask
+#pamusername=asksame
+#pampassword=asksame
+#pamsessionmng=127.0.0.1
+#delay_ms=2000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We need to make some changes, like below.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[vnc-any]
+name=vnc-any
+lib=libvnc.dylib
+ip=127.0.0.1
+port=5900
+username=ask
+password=ask
+#pamusername=asksame
+#pampassword=asksame
+#pamsessionmng=127.0.0.1
+#delay_ms=2000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib&lt;/code&gt; file should be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libvnc.dylib&lt;/code&gt; on macOS instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libvnc.so&lt;/code&gt; on Linux. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ip&lt;/code&gt; should be set to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt; by default.&lt;/p&gt;
+
+&lt;p&gt;There are other session types, just comment them if not used, or they may cause some remote desktop client cannot connect successfully. Some clients may not display the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; portal correctly and lead to a crash.&lt;/p&gt;
+
+&lt;p&gt;After editting the configuration file, save changes and exit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-start-xrdp-services&quot;&gt;Start XRDP services&lt;/h2&gt;
+
+&lt;p&gt;Use root to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /usr/local/sbin/xrdp
+&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /usr/local/sbin/xrdp-sesman
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or, if the directory is in the PATH,&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;xrdp
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;xrdp-sesman
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;heading-connect-from-another-machine&quot;&gt;Connect from another machine&lt;/h2&gt;
+
+&lt;p&gt;I use Remote Desktop Manager to connect Nucintosh remotely. After I added a RDP session, it connected successfully. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; works. However, I soon found that I still cannot adjust the resolution. It is a limitation from macOS, not from ARD.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the &quot;dynamic resolution&quot; on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac Mini an RDP Server</summary></entry><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 
