@@ -18,8 +18,8 @@
 <meta property="og:title" content="Make Mac Mini an RDP Server" />
 <meta name="author" content="Rain" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Make Mac Mini an RDP Server" />
-<meta property="og:description" content="Make Mac Mini an RDP Server" />
+<meta name="description" content="Make Mac Mini an RDP Server | 使用 RDP 遠程連接 Mac Mini" />
+<meta property="og:description" content="Make Mac Mini an RDP Server | 使用 RDP 遠程連接 Mac Mini" />
 <link rel="canonical" href="http://localhost:4000/blog/2026/01/24/xrdp/" />
 <meta property="og:url" content="http://localhost:4000/blog/2026/01/24/xrdp/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Make Mac Mini an RDP Server" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2026-01-24T00:00:00+08:00","datePublished":"2026-01-24T00:00:00+08:00","description":"Make Mac Mini an RDP Server","headline":"Make Mac Mini an RDP Server","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2026/01/24/xrdp/"},"url":"http://localhost:4000/blog/2026/01/24/xrdp/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2026-01-24T00:00:00+08:00","datePublished":"2026-01-24T00:00:00+08:00","description":"Make Mac Mini an RDP Server | 使用 RDP 遠程連接 Mac Mini","headline":"Make Mac Mini an RDP Server","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2026/01/24/xrdp/"},"url":"http://localhost:4000/blog/2026/01/24/xrdp/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
@@ -199,29 +199,43 @@
                         </ul>
                     </div>
                     <div itemprop="articleBody">
-                        <h1 id="heading-make-mac-mini-an-rdp-server">Make Mac Mini an RDP Server</h1>
+                        <h1 id="heading-make-mac-mini-an-rdp-server--使用-rdp-遠程連接-mac-mini">Make Mac Mini an RDP Server | 使用 RDP 遠程連接 Mac Mini</h1>
 
 <blockquote>
   <p>⚠️ THIS POST HAS A "靈車漂移" TAG, AND DOES NOT GUARANTEE STABILITY.</p>
+
+  <p>⚠️ 呢篇文章帶有「靈車漂移」之標籤，並且不保證穩定性。</p>
 </blockquote>
 
-<h2 id="heading-background--motivation">Background &amp; Motivation</h2>
+<h2 id="heading-0-background--motivation--背景及動機">0. Background &amp; Motivation | 背景及動機</h2>
 
 <p>Recently Rain is using a combination of "separated" NAS and remote desktop, that is, an Intel NUC with a mounted external hard disk. It is worth attention that I want to have a user-friendly command line environment as well as a beautiful graphic user interface (GUI), so I installed a macOS Big Sur 11.9 on NUC, also called "Hacintosh". I will called it "Nucintosh" because it is installed on a NUC hardware.</p>
 
+<p>呢排 Rain 用緊一個「散裝」NAS 及遠程桌面結合物，即係一台 Intel NUC，並掛載有一個外置硬碟。值得注意嘅係 Rain 想要一個用戶友好嘅命令行終端環境，又同時想要一個優雅美麗嘅圖形用戶介面，所以選擇喺 NUC 之上安裝 macOS Big Sur 11.9 系統，即係話安裝一個「黑蘋果」。因為佢運行於 NUC 硬件之上，所以喺下文中將稱呼佢為「Nucintosh」。</p>
+
 <p>It is generally acknowledge that macOS use ARD to connect from remote, and it does not support the RDP protocol form Microsoft. Rain wants to make Nucintosh be connected via RDP, so that maybe I can adjust the resolution settings from remote client. (not sure)</p>
+
+<p>一般來講，macOS 係用 ARD 喺遠端連線，而且佢唔支援微軟嘅 RDP 協定。 Rain 想令到 Nucintosh 透過 RDP 連接，咁我可能可以喺遠端客戶端調整解像度嘅設定。（唔確定）</p>
 
 <p>The method is to build an RDP server on macOS and make it run rdp services, and there is an open source solution called <code class="language-plaintext highlighter-rouge">xrdp</code> (<a href="https://github.com/neutrinolabs/xrdp">GitHub repo</a>) but however it does not support macOS officially.</p>
 
+<p>此方法係專門構建一個 RDP 伺服器於 macOS 系統之上，令到佢運行 RDP 服務。而且有一個叫做「<code class="language-plaintext highlighter-rouge">xrdp</code>」嘅開源嘅解決方案，但係佢冇官方嘅 macOS 支援。</p>
+
 <p>According to <a href="https://github.com/neutrinolabs/xrdp/issues/2194">some discussions</a>, there is a way to make Macs run <code class="language-plaintext highlighter-rouge">xrdp</code> and get remote connected.</p>
 
-<h2 id="heading-compile-xrdp">Compile XRDP</h2>
+<p>根據<a href="https://github.com/neutrinolabs/xrdp/issues/2194">一啲討論</a>，有一種方法可以令到 Mac 電腦運行 <code class="language-plaintext highlighter-rouge">xrdp</code> 並使得可以被遠程連接控制。</p>
+
+<h2 id="heading-1-compile-xrdp--編譯-xrdp">1. Compile XRDP | 編譯 XRDP</h2>
 
 <p>I choose <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> version for this task. Someone said this version runs well on macOS Monterey. My Nucintosh runs a macOS Big Sur system, which is earlier than macOS Monterey, so it has a large probability to work with <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> as well. Let us have a try.</p>
 
-<h3 id="heading-prepare-dependencies">Prepare dependencies</h3>
+<p>我選擇 <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> 呢個版本。有啲人話呢個版本喺 macOS Monterey 上面運行良好。我嘅 Nucintosh 搭載一個 macOS Big Sur 系統，相比於 Monterey 早一個大版本，因此有相當大可能性令到 <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> 運行良好。讓我哋試一試。</p>
+
+<h3 id="heading-11-prepare-dependencies--準備依賴">1.1. Prepare dependencies | 準備依賴</h3>
 
 <p>We need these following dependencies:</p>
+
+<p>我哋需要下面呢啲依賴庫：</p>
 
 <ul>
   <li>Xcode commandline tools</li>
@@ -236,44 +250,64 @@
 
 <p>If the machine do not have Homebrew installed, it is required to install one.</p>
 
+<p>如果機器上面冇安裝 Homebrew，咁應該安裝一個先。</p>
+
 <p>First, get Xcode command line tools ready.</p>
+
+<p>首先，準備好 Xcode 命令行工具（Xcode Commandline Tools）。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
 </code></pre></div></div>
 
 <p>Then install Homebrew.</p>
 
+<p>然後安裝 Homebrew。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
 </code></pre></div></div>
 
 <p>It is also okay to have the macOS has MacPorts installed, like my Nucintosh, but it is also highly recommend to install Homebrew in this case. Some dependencies seem can only be installed from Homebrew, like XQuartz components.</p>
 
+<p>如果 macOS 已經安裝咗 MacPorts 都冇問題。好似 Nucintosh 一樣既有 MacPorts 又有 Homebrew。但係仍然非常推薦安裝 Homebrew，因為我哋後面需要用到。一啲依賴庫只能夠從 Homebrew 嗰度安裝，例如 XQuartz 嘅組件。</p>
+
 <p>Install <code class="language-plaintext highlighter-rouge">openssh</code>.</p>
+
+<p>安裝 <code class="language-plaintext highlighter-rouge">openssh</code>。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>openssh
 </code></pre></div></div>
 
 <p>Install <code class="language-plaintext highlighter-rouge">automake</code> and <code class="language-plaintext highlighter-rouge">autoconfig</code>.</p>
 
+<p>安裝 <code class="language-plaintext highlighter-rouge">automake</code> 同埋 <code class="language-plaintext highlighter-rouge">autoconfig</code>。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>automake
 </code></pre></div></div>
 
 <p>Install <code class="language-plaintext highlighter-rouge">libtool</code>.</p>
+
+<p>安裝 <code class="language-plaintext highlighter-rouge">libtool</code>。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>libtool
 </code></pre></div></div>
 
 <p>Install <code class="language-plaintext highlighter-rouge">pkgconfig</code>.</p>
 
+<p>安裝 <code class="language-plaintext highlighter-rouge">pkgconfig</code>。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>pkgconfig
 </code></pre></div></div>
 
 <p>Install <code class="language-plaintext highlighter-rouge">nasm</code>.</p>
 
+<p>安裝 <code class="language-plaintext highlighter-rouge">nasm</code>。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>nasm
 </code></pre></div></div>
 
 <p>Install XQuartz and its related libraries.</p>
+
+<p>安裝 XQuartz 及其相關嘅庫。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>xquartz
 brew <span class="nb">install </span>libx11
@@ -283,114 +317,150 @@ brew <span class="nb">install </span>libxrandr
 
 <p>Make sure all the dependencies above are installed.</p>
 
-<h3 id="heading-get-xrdp-source-code">Get XRDP source code</h3>
+<p>確保所有嘅依賴都已經安裝好。</p>
+
+<h3 id="heading-12-get-xrdp-source-code--獲取-xrdp-嘅源碼">1.2. Get XRDP source code | 獲取 XRDP 嘅源碼</h3>
 
 <p>All the operations are completed via terminal and CLI, so the only thing now I need to do is to download <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> source code archive via command line. I use <code class="language-plaintext highlighter-rouge">wget</code> to do this.</p>
+
+<p>所有嘅操作都係喺終端嘅命令行介面完成嘅，因此依家需要通過命令行工具來下載 <code class="language-plaintext highlighter-rouge">xrdp 0.9.19</code> 源代碼包。使用 <code class="language-plaintext highlighter-rouge">wget</code> 即可做到。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="s2">"https://github.com/neutrinolabs/xrdp/releases/download/v0.9.19/xrdp-0.9.19.tar.gz"</span>
 </code></pre></div></div>
 
 <p>If the system do not have a <code class="language-plaintext highlighter-rouge">wget</code> tool installed, we can install from Homebrew easily. (if neccessary)</p>
 
+<p>如果系統上面冇安裝 <code class="language-plaintext highlighter-rouge">wget</code> 工具，可以使用 Homebrew 來安裝。（如果必要嘅話）</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>wget
 </code></pre></div></div>
 
 <p>Move this <code class="language-plaintext highlighter-rouge">tar</code> file to a coding place, for example, I put it in <code class="language-plaintext highlighter-rouge">~/Coding</code> directory.</p>
+
+<p>將呢個 <code class="language-plaintext highlighter-rouge">tar</code> 歸檔文件移動去一個編寫代碼嘅常用位置，例如我將佢放喺 <code class="language-plaintext highlighter-rouge">~/Coding</code> 嘅目錄下面。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>xrdp-0.9.19.tar.gz ~/Coding
 </code></pre></div></div>
 
 <p>Use <code class="language-plaintext highlighter-rouge">tar</code> tool to extract the package.</p>
 
+<p>使用 <code class="language-plaintext highlighter-rouge">tar</code> 工具解壓源碼包。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> xrdp-0.9.19.tar.gz
 </code></pre></div></div>
 
 <p>Then <code class="language-plaintext highlighter-rouge">cd</code> into the directory.</p>
 
+<p>然後 <code class="language-plaintext highlighter-rouge">cd</code> 入嗰個目錄。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>xrdp-0.9.19
 </code></pre></div></div>
 
-<h3 id="heading-compile-and-build">Compile and build</h3>
+<h3 id="heading-13-compile-and-build--編譯並構建">1.3. Compile and build | 編譯並構建</h3>
 
 <p>These steps are for x86_64 Macs.</p>
 
+<p>呢啲步驟適用於 x86_64 架構嘅 Mac 電腦。</p>
+
 <p>Start.</p>
+
+<p>開始配置。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bootstrap
 </code></pre></div></div>
 
 <p>Configure the project. If the system does not have <code class="language-plaintext highlighter-rouge">pkgconfig</code> installed, it will throw an error out here.</p>
 
+<p>配置項目。如果個系統冇安裝有 <code class="language-plaintext highlighter-rouge">pkgconfig</code>，佢會丟出一個報錯喺度。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/opt/X11/lib/pkgconfig
 </code></pre></div></div>
 
 <p>Make and build.</p>
+
+<p>構建。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
 </code></pre></div></div>
 
 <p>Install <code class="language-plaintext highlighter-rouge">xrdp</code>.</p>
 
+<p>安裝 <code class="language-plaintext highlighter-rouge">xrdp</code>。</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>make <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">xrdp</code> will be installed at <code class="language-plaintext highlighter-rouge">/usr/local/sbin/xrdp</code> by default.</p>
 
-<h2 id="heading-settings-for-xrdp">Settings for XRDP</h2>
+<p><code class="language-plaintext highlighter-rouge">xrdp</code> 呢個程序將會默認被安裝喺 <code class="language-plaintext highlighter-rouge">/usr/local/sbin/xrdp</code> 嘅位置。</p>
+
+<h2 id="heading-2-settings-for-xrdp--xrdp-設定">2. Settings for XRDP | XRDP 設定</h2>
 
 <p>Make sure <code class="language-plaintext highlighter-rouge">xrdp</code> is installed on macOS.</p>
+
+<p>確保 <code class="language-plaintext highlighter-rouge">xrdp</code> 已經安裝喺 macOS 之中。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which xrdp
 </code></pre></div></div>
 
-<p>If the output is <code class="language-plaintext highlighter-rouge">/usr/local/sbin/xrdp</code>, then <code class="language-plaintext highlighter-rouge">xrdp</code> is installed correctly.</p>
+<p>If the output is <code class="language-plaintext highlighter-rouge">/usr/local/sbin/xrdp</code>, then <code class="language-plaintext highlighter-rouge">xrdp</code> is installed correctly. Generally, if no changes were made in source code before installation, the configuration file <code class="language-plaintext highlighter-rouge">xrdp.ini</code> will be stored at <code class="language-plaintext highlighter-rouge">/etc/rxdp</code>. Use <code class="language-plaintext highlighter-rouge">vim</code> or other text editor to open it, with root privilige.</p>
 
-<p>Generally, if no changes were made in source code before installation, the configuration file <code class="language-plaintext highlighter-rouge">xrdp.ini</code> will be stored at <code class="language-plaintext highlighter-rouge">/etc/rxdp</code>.</p>
-
-<p>Use <code class="language-plaintext highlighter-rouge">vim</code> or other text editor to open it, with root privilige.</p>
+<p>如果輸出係 <code class="language-plaintext highlighter-rouge">/usr/本地/sbin/xrdp</code>，咁 <code class="language-plaintext highlighter-rouge">xrdp</code> 就安裝得正確。一般嚟講，如果喺安裝之前冇對源碼作出任何變更，配置檔案 <code class="language-plaintext highlighter-rouge">xrdp.ini</code> 就會儲存喺 <code class="language-plaintext highlighter-rouge">/etc/rxdp</code>。使用 root 權限，用 <code class="language-plaintext highlighter-rouge">vim</code> 或者其他編輯器打開佢。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vim /etc/xrdp/xrdp.ini
 </code></pre></div></div>
 
 <p>We need to change some of the configurations to make <code class="language-plaintext highlighter-rouge">xrdp</code> run correctly on macOS.</p>
 
+<p>我哋需要修改一啲配置項來令到 <code class="language-plaintext highlighter-rouge">xrdp</code> 喺 macOS 上面正確運行。</p>
+
 <p>Find <code class="language-plaintext highlighter-rouge">[vnc-any]</code> line. The following lines are below:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[vnc-any]
-name=vnc-any
-lib=libvnc.so
-ip=ask
-port=5900
-username=ask
-password=ask
-#pamusername=asksame
+<p>搵到 <code class="language-plaintext highlighter-rouge">[vnc-any]</code> 呢行。呢行下面幾行嘅內容：</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">vnc</span>-<span class="n">any</span>]
+<span class="n">name</span>=<span class="n">vnc</span>-<span class="n">any</span>
+<span class="n">lib</span>=<span class="n">libvnc</span>.<span class="n">so</span>
+<span class="n">ip</span>=<span class="n">ask</span>
+<span class="n">port</span>=<span class="m">5900</span>
+<span class="n">username</span>=<span class="n">ask</span>
+<span class="n">password</span>=<span class="n">ask</span>
+<span class="c">#pamusername=asksame
 #pampassword=asksame
 #pamsessionmng=127.0.0.1
 #delay_ms=2000
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p>We need to make some changes, like below.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[vnc-any]
-name=vnc-any
-lib=libvnc.dylib
-ip=127.0.0.1
-port=5900
-username=ask
-password=ask
-#pamusername=asksame
+<p>修改一啲部分，如下。</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[<span class="n">vnc</span>-<span class="n">any</span>]
+<span class="n">name</span>=<span class="n">vnc</span>-<span class="n">any</span>
+<span class="n">lib</span>=<span class="n">libvnc</span>.<span class="n">dylib</span>
+<span class="n">ip</span>=<span class="m">127</span>.<span class="m">0</span>.<span class="m">0</span>.<span class="m">1</span>
+<span class="n">port</span>=<span class="m">5900</span>
+<span class="n">username</span>=<span class="n">ask</span>
+<span class="n">password</span>=<span class="n">ask</span>
+<span class="c">#pamusername=asksame
 #pampassword=asksame
 #pamsessionmng=127.0.0.1
 #delay_ms=2000
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">lib</code> file should be <code class="language-plaintext highlighter-rouge">libvnc.dylib</code> on macOS instead of <code class="language-plaintext highlighter-rouge">libvnc.so</code> on Linux. <code class="language-plaintext highlighter-rouge">ip</code> should be set to <code class="language-plaintext highlighter-rouge">127.0.0.1</code> by default.</p>
 
+<p>喺 macOS 上面，<code class="language-plaintext highlighter-rouge">lib</code> 文件應該為 <code class="language-plaintext highlighter-rouge">libvnc.dylib</code>，而唔係 Linux 上嘅 <code class="language-plaintext highlighter-rouge">libvnc.so</code>。設定默認嘅 <code class="language-plaintext highlighter-rouge">ip</code> 為 <code class="language-plaintext highlighter-rouge">127.0.0.1</code>。</p>
+
 <p>There are other session types, just comment them if not used, or they may cause some remote desktop client cannot connect successfully. Some clients may not display the <code class="language-plaintext highlighter-rouge">xrdp</code> portal correctly and lead to a crash.</p>
+
+<p>佢仲有其他嘅 session 種類，如果唔使用嘅話刪除或者註釋咗佢即可。不然嘅話佢哋可能導致喺某些遠程桌面客戶端上面嘅連接失敗。一啲客戶端可能顯示唔到 <code class="language-plaintext highlighter-rouge">xrdp</code> 嘅 portal 介面，並導致崩潰。</p>
 
 <p>After editting the configuration file, save changes and exit <code class="language-plaintext highlighter-rouge">vim</code>.</p>
 
-<h2 id="heading-start-xrdp-services">Start XRDP services</h2>
+<p>編輯完配置文件之後，保存並且退出 <code class="language-plaintext highlighter-rouge">vim</code>。</p>
+
+<h2 id="heading-3-start-xrdp-services">3. Start XRDP services</h2>
 
 <p>Use root to run <code class="language-plaintext highlighter-rouge">xrdp</code>.</p>
 
@@ -400,17 +470,23 @@ password=ask
 
 <p>Or, if the directory is in the PATH,</p>
 
+<p>或者，如果個目錄喺 PATH 之中嘅話，</p>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>xrdp
 <span class="nb">sudo </span>xrdp-sesman
 </code></pre></div></div>
 
-<h2 id="heading-connect-from-another-machine">Connect from another machine</h2>
+<h2 id="heading-4-connect-from-another-machine--從另外機器上連接">4. Connect from another machine | 從另外機器上連接</h2>
 
 <p>I use Remote Desktop Manager to connect Nucintosh remotely. After I added a RDP session, it connected successfully. <code class="language-plaintext highlighter-rouge">xrdp</code> works. However, I soon found that I still cannot adjust the resolution. It is a limitation from macOS, not from ARD.</p>
 
-<h2 id="heading-conclusion">Conclusion</h2>
+<p>使用 Remote Desktop Manager 遠程連接 NUC。添加一個 RDP session 之後，佢成功連接。<code class="language-plaintext highlighter-rouge">xrdp</code> 工作正常。但係我好快發現佢仍然唔可以係客戶端調整分辨率。呢個係系統嘅限制，而唔係 ARD 嘅限制。</p>
+
+<h2 id="heading-5-conclusion--總結">5. Conclusion | 總結</h2>
 
 <p><code class="language-plaintext highlighter-rouge">xrdp</code> can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the "dynamic resolution" on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.</p>
+
+<p><code class="language-plaintext highlighter-rouge">xrdp</code> 可以喺 macOS 上面運行，可以令到 macOS 使用 RDP 來被遠程連接。RDP 喺 macOS 及一啲 Linux 發行版本上面唔可以實現「動態分辨率」功能。呢啲限制係由於系統，並非遠程桌面協議控制。</p>
 
                     </div>
                 </div>

@@ -1,26 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-26T17:14:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Make Mac Mini an RDP Server</title><link href="http://localhost:4000/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac Mini an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/01/24/xrdp</id><content type="html" xml:base="http://localhost:4000/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-mini-an-rdp-server&quot;&gt;Make Mac Mini an RDP Server&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-28T17:40:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>{&quot;name&quot;=&gt;nil, &quot;job_title&quot;=&gt;nil, &quot;location&quot;=&gt;nil, &quot;email&quot;=&gt;nil, &quot;social_links&quot;=&gt;[{&quot;name&quot;=&gt;&quot;github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/congjyu&quot;}, {&quot;name&quot;=&gt;&quot;rss&quot;, &quot;url&quot;=&gt;&quot;https://congjyu.github.io/feed&quot;}]}</name></author><entry><title type="html">Make Mac Mini an RDP Server</title><link href="http://localhost:4000/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac Mini an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/01/24/xrdp</id><content type="html" xml:base="http://localhost:4000/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-mini-an-rdp-server--使用-rdp-遠程連接-mac-mini&quot;&gt;Make Mac Mini an RDP Server | 使用 RDP 遠程連接 Mac Mini&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ THIS POST HAS A &quot;靈車漂移&quot; TAG, AND DOES NOT GUARANTEE STABILITY.&lt;/p&gt;
+
+  &lt;p&gt;⚠️ 呢篇文章帶有「靈車漂移」之標籤，並且不保證穩定性。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;heading-background--motivation&quot;&gt;Background &amp;amp; Motivation&lt;/h2&gt;
+&lt;h2 id=&quot;heading-0-background--motivation--背景及動機&quot;&gt;0. Background &amp;amp; Motivation | 背景及動機&lt;/h2&gt;
 
 &lt;p&gt;Recently Rain is using a combination of &quot;separated&quot; NAS and remote desktop, that is, an Intel NUC with a mounted external hard disk. It is worth attention that I want to have a user-friendly command line environment as well as a beautiful graphic user interface (GUI), so I installed a macOS Big Sur 11.9 on NUC, also called &quot;Hacintosh&quot;. I will called it &quot;Nucintosh&quot; because it is installed on a NUC hardware.&lt;/p&gt;
 
+&lt;p&gt;呢排 Rain 用緊一個「散裝」NAS 及遠程桌面結合物，即係一台 Intel NUC，並掛載有一個外置硬碟。值得注意嘅係 Rain 想要一個用戶友好嘅命令行終端環境，又同時想要一個優雅美麗嘅圖形用戶介面，所以選擇喺 NUC 之上安裝 macOS Big Sur 11.9 系統，即係話安裝一個「黑蘋果」。因為佢運行於 NUC 硬件之上，所以喺下文中將稱呼佢為「Nucintosh」。&lt;/p&gt;
+
 &lt;p&gt;It is generally acknowledge that macOS use ARD to connect from remote, and it does not support the RDP protocol form Microsoft. Rain wants to make Nucintosh be connected via RDP, so that maybe I can adjust the resolution settings from remote client. (not sure)&lt;/p&gt;
+
+&lt;p&gt;一般來講，macOS 係用 ARD 喺遠端連線，而且佢唔支援微軟嘅 RDP 協定。 Rain 想令到 Nucintosh 透過 RDP 連接，咁我可能可以喺遠端客戶端調整解像度嘅設定。（唔確定）&lt;/p&gt;
 
 &lt;p&gt;The method is to build an RDP server on macOS and make it run rdp services, and there is an open source solution called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; (&lt;a href=&quot;https://github.com/neutrinolabs/xrdp&quot;&gt;GitHub repo&lt;/a&gt;) but however it does not support macOS officially.&lt;/p&gt;
 
+&lt;p&gt;此方法係專門構建一個 RDP 伺服器於 macOS 系統之上，令到佢運行 RDP 服務。而且有一個叫做「&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt;」嘅開源嘅解決方案，但係佢冇官方嘅 macOS 支援。&lt;/p&gt;
+
 &lt;p&gt;According to &lt;a href=&quot;https://github.com/neutrinolabs/xrdp/issues/2194&quot;&gt;some discussions&lt;/a&gt;, there is a way to make Macs run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; and get remote connected.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-compile-xrdp&quot;&gt;Compile XRDP&lt;/h2&gt;
+&lt;p&gt;根據&lt;a href=&quot;https://github.com/neutrinolabs/xrdp/issues/2194&quot;&gt;一啲討論&lt;/a&gt;，有一種方法可以令到 Mac 電腦運行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 並使得可以被遠程連接控制。&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-1-compile-xrdp--編譯-xrdp&quot;&gt;1. Compile XRDP | 編譯 XRDP&lt;/h2&gt;
 
 &lt;p&gt;I choose &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; version for this task. Someone said this version runs well on macOS Monterey. My Nucintosh runs a macOS Big Sur system, which is earlier than macOS Monterey, so it has a large probability to work with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; as well. Let us have a try.&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-prepare-dependencies&quot;&gt;Prepare dependencies&lt;/h3&gt;
+&lt;p&gt;我選擇 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; 呢個版本。有啲人話呢個版本喺 macOS Monterey 上面運行良好。我嘅 Nucintosh 搭載一個 macOS Big Sur 系統，相比於 Monterey 早一個大版本，因此有相當大可能性令到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; 運行良好。讓我哋試一試。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-11-prepare-dependencies--準備依賴&quot;&gt;1.1. Prepare dependencies | 準備依賴&lt;/h3&gt;
 
 &lt;p&gt;We need these following dependencies:&lt;/p&gt;
+
+&lt;p&gt;我哋需要下面呢啲依賴庫：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Xcode commandline tools&lt;/li&gt;
@@ -35,44 +49,64 @@
 
 &lt;p&gt;If the machine do not have Homebrew installed, it is required to install one.&lt;/p&gt;
 
+&lt;p&gt;如果機器上面冇安裝 Homebrew，咁應該安裝一個先。&lt;/p&gt;
+
 &lt;p&gt;First, get Xcode command line tools ready.&lt;/p&gt;
+
+&lt;p&gt;首先，準備好 Xcode 命令行工具（Xcode Commandline Tools）。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xcode-select &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then install Homebrew.&lt;/p&gt;
 
+&lt;p&gt;然後安裝 Homebrew。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;It is also okay to have the macOS has MacPorts installed, like my Nucintosh, but it is also highly recommend to install Homebrew in this case. Some dependencies seem can only be installed from Homebrew, like XQuartz components.&lt;/p&gt;
 
+&lt;p&gt;如果 macOS 已經安裝咗 MacPorts 都冇問題。好似 Nucintosh 一樣既有 MacPorts 又有 Homebrew。但係仍然非常推薦安裝 Homebrew，因為我哋後面需要用到。一啲依賴庫只能夠從 Homebrew 嗰度安裝，例如 XQuartz 嘅組件。&lt;/p&gt;
+
 &lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssh&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssh&lt;/code&gt;。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;openssh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;automake&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;autoconfig&lt;/code&gt;.&lt;/p&gt;
 
+&lt;p&gt;安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;automake&lt;/code&gt; 同埋 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;autoconfig&lt;/code&gt;。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;automake
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libtool&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libtool&lt;/code&gt;。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libtool
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkgconfig&lt;/code&gt;.&lt;/p&gt;
 
+&lt;p&gt;安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkgconfig&lt;/code&gt;。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pkgconfig
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nasm&lt;/code&gt;.&lt;/p&gt;
 
+&lt;p&gt;安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nasm&lt;/code&gt;。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nasm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Install XQuartz and its related libraries.&lt;/p&gt;
+
+&lt;p&gt;安裝 XQuartz 及其相關嘅庫。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;xquartz
 brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libx11
@@ -82,114 +116,150 @@ brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libxrandr
 
 &lt;p&gt;Make sure all the dependencies above are installed.&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-get-xrdp-source-code&quot;&gt;Get XRDP source code&lt;/h3&gt;
+&lt;p&gt;確保所有嘅依賴都已經安裝好。&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-12-get-xrdp-source-code--獲取-xrdp-嘅源碼&quot;&gt;1.2. Get XRDP source code | 獲取 XRDP 嘅源碼&lt;/h3&gt;
 
 &lt;p&gt;All the operations are completed via terminal and CLI, so the only thing now I need to do is to download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; source code archive via command line. I use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; to do this.&lt;/p&gt;
+
+&lt;p&gt;所有嘅操作都係喺終端嘅命令行介面完成嘅，因此依家需要通過命令行工具來下載 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp 0.9.19&lt;/code&gt; 源代碼包。使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; 即可做到。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;s2&quot;&gt;&quot;https://github.com/neutrinolabs/xrdp/releases/download/v0.9.19/xrdp-0.9.19.tar.gz&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;If the system do not have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; tool installed, we can install from Homebrew easily. (if neccessary)&lt;/p&gt;
 
+&lt;p&gt;如果系統上面冇安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt; 工具，可以使用 Homebrew 來安裝。（如果必要嘅話）&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;wget
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Move this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; file to a coding place, for example, I put it in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Coding&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;將呢個 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; 歸檔文件移動去一個編寫代碼嘅常用位置，例如我將佢放喺 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Coding&lt;/code&gt; 嘅目錄下面。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;xrdp-0.9.19.tar.gz ~/Coding
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; tool to extract the package.&lt;/p&gt;
 
+&lt;p&gt;使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tar&lt;/code&gt; 工具解壓源碼包。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xvf&lt;/span&gt; xrdp-0.9.19.tar.gz
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd&lt;/code&gt; into the directory.&lt;/p&gt;
 
+&lt;p&gt;然後 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd&lt;/code&gt; 入嗰個目錄。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;xrdp-0.9.19
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;heading-compile-and-build&quot;&gt;Compile and build&lt;/h3&gt;
+&lt;h3 id=&quot;heading-13-compile-and-build--編譯並構建&quot;&gt;1.3. Compile and build | 編譯並構建&lt;/h3&gt;
 
 &lt;p&gt;These steps are for x86_64 Macs.&lt;/p&gt;
 
+&lt;p&gt;呢啲步驟適用於 x86_64 架構嘅 Mac 電腦。&lt;/p&gt;
+
 &lt;p&gt;Start.&lt;/p&gt;
+
+&lt;p&gt;開始配置。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bootstrap
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Configure the project. If the system does not have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkgconfig&lt;/code&gt; installed, it will throw an error out here.&lt;/p&gt;
 
+&lt;p&gt;配置項目。如果個系統冇安裝有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkgconfig&lt;/code&gt;，佢會丟出一個報錯喺度。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./configure &lt;span class=&quot;nv&quot;&gt;PKG_CONFIG_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/X11/lib/pkgconfig
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Make and build.&lt;/p&gt;
+
+&lt;p&gt;構建。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt;.&lt;/p&gt;
 
+&lt;p&gt;安裝 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt;。&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; will be installed at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/sbin/xrdp&lt;/code&gt; by default.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-settings-for-xrdp&quot;&gt;Settings for XRDP&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 呢個程序將會默認被安裝喺 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/sbin/xrdp&lt;/code&gt; 嘅位置。&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-2-settings-for-xrdp--xrdp-設定&quot;&gt;2. Settings for XRDP | XRDP 設定&lt;/h2&gt;
 
 &lt;p&gt;Make sure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; is installed on macOS.&lt;/p&gt;
+
+&lt;p&gt;確保 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 已經安裝喺 macOS 之中。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which xrdp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;If the output is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/sbin/xrdp&lt;/code&gt;, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; is installed correctly.&lt;/p&gt;
+&lt;p&gt;If the output is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local/sbin/xrdp&lt;/code&gt;, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; is installed correctly. Generally, if no changes were made in source code before installation, the configuration file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp.ini&lt;/code&gt; will be stored at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/rxdp&lt;/code&gt;. Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt; or other text editor to open it, with root privilige.&lt;/p&gt;
 
-&lt;p&gt;Generally, if no changes were made in source code before installation, the configuration file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp.ini&lt;/code&gt; will be stored at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/rxdp&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt; or other text editor to open it, with root privilige.&lt;/p&gt;
+&lt;p&gt;如果輸出係 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/本地/sbin/xrdp&lt;/code&gt;，咁 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 就安裝得正確。一般嚟講，如果喺安裝之前冇對源碼作出任何變更，配置檔案 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp.ini&lt;/code&gt; 就會儲存喺 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/rxdp&lt;/code&gt;。使用 root 權限，用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt; 或者其他編輯器打開佢。&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vim /etc/xrdp/xrdp.ini
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;We need to change some of the configurations to make &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; run correctly on macOS.&lt;/p&gt;
 
+&lt;p&gt;我哋需要修改一啲配置項來令到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 喺 macOS 上面正確運行。&lt;/p&gt;
+
 &lt;p&gt;Find &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[vnc-any]&lt;/code&gt; line. The following lines are below:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[vnc-any]
-name=vnc-any
-lib=libvnc.so
-ip=ask
-port=5900
-username=ask
-password=ask
-#pamusername=asksame
+&lt;p&gt;搵到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[vnc-any]&lt;/code&gt; 呢行。呢行下面幾行嘅內容：&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;vnc&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;any&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;vnc&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;any&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;libvnc&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;so&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;ask&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;5900&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;ask&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;ask&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#pamusername=asksame
 #pampassword=asksame
 #pamsessionmng=127.0.0.1
 #delay_ms=2000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;We need to make some changes, like below.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[vnc-any]
-name=vnc-any
-lib=libvnc.dylib
-ip=127.0.0.1
-port=5900
-username=ask
-password=ask
-#pamusername=asksame
+&lt;p&gt;修改一啲部分，如下。&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&lt;span class=&quot;n&quot;&gt;vnc&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;any&lt;/span&gt;]
+&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;vnc&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;any&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;libvnc&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;dylib&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;127&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;=&lt;span class=&quot;m&quot;&gt;5900&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;ask&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;ask&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#pamusername=asksame
 #pampassword=asksame
 #pamsessionmng=127.0.0.1
 #delay_ms=2000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib&lt;/code&gt; file should be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libvnc.dylib&lt;/code&gt; on macOS instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libvnc.so&lt;/code&gt; on Linux. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ip&lt;/code&gt; should be set to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt; by default.&lt;/p&gt;
 
+&lt;p&gt;喺 macOS 上面，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib&lt;/code&gt; 文件應該為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libvnc.dylib&lt;/code&gt;，而唔係 Linux 上嘅 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libvnc.so&lt;/code&gt;。設定默認嘅 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ip&lt;/code&gt; 為 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt;。&lt;/p&gt;
+
 &lt;p&gt;There are other session types, just comment them if not used, or they may cause some remote desktop client cannot connect successfully. Some clients may not display the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; portal correctly and lead to a crash.&lt;/p&gt;
+
+&lt;p&gt;佢仲有其他嘅 session 種類，如果唔使用嘅話刪除或者註釋咗佢即可。不然嘅話佢哋可能導致喺某些遠程桌面客戶端上面嘅連接失敗。一啲客戶端可能顯示唔到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 嘅 portal 介面，並導致崩潰。&lt;/p&gt;
 
 &lt;p&gt;After editting the configuration file, save changes and exit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-start-xrdp-services&quot;&gt;Start XRDP services&lt;/h2&gt;
+&lt;p&gt;編輯完配置文件之後，保存並且退出 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-3-start-xrdp-services&quot;&gt;3. Start XRDP services&lt;/h2&gt;
 
 &lt;p&gt;Use root to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt;.&lt;/p&gt;
 
@@ -199,17 +269,23 @@ password=ask
 
 &lt;p&gt;Or, if the directory is in the PATH,&lt;/p&gt;
 
+&lt;p&gt;或者，如果個目錄喺 PATH 之中嘅話，&lt;/p&gt;
+
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;xrdp
 &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;xrdp-sesman
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;heading-connect-from-another-machine&quot;&gt;Connect from another machine&lt;/h2&gt;
+&lt;h2 id=&quot;heading-4-connect-from-another-machine--從另外機器上連接&quot;&gt;4. Connect from another machine | 從另外機器上連接&lt;/h2&gt;
 
 &lt;p&gt;I use Remote Desktop Manager to connect Nucintosh remotely. After I added a RDP session, it connected successfully. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; works. However, I soon found that I still cannot adjust the resolution. It is a limitation from macOS, not from ARD.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;使用 Remote Desktop Manager 遠程連接 NUC。添加一個 RDP session 之後，佢成功連接。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 工作正常。但係我好快發現佢仍然唔可以係客戶端調整分辨率。呢個係系統嘅限制，而唔係 ARD 嘅限制。&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the &quot;dynamic resolution&quot; on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac Mini an RDP Server</summary></entry><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+&lt;h2 id=&quot;heading-5-conclusion--總結&quot;&gt;5. Conclusion | 總結&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the &quot;dynamic resolution&quot; on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 可以喺 macOS 上面運行，可以令到 macOS 使用 RDP 來被遠程連接。RDP 喺 macOS 及一啲 Linux 發行版本上面唔可以實現「動態分辨率」功能。呢啲限制係由於系統，並非遠程桌面協議控制。&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac Mini an RDP Server | 使用 RDP 遠程連接 Mac Mini</summary></entry><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 
