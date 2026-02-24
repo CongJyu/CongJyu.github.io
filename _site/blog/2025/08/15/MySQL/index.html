@@ -195,6 +195,18 @@
                     <div itemprop="articleBody">
                         <h1 id="heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔">The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</h1>
 
+<blockquote>
+  <p>⚠️ WARNING: THE COMMANDS/SCRIPTS IN THIS PASSAGE ARE ALMOST RUN UNDER <code class="language-plaintext highlighter-rouge">root</code> PRIVILEDGES. PLEASE BE CAREFUL AND MAKE SURE WHAT YOU ARE DOING BEFORE RUNNING THOSE COMMANDS/SCRIPTS IN REAL ENVIRONMENTS.</p>
+
+  <p>⚠️ 警告：本文所包含之命令/腳本幾乎全部都使用 <code class="language-plaintext highlighter-rouge">root</code> 權限執行。請務必小心並且確保你知道自己喺度做緊乜嘢之後再於真實環境之中執行命令。</p>
+</blockquote>
+
+<blockquote>
+  <p>ℹ Tips: The terms "master" and "slave" used in this article are only used to indicate the architectural relationship between database servers and do not refer to any group or have any derogatory connotation.</p>
+
+  <p>ℹ 提示：本文中所出現之「主」「從」等字眼只係用於表示數據庫服務器之架構關係，並無指代任何群體且無任何貶意。</p>
+</blockquote>
+
 <h2 id="heading-1-self-introduction-of-documentation--文檔自述">1. Self Introduction of Documentation | 文檔自述</h2>
 
 <p>This documentation is for the installation, deployment, upgrading, main/duplicated database, backup and restoration.</p>
@@ -600,15 +612,708 @@ drwxr-xr-x  9 root root       129 Jul 24 13:40 mysql-8.1.0-linux-glibc2.17-x86_6
 
 <h2 id="heading-4-upgrade--版本升級">4. Upgrade | 版本升級</h2>
 
-<p>つづく…</p>
+<h3 id="heading-41-small-version-numbers-upgrade-directly">4.1. Small Version Numbers: Upgrade Directly</h3>
+
+<h4 id="heading-411-check-environment">4.1.1. Check environment</h4>
+
+<p>Check the current system environment. We can query for the system information and its MySQL version information from terminal commands. For example the test machine T2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- IP: 10.91.134.xxx
+- OS: Red Hat Enterprise Linux 7
+- CPU Architecture: x86_64
+- MySQL: 8.0.36 MySQL Community Server
+- GLIBC: GNU libc 2.17
+</code></pre></div></div>
+
+<p>From the information above, we can confirmed that the running MySQL version is MySQL 8.0.36.</p>
+
+<p>Then we confirm the service status.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysql.service status
+</code></pre></div></div>
+
+<p>Log into MySQL command line interface and query for current MySQL information in service.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysql -u root -p
+</code></pre></div></div>
+
+<p>Check the current version information.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">Version</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>And then get the version.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-----------+
+| version() |
++-----------+
+| 8.0.36    |
++-----------+
+1 row in set (0.00 sec)
+</code></pre></div></div>
+
+<h4 id="heading-412-download-new-version-of-mysql-binary-package">4.1.2. Download new version of MySQL binary package</h4>
+
+<p>Copy download link from official <a href="https://downloads.mysql.com/archives/community/">MySQL website</a> and pull down to machine via <code class="language-plaintext highlighter-rouge">wget</code> tool. Put the newly downloaded package under the directory <code class="language-plaintext highlighter-rouge">/usr/local</code>. In this example we need to upgrade MySQL 8.0.36 to MySQL 8.0.42 so we just <code class="language-plaintext highlighter-rouge">wget</code> the package of MySQL 8.0.42.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cd /usr/local
+# wget "https://downloads.mysql.com/archives/get/p/23/file/mysql-8.0.42-linux-glibc2.28-x86_64.tar.xz"
+</code></pre></div></div>
+
+<p>Wait until the progress bar finished, then check the <code class="language-plaintext highlighter-rouge">/usr/local</code> directory to see whether the package <code class="language-plaintext highlighter-rouge">mysql-8.0.42-linux-glibc2.28-x86_64.tar.xz</code> exists. Then use <code class="language-plaintext highlighter-rouge">tar</code> to extract the package.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tar -xvf mysql-8.0.42-linux-glibc2.17-x86_64.tar.xz
+</code></pre></div></div>
+
+<p>Get the directory for new version.</p>
+
+<h4 id="heading-413-stop-the-applications">4.1.3. Stop the applications</h4>
+
+<p>Release the connection to MySQL database to prevent the read/write problem. This step should be done according to the actual situation.</p>
+
+<h4 id="heading-414-stop-the-service-of-database">4.1.4. Stop the service of database</h4>
+
+<p>Log into MySQL and run dirty-data writing operations.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SET</span> <span class="k">GLOBAL</span> <span class="n">innodb_fast_shutdown</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Log out MySQL and shut down MySQL services.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysqladmin -u root -p shutdown
+</code></pre></div></div>
+
+<p>The services will be closed after the password is entered. Check the launch daemons to make sure the services are stopped.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysqld status
+</code></pre></div></div>
+
+<p>If "<code class="language-plaintext highlighter-rouge">ERROR! MySQL is not running, but lock file (/var/lock/subsys/mysql) exists</code>" shows up, the MySQL services are shutted down correctly.</p>
+
+<h4 id="heading-415-remove-old-version">4.1.5. Remove old version</h4>
+
+<p>Remove the soft link of old version MySQL, and create a new soft link for new version.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># rm -f /usr/local/usr
+# ln -s /usr/local/mysql-8.0.42-linux-glibc2.28-x86_64 /usr/local/mysql
+</code></pre></div></div>
+
+<h4 id="heading-416-compatibility-checking">4.1.6. Compatibility checking</h4>
+
+<p>Use <code class="language-plaintext highlighter-rouge">mysqld_safe</code> launch the new version MySQL temporary, then use <code class="language-plaintext highlighter-rouge">mysql_upgrade</code> tool attached to MySQL to check the compatibility.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysql_safe --user=mysql
+# /usr/local/mysql/bin/mysql_upgrade -u root -p
+</code></pre></div></div>
+
+<p>Then we will get the hints.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The mysql_upgrade client is now deprecated. The actions executed by the upgrade client are now done by the server.
+To upgrade, please start the new MySQL binary with the older data directory. Repairing user tables is done automatically. Restart is not required after upgrade.
+The upgrade process automatically starts on running a new MySQL binary with an older data directory. To avoid accidental upgrades, please use the --upgrade=NONE option with the MySQL binary. The option --upgrade=FORCE is also provided to run the server upgrade sequence on demand.
+It may be possible that the server upgrade fails due to a number of reasons. In that case, the upgrade sequence will run again during the next MySQL server start. If the server upgrade fails repeatedly, the server can be started with the --upgrade=MINIMAL option to start the server without executing the upgrade sequence, thus allowing users to manually rectify the problem.
+</code></pre></div></div>
+
+<p>If there is no compatibility problem we can restart the database. Copy one new version launch daemon from <code class="language-plaintext highlighter-rouge">support-files</code> directory to <code class="language-plaintext highlighter-rouge">/etc/init.d</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+# service mysqld start
+</code></pre></div></div>
+
+<p>Then log into the MySQL and verify the current version.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">Version</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h4 id="heading-417-roll-back">4.1.7. Roll back</h4>
+
+<p>If we run into any compatibility related problems in previous steps, we need to roll back. Restore the MySQL soft link to previous status and restart. Stop MySQL service first if there is MySQL service running.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysqld stop
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/support-files/mysql.server stop
+</code></pre></div></div>
+
+<p>remove the current version soft link.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># rm -f /usr/local/mysql
+</code></pre></div></div>
+
+<p>and create soft link of previous version.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ln -s /usr/local/mysql-8.0.36-linux-glibc2.28-x86_64 /usr/local/mysql
+</code></pre></div></div>
+
+<p>start previous version's services.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/support-files/mysql.server start
+</code></pre></div></div>
+
+<p>Log into MySQL to check the version is rolled back to the previous status. If everything is fine, remove the launch daemon in <code class="language-plaintext highlighter-rouge">/etc/init.d</code>, and copy one prevous launch daemon to the <code class="language-plaintext highlighter-rouge">/etc/init.d</code> directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># rm -f /etc/init.d/mysqld
+# cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+</code></pre></div></div>
+
+<h3 id="heading-42-large-version-numbers-logical-data-migration">4.2. Large Version Numbers: Logical Data Migration</h3>
+
+<h4 id="heading-421-check-the-environment">4.2.1. Check the environment</h4>
+
+<p>Confirm the current environment of the machine. From the terminal we can get the current system and MySQL information. In this example, they are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- IP: 10.91.134.136
+- OS: Red Hat Enterprise Linux 7
+- CPU Architecture: x86_64
+- MySQL: 8.0.36 MySQL Community Server
+- GLIBC: GNU libc 2.17
+</code></pre></div></div>
+
+<p>The currently running MySQL is version 8.0.36, and we can easily check the status of MySQL services.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysqld status
+</code></pre></div></div>
+
+<p>Log into MySQL and query for the current MySQL version which is serving.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysql -u root -p
+</code></pre></div></div>
+
+<p>Confirm the current version.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">Version</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>We can get the version is 8.0.36.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-----------+
+| version() |
++-----------+
+| 8.0.36    |
++-----------+
+1 row in set (0.00 sec)
+</code></pre></div></div>
+
+<h4 id="heading-422-download-new-version-of-mysql-binary-package">4.2.2. Download new version of MySQL binary package</h4>
+
+<p>Download MySQL from the official <a href="https://downloads.mysql.com/archives/community/">MySQL archive website</a>. Copy the target link and use <code class="language-plaintext highlighter-rouge">wget</code> tool to download package to machine. Put the newly downloaded MySQL package in <code class="language-plaintext highlighter-rouge">/usr/local</code> directory. In this example case, we need to upgrade MySQL from 8.0.42 to MySQL 9.3.0, so we <code class="language-plaintext highlighter-rouge">wget</code> the MySQL 9.3.0 package directly.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cd /usr/local
+# wget "https://downloads.mysql.com/archives/get/p/23/file/mysql-9.3.0-linux-glibc2.17-x86_64.tar.xz"
+</code></pre></div></div>
+
+<p>Wait for the progress bar and check the <code class="language-plaintext highlighter-rouge">/usr/local</code> directory to see whether there is a <code class="language-plaintext highlighter-rouge">mysql-9.3.0-linux-glibc2.17-x86_64.tar.xz</code> package. Then extract the package via <code class="language-plaintext highlighter-rouge">tar</code> tool.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tar -xvf mysql-9.3.0-linux-glibc2.17-x86_64.tar.xz
+</code></pre></div></div>
+
+<p>Now we get the new version MySQL directory. In this case it is <code class="language-plaintext highlighter-rouge">mysql-9.3.0-linux-glibc2.17-x86_64</code>.</p>
+
+<h4 id="heading-423-export-all-the-data-from-whole-database">4.2.3. Export all the data from whole database</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysqldump -u root -p --add-drop-table --routines --events --all-databases --force &gt; backup_file.sql
+</code></pre></div></div>
+
+<p>The exported data is contained in the <code class="language-plaintext highlighter-rouge">sql</code> file.</p>
+
+<h4 id="heading-424-stop-applications">4.2.4. Stop applications</h4>
+
+<p>Release the connection to database.</p>
+
+<h4 id="heading-425-stop-database-services">4.2.5. Stop database services</h4>
+
+<p>Run the write dirty data operation. This operation may need a longer time, and it depends on the amount of dirty data and the speed of the disks.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SET</span> <span class="k">GLOBAL</span> <span class="n">innodb_fast_shutdown</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="heading-426-soft-link-to-new-mysql">4.2.6. Soft link to new MySQL</h4>
+
+<p>Remove old MySQL soft link first, and then create a new MySQL soft link for new version.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># rm -f /usr/local/mysql
+# ln -s /usr/local/mysql-9.3.0-linux-glibc2.28-x86_64 /usr/local/mysql
+</code></pre></div></div>
+
+<h4 id="heading-427-prepare-a-configuration-file">4.2.7. Prepare a configuration file</h4>
+
+<p>Backup old MySQL configurations <code class="language-plaintext highlighter-rouge">my.cnf</code> and move the file to a backup directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mv /etc/my.cnf /data/backup/backup_8.0.42.cnf
+</code></pre></div></div>
+
+<p>Check the configuration file for new MySQL to make sure it is matched with the update descriptions of newer MySQL versions. For those changed configurations items and deprecated items, new alternatives should be applied to the configuration file. For issues made by changes of the configurations, see details in Chapter Diagnose. Put the new version's configuration file in <code class="language-plaintext highlighter-rouge">/etc</code> directory and name it as <code class="language-plaintext highlighter-rouge">my.cnf</code>.</p>
+
+<h4 id="heading-428-initialize-the-new-database">4.2.8. Initialize the new database</h4>
+
+<p>Change to <code class="language-plaintext highlighter-rouge">/data</code> directory. Backup old MySQL related directories as <code class="language-plaintext highlighter-rouge">mysql_bak</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cd /data
+# mv mysql mysql_bak
+</code></pre></div></div>
+
+<p>Create new MySQL directory under <code class="language-plaintext highlighter-rouge">/data</code> directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkdir -p /data/mysql/data
+# mkdir -p /data/mysql/binlog
+# mkdir -p /data/mysql/logs
+</code></pre></div></div>
+
+<p>And its structure should be like this.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql
+├── binlog
+├── data
+└── logs
+</code></pre></div></div>
+
+<p>Change the owner and privileges of the directory and subdirectories to <code class="language-plaintext highlighter-rouge">mysql:mysql</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># chown -R mysql:mysql /data/mysql
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">ls -lah</code> command to see detailed privilege information and make sure the change is successful.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ls -lah | grep mysql
+drwxr-xr-x   5 mysql mysql   44 Jul 22 15:33 mysql
+</code></pre></div></div>
+
+<p>Initialize the MySQL database.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/bin/mysql --initialize --user=mysql
+</code></pre></div></div>
+
+<h4 id="heading-429-start-the-database">4.2.9. Start the database</h4>
+
+<p>If the initialization is successful, we can start the database. Copy one launch daemon to <code class="language-plaintext highlighter-rouge">/etc/init.d</code> first.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+# service mysqld start
+</code></pre></div></div>
 
 <h2 id="heading-5-data-importing--數據導入">5. Data Importing | 數據導入</h2>
 
-<p>つづく…</p>
+<p>When we finish the construction of the database and start services, we may need to migrate the original data from the previous database to new database. In this part we describe the operations that imports previous data to new database.</p>
+
+<p>Create new database. According to the data scripts (usually <code class="language-plaintext highlighter-rouge">sql</code> files), setup databases with same names as previous databases. Generally, the names of the databases should be same of names contained in exported <code class="language-plaintext highlighter-rouge">sql</code> scripts. Additionally, exported backup scripts also contain exporting time and other information.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">original_data</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Change into the newly created database <code class="language-plaintext highlighter-rouge">original_data</code> after the creation, and the <code class="language-plaintext highlighter-rouge">original_data</code> can be any name according to the actual situation.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">USE</span> <span class="n">original_data</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then upload the <code class="language-plaintext highlighter-rouge">sql</code> import script to the server. Log into the MySQL command line interface, import the data in <code class="language-plaintext highlighter-rouge">original_data</code> database. The position where the script is located should be an absolute path.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SOURCE</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">original_data_backup_time</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Wait for the importing process to finish. If there are several <code class="language-plaintext highlighter-rouge">sql</code> backup scripts need to import, we should import them by time order, from early to the latest.</p>
 
 <h2 id="heading-6-main-and-duplicate-database-preparing--主備數據庫搭建">6. Main and Duplicate Database Preparing | 主備數據庫搭建</h2>
 
-<p>つづく…</p>
+<h3 id="heading-61-prepare-and-check">6.1. Prepare and Check</h3>
+
+<p>To set up a MySQL master-slave database setup, at least one device is needed for the master database and one device for the slave database. Both devices should have the same MySQL database software version installed. In this example, both test machines are running MySQL version 8.1.0. The system environments of test machines t1 and t2 are as follows. For simplicity, the two machines used to set up the master-slave database setup will be referred to as t1 and t2.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test Machine t1:
+Linux clz-db-t1 3.10.0-693.el7.x86_64 #1 SMP Thu Jul 6 19:56:57 EDT 2017 x86_64 x86_64 x86_64 GNU/Linux
+
+Test Machine t2:
+Linux clz-db-t2 3.10.0-693.el7.x86_64 #1 SMP Thu Jul 6 19:56:57 EDT 2017 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre></div></div>
+
+<p>The two test machine have the same configuration and system environments, and they both have MySQL 8.1.0 database server installed. Start these two test machine, login and verify their MySQL version.</p>
+
+<h3 id="heading-62-master-slave-architecture">6.2. Master-slave Architecture</h3>
+
+<h4 id="heading-621-setup-mysqlserver-services">6.2.1. Setup <code class="language-plaintext highlighter-rouge">mysql.server</code> services</h4>
+
+<p><strong>Managing the MySQL service directly through <code class="language-plaintext highlighter-rouge">mysql.server</code>:</strong> When not using the <code class="language-plaintext highlighter-rouge">service</code> utility to manage <code class="language-plaintext highlighter-rouge">mysqld</code>, starting the MySQL service requires using <code class="language-plaintext highlighter-rouge">/mysqld/support-files/mysql.server</code>. This method is suitable for MySQL software that was not installed using RPM.</p>
+
+<p>Start MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/support-files/mysql.server start
+</code></pre></div></div>
+
+<p>Stop MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/support-files/mysql.server stop
+</code></pre></div></div>
+
+<p>Check MySQL status:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /usr/local/mysql/support-files/mysql.server status
+</code></pre></div></div>
+
+<p><strong>Managing MySQL services using <code class="language-plaintext highlighter-rouge">systemctl</code>:</strong> If the MySQL database software was installed via RPM, you can use <code class="language-plaintext highlighter-rouge">systemctl</code> to manage the MySQL service.</p>
+
+<p>Enable MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl enable mysqld.service
+</code></pre></div></div>
+
+<p>Start MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl start mysqld.service
+</code></pre></div></div>
+
+<p>Check MySQL status:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl status mysqld.service
+</code></pre></div></div>
+
+<p>Stop MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl stop mysqld.service
+</code></pre></div></div>
+
+<p>Disable MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl disable mysqld.service
+</code></pre></div></div>
+
+<p>Restart MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl restart mysqld.service
+</code></pre></div></div>
+
+<p><strong>Managing the MySQL service using a service:</strong> For easier testing and management, you can use the <code class="language-plaintext highlighter-rouge">mysqld</code> service to control the MySQL service. Copy the <code class="language-plaintext highlighter-rouge">mysql.server</code> script from the <code class="language-plaintext highlighter-rouge">support-files</code> directory under your MySQL software installation directory to the <code class="language-plaintext highlighter-rouge">/etc/init.d</code> directory and rename it to <code class="language-plaintext highlighter-rouge">mysqld</code>. This method is suitable for MySQL server software installed using binary packages.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql.server
+</code></pre></div></div>
+
+<p>Perform this process on both machines, and then you can use the service command to manage the MySQL service status.</p>
+
+<p>Stop MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysql.server stop
+</code></pre></div></div>
+
+<p>Check MySQL status:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysql.server status
+</code></pre></div></div>
+
+<p>Start MySQL services:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># service mysql.server start
+</code></pre></div></div>
+
+<h4 id="heading-622-mysql-database-host-settings">6.2.2. MySQL database host settings</h4>
+
+<p>Check the machine <code class="language-plaintext highlighter-rouge">t1</code> that hosts the MySQL master database, log in and open the MySQL configuration file <code class="language-plaintext highlighter-rouge">my.cnf</code>. This configuration file should be located in the <code class="language-plaintext highlighter-rouge">/etc</code> directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vim /etc/my.cnf
+</code></pre></div></div>
+
+<p>Check that the configuration items <code class="language-plaintext highlighter-rouge">bin-log</code> and <code class="language-plaintext highlighter-rouge">server-id</code> in the configuration file are set and not empty. The <code class="language-plaintext highlighter-rouge">server-id</code> can be set according to the actual situation; the test machine's <code class="language-plaintext highlighter-rouge">server-id</code> is set to 22567. Note that the <code class="language-plaintext highlighter-rouge">server-id</code> of the MySQL database master server and the database standby (slave) server must not be the same; otherwise, the database backup machine will be unable to connect to the master.</p>
+
+<p>Create a backup account for master-slave replication on the MySQL master database server. First, list all accounts currently in MySQL for verification and comparison.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">user</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then create a new backup user dedicated to master-slave replication, named <code class="language-plaintext highlighter-rouge">replica_user</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'replica_user'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'newpassword'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Listing all users in MySQL again reveals that the newly created user, <code class="language-plaintext highlighter-rouge">replica_user</code>, has been added to the MySQL database.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">user</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">------------------+</span>
+<span class="o">|</span> <span class="k">user</span>             <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------------+</span>
+<span class="o">|</span> <span class="n">replica_user</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span><span class="p">.</span><span class="n">infoschema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span><span class="p">.</span><span class="k">session</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span><span class="p">.</span><span class="n">sys</span>        <span class="o">|</span>
+<span class="o">|</span> <span class="n">root</span>             <span class="o">|</span>
+<span class="o">+</span><span class="c1">------------------+</span>
+<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Check the host settings to ensure that the <code class="language-plaintext highlighter-rouge">log_bin</code> binary log is enabled, and check the current host's master status. Find the status of the <code class="language-plaintext highlighter-rouge">log_bin</code> variable in the configuration; this status should be ON. If this status is OFF, modify this value in the configuration file <code class="language-plaintext highlighter-rouge">my.cnf</code> and restart the MySQL service.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="s1">'log_bin'</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">---------------+-------+</span>
+<span class="o">|</span> <span class="n">Variable_name</span> <span class="o">|</span> <span class="n">Value</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------+-------+</span>
+<span class="o">|</span> <span class="n">log_bin</span>       <span class="o">|</span> <span class="k">ON</span>    <span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------+-------+</span>
+<span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Check the current MySQL host status. Use the following command in MySQL 8.0.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">MASTER</span> <span class="n">STATUS</span> <span class="err">\</span><span class="k">G</span>
+<span class="o">***************************</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">***************************</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">mysql</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="mi">000001</span>
+<span class="k">Position</span><span class="p">:</span> <span class="mi">157</span>
+<span class="n">Binlog_Do_DB</span><span class="p">:</span>
+<span class="n">Binlog_Ignore_DB</span><span class="p">:</span>
+<span class="n">Executed_Gtid_Set</span><span class="p">:</span>
+<span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Use the following command in MySQL version 8.4.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="nb">BINARY</span> <span class="n">LOG</span> <span class="n">STATUS</span> <span class="err">\</span><span class="k">G</span>
+<span class="o">***************************</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">***************************</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">mysql</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="mi">000002</span>
+<span class="k">Position</span><span class="p">:</span> <span class="mi">798</span>
+<span class="n">Binlog_Do_DB</span><span class="p">:</span>
+<span class="n">Binlog_Ignore_DB</span><span class="p">:</span>
+<span class="n">Executed_Gtid_Set</span><span class="p">:</span> <span class="n">b6a6daa5</span><span class="o">-</span><span class="mi">71</span><span class="n">a5</span><span class="o">-</span><span class="mi">11</span><span class="n">f0</span><span class="o">-</span><span class="mi">91</span><span class="n">cb</span><span class="o">-</span><span class="mi">005056994</span><span class="n">dcc</span><span class="p">:</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span>
+<span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Grant <code class="language-plaintext highlighter-rouge">replica_user</code> master-slave replication permissions.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="n">REPLICATION</span> <span class="n">SLAVE</span><span class="p">,</span> <span class="n">REPLICATION</span> <span class="n">CLIENT</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'replica_user'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="heading-623-check-the-mysql-database-standby-slave-settings">6.2.3. Check the MySQL database standby (slave) settings.</h4>
+
+<p>Check that the configuration items <code class="language-plaintext highlighter-rouge">bin-log</code> and <code class="language-plaintext highlighter-rouge">server-id</code> in <code class="language-plaintext highlighter-rouge">my.cnf</code> are enabled and their values are not empty. The <code class="language-plaintext highlighter-rouge">server-id</code> of the MySQL backup machine in this test is set to <code class="language-plaintext highlighter-rouge">25566</code>. In actual deployment, the setting can be adjusted according to the situation; generally, <code class="language-plaintext highlighter-rouge">server-id</code> is set to the last part of the server IP address. It is important to note that the <code class="language-plaintext highlighter-rouge">server-id</code> of the MySQL database host and the database backup machine (slave) must not be the same; otherwise, the database backup machine will be unable to connect to the host. If the slave node is only used as a database backup and there is no intention to switch it to the master, then bin-log logging is not required; otherwise, bin-log logging should be enabled for both the master and slave. Log in to the MySQL server on the slave machine. First, stop all master-slave replication operations. For MySQL 8.0 and above, use the following statement.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">STOP</span> <span class="n">REPLICA</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>For versions of MySQL below 8.0, use the following statement.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">STOP</span> <span class="n">SLAVE</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then, configure the MySQL master database address and account settings on the standby MySQL database. Use the following command in MySQL 8.1. The arrow "<code class="language-plaintext highlighter-rouge">-&gt;</code>" indicates a newline prompt; you don't need to copy it while typing, as it will appear automatically when you press Enter.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">CHANGE</span> <span class="n">MASTER</span> <span class="k">TO</span> <span class="n">master_host</span><span class="o">=</span><span class="s1">'10.91.134.135'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">master_port</span><span class="o">=</span><span class="mi">3366</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">master_user</span><span class="o">=</span><span class="s1">'replica_user'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">master_password</span><span class="o">=</span><span class="s1">'newpassword'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">master_log_file</span><span class="o">=</span><span class="s1">'mysql-bin.000001'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">master_log_pos</span><span class="o">=</span><span class="mi">157</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">get_master_public_key</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>In this configuration, <code class="language-plaintext highlighter-rouge">master_host</code> should be set to the IP address of the machine hosting the primary database, and the secondary database should be able to access this address. <code class="language-plaintext highlighter-rouge">master_port</code> should be set to the port used by the primary MySQL database. <code class="language-plaintext highlighter-rouge">master_user</code> should be set to the username created in the previous section for master-slave replication; in this example, it's <code class="language-plaintext highlighter-rouge">replica_user</code>. <code class="language-plaintext highlighter-rouge">master_password</code> should be set to the password for the master-slave replication account. <code class="language-plaintext highlighter-rouge">master_log_file</code> and <code class="language-plaintext highlighter-rouge">master_log_pos</code> should be filled in according to the host's status output. In MySQL 8.0 and later versions, the <code class="language-plaintext highlighter-rouge">get_master_public_key</code> option needs to be enabled; see the Troubleshooting section for details. After completion, restart master-slave replication. For MySQL 8.4 and later versions, the following command should be used.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">CHANGE</span> <span class="n">REPLICATION</span> <span class="k">SOURCE</span> <span class="k">TO</span>
+<span class="o">-&gt;</span> <span class="n">source_host</span><span class="o">=</span><span class="s1">'10.91.134.135'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_port</span><span class="o">=</span><span class="mi">3366</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_user</span><span class="o">=</span><span class="s1">'replica_user'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_password</span><span class="o">=</span><span class="s1">'newpassword'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_log_file</span><span class="o">=</span><span class="s1">'mysql-bin.000001'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_log_pos</span><span class="o">=</span><span class="mi">1046</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">get_source_public_key</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>In MySQL 8.0 and above:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">START</span> <span class="n">REPLICA</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Or in versions of MySQL below 8.0:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">START</span> <span class="n">SLAVE</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Check the primary/standby connection status by entering the following information on the standby machine.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">REPLICA</span> <span class="n">STATUS</span> <span class="err">\</span><span class="k">G</span>
+<span class="o">***************************</span> <span class="mi">1</span><span class="p">.</span> <span class="k">row</span> <span class="o">***************************</span>
+<span class="n">Replica_IO_State</span><span class="p">:</span> <span class="n">Waiting</span> <span class="k">for</span> <span class="k">source</span> <span class="k">to</span> <span class="n">send</span> <span class="n">event</span>
+<span class="n">Source_Host</span><span class="p">:</span> <span class="mi">10</span><span class="p">.</span><span class="mi">91</span><span class="p">.</span><span class="mi">134</span><span class="p">.</span><span class="mi">135</span>
+<span class="n">Source_User</span><span class="p">:</span> <span class="n">replica_user</span>
+<span class="n">Source_Port</span><span class="p">:</span> <span class="mi">3366</span>
+<span class="n">Connect_Retry</span><span class="p">:</span> <span class="mi">60</span>
+<span class="n">Source_Log_File</span><span class="p">:</span> <span class="n">mysql</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="mi">000001</span>
+<span class="n">Read_Source_Log_Pos</span><span class="p">:</span> <span class="mi">351</span>
+<span class="n">Relay_Log_File</span><span class="p">:</span> <span class="n">mysql</span><span class="o">-</span><span class="n">relay</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="mi">000002</span>
+<span class="n">Relay_Log_Pos</span><span class="p">:</span> <span class="mi">520</span>
+<span class="n">Relay_Source_Log_File</span><span class="p">:</span> <span class="n">mysql</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="mi">000001</span>
+<span class="n">Replica_IO_Running</span><span class="p">:</span> <span class="n">Yes</span>
+<span class="n">Replica_SQL_Running</span><span class="p">:</span> <span class="n">Yes</span>
+<span class="n">Replicate_Do_DB</span><span class="p">:</span>
+<span class="n">Replicate_Ignore_DB</span><span class="p">:</span>
+<span class="n">Replicate_Do_Table</span><span class="p">:</span>
+<span class="n">Replicate_Ignore_Table</span><span class="p">:</span>
+<span class="n">Replicate_Wild_Do_Table</span><span class="p">:</span>
+<span class="n">Replicate_Wild_Ignore_Table</span><span class="p">:</span>
+<span class="n">Last_Errno</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Last_Error</span><span class="p">:</span>
+<span class="n">Skip_Counter</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Exec_Source_Log_Pos</span><span class="p">:</span> <span class="mi">351</span>
+<span class="n">Relay_Log_Space</span><span class="p">:</span> <span class="mi">730</span>
+<span class="n">Until_Condition</span><span class="p">:</span> <span class="k">None</span>
+<span class="n">Until_Log_File</span><span class="p">:</span>
+<span class="n">Until_Log_Pos</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Source_SSL_Allowed</span><span class="p">:</span> <span class="k">No</span>
+<span class="n">Source_SSL_CA_File</span><span class="p">:</span>
+<span class="n">Source_SSL_CA_Path</span><span class="p">:</span>
+<span class="n">Source_SSL_Cert</span><span class="p">:</span>
+<span class="n">Source_SSL_Cipher</span><span class="p">:</span>
+<span class="n">Source_SSL_Key</span><span class="p">:</span>
+<span class="n">Seconds_Behind_Source</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Source_SSL_Verify_Server_Cert</span><span class="p">:</span> <span class="k">No</span>
+<span class="n">Last_IO_Errno</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Last_IO_Error</span><span class="p">:</span>
+<span class="n">Last_SQL_Errno</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Last_SQL_Error</span><span class="p">:</span>
+<span class="n">Replicate_Ignore_Server_Ids</span><span class="p">:</span>
+<span class="n">Source_Server_Id</span><span class="p">:</span> <span class="mi">22567</span>
+<span class="n">Source_UUID</span><span class="p">:</span> <span class="mi">4</span><span class="n">f6e1086</span><span class="o">-</span><span class="mi">6852</span><span class="o">-</span><span class="mi">11</span><span class="n">f0</span><span class="o">-</span><span class="n">aa5f</span><span class="o">-</span><span class="mi">005056994</span><span class="n">dcc</span>
+<span class="n">Source_Info_File</span><span class="p">:</span> <span class="n">mysql</span><span class="p">.</span><span class="n">slave_master_info</span>
+<span class="n">SQL_Delay</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">SQL_Remaining_Delay</span><span class="p">:</span> <span class="k">NULL</span>
+<span class="n">Replica_SQL_Running_State</span><span class="p">:</span> <span class="n">Replica</span> <span class="n">has</span> <span class="k">read</span> <span class="k">all</span> <span class="n">relay</span> <span class="n">log</span><span class="p">;</span> <span class="n">waiting</span> <span class="k">for</span> <span class="k">more</span> <span class="n">updates</span>
+<span class="n">Source_Retry_Count</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">Source_Bind</span><span class="p">:</span>
+<span class="n">Last_IO_Error_Timestamp</span><span class="p">:</span>
+<span class="n">Last_SQL_Error_Timestamp</span><span class="p">:</span>
+<span class="n">Source_SSL_Crl</span><span class="p">:</span>
+<span class="n">Source_SSL_Crlpath</span><span class="p">:</span>
+<span class="n">Retrieved_Gtid_Set</span><span class="p">:</span> <span class="mi">4</span><span class="n">f6e1086</span><span class="o">-</span><span class="mi">6852</span><span class="o">-</span><span class="mi">11</span><span class="n">f0</span><span class="o">-</span><span class="n">aa5f</span><span class="o">-</span><span class="mi">005056994</span><span class="n">dcc</span><span class="p">:</span><span class="mi">1</span>
+<span class="n">Executed_Gtid_Set</span><span class="p">:</span> <span class="mi">4</span><span class="n">f6e1086</span><span class="o">-</span><span class="mi">6852</span><span class="o">-</span><span class="mi">11</span><span class="n">f0</span><span class="o">-</span><span class="n">aa5f</span><span class="o">-</span><span class="mi">005056994</span><span class="n">dcc</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+<span class="mi">87</span><span class="n">ce2877</span><span class="o">-</span><span class="mi">692</span><span class="n">d</span><span class="o">-</span><span class="mi">11</span><span class="n">f0</span><span class="o">-</span><span class="mi">8354</span><span class="o">-</span><span class="mi">0050569982</span><span class="n">d7</span><span class="p">:</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span>
+<span class="n">Auto_Position</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Replicate_Rewrite_DB</span><span class="p">:</span>
+<span class="n">Channel_Name</span><span class="p">:</span>
+<span class="n">Source_TLS_Version</span><span class="p">:</span>
+<span class="n">Source_public_key_path</span><span class="p">:</span>
+<span class="n">Get_Source_public_key</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Network_Namespace</span><span class="p">:</span>
+<span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If both <code class="language-plaintext highlighter-rouge">Replica_IO_Running</code> and <code class="language-plaintext highlighter-rouge">Replica_SQL_Running</code> show as <code class="language-plaintext highlighter-rouge">Yes</code>, it means that MySQL master-slave replication is running normally.</p>
+
+<h4 id="heading-624-testing-master-slave-replication-function">6.2.4. Testing master-slave replication function</h4>
+
+<p>Check if the databases in the current primary and standby databases are consistent, and view the current database.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">DATABASES</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="k">Database</span>           <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">performance_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sys</span>                <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Create a new test database in the main database, named <code class="language-plaintext highlighter-rouge">dbtest1</code> in this example.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">dbtest1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Check if the database is included in the primary database.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">DATABASES</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="k">Database</span>           <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="n">dbtest1</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">performance_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sys</span>                <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Check if the backup database is synchronized.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">DATABASES</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="k">Database</span>           <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="o">|</span> <span class="n">dbtest1</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">performance_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sys</span>                <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+</span>
+<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It can be confirmed that the newly created database has been replicated from the primary database to the standby database. After confirming that the primary-standby synchronization and replication are normal, remove the test database and tables.</p>
+
+<h3 id="heading-63-two-host-architecture">6.3. Two-host Architecture</h3>
+
+<p>To achieve a master-slave architecture where the two MySQL servers act as each other's master and backup, and operations on either MySQL server are synchronized across both servers, master-slave replication needs to be configured on both MySQL servers.</p>
+
+<p>For use in MySQL 8.4 and above:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="nb">BINARY</span> <span class="n">LOG</span> <span class="n">STATUS</span> <span class="err">\</span><span class="k">G</span>
+</code></pre></div></div>
+
+<p>Used in MySQL versions 8.1 and below:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">MASTER</span> <span class="n">STATUS</span> <span class="err">\</span><span class="k">G</span>
+</code></pre></div></div>
+
+<p>The following information can be obtained.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*************************** 1. row ***************************
+File: mysql-bin.000003
+Position: 4006
+Binlog_Do_DB:
+Binlog_Ignore_DB:
+Executed_Gtid_Set: b6a6daa5-71a5-11f0-91cb-005056994dcc:8-18,
+e3cbf8a0-71a6-11f0-8381-0050569982d7:1-4
+1 row in set (0.00 sec)
+</code></pre></div></div>
+
+<p>Create a new account on <code class="language-plaintext highlighter-rouge">t2</code> specifically for master-slave replication on <code class="language-plaintext highlighter-rouge">t1</code>, following the same procedure as creating a replication-dedicated account on <code class="language-plaintext highlighter-rouge">t1</code>. Log in to the MySQL console on <code class="language-plaintext highlighter-rouge">t2</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'replica_user_2'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'newpassword'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then grant the new user <code class="language-plaintext highlighter-rouge">replica_user_2</code> the permissions related to master-slave replication.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="n">REPLICATION</span> <span class="n">SLAVE</span><span class="p">,</span> <span class="n">REPLICATION</span> <span class="n">CLIENT</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'replica_user_2'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then log in to MySQL on <code class="language-plaintext highlighter-rouge">t1</code> and first stop master-slave replication on <code class="language-plaintext highlighter-rouge">t1</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">STOP</span> <span class="n">REPLICA</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then, configure the information for <code class="language-plaintext highlighter-rouge">t2</code> in <code class="language-plaintext highlighter-rouge">t1</code>. Enter the IP address of <code class="language-plaintext highlighter-rouge">t2</code> in <code class="language-plaintext highlighter-rouge">source_host</code>; enter the MySQL service port of <code class="language-plaintext highlighter-rouge">t2</code> in <code class="language-plaintext highlighter-rouge">source_port</code>; enter the username created on <code class="language-plaintext highlighter-rouge">t2</code> for master-slave replication (in this example, <code class="language-plaintext highlighter-rouge">replica_user_2</code>); enter the password corresponding to <code class="language-plaintext highlighter-rouge">source_user</code>; enter the name of the corresponding binary log file on <code class="language-plaintext highlighter-rouge">t2</code> (in this example, <code class="language-plaintext highlighter-rouge">mysql-bin.000003</code>); enter the position of the binary log (e.g., <code class="language-plaintext highlighter-rouge">3012</code> in this example); finally, set <code class="language-plaintext highlighter-rouge">get_source_public_key</code> to <code class="language-plaintext highlighter-rouge">1</code> to retrieve the public key from the host.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">CHANGE</span> <span class="n">REPLICATION</span> <span class="k">SOURCE</span> <span class="k">TO</span>
+<span class="o">-&gt;</span> <span class="n">source_host</span><span class="o">=</span><span class="s1">'10.91.134.136'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_port</span><span class="o">=</span><span class="mi">3366</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_user</span><span class="o">=</span><span class="s1">'replica_user_2'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_password</span><span class="o">=</span><span class="s1">'newpassword'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_log_file</span><span class="o">=</span><span class="s1">'mysql-bin.000003'</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">source_log_pos</span><span class="o">=</span><span class="mi">3012</span><span class="p">,</span>
+<span class="o">-&gt;</span> <span class="n">get_source_public_key</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Once completed, start master-slave replication on <code class="language-plaintext highlighter-rouge">t1</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">START</span> <span class="n">REPLICA</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Check the master-slave replication status of <code class="language-plaintext highlighter-rouge">t1</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="k">SHOW</span> <span class="n">REPLICA</span> <span class="n">STATUS</span> <span class="err">\</span><span class="k">G</span>
+<span class="p">...</span>
+<span class="n">Replica_IO_Running</span><span class="p">:</span> <span class="n">Yes</span>
+<span class="n">Replica_SQL_Running</span><span class="p">:</span> <span class="n">Yes</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>Master-slave replication is working normally. When a write operation is performed on machine <code class="language-plaintext highlighter-rouge">t2</code>, machine <code class="language-plaintext highlighter-rouge">t1</code> can synchronize and modify the data normally.</p>
 
 <h2 id="heading-7-backup-and-restore--備份及恢復">7. Backup and Restore | 備份及恢復</h2>
 
@@ -631,7 +1336,7 @@ drwxr-xr-x  9 root root       129 Jul 24 13:40 mysql-8.1.0-linux-glibc2.17-x86_6
                     <nav class="pagination">
                         
                         
-                            <a class="internal" rel="next" href="/blog/2025/10/18/QuantTrading/" title="Next Post 'Quantitative Trading Notes'">Quantitative Trading Notes → </a>
+                            <a class="internal" rel="next" href="/blog/2025/10/19/WeirdPython/" title="Next Post 'Weird Python'">Weird Python → </a>
                         
                     </nav>
                 </div>
