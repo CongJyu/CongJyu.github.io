@@ -13,24 +13,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Tags | Rain Chen&#39;s Blog</title>
+<title>大模型相關知識面試提問整理 | Rain Chen&#39;s Blog</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Tags" />
+<meta property="og:title" content="大模型相關知識面試提問整理" />
+<meta name="author" content="Rain" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="One Personal Site." />
-<meta property="og:description" content="One Personal Site." />
-<link rel="canonical" href="http://localhost:4000/blog/tags/" />
-<meta property="og:url" content="http://localhost:4000/blog/tags/" />
+<meta name="description" content="1." />
+<meta property="og:description" content="1." />
+<link rel="canonical" href="http://localhost:4000/blog/2026/03/24/LLM/" />
+<meta property="og:url" content="http://localhost:4000/blog/2026/03/24/LLM/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-03-24T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Tags" />
+<meta property="twitter:title" content="大模型相關知識面試提問整理" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"One Personal Site.","headline":"Tags","url":"http://localhost:4000/blog/tags/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2026-03-24T00:00:00+08:00","datePublished":"2026-03-24T00:00:00+08:00","description":"1.","headline":"大模型相關知識面試提問整理","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2026/03/24/LLM/"},"url":"http://localhost:4000/blog/2026/03/24/LLM/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
-    content="" />
+    content="Artificial Intelligence,Interview" />
 
 
 
@@ -135,26 +137,43 @@
             <div class="unit-body">
                 <div class="unit-inner unit-body-inner">
                     <div class="entry-content">
-                        <article class="unit-article layout-page">
+                        <article class="unit-article layout-post">
     <div class="unit-inner unit-article-inner">
-        <div class="content">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
             <header>
                 <div class="unit-head">
                     <div class="unit-inner unit-head-inner">
-                        <h1 class="entry-title">Posts by Tags</h1>
+                        <h1 class="entry-title" itemprop="name">大模型相關知識面試提問整理</h1>
                     </div>
                 </div>
             </header>
-
             <div class="bd article-content">
                 <div class="entry-content">
-                    
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2026-03-24T00:00:00+08:00" datetime="2026-03-24T00:00:00+08:00">March 24, 2026 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Rain</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
 
 
 
-<ul class="tag_box tags inline">
-    
-    
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
 
 
 <li>
@@ -164,301 +183,116 @@
 
 
 <li>
-    <a href="/blog/tags/#Coding"
-        title="Coding">Coding <span>1</span></a>
-</li>
-
-
-<li>
-    <a href="/blog/tags/#Database"
-        title="Database">Database <span>1</span></a>
-</li>
-
-
-<li>
-    <a href="/blog/tags/#Debug"
-        title="Debug">Debug <span>1</span></a>
-</li>
-
-
-<li>
-    <a href="/blog/tags/#Documentation"
-        title="Documentation">Documentation <span>1</span></a>
-</li>
-
-
-<li>
     <a href="/blog/tags/#Interview"
         title="Interview">Interview <span>1</span></a>
 </li>
 
 
-<li>
-    <a href="/blog/tags/#Python"
-        title="Python">Python <span>1</span></a>
-</li>
 
 
-<li>
-    <a href="/blog/tags/#Remote-Desktop"
-        title="Remote Desktop">Remote Desktop <span>1</span></a>
-</li>
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <h2 id="heading-1">1.</h2>
 
+<p><strong>Transformer 嘅「三大支柱」。介紹幾種位置編碼（Position Embedding）、歸一化層（Normalization）以及前饋神經網絡（Feed-Forward Network, FFN）。</strong></p>
 
-<li>
-    <a href="/blog/tags/#SQL"
-        title="SQL">SQL <span>1</span></a>
-</li>
+<p>位置編碼，即係 Position Encoding，或者稱為 Embedding。由於 Transformer 嘅自注意力機制（Self-Attention）係置換不變（Permutation Invariant）嘅，所以必須引入位置信息。</p>
 
+<p>第一種位置編碼係「絕對位置編碼（Absolute PE，APE）」，此種編碼是為序列之中的每個位置 $i$ 添加一個固定嘅向量 $P_i$，並令其與該位置嘅 Token Embedding 直接相加，即可得到輸入到 Transformer 層嘅最終表示 $x_i = \text{Embedding}(w_i) + P_i$。絕對位置編碼（APE）有兩種主流嘅實現方式，分別為正弦餘弦編碼（Sinusoidal PE）及可學習位置編碼（Learned PE）。</p>
 
-<li>
-    <a href="/blog/tags/#macOS"
-        title="macOS">macOS <span>1</span></a>
-</li>
-
-
-<li>
-    <a href="/blog/tags/#靈車漂移"
-        title="靈車漂移">靈車漂移 <span>1</span></a>
-</li>
-
-
-
-
+<ul>
+  <li>Sinusoidal PE：此種編碼方式係原始 Transformer 之中提出嘅方法，使用頻率不同嘅正弦函數和餘弦函數。</li>
 </ul>
 
-
-    
-    <h3 id="Artificial-Intelligence">Artificial Intelligence</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/03/24/LLM/">大模型相關知識面試提問整理</a>
-    
-    <span class="date">Mar 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Coding">Coding</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2025/10/19/WeirdPython/">Weird Python</a>
-    
-    <span class="date">Oct 19, 2025</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Database">Database</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/02/24/MySQL/">The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</a>
-    
-    <span class="date">Feb 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Debug">Debug</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2025/10/19/WeirdPython/">Weird Python</a>
-    
-    <span class="date">Oct 19, 2025</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Documentation">Documentation</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/02/24/MySQL/">The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</a>
-    
-    <span class="date">Feb 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Interview">Interview</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/03/24/LLM/">大模型相關知識面試提問整理</a>
-    
-    <span class="date">Mar 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Python">Python</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2025/10/19/WeirdPython/">Weird Python</a>
-    
-    <span class="date">Oct 19, 2025</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="Remote-Desktop">Remote Desktop</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/01/24/xrdp/">Make Mac an RDP Server</a>
-    
-    <span class="date">Jan 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="SQL">SQL</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/02/24/MySQL/">The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</a>
-    
-    <span class="date">Feb 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="macOS">macOS</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/01/24/xrdp/">Make Mac an RDP Server</a>
-    
-    <span class="date">Jan 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-    
-    <h3 id="靈車漂移">靈車漂移</h3>
-    <ul class="post-list">
-        
-        
-
-
-
-<li><a class="internal" href="/blog/2026/01/24/xrdp/">Make Mac an RDP Server</a>
-    
-    <span class="date">Jan 24, 2026</span>
-</li>
-
-
-
-
-
-
-    </ul>
-
-
+\[PE(pos, 2i) = \sin(pos/10000^{2i/d_model})\]
+
+\[PE(pos, 2i + 1) = \cos(pos/10000^{2i/d_model})\]
+
+<p>其優點是無需學習參數，喺理論上具有一定嘅長度外推性，使得預測時可以使用比訓練時更長嘅序列。</p>
+
+<ul>
+  <li>Learned PE：此種編碼方式被 GPT-2、BERT 等早期大模型採用，其方法係直接隨機初始化一個矩陣，每一行代表一個位置，隨著模型訓練一齊更新。此種編碼方式嘅優點係靈活性高，而且模型可以根據數據自己調整位置特徵。缺點係此種編碼方式完全無外推性，如果訓練時序列長度為 512，如果推理時遇到第 513 個 Token，則會因為冇見過此位置嘅參數而導致報錯。</li>
+</ul>
+
+<p>絕對位置編碼（APE）嘅缺陷係缺乏平移不變性，以及長度限制，尤其係 Learned PE。</p>
+
+<p>第二種位置編碼係「相對位置編碼（Relative PE，RPE）」，此種編碼係從原始 Transformer 向現代大模型演進嘅關鍵。點解需要「相對」？採用相對位置編碼嘅優勢有「平移不變性（Translation Invariance）」和「外推性（Extrapolation）」。平移不變性係模型只關心兩個 Token $i$ 和 $j$ 之間嘅位置關係（距離） $i - j$，而唔關心佢哋嘅具體位置。使用 RPE 技術及其演進方法嘅有 Shaw 嘅相對位置編碼（原始 RPE）、T5 嘅相對位置偏差（Relative Position Bias）以及 ALiBi（Attention with Linear Biases）。</p>
+
+<ul>
+  <li>
+    <p>Shaw's RPE：此種方法不直接修改輸入嘅 Embedding，而係修改 Attention Core 嘅計算過程。 具體機制係，當計算 $Q_i K_j^T$ 之時，加入一個可學習嘅偏置向量 $a_{i,j}$，佢僅取決於 $clip(i - j, -k, k)$。此種計算機制缺點非常之明顯，即係需要維護一個巨大嘅相對位置查找表，且實現複雜。</p>
+  </li>
+  <li>
+    <p>T5's Relative Position Biases：其機制係 $Attention(Q, K, V) = \text{softmax}(\frac{Q K^T}{\sqrt{d_k}} + \text{B}) V$，其中 $\text{B}$ 係一個標量，直接加於 Attention Score 之上，對應不同距離嘅偏置值。此種方法嘅優點係極其簡單有效，引導模型關注局部上下文效果較好。</p>
+  </li>
+  <li>
+    <p>ALiBi：適用於長文本建模，此種方法非常之出名。其機制係不需要學習任何參數，直接喺 Attention Score 上面減去一個隨距離線性增加嘅懲罰項 $-m \vert i - j \vert$。ALiBi 位置編碼嘅優點係外推性極強。</p>
+  </li>
+</ul>
+
+<p>第三種編碼係「旋轉位置編碼（Rotary Positional Embedding，RoPE）」，此種編碼通過旋轉矩陣將位置信息住入 Query 和 Key，核心特性就係 Q 和 K 嘅內積只取決於佢哋之間嘅相對距離 $m - n$，擁有相對位置嘅優秀泛化能力。</p>
+
+<p>對比：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>特性</th>
+      <th>絕對位置（APE）</th>
+      <th>相對位置（RPE）</th>
+      <th>RoPE（旋轉編碼）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>位置感知</td>
+      <td>詞在句子的絕對座標</td>
+      <td>詞與詞之間的跨度</td>
+      <td>座標旋轉產生的相位差</td>
+    </tr>
+    <tr>
+      <td>外推性</td>
+      <td>差（遇到沒見過的位置就失效）</td>
+      <td>好（關注距離而非座標）</td>
+      <td>極佳（目前長文本主流）</td>
+    </tr>
+    <tr>
+      <td>計算位置</td>
+      <td>輸入層（Embedding）</td>
+      <td>Attention 層內部</td>
+      <td>"計算 Q, K 之後，Softmax 前"</td>
+    </tr>
+    <tr>
+      <td>代表模型</td>
+      <td>"BERT, GPT-2"</td>
+      <td>"T5, Transformer-XL"</td>
+      <td>"LLaMA, PaLM, GLM"</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                    </div>
                 </div>
             </div>
-
             <footer class="unit-foot">
                 <div class="unit-inner unit-foot-inner">
-                    <p>
-                        <a class="internal gotop" href="#page">Back to Top</a>
-                    </p>
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2026/02/24/MySQL/" title=" 'The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore'"> ← The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</a>
+                        
+                        
+                    </nav>
                 </div>
             </footer>
+            <div class="misc-content">
+                
+            </div>
         </div>
     </div>
 </article>
