@@ -7,8 +7,9 @@
 @import 'simple-texture/common/pace';
 
 html {
-    background: url('/assets/images/home-bg.png') no-repeat fixed 0 0 #0f0f0f;
-    background-size: 100% 100%;
+    background-color: #000;
+    background: linear-gradient(to bottom, rgb(31, 2, 20), rgb(3, 17, 31));
+    background-attachment: fixed;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
     line-height: 32px;
 
     color: $color-text;
+    background-color: transparent;
 }
 
 .body .unit-body {

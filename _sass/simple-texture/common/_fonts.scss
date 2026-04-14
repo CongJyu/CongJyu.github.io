@@ -1,15 +1,26 @@
-@font-face {
-    font-family: 'Noto Serif HK';
-    font-weight: normal;
-    font-style: normal;
+/*
+ * Font files are loaded from Google Fonts in _includes/common/meta.html.
+ * All zh/ja/en text prioritizes Chiron Sung HK, then falls back to Noto Serif HK/JP.
+ */
 
-    src: url('../../../assets/fonts/ChironSungHKVF.ttf');
+:lang(zh),
+:lang(zh-cn),
+:lang(zh-hk),
+:lang(zh-mo),
+:lang(zh-sg),
+:lang(zh-tw),
+:lang(ja),
+:lang(en) {
+    font-family: 'Chiron Sung HK', 'Noto Serif HK', 'Noto Serif JP', 'Noto Serif', serif;
 }
 
-@font-face {
-    font-family: 'JetBrains Mono';
-    font-weight: normal;
-    font-style: normal;
-
-    src: url('../../../assets/fonts/JetBrainsMono-Regular.woff2');
+code,
+kbd,
+pre,
+samp,
+code *,
+kbd *,
+pre *,
+samp * {
+    font-family: 'JetBrains Mono', 'Fira Code', Monaco, 'Courier New', monospace !important;
 }

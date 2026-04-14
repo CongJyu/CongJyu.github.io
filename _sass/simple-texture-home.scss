@@ -7,6 +7,11 @@
 @import 'simple-texture/common/social-icons';
 @import 'simple-texture/home/fullpage';
 
+html,
+body {
+    background-color: #000;
+}
+
 body {
     font-family: $fonts-body;
     font-size: 18px;
@@ -81,8 +86,8 @@ textarea {
 }
 
 #section0 {
-    background: url('/assets/images/home-bg.png') no-repeat fixed 0 0;
-    background-size: 100% 100%;
+    background: linear-gradient(to bottom, rgb(31, 2, 20), rgb(3, 17, 31)) fixed;
+    background-attachment: fixed;
 }
 
 #section1 {
