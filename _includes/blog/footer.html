@@ -10,7 +10,7 @@
                     {{ site.data.i18n[site.lang].theme_info }}
                 </div>
                 <div class="social-links">
-                    {% for link in site.author.social_links %}
+                    {% for link in site.social_links %}
                     {% if link.url %}
                     <a class="ico-{{ link.name }}" href="{{ link.url }}" rel="me" target="_blank"
                         title="{{ link.name }}"></a>

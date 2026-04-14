@@ -35,16 +35,12 @@ url: https://congjyu.github.io # the base hostname & protocol for your site, e.g
 title: Rain Chen's Blog
 description: One Personal Site.
 keywords: "jekyll,theme,gem-based,blog"
-author:
-    name:
-    job_title:
-    location:
-    email:
-    social_links:
-        -   name: github
-            url: https://github.com/congjyu
-        -   name: rss
-            url: https://congjyu.github.io/feed
+author: Rain Chen
+social_links:
+    -   name: github
+        url: https://github.com/congjyu
+    -   name: rss
+        url: https://congjyu.github.io/feed.xml
 
 home:
     section1: <h1>Rain Chen's Blog</h1>

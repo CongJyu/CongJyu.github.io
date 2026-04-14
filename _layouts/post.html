@@ -22,7 +22,7 @@ layout: blog
                             by
                             <a class="author" href="/" rel="author" title="{{ site.data.i18n[site.lang].show_author }}">
                                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                    <span itemprop="name">{% if page.author == null %}{{ site.author.name }}{% else %}{{ page.author }}{% endif %}</span>
+                                    <span itemprop="name">{% if page.author == null %}{{ site.author }}{% else %}{{ page.author }}{% endif %}</span>
                                 </span>
                             </a>
                             {% if site.blog.cc_license and site.blog.cc_license_image %}
