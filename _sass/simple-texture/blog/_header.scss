@@ -8,31 +8,21 @@
         .logo {
             font-family: $fonts-heading;
             font-weight: bold;
-
             display: block;
-
             padding-bottom: 18px;
 
             a {
                 font-size: 1.5em;
                 line-height: 0;
-
                 display: inline;
-
                 margin-left: 8px;
-
-                &:hover {
-                    color: $color-text-dark;
-                    background-color: $color-hover-transparent;
-                }
+                @include hover-pink-vertical();
             }
 
             button {
                 display: none;
-
                 width: 24px;
                 height: 24px;
-
                 border: none;
             }
 
@@ -59,20 +49,13 @@
                 a {
                     padding: 12px;
                     padding-bottom: 18px;
-
                     color: $color-text;
+                    @include hover-pink-vertical();
                 }
 
                 a:active,
                 a:hover {
                     cursor: pointer;
-                    -webkit-transition: all .3s ease-in-out;
-                    -moz-transition: all .3s ease-in-out;
-                    -o-transition: all .3s ease-in-out;
-                    transition: all .3s ease-in-out;
-
-                    color: $color-text-dark;
-                    background-color: $color-hover-transparent;
                 }
             }
         }

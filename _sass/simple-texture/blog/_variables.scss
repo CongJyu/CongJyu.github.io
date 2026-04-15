@@ -3,9 +3,28 @@ $fonts-body: 'Chiron Sung HK', 'Noto Serif HK', 'Noto Serif JP', 'Noto Serif', s
 $fonts-code: 'JetBrains Mono', 'Fira Code', Monaco, 'Courier New', monospace;
 $color-text: #eeeeee;
 $color-text-dark: #222222;
+$color-link-hover-text: #000000;
 $color-hover-icon: #222222;
 $color-hover-transparent: #ffccff;
 $color-meta-link-hover: #ffccff;
 $color-box-border: #161616;
 $color-code-background: #000000;
 $color-inline-code-background: #000000;
+
+@mixin hover-pink-vertical($hover-text-color: $color-link-hover-text, $duration: .15s) {
+    -webkit-transition: color $duration ease-in-out, background-size $duration ease-in-out;
+    transition: color $duration ease-in-out, background-size $duration ease-in-out;
+
+    background-image: linear-gradient(to bottom, $color-hover-transparent 0%, $color-hover-transparent 100%);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100% 0;
+    background-clip: padding-box;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $hover-text-color;
+        background-size: 100% 100%;
+    }
+}

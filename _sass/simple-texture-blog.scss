@@ -16,14 +16,12 @@ body {
     font-family: $fonts-body;
     font-size: 18px;
     line-height: 32px;
-
     color: $color-text;
     background-color: transparent;
 }
 
 .body .unit-body {
     padding: 12px 26px 26px 36px;
-
     border-top: 1px solid rgba(66, 66, 66, 0.6);
     background: #1818187e;
     box-shadow: $color-box-border 0 0 9px;
@@ -45,7 +43,6 @@ h4 {
 h1 {
     font-size: 1.725em;
     line-height: 42px;
-
     margin-top: 42px;
     margin-bottom: 26px;
 }
@@ -54,7 +51,6 @@ h1 {
 h2 {
     font-size: 1.575em;
     line-height: 42px;
-
     margin-top: 34px;
     margin-bottom: 16px;
 }
@@ -63,7 +59,6 @@ h2 {
 h3 {
     font-size: 1.325em;
     line-height: 26px;
-
     margin-top: 26px;
     margin-bottom: 20px;
 }
@@ -72,7 +67,6 @@ h3 {
 h4 {
     font-size: 1em;
     line-height: 26px;
-
     margin-top: 26px;
     margin-bottom: 12px;
 }

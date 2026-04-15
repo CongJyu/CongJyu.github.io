@@ -8,16 +8,11 @@
 
     a {
         color: $color-text;
+    }
 
-        &:hover {
-            -webkit-transition: all .3s ease-in-out;
-               -moz-transition: all .3s ease-in-out;
-                 -o-transition: all .3s ease-in-out;
-                    transition: all .3s ease-in-out;
-
-            color: $color-text-dark;
-            background-color: $color-hover-transparent;
-        }
+    .about a,
+    .back-to-top {
+        @include hover-pink-vertical();
     }
 
     p {
@@ -29,11 +24,6 @@
 
             &:visited {
                 color: #85c8ff;
-            }
-
-            &:hover {
-                color: $color-text-dark;
-                background-color: $color-hover-transparent;
             }
         }
     }
@@ -75,6 +65,7 @@
             margin: 1.5px;
 
             background-size: $icon-size $icon-size;
+
             &:hover {
                 background-color: $color-hover-icon;
             }

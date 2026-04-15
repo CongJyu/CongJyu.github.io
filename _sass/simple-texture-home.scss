@@ -68,7 +68,7 @@ textarea {
         color: $color-hover-transparent;
 
         &:hover {
-            color: $color-hover-transparent;
+            color: #000000;
         }
     }
 }
@@ -87,7 +87,7 @@ textarea {
 
 #section0 {
     background: linear-gradient(to bottom, rgb(31, 2, 20), rgb(3, 17, 31)) fixed;
-    background-attachment: fixed;
+    //background-attachment: fixed;
 }
 
 #section1 {
@@ -188,6 +188,7 @@ textarea {
         margin: 18px;
 
         background-size: $icon-size $icon-size;
+
         &:hover {
             background-color: $color-hover-icon;
         }

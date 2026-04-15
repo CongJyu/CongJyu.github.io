@@ -12,15 +12,7 @@
         color: #85c8ff;
         border-bottom: 1px dotted #e5ccff;
 
-        &:hover {
-            -webkit-transition: all .3s ease-out;
-            -moz-transition: all .3s ease-out;
-            -o-transition: all .3s ease-out;
-            transition: all .3s ease-out;
-
-            color: $color-text-dark;
-            background-color: $color-hover-transparent;
-        }
+        @include hover-pink-vertical();
 
         &:visited {
             color: #85c8ff;
