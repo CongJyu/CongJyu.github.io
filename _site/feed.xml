@@ -1,4 +1,442 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-16T00:28:05+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/02/24/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-03T18:38:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">AI Security Topic Review</title><link href="http://localhost:4000/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/04/21/ai-security</id><content type="html" xml:base="http://localhost:4000/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
+
+&lt;p&gt;Updated 3 May 2026.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-introduction-to-ai-security&quot;&gt;Introduction to AI Security&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-part-i-introduction-to-the-ai-security-and-mlai-basic-recap&quot;&gt;Part I. Introduction to the AI Security and ML/AI Basic Recap&lt;/h3&gt;
+
+&lt;p&gt;The AI lifecycle: Data Collection, Model Training / Fine Tuning, Model Deployment, Model Use.&lt;/p&gt;
+
+&lt;p&gt;An AI security threat model contains that: Attacker&apos;s goals (AI security properties), for example, privacy, security, safety, transparency, fairness; Attacker&apos;s capability, for example, blackbox attacks and whitebox attacks; Attacker&apos;s techniques.&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-sample-question-1-overfitting&quot;&gt;Sample Question 1: Overfitting&lt;/h4&gt;
+
+&lt;p&gt;A classifier $f(x; \theta)$ is trained on a dataset $D \sim P_{\text{train}}$, but deployed in an environment where inputs follow a different distribution $P_{\text{adv}}$, potentially influenced by an adversary.&lt;/p&gt;
+
+&lt;p&gt;The generalized gap is defined as:&lt;/p&gt;
+
+\[\mathbb{E}_{(x, y) \sim P_{\text{adv}}} [\cal{L}(f(x; \theta), y)] - \mathbb{E}_{(x, y) \sim P_{\text{train}}} [\cal{L}(f(x; \theta), y)]\]
+
+&lt;p&gt;(i) Explain how overfitting increases the generalization gap under adversarial distribution shift.&lt;/p&gt;
+
+&lt;p&gt;Explanation:&lt;/p&gt;
+
+&lt;p&gt;Overfitting occurs when a model $f(x; \theta)$ learns the noise or spurious correlations sepcific to $P_{\text{train}}$ rather than the underlying signal. Under an adversarial shift $P_{\text{adv}}$, this becomes a massive liability.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sensitivity to brittle features. An overfitted model relies on &quot;non-robust&quot; features such as pixels or patterns that happen to correlate with the label in the training set but are not essential.&lt;/li&gt;
+  &lt;li&gt;Exploitation. An adversary specifically seaches for these brittle features. Because the model has &quot;memorized&quot; the training manfold so tightly, even a tiny movement $\delta$ in the input space can push the input across a jagged decision boundary.&lt;/li&gt;
+  &lt;li&gt;The gap. While the training loss $\mathbb{E}&lt;em&gt;{P&lt;/em&gt;{\text{train}}}[\cal{L}]$ reamins very low, the adversarial loss $\mathbb{E}_{\text{adv}}[\cal{L}]$ skyrockets because the adversary is effectively guiding the model into its own blind spots created by overfitting.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;即係，過擬合係指模型學得太過死板以致於記住咗 $P_{\text{train}}$ 之中嘅噪聲或者啱啱好嘅特徵，而並非真正嘅邏輯。對抗性分布 $P_{\text{adv}}$ 之下會令到 generalization gap 極劇升高。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Overfitting causes the model to learn patterns specific to $P_{\text{train}}$, including noise, rather than generalizable features. When evaluated on $P_{\text{adv}}$, these patterns do not hold, resulting in increased loss and a larger generalization gap.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;(ii) Robust optimization:&lt;/p&gt;
+
+\[\min_{\theta} \max_{\delta \in \Delta} \cal{L}(f(x + \delta; \theta), y)\]
+
+&lt;p&gt;is a framework that explicitly addresses overfitting. Explain the purpose of the inner maximization and the outer minimization, respectively. Justify why this reduces overfitting.&lt;/p&gt;
+
+&lt;p&gt;Explanation:&lt;/p&gt;
+
+&lt;p&gt;The objective $\min_{\theta} \max_{\delta \in \Delta} \cal{L}(f(x + \delta; \theta), y)$ is a Zero-Sum Game between an attacker and a defender.&lt;/p&gt;
+
+&lt;p&gt;The Inner Maximization $\max_{\delta}$. This represents the Attacker. Its goal is to find the &quot;worst-case&quot; perturbation $\delta$ within a defined constraint $\Delta$ (like an $\ell_{p}$ ball) that maximizes the loss. It essentially looks for the model&apos;s weakest point near every data point.&lt;/p&gt;
+
+&lt;p&gt;The Outer Minimization $\min_{\theta}$. This represents the Learner or Defender. Its goal is to find parameters $\theta$ that minimize the loss even when the attacker does their worst.&lt;/p&gt;
+
+&lt;p&gt;Why it reduces overfitting is that the robust optimization acts as a powerful form of regularization. Instead of fitting a single point $(x, y)$, the model is forced to fit an entire &quot;neighborhood&quot; $(x + \Delta, y)$. This prevents the decision boudary from being too close to the data points or being too jagged, as it must remain constant over the entire perturbation set $\Delta$. It shifts the model&apos;s focus from &quot;brittle&quot; high-frequency features to &quot;robust&quot; features that remain stable even under attack.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The inner maximization models adversarial perturbations, while the outer minimization is the regular loss optimization. This reduces overfitting by smoother decision boundaries.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;heading-part-ii-adversarial-examples-and-attacks&quot;&gt;Part II. Adversarial Examples and Attacks&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-adversarial-examples&quot;&gt;Adversarial Examples&lt;/h4&gt;
+
+&lt;p&gt;Given a ML model with a decision function $f: X \rightarrow Y$ that maps an input sample $x \in X$ to a true class label $y_{tree} \in Y$, $x&apos; = x + \delta$ is called an adversarial sample with an adversarial perturbation $\delta$ if $f(x&apos;) = y&apos; \neq y_{true}$, $|\delta| &amp;lt; \epsilon$, where $|.|$ is a distance metric and $\epsilon$ is the maximum allowable perturbation that results in misclassification while preserving semantic integrity of $x$.&lt;/p&gt;
+
+&lt;p&gt;DNN Training: $\min_{\theta} \sum_{(x_i, y_i) \in D_{train}} L(f_{\theta}(x_i), y_i)$&lt;/p&gt;
+
+&lt;p&gt;Adversarial Attack: $\max_{x&apos;} L(f_{\theta}(x&apos;), y)$ subject to $|x&apos; - x|&lt;em&gt;p \leq \epsilon$ for $x \in D&lt;/em&gt;{test}$.&lt;/p&gt;
+
+&lt;p&gt;Small perturbation: $|x&apos; - x|&lt;em&gt;{p = 1, 2 or \infty}$, for example, $|.|&lt;/em&gt;{\infty} \leq \frac{8}{255}$&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-i_p-norm&quot;&gt;$I_p$-norm&lt;/h4&gt;
+
+\[\|x\|_1 = \sum_{i = 1}^{n} |x_i|\]
+
+\[\|x\|_2 = \sqrt{\sum_{i = 1}^{n} x_{i}^2}\]
+
+\[\|x\|_{\infty} = \max |x_i|\]
+
+&lt;h4 id=&quot;heading-crafting-adversarial-examples-whitebox&quot;&gt;Crafting Adversarial Examples: Whitebox&lt;/h4&gt;
+
+&lt;p&gt;The basic idea is: given an input, add non-random perturbation that induces classification mistake.&lt;/p&gt;
+
+&lt;p&gt;Attacker&apos;s knowledge: Loss&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fast Gradient Sign Method (FGSM)&lt;/li&gt;
+  &lt;li&gt;Projected Gradient Descent (PGD)&lt;/li&gt;
+  &lt;li&gt;Szegedy&apos;s L-BFGS Attack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attacker&apos;s knowledge: Logit&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;C&amp;amp;W Attack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-fast-gradient-sign-method-fgsm&quot;&gt;Fast Gradient Sign Method (FGSM)&lt;/h4&gt;
+
+&lt;p&gt;The key idea is to perturb input in the direction of the sign of the gradient of the loss w.r.t. the input, scaled by a perturbation budget.&lt;/p&gt;
+
+\[x&apos; = x + \epsilon \cdot sign(\nabla_x J(f(x), y_{true}))\]
+
+&lt;ul&gt;
+  &lt;li&gt;$\nabla_x J(f(x), y_{true})$ tell us how to change the input to increase the loss&lt;/li&gt;
+  &lt;li&gt;$sign()$ keep only the direction ($+ 1$ or $- 1$) of each input dimension&lt;/li&gt;
+  &lt;li&gt;$\epsilon$ control how laarge the perturbation is.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-projected-gradient-descent-pgd&quot;&gt;Projected Gradient Descent (PGD)&lt;/h4&gt;
+
+&lt;p&gt;FGSM but perturbation is done in multiple smaller steps.&lt;/p&gt;
+
+\[x_{(i)} = clip(x_{(i - 1)} + \alpha \cdot sign(\nabla_x J(f(x_{(i - 1)}), y_{true})))\]
+
+&lt;ul&gt;
+  &lt;li&gt;Multi-step version of FGSM&lt;/li&gt;
+  &lt;li&gt;Taking samll gradient steps that increase loss, while $clip(…)$ projects the result back into a constrained region around the original input, so perturbation is kept bounded&lt;/li&gt;
+  &lt;li&gt;$clip(…)$ projects the value to a value satisfying $|x^t - x|_p \leq \epsilon$, i.e., within the $l_p$ ball centerer around $x$; $\alpha$ is the step size, e.g., a pixel unit.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-optimization-based-attack-szegedys-l-bfgs-attack&quot;&gt;Optimization-based Attack: Szegedy&apos;s L-BFGS Attack&lt;/h4&gt;
+
+&lt;p&gt;Target attack is given an input $x$ and a target lable $t$, the attack solves $\min_{\delta} |\delta|_2$ so that $f(x + \delta) = t$.&lt;/p&gt;
+
+&lt;p&gt;However the constraint is hard to enforce L-BFGS attack relaxes it to $\min_{\delta} c \cdot |\delta|_2^2 + J(f(x + \delta), t)$. Solving this optimization problem means we find an $x&apos;$ which is close to $x$ and its loss to lable $t$ is small.&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-optimization-based-attack-cw-attack&quot;&gt;Optimization-based Attack: C&amp;amp;W Attack&lt;/h4&gt;
+
+&lt;p&gt;L-BFGS Attack minimize distance and loss, loss does not directly represent misclassification and maybe flip the label.&lt;/p&gt;
+
+&lt;p&gt;C&amp;amp;W attack operates on logits $Z(x)$.&lt;/p&gt;
+
+\[\min_{\delta} c \cdot \|\delta\|_2^2 + (\max_{i \neq t} Z_i (x + \delta) - Z_t (x + \delta))\]
+
+&lt;p&gt;(Target class $t$)&lt;/p&gt;
+
+\[\min_{\delta} c \cdot \|\delta\|_2^2 + (\max_{i \neq y} Z_i (x + \delta) - Z_y (x + \delta))\]
+
+&lt;p&gt;(Untargetted attack)&lt;/p&gt;
+
+&lt;p&gt;Directly enforces a decision boudary margin.&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-crafting-adversarial-examples-blackbox&quot;&gt;Crafting Adversarial Examples: Blackbox&lt;/h4&gt;
+
+&lt;p&gt;The basic idea is &lt;strong&gt;search&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Attacker&apos;s knowledge: confidence scores&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SimBA: Simple Black-box Adversarial Attacks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attacker&apos;s knowledge: predicted labels&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RayS: A Ray Searching Method for Hand-label Adversarial Attack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;heading-part-iii-adversarial-defenses&quot;&gt;Part III. Adversarial Defenses&lt;/h3&gt;
+
+&lt;p&gt;Main defense mechanisms against adversarial examples are listed below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Input preprocessing &amp;amp; transformation&lt;/li&gt;
+  &lt;li&gt;Gradient masking&lt;/li&gt;
+  &lt;li&gt;Advesarial Example Detection (AED)&lt;/li&gt;
+  &lt;li&gt;Robustness Training (Adversarial Training)&lt;/li&gt;
+  &lt;li&gt;Robustness Verification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-gradient-masking&quot;&gt;Gradient Masking&lt;/h4&gt;
+
+&lt;p&gt;Insight: Most attacks are based on the model&apos;s gradient information. Therefore, gradient masking methods hide the gradient of the model from being used by an adversary. Shattered Gradients Methods and Stochastic/Randomized Gradients Methods are the approaches.&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-shattered-gradients&quot;&gt;Shattered Gradients&lt;/h4&gt;
+
+&lt;p&gt;Goal: To prevent the flow of information from the inputs to the outputs in the model, by preventing the attacker from calculating the gradients.&lt;/p&gt;
+
+&lt;p&gt;How: Applying a non-smooth or non-differentiable preprocessor $g(.)$ to the inputs, and then training a DNN model $f$ on the preprocessed inputs $g(x)$.&lt;/p&gt;
+
+&lt;p&gt;Why: The trained target classifier $f(g(x))$ is not differentiable w.r.t. the inputs $x$, causing the failure of adversarial attacks.&lt;/p&gt;
+
+&lt;h5 id=&quot;heading-shattered-gradients-thermometer-encoding&quot;&gt;Shattered Gradients: Thermometer Encoding&lt;/h5&gt;
+
+&lt;p&gt;Thermometer Encoding&apos;s idea is to convert the continuous space (of input) to discrete one. It applies discretization of the intensity level of each pixel into an $l$-dimensional vector.&lt;/p&gt;
+
+&lt;p&gt;The target classifier is trained using discrete vectors for all pixels, which breaks the calculation of the gradients.&lt;/p&gt;
+
+&lt;p&gt;Why does it not affect training (gradient descent)?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gradients needed by training $\frac{\partial{L}}{\partial{W}}$&lt;/li&gt;
+  &lt;li&gt;Gradients needed by adversarial attacks $\frac{\partial{L}}{\partial{x}}$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-stochasticrandomized-gradients-methods&quot;&gt;Stochastic/Randomized Gradients Methods&lt;/h4&gt;
+
+&lt;p&gt;Goal: To apply some form of randomization of the DNN model as a defense strategy to fool the advesary.&lt;/p&gt;
+
+&lt;p&gt;How: Add randomness, e.g., training a set of classifiers, and during the testing phase randomly selecting one classifier to predict the class labels.&lt;/p&gt;
+
+&lt;p&gt;Why: Because the adversary does not know which model was used for prediction, the attack success rate is reduced.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In a standard deterministic model, the gradient is $\nabla J(f(x), y)$.&lt;/li&gt;
+  &lt;li&gt;By adding randomness, the prediction depends on a random variable $r: f(x, r)$.&lt;/li&gt;
+  &lt;li&gt;The gradient becomes $\nabla J(f(x, r), y)$, which change every time the same input $x$ is computed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;heading-part-iv-adversarial-training&quot;&gt;Part IV. Adversarial Training&lt;/h3&gt;
+
+&lt;p&gt;Adversarial training trains the model on adversarial examples so that it learns to classify them correctly.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Explicitly reshapes the decision boundary making it more robust to worst-case perturbations.&lt;/li&gt;
+  &lt;li&gt;Adversarial training approach&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Recall that in standard training, a model minimizes the loss $\min_W \cal{L}(f_W(x + \delta), y)$.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Inner maximization finds the worst-case adversarial perturbation.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;ul&gt;
+          &lt;li&gt;outer minimization updats model parameters to resist that pertubation.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-the-min-max-optimization-in-adversarial-training&quot;&gt;The min-max Optimization in Adversarial Training&lt;/h4&gt;
+
+&lt;p&gt;Approximated by alternating optimization, where the inner maximization (attack) and the outer minimization (training) are interleaved at every minibatch.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The adversarial examples are produced to attck the latest iterate of the model.&lt;/li&gt;
+  &lt;li&gt;By adding adversarial example $x&apos;$ with true label $y$ to the training set, the model eill learn that $x&apos;$ belongs to the class $y$.&lt;/li&gt;
+  &lt;li&gt;Similar to the training of GAN.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-sample-question-2-adversarial-examples&quot;&gt;Sample Question 2: Adversarial Examples&lt;/h4&gt;
+
+&lt;p&gt;(i) Assume each image in a dataset is a $8 \times 8$ pixel grayscale image. Each pixel in an image is denoted by a single integer between 0 and 31. Given an image, we construct its advesarial example within $l_2$ ball. Assume the budget $\epsilon = 2$, what is the maximum number of images within the $l_2$ balls? Show your working. Set up the calculation; you do not need to calculate the final value.&lt;/p&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Problem Definition&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;An image can be represented as a vector $(X = (x_1, x_2, …, x_{64}))$ in a 64-dimensional space,where each pixel $x_i$, is an integer such that $0 \neq x_i \neq 31$.&lt;/p&gt;
+
+&lt;p&gt;An adversarial example $X&apos;$ within the $l_2$ ball of radius $\epsilon$ satificies:&lt;/p&gt;
+
+\[\|X&apos; - X\|_2 \neq \epsilon\]
+
+&lt;p&gt;Substituting the given values ($\epsilon = 2$ and 64 pixels):&lt;/p&gt;
+
+\[\sqrt{\sum_{i = 1}^{64} (x_i&apos; - x_i)^2} \leq 2\]
+
+&lt;ol&gt;
+  &lt;li&gt;Constraints and Maximization&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To maximize the number of valid images $X&apos;$, we must choose a base image $X$ such that the perturbation $\delta_i$ are not restricted by the image boundaries ($0$ and $31$). If a pixel $x_i$ is $0$, then $\delta_i$ cannot be negative; if $x_i$ is $31$, $\delta_i$ cannot be positive.&lt;/p&gt;
+
+&lt;p&gt;The maximum number of images is achieved when $X$ is in the &quot;middle&quot; of the range (e.g., $2 \le x_i \le 29$ for all $i$), allowing $\delta_i$ to take any value in ${ -2, -1, 0, 1, 2 }$ as long as the sum of squares is $\le 4$.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Enumerating Integer Solutions&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We need to find all integer vectors $(\delta_1, \dots, \delta_{64})$ such that $\sum \delta_i^2 \le 4$. The possible values for $\delta_i^2$ are $0, 1^2=1,$ and $2^2=4$. Any $\delta_i^2 &amp;gt; 4$ is impossible.&lt;/p&gt;
+
+&lt;p&gt;We categorize the solutions based on the value of the sum $S = \sum \delta_i^2$:&lt;/p&gt;
+
+&lt;p&gt;Case 1: $S = 0$All $\delta_i = 0$.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Number of ways: $1$ (The original image itself)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Case 2: $S = 1$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One pixel changes by $\pm 1$, all others are $0$.&lt;/li&gt;
+  &lt;li&gt;Ways to choose the pixel: $\binom{64}{1}$&lt;/li&gt;
+  &lt;li&gt;Values for $\delta_i$: $\pm 1$ ($2$ choices)&lt;/li&gt;
+  &lt;li&gt;Calculation: $\binom{64}{1} \times 2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Case 3: $S = 2$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Two pixels change by $\pm 1$ each, or one pixel changes by $\pm \sqrt{2}$ (impossible for integers).&lt;/li&gt;
+  &lt;li&gt;Ways to choose 2 pixels: $\binom{64}{2}$&lt;/li&gt;
+  &lt;li&gt;Values for each: $\pm 1$ ($2^2 = 4$ combinations)&lt;/li&gt;
+  &lt;li&gt;Calculation: $\binom{64}{2} \times 2^2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Case 4: $S = 3$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Three pixels change by $\pm 1$ each.&lt;/li&gt;
+  &lt;li&gt;Ways to choose 3 pixels: $\binom{64}{3}$&lt;/li&gt;
+  &lt;li&gt;Values for each: $\pm 1$ ($2^3 = 8$ combinations)&lt;/li&gt;
+  &lt;li&gt;Calculation: $\binom{64}{3} \times 2^3$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Case 5: $S = 4$&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;This can happen in two ways:&lt;/li&gt;
+  &lt;li&gt;Subcase 5a: Four pixels change by $\pm 1$ each&lt;/li&gt;
+  &lt;li&gt;Calculation: $\binom{64}{4} \times 2^4$&lt;/li&gt;
+  &lt;li&gt;Subcase 5b: One pixel changes by $\pm 2$.&lt;/li&gt;
+  &lt;li&gt;Ways to choose the pixel: $\binom{64}{1}$&lt;/li&gt;
+  &lt;li&gt;Values for $\delta_i$: $\pm 2$ ($2$ choices)&lt;/li&gt;
+  &lt;li&gt;Calculation: $\binom{64}{1} \times 2$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Final Calculation Setup&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Summing all the cases above, the maximum number of images $N$ is:&lt;/p&gt;
+
+\[N = 1 + \left[ \binom{64}{1} \cdot 2 \right] + \left[ \binom{64}{2} \cdot 2^2 \right] + \left[ \binom{64}{3} \cdot 2^3 \right] + \left[ \binom{64}{4} \cdot 2^4 \right] + \left[ \binom{64}{1} \cdot 2 \right]\]
+
+&lt;p&gt;Combining the $\binom{64}{1}$ terms, the simplified setup is:&lt;/p&gt;
+
+\[N = 1 + 4\binom{64}{1} + 4\binom{64}{2} + 8\binom{64}{3} + 16\binom{64}{4}\]
+
+&lt;p&gt;(ii) A classifier $f(x)$ is trained using a modified loss function:&lt;/p&gt;
+
+\[\cal{L}&apos;(x, y) = \cal{L}(f(x), y) + \lambda \|x\|_x^2\]
+
+&lt;p&gt;where $\lambda &amp;gt; 0$ is a regularization parameter applied directly to the input. An adversary constructs adversarial examples using the Fast Gradient Sign Method (FGSM):&lt;/p&gt;
+
+\[x_{adv} = x + \epsilon \cdot sign(\nabla_x \cal{L}&apos;(x, y))\]
+
+&lt;p&gt;Derive an expression for $\nabla_x \cal{L}&apos; (x, y)$. Explain how the additional term $\lambda |x|_2^2$ changes the direction of the FGSM perturbation. Does this modification weaken FGSM attacks.&lt;/p&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Derivation of the Gradient&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We start with the modified loss function:&lt;/p&gt;
+
+\[\cal{L}&apos;(x, y) = \cal{L}(f(x), y) + \lambda \|x\|_2^2\]
+
+&lt;p&gt;To find the gradient with respect to the input $x$, we apply the linearity of the gradient operator:&lt;/p&gt;
+
+\[\nabla_x \cal{L}&apos;(x, y) = \nabla_x \cal{L}(f(x), y) + \nabla_x (\lambda \|x\|_2^2)\]
+
+&lt;p&gt;Recall that for the squared $L_2$ norm, $|x|_2^2 = \sum x_i^2$. The derivative of each component is $2x_i$, which gives us $\nabla_x |x|_2^2 = 2x$.&lt;/p&gt;
+
+&lt;p&gt;Thus, the final expression for the gradient is:&lt;/p&gt;
+
+\[\nabla_x \cal{L}&apos;(x, y) = \nabla_x \cal{L}(f(x), y) + 2\lambda x\]
+
+&lt;ol&gt;
+  &lt;li&gt;Impact on the FGSM Perturbation&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The standard FGSM attack moves the input in the direction of the sign of the loss gradient to maximize error. With the modification, the perturbation vector becomes:&lt;/p&gt;
+
+\[x_{adv} = x + \epsilon \cdot sign\left( \underbrace{\nabla_x \cal{L}(f(x), y)}_{\text{Classification Gradient}} + \underbrace{2\lambda x}_{\text{Input Penalty}} \right)\]
+
+&lt;p&gt;The additional term $2\lambda x$ acts as a &lt;strong&gt;centripetal force&lt;/strong&gt; pulling the gradient toward the direction of the input vector itself. Here is how it changes the direction:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Bias toward the Origin:&lt;/strong&gt; Since $2\lambda x$ points directly away from the origin, the total gradient is now biased. The adversary is no longer purely maximizing the classification error; they are also being &quot;tricked&quot; into moving the sample further away from the origin.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sign Interference:&lt;/strong&gt; The $sign$ function is sensitive. If a specific component of the classification gradient is small, the $2\lambda x$ term can flip the sign of that component, forcing the FGSM attack to move in a direction that might actually &lt;em&gt;increase&lt;/em&gt; the stability of the input relative to its original magnitude.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Does this weaken FGSM attacks?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Yes, theoretically, but with significant caveats.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Gradient Masking/Confusion:&lt;/strong&gt; By adding a term that depends only on the input value $x$ and not the relationship between $x$ and the label $y$, you are effectively &quot;polluting&quot; the adversarial direction. The perturbation is no longer optimal for changing the model&apos;s prediction.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The &quot;Weight Decay&quot; Analogy:&lt;/strong&gt; This is essentially &lt;strong&gt;Weight Decay applied to inputs&lt;/strong&gt;. It encourages the model to be less sensitive to large input values, potentially smoothening the decision boundary.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;However, it is generally considered a weak defense for two reasons:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Gradient Transparency:&lt;/strong&gt; An intelligent adversary knows the loss function. They can simply subtract $2\lambda x$ from their calculation to recover the &quot;true&quot; adversarial direction $\nabla_x \cal{L}(f(x), y)$. This is a form of &lt;strong&gt;Obfuscated Gradients&lt;/strong&gt;, which usually fails against a motivated attacker.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Semantic Irrelevance:&lt;/strong&gt; The term $2\lambda x$ doesn&apos;t actually make the model&apos;s features more robust; it just changes the geometry of the loss surface in a way that is easily bypassed by adjusting the attack algorithm.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;heading-robustness-verification&quot;&gt;Robustness Verification&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-verification-methods&quot;&gt;Verification Methods&lt;/h3&gt;
+
+&lt;p&gt;Interval Arithmetic&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Affine Transformaton&lt;/li&gt;
+  &lt;li&gt;ReLU Transformation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What is Affine Transformation?&lt;/p&gt;
+
+&lt;p&gt;What is ReLU Transformation?&lt;/p&gt;
+
+&lt;p&gt;ReluVal&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Symbolic Representation&lt;/li&gt;
+  &lt;li&gt;Concretization&lt;/li&gt;
+  &lt;li&gt;Relaxation for Symbolic Bounds&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What are these concepts?&lt;/p&gt;
+
+&lt;h4 id=&quot;heading-sample-question-3-nn-verification&quot;&gt;Sample Question 3: NN Verification&lt;/h4&gt;
+
+&lt;p&gt;Consider a ReLU-activated neural network $f(x)$:&lt;/p&gt;
+
+\[f(x) = W_2 \cdot \text{ReLU}(W_1 \cdot x + b_1) + b_2\]
+
+&lt;p&gt;where $W_1 \in \mathbb{R}^{3 \times 3}$, $b_1 \in \mathbb{R}^3$, $W_2 \in \mathbb{R}^{1 \times 3}$, $b_2 \in \mathbb{R}$.&lt;/p&gt;</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/02/24/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ WARNING: THE COMMANDS/SCRIPTS IN THIS PASSAGE ARE ALMOST RUN UNDER &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; PRIVILEDGES. PLEASE BE CAREFUL AND MAKE SURE WHAT YOU ARE DOING BEFORE RUNNING THOSE COMMANDS/SCRIPTS IN REAL ENVIRONMENTS.&lt;/p&gt;
