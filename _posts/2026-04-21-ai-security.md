@@ -567,3 +567,102 @@ Gradient-based poisoning.
 ### Attack Methods
 
 #### Defense Taxonomy
+
+By Defender's Goal
+
+- Backdoor Removal/Mitigation: climinate the backdoor effect
+- Backdoor Detection: deteermin if a model is poisoned or screen specific inputs
+
+By DNN Lifecycle
+
+- Pre-training: Data sanitization
+- In-training: Robust training
+- Post-trainig: Model inspection and input filtering after deployment
+
+#### Typical Techniques
+
+In-training
+
+- Model orthogonalization (removal/mitigation)
+
+Post-training
+
+- Fine-pruning (removal/mitigation)
+- Neural cleanse (detection) (reverse engineering)
+- Meta Neural Trojan Detection (detection)
+- STRIP (detection)
+- Topological Evolution Dynamics (detection)
+
+#### Sample Question 5: Data Poisoning
+
+Consider a supervised learning model $f(x; \theta)$ trained using loss function $\mathcal{L}$. An attacker aims to perform a *untargeted data poisoning attack* by injecting a small set of poisoned samples $D_{poison} = \{(x_p, y_p)\}$ into the training dataset.
+
+The attacker's goal is to cause a specific target input $x_t$ to be misclassified to any label $y_{adv} \neq y_t$.
+
+Answer the following questions:
+
+(i) Formulate the poisoning attack as a bilevel optimization problem. Clearly define the outer and inner problems.
+
+(ii) Revise the optimization problem in (i) to ensure stealthiness by llimiting the deviation of poisoned samples from clean data.
+
+Solutions:
+
+(i) Bilevel optimization formulation for untargeted data poisoning
+
+The attacker wants to craft a small set of poisoned samples $D_{\text{poison}} = {(x_p, y_p)}$ such that, after training on the combined dataset $D_{\text{clean}} \cup D_{\text{poison}}$, the resulting model misclassifies a specific target input $x_t$ to any label $y_{\text{adv}} \neq y_t$.
+
+Inner problem (training): The defender trains the model by minimizing the loss on the poisoned training set:
+
+$$
+\theta^*(D_{\text{poison}}) = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y)
+$$
+
+Outer problem (attacker): The attacker chooses $D_{\text{poison}}$ to maximize the loss on the target input $x_t$ with incorrect label $y_{\text{adv}}$, or equivalently to cause misclassification:
+
+$$
+\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^*(D_{\text{poison}})), y_{\text{adv}})
+$$
+
+subject to constraints such as $|D_{\text{poison}}| \leq \epsilon$ (small fraction of total data).
+
+Thus the full bilevel problem is:
+
+$$
+\begin{aligned}
+&\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
+&\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
+&\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t
+\end{aligned}
+$$
+
+(ii) Revised formulation with stealthiness constraint
+
+To ensure stealthiness, we want the poisoned samples to look similar to clean data so they are hard to detect by data inspection or outlier detection. This is typically enforced by limiting the deviation of each poisoned sample $(x_p, y_p)$ from some clean base sample or from the clean data distribution.
+
+One common approach constrains the $\ell_p$-norm difference between the poisoned features and their clean counterparts:
+
+$$
+\begin{aligned}
+&\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
+&\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
+&\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t, \\
+&\quad |x_p - x_{\text{base}}|_p \leq \delta \quad \text{for each poisoned sample}, \\
+&\quad y_p \text{ is plausible (e.g., correctly labeled for the base image)}.
+\end{aligned}
+$$
+
+The constraint $|x_p - x_{\text{base}}|p \leq \delta$ ensures that poisoned samples are close to some clean data point $x{\text{base}}$ (e.g., the original clean version of that sample), making them visually or statistically similar to legitimate training data. The bound $\delta$ controls the stealthiness level—smaller $\delta$ means more stealthy but possibly less effective attack.
+
+## Privacy Attacks and Defencse
+
+### Privacy Attacks
+
+Membership inference:
+
+Attribute inference:
+
+Model inversion:
+
+Training example extraction:
+
+
