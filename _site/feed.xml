@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-03T19:00:46+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">AI Security Topic Review</title><link href="http://localhost:4000/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/04/21/ai-security</id><content type="html" xml:base="http://localhost:4000/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-03T21:03:24+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">AI Security Topic Review</title><link href="https://congjyu.github.io/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2026/04/21/ai-security</id><content type="html" xml:base="https://congjyu.github.io/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
 
 &lt;p&gt;Updated 3 May 2026.&lt;/p&gt;
 
@@ -60,21 +60,21 @@
 
 &lt;h4 id=&quot;heading-adversarial-examples&quot;&gt;Adversarial Examples&lt;/h4&gt;
 
-&lt;p&gt;Given a ML model with a decision function $f: X \rightarrow Y$ that maps an input sample $x \in X$ to a true class label $y_{tree} \in Y$, $x&apos; = x + \delta$ is called an adversarial sample with an adversarial perturbation $\delta$ if $f(x&apos;) = y&apos; \neq y_{true}$, $\Vert\delta\Vert &amp;lt; \epsilon$, where $\Vert.\Vert$ is a distance metric and $\epsilon$ is the maximum allowable perturbation that results in misclassification while preserving semantic integrity of $x$.&lt;/p&gt;
+&lt;p&gt;Given a ML model with a decision function $f: X \rightarrow Y$ that maps an input sample $x \in X$ to a true class label $y_{tree} \in Y$, $x&apos; = x + \delta$ is called an adversarial sample with an adversarial perturbation $\delta$ if $f(x&apos;) = y&apos; \neq y_{true}$, $\vert\vert\delta\vert\vert &amp;lt; \epsilon$, where $\vert\vert.\vert\vert$ is a distance metric and $\epsilon$ is the maximum allowable perturbation that results in misclassification while preserving semantic integrity of $x$.&lt;/p&gt;
 
 &lt;p&gt;DNN Training: $\min_{\theta} \sum_{(x_i, y_i) \in D_{train}} L(f_{\theta}(x_i), y_i)$&lt;/p&gt;
 
-&lt;p&gt;Adversarial Attack: $\max_{x&apos;} L(f_{\theta}(x&apos;), y)$ subject to $\Vert x&apos; - x\Vert_p \leq \epsilon$ for $x \in D_{test}$.&lt;/p&gt;
+&lt;p&gt;Adversarial Attack: $\max_{x&apos;} L(f_{\theta}(x&apos;), y)$ subject to $\vert\vert x&apos; - x\vert\vert_p \leq \epsilon$ for $x \in D_{test}$.&lt;/p&gt;
 
-&lt;p&gt;Small perturbation: $\Vert x&apos; - x\Vert \frac{8}{255}$&lt;/p&gt;
+&lt;p&gt;Small perturbation: $\vert\vert x&apos; - x\vert\vert \frac{8}{255}$&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-i_p-norm&quot;&gt;$I_p$-norm&lt;/h4&gt;
 
-\[{\Vert x \Vert}_{1} = \sum_{i = 1}^{n} \Vert x_i\Vert\]
+\[{\vert\vert x \vert\vert}_{1} = \sum_{i = 1}^{n} \vert\vert x_i\vert\vert\]
 
-\[{\Vert x \Vert}_{2} = \sqrt{\sum_{i = 1}^{n} x_{i}^2}\]
+\[{\vert\vert x \vert\vert}_{2} = \sqrt{\sum_{i = 1}^{n} x_{i}^2}\]
 
-\[{\Vert x \Vert}_{\infty} = \max |x_i|\]
+\[{\vert\vert x \vert\vert}_{\infty} = \max \vert\vert x_i \vert\vert\]
 
 &lt;h4 id=&quot;heading-crafting-adversarial-examples-whitebox&quot;&gt;Crafting Adversarial Examples: Whitebox&lt;/h4&gt;
 
@@ -115,14 +115,14 @@
 &lt;ul&gt;
   &lt;li&gt;Multi-step version of FGSM&lt;/li&gt;
   &lt;li&gt;Taking samll gradient steps that increase loss, while $clip(…)$ projects the result back into a constrained region around the original input, so perturbation is kept bounded&lt;/li&gt;
-  &lt;li&gt;$clip(…)$ projects the value to a value satisfying ${\Vert x^t - x\Vert}_p \leq \epsilon$, i.e., within the $l_p$ ball centerer around $x$; $\alpha$ is the step size, e.g., a pixel unit.&lt;/li&gt;
+  &lt;li&gt;$clip(…)$ projects the value to a value satisfying ${\vert\vert x^t - x\vert\vert}_p \leq \epsilon$, i.e., within the $l_p$ ball centerer around $x$; $\alpha$ is the step size, e.g., a pixel unit.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;heading-optimization-based-attack-szegedys-l-bfgs-attack&quot;&gt;Optimization-based Attack: Szegedy&apos;s L-BFGS Attack&lt;/h4&gt;
 
-&lt;p&gt;Target attack is given an input $x$ and a target lable $t$, the attack solves $\min_{\delta} {\Vert\delta\Vert}_2$ so that $f(x + \delta) = t$.&lt;/p&gt;
+&lt;p&gt;Target attack is given an input $x$ and a target lable $t$, the attack solves $\min_{\delta} {\vert\vert\delta\vert\vert}_2$ so that $f(x + \delta) = t$.&lt;/p&gt;
 
-&lt;p&gt;However the constraint is hard to enforce L-BFGS attack relaxes it to $\min_{\delta} c \cdot {\Vert\delta\Vert}_2^2 + J(f(x + \delta), t)$. Solving this optimization problem means we find an $x&apos;$ which is close to $x$ and its loss to lable $t$ is small.&lt;/p&gt;
+&lt;p&gt;However the constraint is hard to enforce L-BFGS attack relaxes it to $\min_{\delta} c \cdot {\vert\vert\delta\vert\vert}_2^2 + J(f(x + \delta), t)$. Solving this optimization problem means we find an $x&apos;$ which is close to $x$ and its loss to lable $t$ is small.&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-optimization-based-attack-cw-attack&quot;&gt;Optimization-based Attack: C&amp;amp;W Attack&lt;/h4&gt;
 
@@ -130,11 +130,11 @@
 
 &lt;p&gt;C&amp;amp;W attack operates on logits $Z(x)$.&lt;/p&gt;
 
-\[\min_{\delta} c \cdot {\Vert\delta\Vert}_2^2 + (\max_{i \neq t} Z_i (x + \delta) - Z_t (x + \delta))\]
+\[\min_{\delta} c \cdot {\vert\vert\delta\vert\vert}_2^2 + (\max_{i \neq t} Z_i (x + \delta) - Z_t (x + \delta))\]
 
 &lt;p&gt;(Target class $t$)&lt;/p&gt;
 
-\[\min_{\delta} c \cdot {\Vert\delta\Vert}_2^2 + (\max_{i \neq y} Z_i (x + \delta) - Z_y (x + \delta))\]
+\[\min_{\delta} c \cdot {\vert\vert\delta\vert\vert}_2^2 + (\max_{i \neq y} Z_i (x + \delta) - Z_y (x + \delta))\]
 
 &lt;p&gt;(Untargetted attack)&lt;/p&gt;
 
@@ -263,7 +263,7 @@
 
 &lt;p&gt;An adversarial example $X&apos;$ within the $l_2$ ball of radius $\epsilon$ satificies:&lt;/p&gt;
 
-\[{\Vert X&apos; - X \Vert}_2 \neq \epsilon\]
+\[{\vert\vert X&apos; - X \vert\vert}_2 \neq \epsilon\]
 
 &lt;p&gt;Substituting the given values ($\epsilon = 2$ and 64 pixels):&lt;/p&gt;
 
@@ -344,13 +344,13 @@
 
 &lt;p&gt;(ii) A classifier $f(x)$ is trained using a modified loss function:&lt;/p&gt;
 
-\[\mathcal{L}&apos;(x, y) = \mathcal{L}(f(x), y) + \lambda {\Vert x \Vert_x}^2\]
+\[\mathcal{L}&apos;(x, y) = \mathcal{L}(f(x), y) + \lambda {\vert\vert x \vert\vert_x}^2\]
 
 &lt;p&gt;where $\lambda &amp;gt; 0$ is a regularization parameter applied directly to the input. An adversary constructs adversarial examples using the Fast Gradient Sign Method (FGSM):&lt;/p&gt;
 
 \[x_{adv} = x + \epsilon \cdot sign(\nabla_x \mathcal{L}&apos;(x, y))\]
 
-&lt;p&gt;Derive an expression for $\nabla_x \mathcal{L}&apos; (x, y)$. Explain how the additional term $\lambda {\Vert x \Vert}_2^2$ changes the direction of the FGSM perturbation. Does this modification weaken FGSM attacks.&lt;/p&gt;
+&lt;p&gt;Derive an expression for $\nabla_x \mathcal{L}&apos; (x, y)$. Explain how the additional term $\lambda {\vert\vert x \vert\vert}_2^2$ changes the direction of the FGSM perturbation. Does this modification weaken FGSM attacks.&lt;/p&gt;
 
 &lt;p&gt;Solution:&lt;/p&gt;
 
@@ -360,13 +360,13 @@
 
 &lt;p&gt;We start with the modified loss function:&lt;/p&gt;
 
-\[\mathcal{L}&apos;(x, y) = \mathcal{L}(f(x), y) + \lambda {\Vert x \Vert}_2^2\]
+\[\mathcal{L}&apos;(x, y) = \mathcal{L}(f(x), y) + \lambda {\vert\vert x \vert\vert}_2^2\]
 
 &lt;p&gt;To find the gradient with respect to the input $x$, we apply the linearity of the gradient operator:&lt;/p&gt;
 
-\[\nabla_x \mathcal{L}&apos;(x, y) = \nabla_x \mathcal{L}(f(x), y) + \nabla_x (\lambda {\Vert x \Vert}_2^2)\]
+\[\nabla_x \mathcal{L}&apos;(x, y) = \nabla_x \mathcal{L}(f(x), y) + \nabla_x (\lambda {\vert\vert x \vert\vert}_2^2)\]
 
-&lt;p&gt;Recall that for the squared $L_2$ norm, ${\Vert x \Vert}_2^2 = \sum x_i^2$. The derivative of each component is $2x_i$, which gives us $\nabla_x {\Vert x \Vert}_2^2 = 2x$.&lt;/p&gt;
+&lt;p&gt;Recall that for the squared $L_2$ norm, ${\vert\vert x \vert\vert}_2^2 = \sum x_i^2$. The derivative of each component is $2x_i$, which gives us $\nabla_x {\vert\vert x \vert\vert}_2^2 = 2x$.&lt;/p&gt;
 
 &lt;p&gt;Thus, the final expression for the gradient is:&lt;/p&gt;
 
@@ -440,7 +440,177 @@
 
 &lt;p&gt;Assume the first layer of $f(x)$ as&lt;/p&gt;
 
-\[\]</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/02/24/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
+\[W_1 =
+\begin{bmatrix}
+  2 &amp;amp; 1 &amp;amp; 0 \\
+  1 &amp;amp; -2 &amp;amp; 2 \\
+  2 &amp;amp; -1 &amp;amp; 2
+\end{bmatrix}
+\text{, }
+b_1 =
+\begin{bmatrix}
+  0, -0.5, -0.3
+\end{bmatrix}^{T}\]
+
+&lt;p&gt;Given an input $x \in \mathbb{R}^3$ with $0.3 \leq x_1 \leq 0.5$, and $0.3 \leq x_3 \leq 0.7$, find the bounds of the output of $z = W_1 \cdot x + b_1$ (linear layer only) using interval arithmetic.&lt;/p&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;p&gt;We have&lt;/p&gt;
+
+\[z = W_1 x + b_1\]
+
+&lt;p&gt;where&lt;/p&gt;
+
+\[W_1 = \begin{bmatrix} 2 &amp;amp; 1 &amp;amp; 0 \\ 1 &amp;amp; -2 &amp;amp; 2 \\ 2 &amp;amp; -1 &amp;amp; 2 \end{bmatrix},
+\quad
+b_1 = \begin{bmatrix} 0 \ -0.5 \ -0.3 \end{bmatrix}.\]
+
+&lt;p&gt;Input bounds are given only for $x_1$ and $x_3$:&lt;/p&gt;
+
+&lt;p&gt;$x_1 \in [0.3, 0.5]$&lt;/p&gt;
+
+&lt;p&gt;$x_3 \in [0.3, 0.7]$&lt;/p&gt;
+
+&lt;p&gt;No bounds are given for $x_2$. Since only partial bounds are provided and no further assumptions are stated, we must assume $x_2$ is unbounded (can be any real number).&lt;/p&gt;
+
+&lt;p&gt;Let us express each component of $z$:&lt;/p&gt;
+
+&lt;p&gt;First component:&lt;/p&gt;
+
+\[z_1 = 2x_1 + 1x_2 + 0x_3 + 0 = 2x_1 + x_2.\]
+
+&lt;p&gt;Since $x_1$ is bounded but $x_2$ is unbounded,&lt;/p&gt;
+
+\[z_1 \in (-\infty, \infty).\]
+
+&lt;p&gt;Second component:&lt;/p&gt;
+
+\[z_2 = 1x_1 - 2x_2 + 2x_3 - 0.5 = x_1 - 2x_2 + 2x_3 - 0.5.\]
+
+&lt;p&gt;Again, because $x_2$ is unbounded, $z_2$ is also unbounded:&lt;/p&gt;
+
+\[z_2 \in (-\infty, \infty).\]
+
+&lt;p&gt;Third component:&lt;/p&gt;
+
+\[z_3 = 2x_1 - 1x_2 + 2x_3 - 0.3 = 2x_1 - x_2 + 2x_3 - 0.3.\]
+
+&lt;p&gt;Same situation: the presence of $x_2$ with coefficient $-1$ makes this unbounded.&lt;/p&gt;
+
+&lt;p&gt;Thus, without bounds on $x_2$, interval arithmetic gives:&lt;/p&gt;
+
+\[\boxed{(-\infty, \infty)}\]
+
+&lt;p&gt;for each component of $z$.&lt;/p&gt;
+
+&lt;p&gt;If we assume $x_2$ is also bounded but not specified, then one cannot compute finite intervals.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-poisoning-attacks-and-backdoor-attacks&quot;&gt;Poisoning Attacks and Backdoor Attacks&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-threat-model-of-data-poisoning-attacks&quot;&gt;Threat Model of Data Poisoning Attacks&lt;/h3&gt;
+
+&lt;p&gt;Attacker&apos;s knowledge:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Training data, Test data, Model architecture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attacker&apos;s capabilities:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inject new samples into training data&lt;/li&gt;
+  &lt;li&gt;Delete samples&lt;/li&gt;
+  &lt;li&gt;Modify existing samples (features or labels)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attacker&apos;s goals:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Availability Attacks (Indiscriminated or Untargeted)&lt;/li&gt;
+  &lt;li&gt;Integrity Attacks (Targeted)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-attack-methods&quot;&gt;Attack Methods&lt;/h4&gt;
+
+&lt;p&gt;Label poisoning.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The attacker controls a fraction of the training data and modify their labels.&lt;/li&gt;
+  &lt;li&gt;Dirty-Label: mismatched content/label is easily detectable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Feature poisoning.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mechanism: feature collision&lt;/li&gt;
+&lt;/ul&gt;
+
+\[x_p = \arg \min {\vert\vert f(x_p) - f(x_t) \vert\vert}_2^2 + \beta {\vert\vert x_p - x_b \vert\vert}_2^2\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;$x_p$ is poisoning sample&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;$x_t$ is target sample&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;$x_b$ is base sample&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Clean-Label&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Gradient-based poisoning.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Estimate how the optimal parameters $\mathbf{W}$ change when training data changes.&lt;/li&gt;
+  &lt;li&gt;Update poison data $x_p$ in the direction that maximizes test error.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-poisoning-as-a-min-max-optimization-problem&quot;&gt;Poisoning as a min-max Optimization Problem&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Inner Problem&lt;/strong&gt;: Learner&apos;s loss (Minimization)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\mathbf{W}^{*} = \arg \min_W \mathcal{L}(\mathbf{W}, \mathcal{D}_c \cup \mathcal{D}_p)$ (note: we use an $\mathcal{L}$ slightly different from previous lectures for simplicity, which stands for summation of loss of all samples.)&lt;/li&gt;
+  &lt;li&gt;This is the standard training loss.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Outer Problem&lt;/strong&gt;: Attacker&apos;s objective (Maximization)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$\max_{\mathcal{D}&lt;em&gt;p} \mathcal{L}&lt;/em&gt;{attack}(\mathbf{W}^{*})$&lt;/li&gt;
+  &lt;li&gt;This is to maximize the harm: maximize test error (untargeted attack) or force misclassification of specific inputs (targeted attack).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-backdoor-attack&quot;&gt;Backdoor Attack&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: The attacker injects a hidden behavior into the model.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;behavior&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Input $x$ (Clean) $\rightarrow$ Output $y$ (Correct).&lt;/li&gt;
+  &lt;li&gt;Input $x + \text{Trigger}$ $\rightarrow$ Output $y_t$ (Attacker Chosen).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Components&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Trigger: A pattern (pixel patch, object, sound) added to the input.&lt;/li&gt;
+  &lt;li&gt;Payload: The incorrect prediction (target label).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;heading-attack-methods-1&quot;&gt;Attack Methods&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-defense-taxonomy&quot;&gt;Defense Taxonomy&lt;/h4&gt;</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="https://congjyu.github.io/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2026/02/24/MySQL</id><content type="html" xml:base="https://congjyu.github.io/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ WARNING: THE COMMANDS/SCRIPTS IN THIS PASSAGE ARE ALMOST RUN UNDER &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; PRIVILEDGES. PLEASE BE CAREFUL AND MAKE SURE WHAT YOU ARE DOING BEFORE RUNNING THOSE COMMANDS/SCRIPTS IN REAL ENVIRONMENTS.&lt;/p&gt;
@@ -1700,7 +1870,7 @@ xtrabackup &lt;span class=&quot;nt&quot;&gt;--backup&lt;/span&gt; &lt;span class
 
 &lt;h2 id=&quot;heading-8-diagnose--問題排查及解決方法&quot;&gt;8. Diagnose | 問題排查及解決方法&lt;/h2&gt;
 
-&lt;p&gt;つづく…&lt;/p&gt;</content><author><name>Rain</name></author><category term="Database" /><category term="SQL" /><category term="Documentation" /><summary type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</summary></entry><entry><title type="html">Make Mac an RDP Server</title><link href="http://localhost:4000/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/01/24/xrdp</id><content type="html" xml:base="http://localhost:4000/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-an-rdp-server--使用-rdp-遠程連接-mac-mini&quot;&gt;Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini&lt;/h1&gt;
+&lt;p&gt;つづく…&lt;/p&gt;</content><author><name>Rain</name></author><category term="Database" /><category term="SQL" /><category term="Documentation" /><summary type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</summary></entry><entry><title type="html">Make Mac an RDP Server</title><link href="https://congjyu.github.io/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2026/01/24/xrdp</id><content type="html" xml:base="https://congjyu.github.io/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-an-rdp-server--使用-rdp-遠程連接-mac-mini&quot;&gt;Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ THIS POST HAS A &quot;靈車漂移&quot; TAG, AND DOES NOT GUARANTEE STABILITY.&lt;/p&gt;
@@ -1987,7 +2157,7 @@ brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libxrandr
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the &quot;dynamic resolution&quot; on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 可以喺 macOS 上面運行，可以令到 macOS 使用 RDP 來被遠程連接。RDP 喺 macOS 及一啲 Linux 發行版本上面唔可以實現「動態分辨率」功能。呢啲限制係由於系統，並非遠程桌面協議控制。&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini</summary></entry><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 可以喺 macOS 上面運行，可以令到 macOS 使用 RDP 來被遠程連接。RDP 喺 macOS 及一啲 Linux 發行版本上面唔可以實現「動態分辨率」功能。呢啲限制係由於系統，並非遠程桌面協議控制。&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini</summary></entry><entry><title type="html">Weird Python</title><link href="https://congjyu.github.io/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="https://congjyu.github.io/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -2055,7 +2225,7 @@ second
 
 &lt;p&gt;Also, this method works well with other situations when some packages need to be change in certain imported packages.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">網絡短詩記錄</title><link href="http://localhost:4000/blog/2023/01/01/Covid/" rel="alternate" type="text/html" title="網絡短詩記錄" /><published>2023-01-01T00:00:00+08:00</published><updated>2023-01-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/01/01/Covid</id><content type="html" xml:base="http://localhost:4000/blog/2023/01/01/Covid/">&lt;blockquote&gt;
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">網絡短詩記錄</title><link href="https://congjyu.github.io/blog/2023/01/01/Covid/" rel="alternate" type="text/html" title="網絡短詩記錄" /><published>2023-01-01T00:00:00+08:00</published><updated>2023-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/01/01/Covid</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/01/01/Covid/">&lt;blockquote&gt;
   &lt;p&gt;本文原作者未知，轉載自網絡，僅供參考。&lt;/p&gt;
 &lt;/blockquote&gt;
 
