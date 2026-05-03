@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-03T18:38:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">AI Security Topic Review</title><link href="http://localhost:4000/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/04/21/ai-security</id><content type="html" xml:base="http://localhost:4000/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-03T19:00:46+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">AI Security Topic Review</title><link href="http://localhost:4000/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/04/21/ai-security</id><content type="html" xml:base="http://localhost:4000/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
 
 &lt;p&gt;Updated 3 May 2026.&lt;/p&gt;
 
@@ -16,7 +16,7 @@
 
 &lt;p&gt;The generalized gap is defined as:&lt;/p&gt;
 
-\[\mathbb{E}_{(x, y) \sim P_{\text{adv}}} [\cal{L}(f(x; \theta), y)] - \mathbb{E}_{(x, y) \sim P_{\text{train}}} [\cal{L}(f(x; \theta), y)]\]
+\[\mathbb{E}_{(x, y) \sim P_{\text{adv}}} [\mathcal{L}(f(x; \theta), y)] - \mathbb{E}_{(x, y) \sim P_{\text{train}}} [\mathcal{L}(f(x; \theta), y)]\]
 
 &lt;p&gt;(i) Explain how overfitting increases the generalization gap under adversarial distribution shift.&lt;/p&gt;
 
@@ -27,7 +27,7 @@
 &lt;ol&gt;
   &lt;li&gt;Sensitivity to brittle features. An overfitted model relies on &quot;non-robust&quot; features such as pixels or patterns that happen to correlate with the label in the training set but are not essential.&lt;/li&gt;
   &lt;li&gt;Exploitation. An adversary specifically seaches for these brittle features. Because the model has &quot;memorized&quot; the training manfold so tightly, even a tiny movement $\delta$ in the input space can push the input across a jagged decision boundary.&lt;/li&gt;
-  &lt;li&gt;The gap. While the training loss $\mathbb{E}&lt;em&gt;{P&lt;/em&gt;{\text{train}}}[\cal{L}]$ reamins very low, the adversarial loss $\mathbb{E}_{\text{adv}}[\cal{L}]$ skyrockets because the adversary is effectively guiding the model into its own blind spots created by overfitting.&lt;/li&gt;
+  &lt;li&gt;The gap. While the training loss $\mathbb{E}&lt;em&gt;{P&lt;/em&gt;{\text{train}}}[\mathcal{L}]$ reamins very low, the adversarial loss $\mathbb{E}_{\text{adv}}[\mathcal{L}]$ skyrockets because the adversary is effectively guiding the model into its own blind spots created by overfitting.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;即係，過擬合係指模型學得太過死板以致於記住咗 $P_{\text{train}}$ 之中嘅噪聲或者啱啱好嘅特徵，而並非真正嘅邏輯。對抗性分布 $P_{\text{adv}}$ 之下會令到 generalization gap 極劇升高。&lt;/p&gt;
@@ -38,13 +38,13 @@
 
 &lt;p&gt;(ii) Robust optimization:&lt;/p&gt;
 
-\[\min_{\theta} \max_{\delta \in \Delta} \cal{L}(f(x + \delta; \theta), y)\]
+\[\min_{\theta} \max_{\delta \in \Delta} \mathcal{L}(f(x + \delta; \theta), y)\]
 
 &lt;p&gt;is a framework that explicitly addresses overfitting. Explain the purpose of the inner maximization and the outer minimization, respectively. Justify why this reduces overfitting.&lt;/p&gt;
 
 &lt;p&gt;Explanation:&lt;/p&gt;
 
-&lt;p&gt;The objective $\min_{\theta} \max_{\delta \in \Delta} \cal{L}(f(x + \delta; \theta), y)$ is a Zero-Sum Game between an attacker and a defender.&lt;/p&gt;
+&lt;p&gt;The objective $\min_{\theta} \max_{\delta \in \Delta} \mathcal{L}(f(x + \delta; \theta), y)$ is a Zero-Sum Game between an attacker and a defender.&lt;/p&gt;
 
 &lt;p&gt;The Inner Maximization $\max_{\delta}$. This represents the Attacker. Its goal is to find the &quot;worst-case&quot; perturbation $\delta$ within a defined constraint $\Delta$ (like an $\ell_{p}$ ball) that maximizes the loss. It essentially looks for the model&apos;s weakest point near every data point.&lt;/p&gt;
 
@@ -60,21 +60,21 @@
 
 &lt;h4 id=&quot;heading-adversarial-examples&quot;&gt;Adversarial Examples&lt;/h4&gt;
 
-&lt;p&gt;Given a ML model with a decision function $f: X \rightarrow Y$ that maps an input sample $x \in X$ to a true class label $y_{tree} \in Y$, $x&apos; = x + \delta$ is called an adversarial sample with an adversarial perturbation $\delta$ if $f(x&apos;) = y&apos; \neq y_{true}$, $|\delta| &amp;lt; \epsilon$, where $|.|$ is a distance metric and $\epsilon$ is the maximum allowable perturbation that results in misclassification while preserving semantic integrity of $x$.&lt;/p&gt;
+&lt;p&gt;Given a ML model with a decision function $f: X \rightarrow Y$ that maps an input sample $x \in X$ to a true class label $y_{tree} \in Y$, $x&apos; = x + \delta$ is called an adversarial sample with an adversarial perturbation $\delta$ if $f(x&apos;) = y&apos; \neq y_{true}$, $\Vert\delta\Vert &amp;lt; \epsilon$, where $\Vert.\Vert$ is a distance metric and $\epsilon$ is the maximum allowable perturbation that results in misclassification while preserving semantic integrity of $x$.&lt;/p&gt;
 
 &lt;p&gt;DNN Training: $\min_{\theta} \sum_{(x_i, y_i) \in D_{train}} L(f_{\theta}(x_i), y_i)$&lt;/p&gt;
 
-&lt;p&gt;Adversarial Attack: $\max_{x&apos;} L(f_{\theta}(x&apos;), y)$ subject to $|x&apos; - x|&lt;em&gt;p \leq \epsilon$ for $x \in D&lt;/em&gt;{test}$.&lt;/p&gt;
+&lt;p&gt;Adversarial Attack: $\max_{x&apos;} L(f_{\theta}(x&apos;), y)$ subject to $\Vert x&apos; - x\Vert_p \leq \epsilon$ for $x \in D_{test}$.&lt;/p&gt;
 
-&lt;p&gt;Small perturbation: $|x&apos; - x|&lt;em&gt;{p = 1, 2 or \infty}$, for example, $|.|&lt;/em&gt;{\infty} \leq \frac{8}{255}$&lt;/p&gt;
+&lt;p&gt;Small perturbation: $\Vert x&apos; - x\Vert \frac{8}{255}$&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-i_p-norm&quot;&gt;$I_p$-norm&lt;/h4&gt;
 
-\[\|x\|_1 = \sum_{i = 1}^{n} |x_i|\]
+\[{\Vert x \Vert}_{1} = \sum_{i = 1}^{n} \Vert x_i\Vert\]
 
-\[\|x\|_2 = \sqrt{\sum_{i = 1}^{n} x_{i}^2}\]
+\[{\Vert x \Vert}_{2} = \sqrt{\sum_{i = 1}^{n} x_{i}^2}\]
 
-\[\|x\|_{\infty} = \max |x_i|\]
+\[{\Vert x \Vert}_{\infty} = \max |x_i|\]
 
 &lt;h4 id=&quot;heading-crafting-adversarial-examples-whitebox&quot;&gt;Crafting Adversarial Examples: Whitebox&lt;/h4&gt;
 
@@ -115,14 +115,14 @@
 &lt;ul&gt;
   &lt;li&gt;Multi-step version of FGSM&lt;/li&gt;
   &lt;li&gt;Taking samll gradient steps that increase loss, while $clip(…)$ projects the result back into a constrained region around the original input, so perturbation is kept bounded&lt;/li&gt;
-  &lt;li&gt;$clip(…)$ projects the value to a value satisfying $|x^t - x|_p \leq \epsilon$, i.e., within the $l_p$ ball centerer around $x$; $\alpha$ is the step size, e.g., a pixel unit.&lt;/li&gt;
+  &lt;li&gt;$clip(…)$ projects the value to a value satisfying ${\Vert x^t - x\Vert}_p \leq \epsilon$, i.e., within the $l_p$ ball centerer around $x$; $\alpha$ is the step size, e.g., a pixel unit.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;heading-optimization-based-attack-szegedys-l-bfgs-attack&quot;&gt;Optimization-based Attack: Szegedy&apos;s L-BFGS Attack&lt;/h4&gt;
 
-&lt;p&gt;Target attack is given an input $x$ and a target lable $t$, the attack solves $\min_{\delta} |\delta|_2$ so that $f(x + \delta) = t$.&lt;/p&gt;
+&lt;p&gt;Target attack is given an input $x$ and a target lable $t$, the attack solves $\min_{\delta} {\Vert\delta\Vert}_2$ so that $f(x + \delta) = t$.&lt;/p&gt;
 
-&lt;p&gt;However the constraint is hard to enforce L-BFGS attack relaxes it to $\min_{\delta} c \cdot |\delta|_2^2 + J(f(x + \delta), t)$. Solving this optimization problem means we find an $x&apos;$ which is close to $x$ and its loss to lable $t$ is small.&lt;/p&gt;
+&lt;p&gt;However the constraint is hard to enforce L-BFGS attack relaxes it to $\min_{\delta} c \cdot {\Vert\delta\Vert}_2^2 + J(f(x + \delta), t)$. Solving this optimization problem means we find an $x&apos;$ which is close to $x$ and its loss to lable $t$ is small.&lt;/p&gt;
 
 &lt;h4 id=&quot;heading-optimization-based-attack-cw-attack&quot;&gt;Optimization-based Attack: C&amp;amp;W Attack&lt;/h4&gt;
 
@@ -130,11 +130,11 @@
 
 &lt;p&gt;C&amp;amp;W attack operates on logits $Z(x)$.&lt;/p&gt;
 
-\[\min_{\delta} c \cdot \|\delta\|_2^2 + (\max_{i \neq t} Z_i (x + \delta) - Z_t (x + \delta))\]
+\[\min_{\delta} c \cdot {\Vert\delta\Vert}_2^2 + (\max_{i \neq t} Z_i (x + \delta) - Z_t (x + \delta))\]
 
 &lt;p&gt;(Target class $t$)&lt;/p&gt;
 
-\[\min_{\delta} c \cdot \|\delta\|_2^2 + (\max_{i \neq y} Z_i (x + \delta) - Z_y (x + \delta))\]
+\[\min_{\delta} c \cdot {\Vert\delta\Vert}_2^2 + (\max_{i \neq y} Z_i (x + \delta) - Z_y (x + \delta))\]
 
 &lt;p&gt;(Untargetted attack)&lt;/p&gt;
 
@@ -216,7 +216,7 @@
   &lt;li&gt;Adversarial training approach&lt;/li&gt;
   &lt;li&gt;
     &lt;ul&gt;
-      &lt;li&gt;Recall that in standard training, a model minimizes the loss $\min_W \cal{L}(f_W(x + \delta), y)$.&lt;/li&gt;
+      &lt;li&gt;Recall that in standard training, a model minimizes the loss $\min_W \mathcal{L}(f_W(x + \delta), y)$.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -263,7 +263,7 @@
 
 &lt;p&gt;An adversarial example $X&apos;$ within the $l_2$ ball of radius $\epsilon$ satificies:&lt;/p&gt;
 
-\[\|X&apos; - X\|_2 \neq \epsilon\]
+\[{\Vert X&apos; - X \Vert}_2 \neq \epsilon\]
 
 &lt;p&gt;Substituting the given values ($\epsilon = 2$ and 64 pixels):&lt;/p&gt;
 
@@ -344,13 +344,13 @@
 
 &lt;p&gt;(ii) A classifier $f(x)$ is trained using a modified loss function:&lt;/p&gt;
 
-\[\cal{L}&apos;(x, y) = \cal{L}(f(x), y) + \lambda \|x\|_x^2\]
+\[\mathcal{L}&apos;(x, y) = \mathcal{L}(f(x), y) + \lambda {\Vert x \Vert_x}^2\]
 
 &lt;p&gt;where $\lambda &amp;gt; 0$ is a regularization parameter applied directly to the input. An adversary constructs adversarial examples using the Fast Gradient Sign Method (FGSM):&lt;/p&gt;
 
-\[x_{adv} = x + \epsilon \cdot sign(\nabla_x \cal{L}&apos;(x, y))\]
+\[x_{adv} = x + \epsilon \cdot sign(\nabla_x \mathcal{L}&apos;(x, y))\]
 
-&lt;p&gt;Derive an expression for $\nabla_x \cal{L}&apos; (x, y)$. Explain how the additional term $\lambda |x|_2^2$ changes the direction of the FGSM perturbation. Does this modification weaken FGSM attacks.&lt;/p&gt;
+&lt;p&gt;Derive an expression for $\nabla_x \mathcal{L}&apos; (x, y)$. Explain how the additional term $\lambda {\Vert x \Vert}_2^2$ changes the direction of the FGSM perturbation. Does this modification weaken FGSM attacks.&lt;/p&gt;
 
 &lt;p&gt;Solution:&lt;/p&gt;
 
@@ -360,17 +360,17 @@
 
 &lt;p&gt;We start with the modified loss function:&lt;/p&gt;
 
-\[\cal{L}&apos;(x, y) = \cal{L}(f(x), y) + \lambda \|x\|_2^2\]
+\[\mathcal{L}&apos;(x, y) = \mathcal{L}(f(x), y) + \lambda {\Vert x \Vert}_2^2\]
 
 &lt;p&gt;To find the gradient with respect to the input $x$, we apply the linearity of the gradient operator:&lt;/p&gt;
 
-\[\nabla_x \cal{L}&apos;(x, y) = \nabla_x \cal{L}(f(x), y) + \nabla_x (\lambda \|x\|_2^2)\]
+\[\nabla_x \mathcal{L}&apos;(x, y) = \nabla_x \mathcal{L}(f(x), y) + \nabla_x (\lambda {\Vert x \Vert}_2^2)\]
 
-&lt;p&gt;Recall that for the squared $L_2$ norm, $|x|_2^2 = \sum x_i^2$. The derivative of each component is $2x_i$, which gives us $\nabla_x |x|_2^2 = 2x$.&lt;/p&gt;
+&lt;p&gt;Recall that for the squared $L_2$ norm, ${\Vert x \Vert}_2^2 = \sum x_i^2$. The derivative of each component is $2x_i$, which gives us $\nabla_x {\Vert x \Vert}_2^2 = 2x$.&lt;/p&gt;
 
 &lt;p&gt;Thus, the final expression for the gradient is:&lt;/p&gt;
 
-\[\nabla_x \cal{L}&apos;(x, y) = \nabla_x \cal{L}(f(x), y) + 2\lambda x\]
+\[\nabla_x \mathcal{L}&apos;(x, y) = \nabla_x \mathcal{L}(f(x), y) + 2\lambda x\]
 
 &lt;ol&gt;
   &lt;li&gt;Impact on the FGSM Perturbation&lt;/li&gt;
@@ -378,7 +378,7 @@
 
 &lt;p&gt;The standard FGSM attack moves the input in the direction of the sign of the loss gradient to maximize error. With the modification, the perturbation vector becomes:&lt;/p&gt;
 
-\[x_{adv} = x + \epsilon \cdot sign\left( \underbrace{\nabla_x \cal{L}(f(x), y)}_{\text{Classification Gradient}} + \underbrace{2\lambda x}_{\text{Input Penalty}} \right)\]
+\[x_{adv} = x + \epsilon \cdot sign\left( \underbrace{\nabla_x \mathcal{L}(f(x), y)}_{\text{Classification Gradient}} + \underbrace{2\lambda x}_{\text{Input Penalty}} \right)\]
 
 &lt;p&gt;The additional term $2\lambda x$ acts as a &lt;strong&gt;centripetal force&lt;/strong&gt; pulling the gradient toward the direction of the input vector itself. Here is how it changes the direction:&lt;/p&gt;
 
@@ -401,7 +401,7 @@
 &lt;p&gt;&lt;strong&gt;However, it is generally considered a weak defense for two reasons:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Gradient Transparency:&lt;/strong&gt; An intelligent adversary knows the loss function. They can simply subtract $2\lambda x$ from their calculation to recover the &quot;true&quot; adversarial direction $\nabla_x \cal{L}(f(x), y)$. This is a form of &lt;strong&gt;Obfuscated Gradients&lt;/strong&gt;, which usually fails against a motivated attacker.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gradient Transparency:&lt;/strong&gt; An intelligent adversary knows the loss function. They can simply subtract $2\lambda x$ from their calculation to recover the &quot;true&quot; adversarial direction $\nabla_x \mathcal{L}(f(x), y)$. This is a form of &lt;strong&gt;Obfuscated Gradients&lt;/strong&gt;, which usually fails against a motivated attacker.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Semantic Irrelevance:&lt;/strong&gt; The term $2\lambda x$ doesn&apos;t actually make the model&apos;s features more robust; it just changes the geometry of the loss surface in a way that is easily bypassed by adjusting the attack algorithm.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -436,7 +436,11 @@
 
 \[f(x) = W_2 \cdot \text{ReLU}(W_1 \cdot x + b_1) + b_2\]
 
-&lt;p&gt;where $W_1 \in \mathbb{R}^{3 \times 3}$, $b_1 \in \mathbb{R}^3$, $W_2 \in \mathbb{R}^{1 \times 3}$, $b_2 \in \mathbb{R}$.&lt;/p&gt;</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/02/24/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
+&lt;p&gt;where $W_1 \in \mathbb{R}^{3 \times 3}$, $b_1 \in \mathbb{R}^3$, $W_2 \in \mathbb{R}^{1 \times 3}$, $b_2 \in \mathbb{R}$.&lt;/p&gt;
+
+&lt;p&gt;Assume the first layer of $f(x)$ as&lt;/p&gt;
+
+\[\]</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/02/24/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ WARNING: THE COMMANDS/SCRIPTS IN THIS PASSAGE ARE ALMOST RUN UNDER &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; PRIVILEDGES. PLEASE BE CAREFUL AND MAKE SURE WHAT YOU ARE DOING BEFORE RUNNING THOSE COMMANDS/SCRIPTS IN REAL ENVIRONMENTS.&lt;/p&gt;
