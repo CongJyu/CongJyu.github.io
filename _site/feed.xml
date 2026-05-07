@@ -1,4 +1,612 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://congjyu.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://congjyu.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-03T21:03:24+08:00</updated><id>https://congjyu.github.io/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">AI Security Topic Review</title><link href="https://congjyu.github.io/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2026/04/21/ai-security</id><content type="html" xml:base="https://congjyu.github.io/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-05-07T18:11:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rain Chen&apos;s Blog</title><subtitle>One Personal Site.</subtitle><author><name>Rain Chen</name></author><entry><title type="html">Autonomous Driving Review</title><link href="http://localhost:4000/blog/2026/05/04/autonomous-driving/" rel="alternate" type="text/html" title="Autonomous Driving Review" /><published>2026-05-04T00:00:00+08:00</published><updated>2026-05-04T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/05/04/autonomous-driving</id><content type="html" xml:base="http://localhost:4000/blog/2026/05/04/autonomous-driving/">&lt;h1 id=&quot;heading-autonomous-driving-review-problems-and-explanations&quot;&gt;Autonomous Driving Review: Problems and explanations&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-1&quot;&gt;Multiple Choice 1&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-problem-descriptions&quot;&gt;Problem Descriptions&lt;/h3&gt;
+
+&lt;p&gt;What is a key weakness of data-driven track-based prediction?&lt;/p&gt;
+
+&lt;p&gt;A. Over-reliance on hand-engineered physical models.&lt;/p&gt;
+
+&lt;p&gt;B. Inability to use HD Map context.&lt;/p&gt;
+
+&lt;p&gt;C. High computational cost and low explainability.&lt;/p&gt;
+
+&lt;p&gt;D. Cannot handle partial observation scenarios.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;C.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;For high computational cost, unlike simple kinematic models like Constant Velocity or Constant Steering Angle, data-driven models, such as LSTMs, Transformers, or Graph Neural Networks, require substantial memory and processing power. In the context of an autonomous vehicle, where predictions must be updated every few milliseconds, this &quot;compute tax&quot; is a major hurdle.&lt;/p&gt;
+
+&lt;p&gt;For low explainability, data-driven models operates as black boxes. If a model predics that a cyclist will suddenly veer into traffic, it is often impossible to trace the specific logic behind that decision within the millions of neural network weights. This makes it difficult to validate for safety-critical applications compared to model-based approaches where you can see the physical vectors.&lt;/p&gt;
+
+&lt;p&gt;Why option A is inccorect? Over-reliance on hand-engineered physical models, this is actually a weakness of model-based prediction, not data-driven prediction. Data-driven models specifically aim to move away from hand-engineered rules.&lt;/p&gt;
+
+&lt;p&gt;Why option B is inccorect? Inability to use HD Map context. Many data-driven tracked-based models like VectorNet are specifically designed to fuse agent tracks with HD map data. It is a strength of modern data-driven architectures, not a inherent weakness.&lt;/p&gt;
+
+&lt;p&gt;Why option D is inccorect? Cannot handle partial observation scenarios. Modern data-driven models are actually quite robust at &quot;filling in the gaps&quot; using learned temporal patterns via Recurrent Neural Networks or Attention mechanisms, often performing better than rigid physical models when sensor data is noisy or occluded.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-2&quot;&gt;Multiple Choice 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-problem-descriptions-1&quot;&gt;Problem Descriptions&lt;/h3&gt;
+
+&lt;p&gt;What is a key advantage of the linear quadratic regulator (LQR) compared to PID control?&lt;/p&gt;
+
+&lt;p&gt;A. Requires no tuning of parameters.&lt;/p&gt;
+
+&lt;p&gt;B. Optimizeds a quadratic cost function for linear systems (optimal control).&lt;/p&gt;
+
+&lt;p&gt;C. Works without a mathematical model of the system.&lt;/p&gt;
+
+&lt;p&gt;D. Is computationally cheaper for real-time deployment.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution-1&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;B.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-1&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;While PID control is a model-free apprach based on trial and error (tuning gains), LQR is a model-based approach that uses the physics of the system to find the mathematically best possible control strategy.&lt;/p&gt;
+
+&lt;p&gt;LQR is the gold standard for Optimal Control. It works by minimizing a specific quadratic cost function $J$.&lt;/p&gt;
+
+\[J = \int_{0}^{\infty} (x^T Q x + u^T R u)dt\]
+
+&lt;p&gt;$x^TQx$ represents the penalty for the state being away from the target (error).&lt;/p&gt;
+
+&lt;p&gt;$u^TRu$ represents the penalty for using control effort (energy/actuation).&lt;/p&gt;
+
+&lt;p&gt;By adjusting the $Q$ and $R$ matrices, an engineer can mathematically decide the exact trade-off between how fast the system reaches the target versus how much energy it consumes. PID control cannot provide this &quot;guaranteed optimality&quot; because it does not know the physics of the system.&lt;/p&gt;
+
+&lt;p&gt;Why other choices are not correct?&lt;/p&gt;
+
+&lt;p&gt;For A, requires no tuning of parameters, this is false. While we do not tune $P$, $I$, and $D$ gains directly, we must tune the weighting matrices ($Q$ and $R$).&lt;/p&gt;
+
+&lt;p&gt;For C, works without a mathematical model, this is inccorect. LQR requires a precise State-Space Model (in the form of $\dot{x} = Ax + Bu$). PID is the one that can work without a model.&lt;/p&gt;
+
+&lt;p&gt;For D, is computational cheaper, which is generally false. PID is a very simple calculation. LQR requires solving the Algebraic Riccati Equation and performing matrix multiplications online. While modern computers handle both easily, LQR is technically more complex.&lt;/p&gt;
+
+&lt;p&gt;In summary,&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Feature&lt;/th&gt;
+      &lt;th&gt;PID Control&lt;/th&gt;
+      &lt;th&gt;LQR Control&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Model Needed?&lt;/td&gt;
+      &lt;td&gt;No (Model-free)&lt;/td&gt;
+      &lt;td&gt;Yes (State-space model)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Optimality?&lt;/td&gt;
+      &lt;td&gt;No (Heuristic)&lt;/td&gt;
+      &lt;td&gt;Yes (Mathematically optimal)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Handling MIMO?&lt;/td&gt;
+      &lt;td&gt;Difficult (needs multiple loops)&lt;/td&gt;
+      &lt;td&gt;Natural (handles multiple inputs/outputs)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Complexity&lt;/td&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Moderate&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-3&quot;&gt;Multiple Choice 3&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-problem-descriptions-2&quot;&gt;Problem Descriptions&lt;/h3&gt;
+
+&lt;p&gt;In closed-loop learning for planning, what is the key advantage over open-loop learning?&lt;/p&gt;
+
+&lt;p&gt;A. No need for expert demonstration data.&lt;/p&gt;
+
+&lt;p&gt;B. Eliminates distribution shift between training and inference.&lt;/p&gt;
+
+&lt;p&gt;C. Lower computational cost during training.&lt;/p&gt;
+
+&lt;p&gt;D. Does not require simulation or real-world deployment.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution-2&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;B.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-2&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;Eliminates distribution shift between training and inference. This is a fundamental concept in imitation learning and autonomous robotics. The &quot;loop&quot; refers to whether the model&apos;s actions affect the next state it observes during the learning process.&lt;/p&gt;
+
+&lt;p&gt;In open-loop learning, a model is trained on a fixed dataset of expert demonstrations. The model learns: &quot;In state $s$, do action $a$.&quot;&lt;/p&gt;
+
+&lt;p&gt;However, at ingerence time, the model will inevitably make a tiny mistake. Because it is in a &quot;closed loop&quot; with the real world, that mistake leads to a slightly different state that what was in the training data. These errors compound quickly.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The model makes a small error.&lt;/li&gt;
+  &lt;li&gt;It enters a state it never saw during training (distribution shift).&lt;/li&gt;
+  &lt;li&gt;Because it hasn&apos;t learned what to do in that &quot;weird&quot; state, it makes an even bigger error.&lt;/li&gt;
+  &lt;li&gt;The system &quot;drifts&quot; off the path and eventrally crashes.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For choice B, closed-loop learning such as Reinforcement Learning or DAgger allows the model to interact with the environment during training. It exxperiences the consequences of its own actions. It learns how to recover from its own mistakes. By training on the states it actually visits rather than just the expert&apos;s perfect states the &quot;training distribution&quot; matches the &quot;inference distribution,&quot; effectively eliminating the shift.&lt;/p&gt;
+
+&lt;p&gt;For choice A, no need for expert demonstration data. It is incorrect. Many closed-loop methods, like DAgger, specifically rely on an expert to &quot;label&quot; the new states the model visits.&lt;/p&gt;
+
+&lt;p&gt;For choice C, lower computational cost during training. It is also incorrect. Closed-loop learning is significantly more expensive because you have to constantly run a simulator or the real robot and potentally query an expert for new labels.&lt;/p&gt;
+
+&lt;p&gt;For choice D, does not require simulation or real-world deployment. This is the opposite of the truth. A simulator or a real-world environment is a must to close the loop; otherwise, it may stack with a static (open-loop) dataset.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-4&quot;&gt;Multiple Choice 4&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-problem-description&quot;&gt;Problem Description&lt;/h3&gt;
+
+&lt;p&gt;What is a core challenge of using Reinforcement Learning (RL) for real-world autonomous driving planning?&lt;/p&gt;
+
+&lt;p&gt;A. Cannot incorporate expert demonstration data.&lt;/p&gt;
+
+&lt;p&gt;B. Prohibitive sample inefficiency and safety risks.&lt;/p&gt;
+
+&lt;p&gt;C. Lacks interpretability compared to rule-based methods.&lt;/p&gt;
+
+&lt;p&gt;D. Cannot handle dynamic obstacle interactions.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution-3&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;B.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-3&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;While Reinforcement Learning (RL) has shown incredible success in virtual environments, transitioning that success to the &quot;real-world&quot; roads is difficult because of how RL agents learn.&lt;/p&gt;
+
+&lt;p&gt;Why Choice B is correct? Reiniforcement Learning is fundatmentally based on trial and error. In an autonomous driving context, this leads two massive roadblocks.&lt;/p&gt;
+
+&lt;p&gt;One is sample inefficiency. To learn a complex behavior, like navigating a busy intersection, an RL agent might need millions of training episodes. In the real world, we cannot afford the time of the fleet size required to gather that much data through &quot;discovery&quot;.&lt;/p&gt;
+
+&lt;p&gt;The other one is safety risks (the exploration problem). For an RL agent to learn that &quot;crashing into a wall is bad,&quot; it technically has to &quot;explore&quot; that action or get very close to it to receive a negative reward. In a simulator, this is fine; in a 4000-pound vehicle on a public road, &quot;exploring&quot; a collision is catastrophic. This makes safe exploration one of the biggest hurdles in the field.&lt;/p&gt;
+
+&lt;p&gt;Why other choices are incorrect?&lt;/p&gt;
+
+&lt;p&gt;For A, cannot incorporate expert demonstration data. This is false. Techniques like Imitation Learning or Pre-training with Expert Demonstrations are frequently used to kickstart an RL agent so it does not start from zero.&lt;/p&gt;
+
+&lt;p&gt;For C, lacks interpretaility compared to rule-based methods. While true that RL is a &quot;black box&quot; compared to &quot;if-then&quot; rules, this is a general weakness of all deep learning methods. Choice B is considered a more specific core challenge for deployment because even a &quot;black box&quot; that worked perfectly would be deployed if it weren&apos;t so dangerous and slow to train.&lt;/p&gt;
+
+&lt;p&gt;For D, cannot handle dynamic obstacle interactions. This is incorrect. One of the main reasons researchers want to use RL is that it is actually better at handling complex, dynamic interactions than rigid, rule-based systems. The problem is not the capability, it is the training process.&lt;/p&gt;
+
+&lt;p&gt;The &quot;Sim-to-REal&quot; Gap&lt;/p&gt;
+
+&lt;p&gt;To solve these issues, researchers often train RL agents in high-fidelity simulators. However, this introduces the Reality Gap, a policy that learns to drive perfectly in a simulation may fail in the real world because the simulator&apos;s physics or sensor noise is not 100% accurate.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-5&quot;&gt;Multiple Choice 5&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-problem-description-1&quot;&gt;Problem Description&lt;/h3&gt;
+
+&lt;p&gt;In camera-based 3D perception, what is the core idea of the &quot;Lift to 3D at Input&quot; approach?&lt;/p&gt;
+
+&lt;p&gt;A. Convert image to pseudo-LiDAR via dense depth prediction.&lt;/p&gt;
+
+&lt;p&gt;B. Re-parameterize output of off-the-shelf 2D detectors.&lt;/p&gt;
+
+&lt;p&gt;C. Project 2D feature map to 3D/BEV space via camera intrinsic/extrinsic&lt;/p&gt;
+
+&lt;p&gt;D. Detect objects in 2D first then localize them in 3D.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution-4&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;C.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-4&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;The correct answer is C. Project 2D feature map to 3D/BEV space via camera intrinsic/extrinsic.&lt;/p&gt;
+
+&lt;p&gt;This approach is the foundation of modern Bird&apos;s Eye View (BEV) perception stacks, famouly popularized by architectures like LSS (Lift, Splat, Shoot). Instead of detecting objects in individual images and trying to &quot;switch&quot; them together later, the model transforms the raw visual data into a 3D-consistent space early in the pipeline.&lt;/p&gt;
+
+&lt;p&gt;The &quot;code idea&quot; is a geometric transformation. Because 2D images lack depth, the model must &quot;lift&quot; the 2D features into 3D. This involves:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Feature Extraction: Running a standard backbone on the 2D images.&lt;/li&gt;
+  &lt;li&gt;Lifting: Assigning a depth estimate (often a probability distribution) to each feature.&lt;/li&gt;
+  &lt;li&gt;Geometric Projection: Using the Camera Intrinsics ($K$) and Extrinsics ($[R \vert t]$) to map those 2D features into a 3D voxel grid of BEV plane. THe math follows the standard pinhole camera projection model:&lt;/li&gt;
+&lt;/ol&gt;
+
+\[z = \begin{bmatrix}
+    u \\ v \\ 1
+\end{bmatrix} = K (R \mathbf{X} + t)\]
+
+&lt;p&gt;where $\mathbf{X}$ is the 3D coordinate and $(u, v)$ is the image coordinate.&lt;/p&gt;
+
+&lt;p&gt;Why the others are incorrect?&lt;/p&gt;
+
+&lt;p&gt;For A, convert image to pseudo-LiDAR. THis is specifically the Pseudo-LiDAR paradigm. While it is a form of lifting, it focusses on creating a point cloud from depth maps rather than projecting features maps into a unified latent space. It is considered a subset/precursor to the more general feature-lifting in Choice C.&lt;/p&gt;
+
+&lt;p&gt;For B, Re-parameterize output of 2D detectors. This is known as &quot;Lifting at the Output.&quot; Models like FCOS3D detect objects in 2D first and then use geometric constraints to &quot;guess&quot; the 3D bounding box dimensions. This is the opposite of Choice C, which lifts at the input/feature stage.&lt;/p&gt;
+
+&lt;p&gt;For D, dtect objects in 2D first. This refers to &quot;2D-Driven 3D Detection&quot;. It relies on a 2D crop to narrow down the search space in 3D, rather than creating a global 3D representation from the start.&lt;/p&gt;
+
+&lt;p&gt;Key Advantage&lt;/p&gt;
+
+&lt;p&gt;By lifting to 3D at the input/feature level, the system can naturally fuse data from multiple cameras into a single, seamless top-down view. This eliminates the &quot;double-counting&quot; of objects that appear in the overlap between two camera feeds.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-6&quot;&gt;Multiple Choice 6&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-descriptions&quot;&gt;Descriptions&lt;/h3&gt;
+
+&lt;p&gt;What is a major disadvantage of Model Predictive Control (MPC) for autonomous driving?&lt;/p&gt;
+
+&lt;p&gt;A. Cannot handle hard constraints (e.g. max steering rate)&lt;/p&gt;
+
+&lt;p&gt;B. Slower than traditional methods (e.g. PID) due to optimization&lt;/p&gt;
+
+&lt;p&gt;C. Requires no vehicle model to operate&lt;/p&gt;
+
+&lt;p&gt;D. Fails to minimize tracking errors for dynamic trajectories&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution-5&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;B.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-5&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;Slower than traditional methods (e.g. PID) due to optimization. Model Predictive Control (MPC) is incredibly powerful, but its &quot;brain&quot; has to work much harder than a PID controller or a simple Pure Pursuit algorithm.&lt;/p&gt;
+
+&lt;p&gt;Unlike PID, which simply reacts to the current error, MPC is an online optimizer. At every single time step, the vehicle must:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Predict the future state of the car over a &quot;horizon&quot; (e.g. the next 2 - 5 seconds).&lt;/li&gt;
+  &lt;li&gt;Solve a complex mathematical optimization problem to find the best sequence of steering and acceleration commands.&lt;/li&gt;
+  &lt;li&gt;Repeat this entire process for the next time step.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you have a complex non-linear vehicle model or a long prediction horizon, this requires significant CPU/GPU power. In the high-spped world of autonomous driving, if the optimization takes too long to solve, the &quot;optimal&quot; command arrives too late to be useful.&lt;/p&gt;
+
+&lt;p&gt;Why the others are incorrect?&lt;/p&gt;
+
+&lt;p&gt;For A, cannot handle hard constraints. This is actually the main advantage of MPC. It is specifically designed to respect physical limits, like &quot;don&apos;t turn the steering wheel faster than 40 degrees/sec&quot; or &quot;don&apos;t exceed 65 mph.&quot;&lt;/p&gt;
+
+&lt;p&gt;For C, requires no vehicle model to operate. This is incorrect. MPC is a model-based controller. It absolutely requires a mathematical model (kinematic or dynamic) to predict how the car will behave in the future.&lt;/p&gt;
+
+&lt;p&gt;For D, fails to minimize tracking errors. Incorrect. MPC is generally better at minimizing tracking errors than PID because it &quot;sees&quot; the curves comming in the trajectory and can start turning on the path perfectly.&lt;/p&gt;
+
+&lt;p&gt;Summary, the MPC trade-off.&lt;/p&gt;
+
+&lt;p&gt;Think of PID as a driver who only looks at the road 1 foot in front of the bumper, fast and simple, but twitchy. Think of MPC as a driver looking 100 feet ahead and calculating the perfect line, smooth and safe, but requires a lot of &quot;mental&quot; effort to process.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-multiple-choice-7&quot;&gt;Multiple Choice 7&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-descriptions-1&quot;&gt;Descriptions&lt;/h3&gt;
+
+&lt;p&gt;What is the key function of the Derivative (D) element in a PID controller?&lt;/p&gt;
+
+&lt;p&gt;A. Amplify the current error to speed up response.&lt;/p&gt;
+
+&lt;p&gt;B. Correct steady-state errors to speed up response.&lt;/p&gt;
+
+&lt;p&gt;C. Introduce damping to reduce overshoot and oscillation.&lt;/p&gt;
+
+&lt;p&gt;D. Switch abruptly between two control states.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-solution-6&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;C.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-6&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;While the Proportional (P) term looks at the present and the Integral (I) term looks at the past, the Derivative (D) term is the &quot;prophet&quot; of the PID controller, it looks at the future.&lt;/p&gt;
+
+&lt;p&gt;The Derivative term calculates the rate of change of the error. Its primary job is to act as a &quot;brake&quot; or a shock absorber for the system.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Anticipation: If the error is decreasing rapidly (meaning the system is approaching the target very fast), the derivative of the error becomes negative. This substracts from the total control output.&lt;/li&gt;
+  &lt;li&gt;Damping: By pushing back against the motion as the system nears its goal, the D term prevents the system from &quot;sprinting&quot; past the target. This reduces overshoot and settles the oscillations that a high P-gain would otherwise cause.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Why the others are incorrect?&lt;/p&gt;
+
+&lt;p&gt;For A, amplify the current error. THis is the job of the Proportional (P) term. A higher P-gain makes the system more aggresive in the present but oftern leads to overshoot.&lt;/p&gt;
+
+&lt;p&gt;For B, correct steady-state errors. This is the job of the Integral (I) term. The I term accumulates small errors over time to ensure the system eventually reaches the exact target, even if there is a constant bias (like wind pushing against a drone).&lt;/p&gt;
+
+&lt;p&gt;For D, switch abruptly between two states. This describes a Bang-Bang controller (like a basic thermostat that is either 100% ON or 100% OFF), not a PID controller, which provides a smooth, continuous output.&lt;/p&gt;
+
+&lt;p&gt;The &quot;D&quot; Trade-off: Noise&lt;/p&gt;
+
+&lt;p&gt;While the D term is great for stability, its biggest weakness is high-frequency noise. Sins the derivative is the slope of the error, a tiny bit of &quot;jitter&quot; in a sensor reading can result in a massive, spikey derivative. This is why, in real-world applications, the D-term is almost always paired with a low-pass filter to keep the &quot;brakes&quot; from stuttering.&lt;/p&gt;
+
+&lt;p&gt;The standard PID formula in the time domain is:&lt;/p&gt;
+
+\[u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau) d \tau + K_d \frac{de(t)}{dt}\]
+
+&lt;h2 id=&quot;heading-simple-answer-question-1&quot;&gt;Simple Answer Question 1&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-descriptions-2&quot;&gt;Descriptions&lt;/h3&gt;
+
+&lt;p&gt;Compare the core differences between GNSS-based and Environment Perception-Based localization in update rate and drift characteristics, and analyze the impact of these differences on the real-time control of autonomous driving.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-7&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Feature&lt;/th&gt;
+      &lt;th&gt;GNSS&lt;/th&gt;
+      &lt;th&gt;Environment Perception&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Update Rate&lt;/td&gt;
+      &lt;td&gt;Low (Typically 1Hz - 10Hz)&lt;/td&gt;
+      &lt;td&gt;High (Typically 10Hz - 100Hz)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Drift&lt;/td&gt;
+      &lt;td&gt;Zero cumulative drift (Global reference)&lt;/td&gt;
+      &lt;td&gt;Cumulative drift (Incremental relative motion)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Accuracy&lt;/td&gt;
+      &lt;td&gt;Decimeters (RTK) to Meters (Standard)&lt;/td&gt;
+      &lt;td&gt;Centimeters (Relative to surroundings)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Environment&lt;/td&gt;
+      &lt;td&gt;Needs clear sky (Fails in tunnels/canyons)&lt;/td&gt;
+      &lt;td&gt;Needs features (Fails in fog/featureless roads)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;GNSS: The &quot;Noisy Truth&quot;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;GNSS provides a global coordinate. Its greatest strength is that it does not &quot;drift.&quot; If one is at Point A, and he drive 100 miles to Point B, the error at Point B is roughly the same as it was at Point A.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Problem: The update rate is slow (10Hz is standard for high-end units). In a caar moving at 65 mph (approx. 29 m/s), a 10 Hz sensor only gives a position every 2.9 meters. For high-speed control, that is a massive, dangerous gap. Furthermore, GNSS suffers from multipath errors in cities, causing the position to &quot;jump&quot; suddenly by several meters.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Environment Perception: The &quot;Smooth Liar&quot;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;EPB methods (like LiDAR mapping or Visual Odometry) compare current sensor data to previous frames or a pre-built HD map.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Strengh: Because these sensors (Cameras/LiDAR) operate at high frequencies and prvide dense data, the localization is incredibly smooth and precise in the short term.&lt;/li&gt;
+  &lt;li&gt;The Problem: Because they calculate motion relative to the last know position, tiny errors add up. This is cumulative drift. Without a global reset, a car relying solely on odometry will think it is in a different zip code than it actually is.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Impact on Real-Time Control&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The differences between these two systems dictate how the vehicle actually &quot;feels&quot; on the road.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The &quot;Control Latency&quot; Problem&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Vehicle controllers (like the PID or MPC mentioned earlier) usually require feedback at 50Hz to 100Hz to maintain stability, especially at high speeds.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If used GNSS alone, the controller would be &quot;blind&quot; between those 10Hz updates. The car would likely oscillate or &quot;hunt&quot; for the lane center because the feedback is too slow to catch small deviations.&lt;/li&gt;
+  &lt;li&gt;EPB and IMUs (Inertial Meaurement Units) provide the high-frequency &quot;filter&quot; that allows the controller to make micro-adjustments to steering and braking every few milliseconds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Glabal vs. Local Consistency&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Real-Time Steering: This relies on Local Consistency. The car doesn&apos;t care if its Latitude/Longitude is off by a meter as long as it knows it is exactly 20cm from the left lane line. Perception-based localization excels here.&lt;/li&gt;
+  &lt;li&gt;Path Planning: This relies on Global Consistency. if the car is navigating to a specific highway exit 5 miles away, it needs GNSS to ensure it does not drift off the global map and miss the turn entirely.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;heading-simple-answer-question-2&quot;&gt;Simple Answer Question 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-descriptions-3&quot;&gt;Descriptions&lt;/h3&gt;
+
+&lt;p&gt;Explain the three main approaches of &quot;Lift to 3D&quot; in camera-based 3D perception (Output/Input/Feature Map), and list one strength for each approach.&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-8&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;In camera-based 3D perception, &quot;lifting&quot; refers to the mathematical and architectural process of recovering the missing depth dimension to transform 2D image data into a 3D spatial representation. The three approaches differ primarily in where in the neural network pipeline this transformation occurs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Lift at Output (Image-to-3D)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In this approach, the network processes the image entirely in 2D using standard convolutional backbones. The &quot;lifting&quot; happens at the very end (the prediction heads), where the model attempts to regress 3D properties directly from 2D features.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How it works: A 2D detector identifies an object and its bounding box. The model then predcts additional 3D attributes like the object&apos;s depth ($d$), 3D dimensions $(w, h, l)$, and orientation ($\theta$) based on visual cues (e.g. the object&apos;s size in the image or perspective lines).&lt;/li&gt;
+  &lt;li&gt;Key Strength: Low Computational Latency. Since the heavy lifting (feature extraction) happens in 2D, these models are extremely fast and can often run in real-time on low-power hardware.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Lift at Input (Pseudo-LiDAR)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This approach transforms the 2D data into a 3D representation before the main detection of perception task begins. It essentially tries to make a camera &quot;act&quot; like a LiDAR sensor.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How it works: The system uses a dedicated sub-network to perform dense depth estimation for every pixel in the image. This depth map is then projected into 3D space using camera intrinsics to create a Pseudo-LiDAR point cloud. A standard 3D detection network (designed for LiDAR) is then run on this point cloud.&lt;/li&gt;
+  &lt;li&gt;Key Strength: High Interpretability. Because the intermediate output is a physical 3D point cloud, engineers can visually inspect the depth accuracy, making it easier to debug sensor calibration or depth estimation errors.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Lift at Feature Map (BEV/Latent Space)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the state-of-the-art approach used by systems like Tesla&apos;s FSD and various BEV (Bird&apos;s Eye View) models. It lifts intermediate latent features rather than raw pixels or final detections.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How it works: A 2D backbone extracts feature maps from multiple camera images. These feature maps are then projected into a unified 3D &quot;Voxel&quot; or 2D &quot;BEV&quot; grid using geometric transformations (like the Lift-Splat-Shoot method). THe network then performs detection or motion planning directly in this unified top-down space.&lt;/li&gt;
+  &lt;li&gt;Key Strenght: native Multi-View Fusion. Because the features are lifted into a common 3D space, the model can seamlessly &quot;switch&quot; together information from different cameras. An object partially visible in the front-left and side-left cameras is seen as a single coherent entity in the BEV feature map.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Summary Table&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Approach&lt;/th&gt;
+      &lt;th&gt;Where Lifting Occurs&lt;/th&gt;
+      &lt;th&gt;Core Mechanism&lt;/th&gt;
+      &lt;th&gt;Main Strength&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Output&lt;/td&gt;
+      &lt;td&gt;Prediction Heads&lt;/td&gt;
+      &lt;td&gt;Regression of 3D attributes&lt;/td&gt;
+      &lt;td&gt;Speed &amp;amp; Efficiency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Input&lt;/td&gt;
+      &lt;td&gt;Pre-processing&lt;/td&gt;
+      &lt;td&gt;Dense Depth $\rightarrow$ Point Cloud&lt;/td&gt;
+      &lt;td&gt;Physical Interpretability&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Feature Map&lt;/td&gt;
+      &lt;td&gt;intermediate Layers&lt;/td&gt;
+      &lt;td&gt;Geometric Projection to BEV&lt;/td&gt;
+      &lt;td&gt;Seamless Multi-Camera Fusion&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;heading-simple-answer-question-3&quot;&gt;Simple Answer Question 3&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-descriptions-4&quot;&gt;Descriptions&lt;/h3&gt;
+
+&lt;p&gt;What are affordances in motion planning, and what are their key advantages and limitations compared to direct actuation output (steering/acceleration)?&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-9&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;In the context of motion planning, affordances are intermediate, high-level features that represent the &quot;state of the world&quot; in a way that is directly relevant to driving tasks.&lt;/p&gt;
+
+&lt;p&gt;Instead of a model trying to go straight from raw camera pixels to a steering wheel angle (End-to-End) or trying to identify every single pixel in the scene (Semantic Segmentation), it extracts specific &quot;labels&quot; that matter for decision-making.&lt;/p&gt;
+
+&lt;p&gt;What do they look like?&lt;/p&gt;
+
+&lt;p&gt;Typical affordances in autonomous driving include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Distance to the lane center: How far left or right am I?&lt;/li&gt;
+  &lt;li&gt;Heading angle: Is my car pointed parallel to the road or at an angle?&lt;/li&gt;
+  &lt;li&gt;Distance to the preceding vehicle: How much &quot;gap&quot; do I have?&lt;/li&gt;
+  &lt;li&gt;Relative speed: is the car in front pulling away or braking?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages Over Direct Actuation (End-to-End)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The &quot;Direct Acuation&quot; approach, where a neural network takes an image and outputs a torque value, is often called a black box. Affordances offer a more transparent middle ground.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Interpretability: If the car suddenly swerves, we can check the affordances. Did it think the lane center was 2 meters to the left? This makes debugging and safety validation much easier.&lt;/li&gt;
+  &lt;li&gt;Reduced Distribution Shigt: Steering commands are specific to a single car&apos;s physics (tires, weight, steering rack). Affordances (like &quot;I am 1 meter from the curb&quot;) are universal. A model trained to find affordances on a Toyota can theoretically be used on a Tesla without starting from scratch.&lt;/li&gt;
+  &lt;li&gt;Easier Learning Task: It is mathematically &quot;easier&quot; for a network to learn geometry (lines and distances) than it is to learn the complex mapping between a blurry pixel and the exact voltage needed for a steering motor.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Limitations of Affordances&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While they sound like the perfect compromise, affordances introduce their own set of &quot;robotic&quot; headaches.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Information Bottlenecks: By condensing a rich, 4K camera feed into just 10 or 15 numbers (affordances), you might throw away the &quot;reason&quot; for an action. For example, if there is a massive pothole in the lane, a standard affordance model might not have a &quot;distance to pothole&quot; label, forcing the car to drive right through it because it only cares about &quot;distance to lane center.&quot;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cascading Errors: If the affordance extractor makes a mistake (e.g., misidentifying a guardrail as a lane line), the motion planner will perfectly execute a &quot;safe&quot; path right into the rail. In direct actuation, the model might implicitly learn to avoid the visual texture of a guardrail.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Manual Engineering: Someone has to decide which affordances matter. If you forget to include &quot;pedestrian intent&quot; as an affordance, your planner will be &quot;blind&quot; to the person about to step off the curb until they are physically in the way.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Comparison Summary&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Feature&lt;/th&gt;
+      &lt;th&gt;Direct Actuation (End-to-End)&lt;/th&gt;
+      &lt;th&gt;Affordance-Based Planning&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Logic&lt;/td&gt;
+      &lt;td&gt;&quot;See pixel, move wheel&quot;&lt;/td&gt;
+      &lt;td&gt;&quot;See world, calculate distances, move wheel&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Transparency&lt;/td&gt;
+      &lt;td&gt;Low (Black Box)&lt;/td&gt;
+      &lt;td&gt;High (Explainable)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Generalization&lt;/td&gt;
+      &lt;td&gt;Specific to vehicle dynamics&lt;/td&gt;
+      &lt;td&gt;Generic across different vehicles&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Failure Mode&lt;/td&gt;
+      &lt;td&gt;Unpredictable &quot;weird&quot; behaviors&lt;/td&gt;
+      &lt;td&gt;Predictable but limited by labels&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;heading-simple-answer-question-4&quot;&gt;Simple Answer Question 4&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-descriptions-5&quot;&gt;Descriptions&lt;/h3&gt;
+
+&lt;p&gt;Given the pseudocode of the traditional CV lane detection algorithm, answer the following questions:&lt;/p&gt;
+
+&lt;p&gt;(1) What is the purpose of the ROI masking step?
+(2) Which line converts edge pixels into detected lane segments?&lt;/p&gt;
+
+&lt;p&gt;Algorithm 1 CV Lane Detection&lt;/p&gt;
+
+&lt;p&gt;Input: RGB Image $I \in \mathbb{R}^{H \times W \times 3}$&lt;/p&gt;
+
+&lt;p&gt;Parameters: Gaussian kernel $k$, Canny thresholds $T$, ROI vertices $V$, Hough parameters $\rho$&lt;/p&gt;
+
+&lt;p&gt;Output: Set of detected lane segments $\mathcal{L} = {(x_1, y_1, x_2, y_2)}$&lt;/p&gt;
+
+&lt;p&gt;1 $G \leftarrow \text{ConvertToGrayscale}(I)$&lt;/p&gt;
+
+&lt;p&gt;2 $B \leftarrow \text{GaussianBlur}(G, k)$&lt;/p&gt;
+
+&lt;p&gt;3 $E \leftarrow \text{CannyEdgeDetection}(B, T)$&lt;/p&gt;
+
+&lt;p&gt;4 $M_{roi} \leftarrow \text{GenerateMask}(V, shape(E))$&lt;/p&gt;
+
+&lt;p&gt;5 $E_{masked} \leftarrow E \bigodot M_{roi}$&lt;/p&gt;
+
+&lt;p&gt;6 $\mathcal{L} \leftarrow \text{HoughLineTransform}(E_{masked}, \rho)$&lt;/p&gt;
+
+&lt;p&gt;7 $\text{return } \mathcal{L}$&lt;/p&gt;
+
+&lt;h3 id=&quot;heading-explanations-10&quot;&gt;Explanations&lt;/h3&gt;
+
+&lt;p&gt;(1) Purpose of the ROI Masking Step&lt;/p&gt;
+
+&lt;p&gt;Th Region of Interest (ROI) masking step is designed to eliminate visual noise and irrelecant data from the image.&lt;/p&gt;
+
+&lt;p&gt;In a standard driving scene, the top half of the frame typically contains the sky, trees, or buildings. While these areas may contain &quot;edges&quot; (captured by the Canny detector in Line 3), they are not relevant to lane tracking. By applying the mask $M_{roi}$ via element-wise multiplication ($\bigodot$).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Accuracy: It prevents the Hough Transform from accidentally detecting the horizon, power lines, or guardrails as lanes.&lt;/li&gt;
+  &lt;li&gt;Efficiency: It restricts the search space for the line dtection algorithm to the specific portion of the road where lanes are physically expected to appear.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(2) Conversion of Edge Pixels into Lane Segments&lt;/p&gt;
+
+&lt;p&gt;The line that performs this conversion is Line 6:&lt;/p&gt;
+
+\[\mathcal{L} \leftarrow \text{HoughLineTransform}(E_{masked}, \rho)\]
+
+&lt;p&gt;Until this point in the algorithm, the data consists of a &quot;mask&quot; or a &quot;map&quot; of pixels, $E_{masked}$ is essentially a binary image where $1$ is an edge and $0$ is nothing. The computer doesn&apos;t &quot;know&quot; these are lines yet, it just sees a collection of scattered points.&lt;/p&gt;
+
+&lt;p&gt;The Hough Line Transform is the mathematical bridge. It uses a voting procedure in a parameter space (Hough Space) to determine which sets of edge pixels align into a coherent linear shape. It then outputs the coordinates ($\mathcal{L}$) of the start and end points of those segments, effectively turning &quot;dots on a grid&quot; into &quot;vector geometry&quot;.&lt;/p&gt;</content><author><name>Rain</name></author><category term="Autonomous Driving" /><category term="Review" /><category term="Lectures" /><summary type="html">Autonomous Driving Review: Problems and explanations</summary></entry><entry><title type="html">AI Security Topic Review</title><link href="http://localhost:4000/blog/2026/04/21/ai-security/" rel="alternate" type="text/html" title="AI Security Topic Review" /><published>2026-04-21T00:00:00+08:00</published><updated>2026-04-21T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/04/21/ai-security</id><content type="html" xml:base="http://localhost:4000/blog/2026/04/21/ai-security/">&lt;h1 id=&quot;heading-ai-security-topic-review&quot;&gt;AI Security Topic Review&lt;/h1&gt;
 
 &lt;p&gt;Updated 3 May 2026.&lt;/p&gt;
 
@@ -610,7 +1218,112 @@ b_1 = \begin{bmatrix} 0 \ -0.5 \ -0.3 \end{bmatrix}.\]
 
 &lt;h3 id=&quot;heading-attack-methods-1&quot;&gt;Attack Methods&lt;/h3&gt;
 
-&lt;h4 id=&quot;heading-defense-taxonomy&quot;&gt;Defense Taxonomy&lt;/h4&gt;</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="https://congjyu.github.io/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2026/02/24/MySQL</id><content type="html" xml:base="https://congjyu.github.io/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
+&lt;h4 id=&quot;heading-defense-taxonomy&quot;&gt;Defense Taxonomy&lt;/h4&gt;
+
+&lt;p&gt;By Defender&apos;s Goal&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Backdoor Removal/Mitigation: climinate the backdoor effect&lt;/li&gt;
+  &lt;li&gt;Backdoor Detection: deteermin if a model is poisoned or screen specific inputs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;By DNN Lifecycle&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pre-training: Data sanitization&lt;/li&gt;
+  &lt;li&gt;In-training: Robust training&lt;/li&gt;
+  &lt;li&gt;Post-trainig: Model inspection and input filtering after deployment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-typical-techniques&quot;&gt;Typical Techniques&lt;/h4&gt;
+
+&lt;p&gt;In-training&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model orthogonalization (removal/mitigation)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Post-training&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fine-pruning (removal/mitigation)&lt;/li&gt;
+  &lt;li&gt;Neural cleanse (detection) (reverse engineering)&lt;/li&gt;
+  &lt;li&gt;Meta Neural Trojan Detection (detection)&lt;/li&gt;
+  &lt;li&gt;STRIP (detection)&lt;/li&gt;
+  &lt;li&gt;Topological Evolution Dynamics (detection)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;heading-sample-question-5-data-poisoning&quot;&gt;Sample Question 5: Data Poisoning&lt;/h4&gt;
+
+&lt;p&gt;Consider a supervised learning model $f(x; \theta)$ trained using loss function $\mathcal{L}$. An attacker aims to perform a &lt;em&gt;untargeted data poisoning attack&lt;/em&gt; by injecting a small set of poisoned samples $D_{poison} = {(x_p, y_p)}$ into the training dataset.&lt;/p&gt;
+
+&lt;p&gt;The attacker&apos;s goal is to cause a specific target input $x_t$ to be misclassified to any label $y_{adv} \neq y_t$.&lt;/p&gt;
+
+&lt;p&gt;Answer the following questions:&lt;/p&gt;
+
+&lt;p&gt;(i) Formulate the poisoning attack as a bilevel optimization problem. Clearly define the outer and inner problems.&lt;/p&gt;
+
+&lt;p&gt;(ii) Revise the optimization problem in (i) to ensure stealthiness by llimiting the deviation of poisoned samples from clean data.&lt;/p&gt;
+
+&lt;p&gt;Solutions:&lt;/p&gt;
+
+&lt;p&gt;(i) Bilevel optimization formulation for untargeted data poisoning&lt;/p&gt;
+
+&lt;p&gt;The attacker wants to craft a small set of poisoned samples $D_{\text{poison}} = {(x_p, y_p)}$ such that, after training on the combined dataset $D_{\text{clean}} \cup D_{\text{poison}}$, the resulting model misclassifies a specific target input $x_t$ to any label $y_{\text{adv}} \neq y_t$.&lt;/p&gt;
+
+&lt;p&gt;Inner problem (training): The defender trains the model by minimizing the loss on the poisoned training set:&lt;/p&gt;
+
+\[\theta^*(D_{\text{poison}}) = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y)\]
+
+&lt;p&gt;Outer problem (attacker): The attacker chooses $D_{\text{poison}}$ to maximize the loss on the target input $x_t$ with incorrect label $y_{\text{adv}}$, or equivalently to cause misclassification:&lt;/p&gt;
+
+\[\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^*(D_{\text{poison}})), y_{\text{adv}})\]
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;subject to constraints such as $&lt;/td&gt;
+      &lt;td&gt;D_{\text{poison}}&lt;/td&gt;
+      &lt;td&gt;\leq \epsilon$ (small fraction of total data).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Thus the full bilevel problem is:&lt;/p&gt;
+
+\[\begin{aligned}
+&amp;amp;\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
+&amp;amp;\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
+&amp;amp;\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t
+\end{aligned}\]
+
+&lt;p&gt;(ii) Revised formulation with stealthiness constraint&lt;/p&gt;
+
+&lt;p&gt;To ensure stealthiness, we want the poisoned samples to look similar to clean data so they are hard to detect by data inspection or outlier detection. This is typically enforced by limiting the deviation of each poisoned sample $(x_p, y_p)$ from some clean base sample or from the clean data distribution.&lt;/p&gt;
+
+&lt;p&gt;One common approach constrains the $\ell_p$-norm difference between the poisoned features and their clean counterparts:&lt;/p&gt;
+
+\[\begin{aligned}
+&amp;amp;\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
+&amp;amp;\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
+&amp;amp;\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t, \\
+&amp;amp;\quad {\vert x_p - x_{\text{base}}\vert}_p \leq \delta \quad \text{for each poisoned sample}, \\
+&amp;amp;\quad y_p \text{ is plausible (e.g., correctly labeled for the base image)}.
+\end{aligned}\]
+
+&lt;p&gt;The constraint ${\vert x_p - x_{\text{base}}\vert}_p \leq \delta$ ensures that poisoned samples are close to some clean data point $x{\text{base}}$ (e.g., the original clean version of that sample), making them visually or statistically similar to legitimate training data. The bound $\delta$ controls the stealthiness level—smaller $\delta$ means more stealthy but possibly less effective attack.&lt;/p&gt;
+
+&lt;h2 id=&quot;heading-privacy-attacks-and-defencse&quot;&gt;Privacy Attacks and Defencse&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-privacy-attacks&quot;&gt;Privacy Attacks&lt;/h3&gt;
+
+&lt;p&gt;Membership inference:&lt;/p&gt;
+
+&lt;p&gt;Attribute inference:&lt;/p&gt;
+
+&lt;p&gt;Model inversion:&lt;/p&gt;
+
+&lt;p&gt;Training example extraction:&lt;/p&gt;</content><author><name>Rain</name></author><category term="AI Security" /><category term="Review" /><category term="Lectures" /><summary type="html">AI Security Topic Review</summary></entry><entry><title type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</title><link href="http://localhost:4000/blog/2026/02/24/MySQL/" rel="alternate" type="text/html" title="The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore" /><published>2026-02-24T00:00:00+08:00</published><updated>2026-02-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/02/24/MySQL</id><content type="html" xml:base="http://localhost:4000/blog/2026/02/24/MySQL/">&lt;h1 id=&quot;heading-the-night-up-level-mysql-documentation-for-database-deploy-upgrade-backup-and-restore--起夜級-mysql-數據庫部署升級備份及恢復文檔&quot;&gt;The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ WARNING: THE COMMANDS/SCRIPTS IN THIS PASSAGE ARE ALMOST RUN UNDER &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; PRIVILEDGES. PLEASE BE CAREFUL AND MAKE SURE WHAT YOU ARE DOING BEFORE RUNNING THOSE COMMANDS/SCRIPTS IN REAL ENVIRONMENTS.&lt;/p&gt;
@@ -1870,7 +2583,7 @@ xtrabackup &lt;span class=&quot;nt&quot;&gt;--backup&lt;/span&gt; &lt;span class
 
 &lt;h2 id=&quot;heading-8-diagnose--問題排查及解決方法&quot;&gt;8. Diagnose | 問題排查及解決方法&lt;/h2&gt;
 
-&lt;p&gt;つづく…&lt;/p&gt;</content><author><name>Rain</name></author><category term="Database" /><category term="SQL" /><category term="Documentation" /><summary type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</summary></entry><entry><title type="html">Make Mac an RDP Server</title><link href="https://congjyu.github.io/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2026/01/24/xrdp</id><content type="html" xml:base="https://congjyu.github.io/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-an-rdp-server--使用-rdp-遠程連接-mac-mini&quot;&gt;Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini&lt;/h1&gt;
+&lt;p&gt;つづく…&lt;/p&gt;</content><author><name>Rain</name></author><category term="Database" /><category term="SQL" /><category term="Documentation" /><summary type="html">The &quot;Night-Up&quot; Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore | 「起夜」級 MySQL 數據庫部署、升級、備份及恢復文檔</summary></entry><entry><title type="html">Make Mac an RDP Server</title><link href="http://localhost:4000/blog/2026/01/24/xrdp/" rel="alternate" type="text/html" title="Make Mac an RDP Server" /><published>2026-01-24T00:00:00+08:00</published><updated>2026-01-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/2026/01/24/xrdp</id><content type="html" xml:base="http://localhost:4000/blog/2026/01/24/xrdp/">&lt;h1 id=&quot;heading-make-mac-an-rdp-server--使用-rdp-遠程連接-mac-mini&quot;&gt;Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ THIS POST HAS A &quot;靈車漂移&quot; TAG, AND DOES NOT GUARANTEE STABILITY.&lt;/p&gt;
@@ -2157,7 +2870,7 @@ brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libxrandr
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; can work on macOS, making it possible to use RDP (including the built-in Remote Desktop on Windows) connect to Mac. RDP cannot realize the &quot;dynamic resolution&quot; on macOS and some Linux distros. These limitations are from the operating systems, not from remote desktop protocols.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 可以喺 macOS 上面運行，可以令到 macOS 使用 RDP 來被遠程連接。RDP 喺 macOS 及一啲 Linux 發行版本上面唔可以實現「動態分辨率」功能。呢啲限制係由於系統，並非遠程桌面協議控制。&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini</summary></entry><entry><title type="html">Weird Python</title><link href="https://congjyu.github.io/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="https://congjyu.github.io/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xrdp&lt;/code&gt; 可以喺 macOS 上面運行，可以令到 macOS 使用 RDP 來被遠程連接。RDP 喺 macOS 及一啲 Linux 發行版本上面唔可以實現「動態分辨率」功能。呢啲限制係由於系統，並非遠程桌面協議控制。&lt;/p&gt;</content><author><name>Rain</name></author><category term="靈車漂移" /><category term="Remote Desktop" /><category term="macOS" /><summary type="html">Make Mac an RDP Server | 使用 RDP 遠程連接 Mac mini</summary></entry><entry><title type="html">Weird Python</title><link href="http://localhost:4000/blog/2025/10/19/WeirdPython/" rel="alternate" type="text/html" title="Weird Python" /><published>2025-10-19T00:00:00+08:00</published><updated>2025-10-19T00:00:00+08:00</updated><id>http://localhost:4000/blog/2025/10/19/WeirdPython</id><content type="html" xml:base="http://localhost:4000/blog/2025/10/19/WeirdPython/">&lt;h1 id=&quot;heading-weird-python&quot;&gt;Weird Python&lt;/h1&gt;
 
 &lt;h2 id=&quot;heading-introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -2225,7 +2938,7 @@ second
 
 &lt;p&gt;Also, this method works well with other situations when some packages need to be change in certain imported packages.&lt;/p&gt;
 
-&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">網絡短詩記錄</title><link href="https://congjyu.github.io/blog/2023/01/01/Covid/" rel="alternate" type="text/html" title="網絡短詩記錄" /><published>2023-01-01T00:00:00+08:00</published><updated>2023-01-01T00:00:00+08:00</updated><id>https://congjyu.github.io/blog/2023/01/01/Covid</id><content type="html" xml:base="https://congjyu.github.io/blog/2023/01/01/Covid/">&lt;blockquote&gt;
+&lt;h2 id=&quot;heading-つづく&quot;&gt;つづく…&lt;/h2&gt;</content><author><name>Rain</name></author><category term="Python" /><category term="Coding" /><category term="Debug" /><summary type="html">Weird Python</summary></entry><entry><title type="html">網絡短詩記錄</title><link href="http://localhost:4000/blog/2023/01/01/Covid/" rel="alternate" type="text/html" title="網絡短詩記錄" /><published>2023-01-01T00:00:00+08:00</published><updated>2023-01-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/2023/01/01/Covid</id><content type="html" xml:base="http://localhost:4000/blog/2023/01/01/Covid/">&lt;blockquote&gt;
   &lt;p&gt;本文原作者未知，轉載自網絡，僅供參考。&lt;/p&gt;
 &lt;/blockquote&gt;
 

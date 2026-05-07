@@ -1,6 +1,13 @@
 [
   
     {
+      "title"      : "Autonomous Driving Review",
+      "url"        : "/blog/2026/05/04/autonomous-driving/",
+      "date"       : "2026-05-04 00:00:00 +0800",
+      "shortdate"  : "May 04, 2026"
+    } ,
+  
+    {
       "title"      : "AI Security Topic Review",
       "url"        : "/blog/2026/04/21/ai-security/",
       "date"       : "2026-04-21 00:00:00 +0800",

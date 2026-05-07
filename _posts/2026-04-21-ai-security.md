@@ -646,12 +646,12 @@ $$
 &\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
 &\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
 &\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t, \\
-&\quad |x_p - x_{\text{base}}|_p \leq \delta \quad \text{for each poisoned sample}, \\
+&\quad {\vert x_p - x_{\text{base}}\vert}_p \leq \delta \quad \text{for each poisoned sample}, \\
 &\quad y_p \text{ is plausible (e.g., correctly labeled for the base image)}.
 \end{aligned}
 $$
 
-The constraint $|x_p - x_{\text{base}}|p \leq \delta$ ensures that poisoned samples are close to some clean data point $x{\text{base}}$ (e.g., the original clean version of that sample), making them visually or statistically similar to legitimate training data. The bound $\delta$ controls the stealthiness level—smaller $\delta$ means more stealthy but possibly less effective attack.
+The constraint ${\vert x_p - x_{\text{base}}\vert}_p \leq \delta$ ensures that poisoned samples are close to some clean data point $x{\text{base}}$ (e.g., the original clean version of that sample), making them visually or statistically similar to legitimate training data. The bound $\delta$ controls the stealthiness level—smaller $\delta$ means more stealthy but possibly less effective attack.
 
 ## Privacy Attacks and Defencse
 

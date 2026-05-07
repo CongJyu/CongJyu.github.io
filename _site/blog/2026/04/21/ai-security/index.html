@@ -23,15 +23,15 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="AI Security Topic Review" />
 <meta property="og:description" content="AI Security Topic Review" />
-<link rel="canonical" href="https://congjyu.github.io/blog/2026/04/21/ai-security/" />
-<meta property="og:url" content="https://congjyu.github.io/blog/2026/04/21/ai-security/" />
+<link rel="canonical" href="http://localhost:4000/blog/2026/04/21/ai-security/" />
+<meta property="og:url" content="http://localhost:4000/blog/2026/04/21/ai-security/" />
 <meta property="og:site_name" content="Rain Chen&#39;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-04-21T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="AI Security Topic Review" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2026-04-21T00:00:00+08:00","datePublished":"2026-04-21T00:00:00+08:00","description":"AI Security Topic Review","headline":"AI Security Topic Review","mainEntityOfPage":{"@type":"WebPage","@id":"https://congjyu.github.io/blog/2026/04/21/ai-security/"},"url":"https://congjyu.github.io/blog/2026/04/21/ai-security/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Rain"},"dateModified":"2026-04-21T00:00:00+08:00","datePublished":"2026-04-21T00:00:00+08:00","description":"AI Security Topic Review","headline":"AI Security Topic Review","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2026/04/21/ai-security/"},"url":"http://localhost:4000/blog/2026/04/21/ai-security/"}</script>
 <!-- End Jekyll SEO tag -->
 
 <meta name="keywords"
@@ -41,7 +41,7 @@
 
 
 
-<link type="application/atom+xml" rel="alternate" href="https://congjyu.github.io/feed.xml" title="Rain Chen&apos;s Blog" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Rain Chen&apos;s Blog" />
     <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
@@ -188,13 +188,13 @@
 
 <li>
     <a href="/blog/tags/#Lectures"
-        title="Lectures">Lectures <span>1</span></a>
+        title="Lectures">Lectures <span>2</span></a>
 </li>
 
 
 <li>
     <a href="/blog/tags/#Review"
-        title="Review">Review <span>1</span></a>
+        title="Review">Review <span>2</span></a>
 </li>
 
 
@@ -817,6 +817,112 @@ b_1 = \begin{bmatrix} 0 \ -0.5 \ -0.3 \end{bmatrix}.\]
 
 <h4 id="heading-defense-taxonomy">Defense Taxonomy</h4>
 
+<p>By Defender's Goal</p>
+
+<ul>
+  <li>Backdoor Removal/Mitigation: climinate the backdoor effect</li>
+  <li>Backdoor Detection: deteermin if a model is poisoned or screen specific inputs</li>
+</ul>
+
+<p>By DNN Lifecycle</p>
+
+<ul>
+  <li>Pre-training: Data sanitization</li>
+  <li>In-training: Robust training</li>
+  <li>Post-trainig: Model inspection and input filtering after deployment</li>
+</ul>
+
+<h4 id="heading-typical-techniques">Typical Techniques</h4>
+
+<p>In-training</p>
+
+<ul>
+  <li>Model orthogonalization (removal/mitigation)</li>
+</ul>
+
+<p>Post-training</p>
+
+<ul>
+  <li>Fine-pruning (removal/mitigation)</li>
+  <li>Neural cleanse (detection) (reverse engineering)</li>
+  <li>Meta Neural Trojan Detection (detection)</li>
+  <li>STRIP (detection)</li>
+  <li>Topological Evolution Dynamics (detection)</li>
+</ul>
+
+<h4 id="heading-sample-question-5-data-poisoning">Sample Question 5: Data Poisoning</h4>
+
+<p>Consider a supervised learning model $f(x; \theta)$ trained using loss function $\mathcal{L}$. An attacker aims to perform a <em>untargeted data poisoning attack</em> by injecting a small set of poisoned samples $D_{poison} = {(x_p, y_p)}$ into the training dataset.</p>
+
+<p>The attacker's goal is to cause a specific target input $x_t$ to be misclassified to any label $y_{adv} \neq y_t$.</p>
+
+<p>Answer the following questions:</p>
+
+<p>(i) Formulate the poisoning attack as a bilevel optimization problem. Clearly define the outer and inner problems.</p>
+
+<p>(ii) Revise the optimization problem in (i) to ensure stealthiness by llimiting the deviation of poisoned samples from clean data.</p>
+
+<p>Solutions:</p>
+
+<p>(i) Bilevel optimization formulation for untargeted data poisoning</p>
+
+<p>The attacker wants to craft a small set of poisoned samples $D_{\text{poison}} = {(x_p, y_p)}$ such that, after training on the combined dataset $D_{\text{clean}} \cup D_{\text{poison}}$, the resulting model misclassifies a specific target input $x_t$ to any label $y_{\text{adv}} \neq y_t$.</p>
+
+<p>Inner problem (training): The defender trains the model by minimizing the loss on the poisoned training set:</p>
+
+\[\theta^*(D_{\text{poison}}) = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y)\]
+
+<p>Outer problem (attacker): The attacker chooses $D_{\text{poison}}$ to maximize the loss on the target input $x_t$ with incorrect label $y_{\text{adv}}$, or equivalently to cause misclassification:</p>
+
+\[\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^*(D_{\text{poison}})), y_{\text{adv}})\]
+
+<table>
+  <tbody>
+    <tr>
+      <td>subject to constraints such as $</td>
+      <td>D_{\text{poison}}</td>
+      <td>\leq \epsilon$ (small fraction of total data).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Thus the full bilevel problem is:</p>
+
+\[\begin{aligned}
+&amp;\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
+&amp;\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
+&amp;\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t
+\end{aligned}\]
+
+<p>(ii) Revised formulation with stealthiness constraint</p>
+
+<p>To ensure stealthiness, we want the poisoned samples to look similar to clean data so they are hard to detect by data inspection or outlier detection. This is typically enforced by limiting the deviation of each poisoned sample $(x_p, y_p)$ from some clean base sample or from the clean data distribution.</p>
+
+<p>One common approach constrains the $\ell_p$-norm difference between the poisoned features and their clean counterparts:</p>
+
+\[\begin{aligned}
+&amp;\max_{D_{\text{poison}}} \mathcal{L}(f(x_t; \theta^{*}), y_{\text{adv}}) \\
+&amp;\text{s.t. } \theta^{*} = \arg\min_{\theta} \sum_{(x,y) \in D_{\text{clean}} \cup D_{\text{poison}}} \mathcal{L}(f(x; \theta), y), \\
+&amp;\quad |D_{\text{poison}}| \leq \epsilon, \quad y_{\text{adv}} \neq y_t, \\
+&amp;\quad {\vert x_p - x_{\text{base}}\vert}_p \leq \delta \quad \text{for each poisoned sample}, \\
+&amp;\quad y_p \text{ is plausible (e.g., correctly labeled for the base image)}.
+\end{aligned}\]
+
+<p>The constraint ${\vert x_p - x_{\text{base}}\vert}_p \leq \delta$ ensures that poisoned samples are close to some clean data point $x{\text{base}}$ (e.g., the original clean version of that sample), making them visually or statistically similar to legitimate training data. The bound $\delta$ controls the stealthiness level—smaller $\delta$ means more stealthy but possibly less effective attack.</p>
+
+<h2 id="heading-privacy-attacks-and-defencse">Privacy Attacks and Defencse</h2>
+
+<h3 id="heading-privacy-attacks">Privacy Attacks</h3>
+
+<p>Membership inference:</p>
+
+<p>Attribute inference:</p>
+
+<p>Model inversion:</p>
+
+<p>Training example extraction:</p>
+
+
                     </div>
                 </div>
             </div>
@@ -830,6 +936,8 @@ b_1 = \begin{bmatrix} 0 \ -0.5 \ -0.3 \end{bmatrix}.\]
                         
                             <a class="internal" rel="prev" href="/blog/2026/02/24/MySQL/" title=" 'The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore'"> ← The "Night-Up" Level MySQL Documentation for Database Deploy, Upgrade, Backup and Restore</a>
                         
+                        
+                            <a class="internal" rel="next" href="/blog/2026/05/04/autonomous-driving/" title="Next Post 'Autonomous Driving Review'">Autonomous Driving Review → </a>
                         
                     </nav>
                 </div>
