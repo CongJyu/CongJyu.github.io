@@ -7,13 +7,13 @@
         color: #85c8ff;
         border-bottom: 1px dotted #e5ccff;
 
-        @include hover-pink-vertical();
+        @include hover-pink-horizontal();
     }
 
     a.internal {
         color: $color-text;
 
-        @include hover-pink-vertical();
+        @include hover-pink-horizontal();
     }
 
     .button,
@@ -42,7 +42,7 @@
         background-clip: padding-box;
         text-shadow: none;
 
-        @include hover-pink-vertical();
+        @include hover-pink-horizontal();
     }
 
     img {
@@ -276,7 +276,7 @@
             color: $color-text;
             border: none;
 
-            @include hover-pink-vertical();
+            @include hover-pink-horizontal();
         }
 
         li,

@@ -1,6 +1,6 @@
 /*
  * Font files are loaded from Google Fonts in _includes/common/meta.html.
- * All zh/ja/en text prioritizes Chiron Sung HK, then falls back to Noto Serif HK/JP.
+ * CJK text prioritizes Noto Serif HK, then falls back to Noto Serif TC / SC / JP.
  */
 
 :lang(zh),
@@ -11,7 +11,7 @@
 :lang(zh-tw),
 :lang(ja),
 :lang(en) {
-    font-family: 'Chiron Sung HK', 'Noto Serif HK', 'Noto Serif JP', 'Noto Serif', serif;
+    font-family: 'Noto Serif HK', 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif JP', serif;
 }
 
 code,

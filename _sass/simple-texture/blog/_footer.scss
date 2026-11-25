@@ -12,7 +12,7 @@
 
     .about a,
     .back-to-top {
-        @include hover-pink-vertical();
+        @include hover-pink-horizontal();
     }
 
     p {

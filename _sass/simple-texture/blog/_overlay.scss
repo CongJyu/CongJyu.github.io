@@ -12,7 +12,7 @@
         color: #85c8ff;
         border-bottom: 1px dotted #e5ccff;
 
-        @include hover-pink-vertical();
+        @include hover-pink-horizontal();
 
         &:visited {
             color: #85c8ff;
